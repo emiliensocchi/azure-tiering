@@ -1,0 +1,20 @@
+name: Are built-in roles and permissions untiered?
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "* 01 * * *"
+
+jobs:
+  have_builtin_roles_and_permissions_changed:
+    runs-on: ubuntu-latest
+    env:
+      API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      SP_CREDENTIALS_ENTRA: ${{ secrets.SP_CREDENTIALS_ENTRA }}
+    steps:
+    - name: Checkout
+      uses: emiliensocchi/actions@checkout
+    - name: Run AzTierWatcher
+      uses: ./.github/actions/detect-untiered
+      with:
+        user_email: 'emilien.socchi@gmail.com'
+        user_name: 'emiliensocchi'

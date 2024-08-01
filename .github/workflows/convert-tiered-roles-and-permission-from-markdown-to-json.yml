@@ -1,0 +1,22 @@
+name: Convert tiered roles and permissions from Markdown to JSON
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'Azure roles/README.md'
+      - 'Entra roles/README.md'
+      - 'Microsoft Graph application permissions/README.md'
+
+jobs:
+  convert_tiered_roles_and_permission_from_markdown_to_json:
+    runs-on: ubuntu-latest
+    env:
+      API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+    steps:
+    - name: Checkout
+      uses: emiliensocchi/actions@checkout
+    - name: Convert to JSON
+      uses: ./.github/actions/convert-to-json
+      with:
+        user_email: 'emilien.socchi@gmail.com'
+        user_name: 'emiliensocchi'

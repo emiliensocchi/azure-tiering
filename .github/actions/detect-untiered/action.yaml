@@ -1,0 +1,15 @@
+name: 'Detect if built-in roles and permissions are untiered'
+description: 'Detects if some built-in roles and permissions in Entra ID and Azure are untiered'
+inputs:
+  user_email:
+    description: 'Email for the git commit'
+    required: true
+  user_name:
+    description: 'Github username for the git commit'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.user-email }}
+    - ${{ inputs.user-name }}

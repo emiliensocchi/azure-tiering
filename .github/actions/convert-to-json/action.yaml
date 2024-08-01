@@ -1,0 +1,15 @@
+name: 'Convert tiered roles and permissions from Markdown to JSON'
+description: 'Converts roles and permissions already categorized in specific tiers from Markdown to JSON'
+inputs:
+  user_email:
+    description: 'Email for the git commit'
+    required: true
+  user_name:
+    description: 'Github username for the git commit'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.user-email }}
+    - ${{ inputs.user-name }}

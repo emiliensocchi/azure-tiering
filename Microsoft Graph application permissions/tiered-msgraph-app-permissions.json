@@ -1,0 +1,1949 @@
+[
+    {
+        "tier": "0",
+        "assetName": "AdministrativeUnit.ReadWrite.All",
+        "pathType": "Indirect",
+        "knownShortestPath": "When combined with other types of access allowing to reset user passwords, can remove a Global Admin from a Restricted Management Administrative Unit  and take it over.",
+        "example": "TA has acquired the ability to reset user passwords by other means, but break-glass accounts, and takes it over to escalate to Global Admin."
+    },
+    {
+        "tier": "0",
+        "assetName": "Application.ReadWrite.All",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can impersonate any SP with more privileged application permissions granted for MS Graph, and impersonate it to escalate to Global Admin.",
+        "example": "TA identifies an SP with the RoleManagement.ReadWrite.Directory application permission. TA creates a new secret for the SP, impersonates it and follows the same path as that permission to escalate to Global Admin."
+    },
+    {
+        "tier": "0",
+        "assetName": "Application.ReadWrite.OwnedBy",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Application.ReadWrite.All for which the compromised SP is an owner.",
+        "example": "Same as Application.ReadWrite.All for which the compromised SP is an owner."
+    },
+    {
+        "tier": "0",
+        "assetName": "AppRoleAssignment.ReadWrite.All",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can assign the RoleManagement.ReadWrite.Directory permission to the compromised SP without requiring admin consent, and escalate to Global Admin.",
+        "example": "TA assigns the RoleManagement.ReadWrite.Directory permission to the compromised SP and follows the same path as that permission to escalate to Global Admin."
+    },
+    {
+        "tier": "0",
+        "assetName": "DelegatedAdminRelationship.ReadWrite.All",
+        "pathType": "n/a",
+        "knownShortestPath": "Untested! Needs more research.  Note: the tenant must be provisioned with the \"Partner Customer Delegated Administration\" SP already. Otherwise, the Application.ReadWrite.OwnedBy. This is most-likely a required preliminary to any exploitation.",
+        "example": "n/a"
+    },
+    {
+        "tier": "0",
+        "assetName": "Directory.ReadWrite.All",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can become member of a non-role-assignable user group with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin. Note: can also acquire access to external solutions integrated with Entra ID via SSO, and providing access based on non-role-assignable group memberships.",
+        "example": "TA adds a controlled user account to a group with Contributor access to a subscription containing a resource with an assigned MI. The MI is granted Application.ReadWrite.All or similar, and the same path as that permissions can be followed to escalate to Global Admin. Note: many other paths of this kind are possible."
+    },
+    {
+        "tier": "0",
+        "assetName": "Domain.ReadWrite.All",
+        "pathType": "Direct",
+        "knownShortestPath": "Untested! Needs more research.  Can most likely add a federated domain to Entra ID to authenticate as an existing Global Admin without password or MFA requirements.",
+        "example": "TA adds a federated domain to Entra ID, by importing a certificate with the domain's public key. TA generates a SAML token for an existing Global Admin with an MFA claim and signs it with the private key. TA successfully authenticates as Global Admin, without MFA requirements."
+    },
+    {
+        "tier": "0",
+        "assetName": "EntitlementManagement.ReadWrite.All",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can update the assignment policy of an access package provisioning access to Global Admin, so that requesting the package without approval is possible from a controlled user account.",
+        "example": "TA identifies an access package providing access to a security group with an active Global Admin assignment. TA adds an assignment policy to the access package, so that the latter can be requested from a controlled user account, without manual approval. TA requests the access package and escalates to Global Admin via group membership."
+    },
+    {
+        "tier": "0",
+        "assetName": "Group.ReadWrite.All",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Directory.ReadWrite.All.",
+        "example": "Same as Directory.ReadWrite.All."
+    },
+    {
+        "tier": "0",
+        "assetName": "GroupMember.ReadWrite.All",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Directory.ReadWrite.All.",
+        "example": "Same as Directory.ReadWrite.All."
+    },
+    {
+        "tier": "0",
+        "assetName": "OnPremDirectorySynchronization.ReadWrite.All",
+        "pathType": "n/a",
+        "knownShortestPath": "Untested! Needs more research.",
+        "example": "n/a"
+    },
+    {
+        "tier": "0",
+        "assetName": "Policy.ReadWrite.AuthenticationMethod",
+        "pathType": "Indirect",
+        "knownShortestPath": "When combined with UserAuthenticationMethod.ReadWrite.All authentication method to help leveraging and follow the same path as that permission.",
+        "example": "TA enables the TAP authentication method for the whole tenant and follows the same path as UserAuthenticationMethod.ReadWrite.All."
+    },
+    {
+        "tier": "0",
+        "assetName": "Policy.ReadWrite.PermissionGrant",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can create a permission grant policy permission, and leverage that policy to follow the same path as that permission and escalate to Global Admin.",
+        "example": "TA creates a new permission grant policy permission to the compromised SP and creates the same path as that permission."
+    },
+    {
+        "tier": "0",
+        "assetName": "PrivilegedAccess.ReadWrite.AzureAD",
+        "pathType": "n/a",
+        "knownShortestPath": "Legacy, kept here for safety until completely removed.  Note: seems to have been used with PIM iteration 1 and 2.",
+        "example": "n/a"
+    },
+    {
+        "tier": "0",
+        "assetName": "PrivilegedAccess.ReadWrite.AzureADGroup",
+        "pathType": "Direct",
+        "knownShortestPath": "Can add a controlled user account as owner or member of a group with an active Global Admin assignment .",
+        "example": "TA adds a controlled user account to a group that is actively assigned the Global Admin role, re-authenticates with the account and escalates to Global Admin. Note: if the active group assignment requires MFA, this path may need to be combined with RoleManagementPolicy.ReadWrite.AzureADGroup to be successful, depending on how the controlled user account was compromised."
+    },
+    {
+        "tier": "0",
+        "assetName": "PrivilegedAccess.ReadWrite.AzureResources",
+        "pathType": "n/a",
+        "knownShortestPath": "Legacy, kept here for safety until completely removed.  Note: seems to have been used with PIM iteration 1 and 2.",
+        "example": "n/a"
+    },
+    {
+        "tier": "0",
+        "assetName": "PrivilegedAssignmentSchedule.ReadWrite.AzureADGroup",
+        "pathType": "Direct",
+        "knownShortestPath": "Same as PrivilegedAccess.ReadWrite.AzureADGroup.",
+        "example": "Same as PrivilegedAccess.ReadWrite.AzureADGroup."
+    },
+    {
+        "tier": "0",
+        "assetName": "PrivilegedEligibilitySchedule.ReadWrite.AzureADGroup",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can make a controlled user account eligible to a group with an active Global Admin assignment, and activate the group membership to escalate to Global Admin.",
+        "example": "TA makes a controlled user account eligible to a group that is actively assigned the Global Admin role, activates the group membership and escalates to Global Admin. Note: if the eligible assignment or membership activation requires to meet specific requirements such as admin approval, this path needs to be combined with RoleManagementPolicy.ReadWrite.AzureADGroup to be successful."
+    },
+    {
+        "tier": "0",
+        "assetName": "RoleAssignmentSchedule.ReadWrite.Directory",
+        "pathType": "Direct",
+        "knownShortestPath": "Can assign the Global Admin role to a controlled user account, by creating an active PIM role assignment.",
+        "example": "TA assigns the Global Admin role to a user account in their control  to be successful, depending on how the controlled user account was compromised."
+    },
+    {
+        "tier": "0",
+        "assetName": "RoleEligibilitySchedule.ReadWrite.Directory",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can make a controlled user account eligible to the Global Admin role, and activate it to escalate to Global Admin.",
+        "example": "TA makes a controlled user account eligible to the Global Admin role, and activates it to escalate to Global Admin.  Note: if the eligible assignment or role activation requires to meet specific requirements such as admin approval, this path needs to be combined with RoleManagementPolicy.ReadWrite.Directory to be successful."
+    },
+    {
+        "tier": "0",
+        "assetName": "RoleManagement.ReadWrite.Directory",
+        "pathType": "Direct",
+        "knownShortestPath": "Can assign the Global Admin role to a controlled principal.",
+        "example": "TA assigns the Global Admin role to the compromised SP, re-authenticates with the SP and escalates to Global Admin."
+    },
+    {
+        "tier": "0",
+        "assetName": "RoleManagementPolicy.ReadWrite.AzureADGroup",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can remove group role assignment and activation constrains, such as MFA requirements or admin approval, to help leveraging PrivilegedAccess.ReadWrite.AzureADGroup, and follow the same path as those permissions in a tenant with strict PIM settings.",
+        "example": "TA identifies a group that is actively assigned the Global Admin role. In the group's role management policy, TA removes all assignment and activation requirements. TA adds a controlled user account to the group, re-authenticates with the account and escalates to Global Admin."
+    },
+    {
+        "tier": "0",
+        "assetName": "RoleManagementPolicy.ReadWrite.Directory",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can remove Entra role assignment and activation constrains, such as MFA requirements or admin approval, to help leveraging RoleAssignmentSchedule.ReadWrite.Directory, and follow the same path as those permissions in a tenant with strict PIM settings.",
+        "example": "TA has compromised user credentials for an account that is eligible to the Global Admin role. TA updates the role's management policy to remove all activation requirements. TA activates the role and escalates to Global Admin."
+    },
+    {
+        "tier": "0",
+        "assetName": "Synchronization.ReadWrite.All",
+        "pathType": "n/a",
+        "knownShortestPath": "Untested! Needs more research.  Note: does not seem to be able to create new SP credentials.",
+        "example": "n/a"
+    },
+    {
+        "tier": "0",
+        "assetName": "User.ReadWrite.All",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can edit sensitive properties of a controlled user account, such as \"Employee ID\" and \"Department\", to become member of a dynamic group with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin.",
+        "example": "TA identifies a dynamic group with a membership rule based on a user property  or similar, and the same path as that permission can be followed to escalate to Global Admin. Note: many other paths of this kind are possible."
+    },
+    {
+        "tier": "0",
+        "assetName": "UserAuthenticationMethod.ReadWrite.All",
+        "pathType": "Direct",
+        "knownShortestPath": "Can generate a Temporary Access Pass  to be successful.",
+        "example": "TA creates a TAP for a break-glass account, authenticates with the TAP instead of the account's password and escalates to Global Admin."
+    },
+    {
+        "tier": "1",
+        "assetName": "APIConnectors.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "AccessReview.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "AccessReview.ReadWrite.Membership"
+    },
+    {
+        "tier": "1",
+        "assetName": "Agreement.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "AppCatalog.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Application-RemoteDesktopConfig.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "AttackSimulation.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "AuthenticationContext.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "BackupRestore-Configuration.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "BackupRestore-Restore.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "BillingConfiguration.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "BookingsAppointment.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "BrowserSiteLists.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "BusinessScenarioConfig.ReadWrite.OwnedBy"
+    },
+    {
+        "tier": "1",
+        "assetName": "BusinessScenarioData.ReadWrite.OwnedBy"
+    },
+    {
+        "tier": "1",
+        "assetName": "Calendars.ReadWrite"
+    },
+    {
+        "tier": "1",
+        "assetName": "ChannelMember.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "ChannelSettings.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Chat.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Chat.ReadWrite.WhereInstalled"
+    },
+    {
+        "tier": "1",
+        "assetName": "ChatMember.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "ChatMember.ReadWrite.WhereInstalled"
+    },
+    {
+        "tier": "1",
+        "assetName": "CloudPC.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Community.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "ConsentRequest.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Contacts.ReadWrite"
+    },
+    {
+        "tier": "1",
+        "assetName": "CrossTenantUserProfileSharing.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "CustomAuthenticationExtension.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "CustomDetection.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "CustomSecAttributeAssignment.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "CustomSecAttributeDefinition.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "CustomTags.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "DelegatedPermissionGrant.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Device.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "DeviceManagementApps.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "DeviceManagementConfiguration.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "DeviceManagementManagedDevices.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "DeviceManagementRBAC.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "DeviceManagementServiceConfig.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Directory.Write.Restricted"
+    },
+    {
+        "tier": "1",
+        "assetName": "DirectoryRecommendations.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "EduAdministration.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "EduAssignments.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "EduAssignments.ReadWriteBasic.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "EduCurricula.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "EduRoster.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "EventListener.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "ExternalConnection.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "ExternalConnection.ReadWrite.OwnedBy"
+    },
+    {
+        "tier": "1",
+        "assetName": "ExternalItem.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "ExternalItem.ReadWrite.OwnedBy"
+    },
+    {
+        "tier": "1",
+        "assetName": "ExternalUserProfile.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Files.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Files.ReadWrite.AppFolder"
+    },
+    {
+        "tier": "1",
+        "assetName": "Group-Conversation.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "HealthMonitoringAlert.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "HealthMonitoringAlertConfig.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "IdentityProvider.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "IdentityRiskEvent.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "IdentityRiskyServicePrincipal.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "IdentityRiskyUser.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "IdentityUserFlow.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "IndustryData-DataConnector.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "IndustryData-InboundFlow.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "IndustryData-OutboundFlow.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "IndustryData-ReferenceDefinition.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "IndustryData-SourceSystem.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "IndustryData-TimePeriod.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "InformationProtectionContent.Write.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "LearningAssignedCourse.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "LearningContent.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "LearningSelfInitiatedCourse.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "LicenseAssignment.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "LifecycleWorkflows.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Mail.ReadWrite"
+    },
+    {
+        "tier": "1",
+        "assetName": "MailboxSettings.ReadWrite"
+    },
+    {
+        "tier": "1",
+        "assetName": "MultiTenantOrganization.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "NetworkAccess.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "NetworkAccessBranch.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "NetworkAccessPolicy.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Notes.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "OnPremisesPublishingProfiles.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "OnlineMeetings.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "OrgSettings-AppsAndServices.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "OrgSettings-DynamicsVoice.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "OrgSettings-Forms.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "OrgSettings-Microsoft365Install.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "OrgSettings-Todo.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Organization.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "OrganizationalBranding.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "PartnerSecurity.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "PendingExternalUserProfile.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "PeopleSettings.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "PlaceDevice.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "PlaceDeviceTelemetry.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Policy.ReadWrite.AccessReview"
+    },
+    {
+        "tier": "1",
+        "assetName": "Policy.ReadWrite.ApplicationConfiguration"
+    },
+    {
+        "tier": "1",
+        "assetName": "Policy.ReadWrite.AuthenticationFlows"
+    },
+    {
+        "tier": "1",
+        "assetName": "Policy.ReadWrite.Authorization"
+    },
+    {
+        "tier": "1",
+        "assetName": "Policy.ReadWrite.ConditionalAccess"
+    },
+    {
+        "tier": "1",
+        "assetName": "Policy.ReadWrite.ConsentRequest"
+    },
+    {
+        "tier": "1",
+        "assetName": "Policy.ReadWrite.CrossTenantAccess"
+    },
+    {
+        "tier": "1",
+        "assetName": "Policy.ReadWrite.ExternalIdentities"
+    },
+    {
+        "tier": "1",
+        "assetName": "Policy.ReadWrite.FeatureRollout"
+    },
+    {
+        "tier": "1",
+        "assetName": "Policy.ReadWrite.FedTokenValidation"
+    },
+    {
+        "tier": "1",
+        "assetName": "Policy.ReadWrite.IdentityProtection"
+    },
+    {
+        "tier": "1",
+        "assetName": "Policy.ReadWrite.SecurityDefaults"
+    },
+    {
+        "tier": "1",
+        "assetName": "Policy.ReadWrite.TrustFramework"
+    },
+    {
+        "tier": "1",
+        "assetName": "Presence.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "PrintJob.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "PrintJob.ReadWriteBasic.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "PrintTaskDefinition.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Printer.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "ProfilePhoto.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "ProgramControl.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "PublicKeyInfrastructure.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "RecordsManagement.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "ReportSettings.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "RoleManagement.ReadWrite.CloudPC"
+    },
+    {
+        "tier": "1",
+        "assetName": "RoleManagement.ReadWrite.Exchange"
+    },
+    {
+        "tier": "1",
+        "assetName": "RoleManagementAlert.ReadWrite.Directory"
+    },
+    {
+        "tier": "1",
+        "assetName": "Schedule-WorkingTime.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Schedule.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "SchedulePermissions.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "SearchConfiguration.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "SecurityActions.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "SecurityAlert.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "SecurityAnalyzedMessage.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "SecurityEvents.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "SecurityIdentitiesHealth.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "SecurityIdentitiesSensors.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "SecurityIncident.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "ServicePrincipalEndpoint.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "SharePointTenantSettings.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "ShortNotes.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Sites.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "SpiffeTrustDomain.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "SubjectRightsRequest.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "Tasks.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamMember.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamMember.ReadWriteNonOwnerRole.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamSettings.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsAppInstallation.ReadWriteAndConsentForChat.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsAppInstallation.ReadWriteAndConsentForTeam.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsAppInstallation.ReadWriteAndConsentForUser.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsAppInstallation.ReadWriteAndConsentSelfForChat.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsAppInstallation.ReadWriteAndConsentSelfForTeam.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsAppInstallation.ReadWriteAndConsentSelfForUser.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsAppInstallation.ReadWriteForChat.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsAppInstallation.ReadWriteForTeam.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsAppInstallation.ReadWriteForUser.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsAppInstallation.ReadWriteSelfForChat.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsAppInstallation.ReadWriteSelfForTeam.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsAppInstallation.ReadWriteSelfForUser.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsTab.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsTab.ReadWriteForChat.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsTab.ReadWriteForTeam.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsTab.ReadWriteForUser.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsTab.ReadWriteSelfForChat.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsTab.ReadWriteSelfForTeam.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamsTab.ReadWriteSelfForUser.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamworkAppSettings.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamworkDevice.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TeamworkTag.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TermStore.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "ThreatIndicators.ReadWrite.OwnedBy"
+    },
+    {
+        "tier": "1",
+        "assetName": "ThreatSubmission.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "ThreatSubmissionPolicy.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "TrustFrameworkKeySet.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "User-ConvertToInternal.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "User-LifeCycleInfo.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "UserNotification.ReadWrite.CreatedByApp"
+    },
+    {
+        "tier": "1",
+        "assetName": "UserShiftPreferences.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "VirtualAppointment.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "VirtualEventRegistration-Anon.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "WindowsUpdates.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "WorkforceIntegration.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "assetName": "eDiscovery.ReadWrite.All",
+        "providesFullAccessTo": "<a id='tier-2'></a>"
+    },
+    {
+        "tier": "2",
+        "assetName": "APIConnectors.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "AccessReview.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Acronym.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "AdministrativeUnit.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Agreement.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "AgreementAcceptance.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "AppCatalog.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Application.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "AttackSimulation.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "AuditLog.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "AuditLogsQuery-CRM.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "AuditLogsQuery-Endpoint.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "AuditLogsQuery-Entra.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "AuditLogsQuery-Exchange.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "AuditLogsQuery-OneDrive.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "AuditLogsQuery-SharePoint.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "AuditLogsQuery.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "AuthenticationContext.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "BackupRestore-Configuration.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "BackupRestore-Monitor.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "BackupRestore-Restore.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "BackupRestore-Search.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Bookings.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Bookmark.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "BrowserSiteLists.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "BusinessScenarioConfig.Read.OwnedBy"
+    },
+    {
+        "tier": "2",
+        "assetName": "BusinessScenarioData.Read.OwnedBy"
+    },
+    {
+        "tier": "2",
+        "assetName": "Calendars.Read"
+    },
+    {
+        "tier": "2",
+        "assetName": "Calendars.ReadBasic.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "CallEvents.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "CallRecord-PstnCalls.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "CallRecords.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Calls.AccessMedia.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Calls.Initiate.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Calls.InitiateGroupCall.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Calls.JoinGroupCall.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Calls.JoinGroupCallAsGuest.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Channel.Create"
+    },
+    {
+        "tier": "2",
+        "assetName": "Channel.Delete.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Channel.ReadBasic.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ChannelMember.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ChannelMessage.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ChannelMessage.UpdatePolicyViolation.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ChannelSettings.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Chat.Create"
+    },
+    {
+        "tier": "2",
+        "assetName": "Chat.ManageDeletion.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Chat.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Chat.Read.WhereInstalled"
+    },
+    {
+        "tier": "2",
+        "assetName": "Chat.ReadBasic.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Chat.ReadBasic.WhereInstalled"
+    },
+    {
+        "tier": "2",
+        "assetName": "Chat.UpdatePolicyViolation.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ChatMember.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ChatMember.Read.WhereInstalled"
+    },
+    {
+        "tier": "2",
+        "assetName": "ChatMessage.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "CloudApp-Discovery.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "CloudPC.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Community.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ConsentRequest.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Contacts.Read"
+    },
+    {
+        "tier": "2",
+        "assetName": "CrossTenantInformation.ReadBasic.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "CrossTenantUserProfileSharing.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "CustomAuthenticationExtension.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "CustomAuthenticationExtension.Receive.Payload"
+    },
+    {
+        "tier": "2",
+        "assetName": "CustomDetection.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "CustomSecAttributeAssignment.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "CustomSecAttributeAuditLogs.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "CustomSecAttributeDefinition.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "CustomTags.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "DelegatedAdminRelationship.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "DelegatedPermissionGrant.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Device.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "DeviceLocalCredential.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "DeviceLocalCredential.ReadBasic.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "DeviceManagementApps.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "DeviceManagementConfiguration.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "DeviceManagementManagedDevices.PrivilegedOperations.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "DeviceManagementManagedDevices.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "DeviceManagementRBAC.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "DeviceManagementServiceConfig.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Directory.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "DirectoryRecommendations.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Domain.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "EduAdministration.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "EduAssignments.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "EduAssignments.ReadBasic.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "EduCurricula.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "EduReports-Reading.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "EduReports-Reading.ReadAnonymous.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "EduReports-Reflect.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "EduReports-Reflect.ReadAnonymous.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "EduRoster.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "EduRoster.ReadBasic.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "EntitlementManagement.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "EventListener.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ExternalConnection.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ExternalItem.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ExternalUserProfile.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "FileStorageContainer.Selected"
+    },
+    {
+        "tier": "2",
+        "assetName": "Files.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Files.SelectedOperations.Selected"
+    },
+    {
+        "tier": "2",
+        "assetName": "Group-Conversation.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Group.Create"
+    },
+    {
+        "tier": "2",
+        "assetName": "Group.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "GroupMember.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "HealthMonitoringAlert.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "HealthMonitoringAlertConfig.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "IdentityProvider.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "IdentityRiskEvent.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "IdentityRiskyServicePrincipal.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "IdentityRiskyUser.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "IdentityUserFlow.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "IndustryData-DataConnector.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "IndustryData-DataConnector.Upload"
+    },
+    {
+        "tier": "2",
+        "assetName": "IndustryData-InboundFlow.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "IndustryData-OutboundFlow.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "IndustryData-ReferenceDefinition.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "IndustryData-Run.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "IndustryData-SourceSystem.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "IndustryData-TimePeriod.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "IndustryData.ReadBasic.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "InformationProtectionConfig.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "InformationProtectionContent.Sign.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "InformationProtectionPolicy.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Insights-UserMetric.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "LearningAssignedCourse.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "LearningContent.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "LearningSelfInitiatedCourse.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "LifecycleWorkflows.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ListItems.SelectedOperations.Selected"
+    },
+    {
+        "tier": "2",
+        "assetName": "Lists.SelectedOperations.Selected"
+    },
+    {
+        "tier": "2",
+        "assetName": "Mail.Read"
+    },
+    {
+        "tier": "2",
+        "assetName": "Mail.ReadBasic"
+    },
+    {
+        "tier": "2",
+        "assetName": "Mail.ReadBasic.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Mail.Send"
+    },
+    {
+        "tier": "2",
+        "assetName": "MailboxSettings.Read"
+    },
+    {
+        "tier": "2",
+        "assetName": "Member.Read.Hidden"
+    },
+    {
+        "tier": "2",
+        "assetName": "MultiTenantOrganization.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "MultiTenantOrganization.ReadBasic.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "NetworkAccess-Reports.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "NetworkAccess.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "NetworkAccessBranch.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "NetworkAccessPolicy.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Notes.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "OnPremDirectorySynchronization.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "OnlineMeetingArtifact.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "OnlineMeetingRecording.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "OnlineMeetingTranscript.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "OnlineMeetings.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "OrgContact.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "OrgSettings-AppsAndServices.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "OrgSettings-DynamicsVoice.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "OrgSettings-Forms.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "OrgSettings-Microsoft365Install.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "OrgSettings-Todo.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Organization.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "OrganizationalBranding.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "PartnerBilling.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "PartnerSecurity.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "PendingExternalUserProfile.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "People.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "PeopleSettings.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Place.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "PlaceDevice.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Policy.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Policy.Read.ConditionalAccess"
+    },
+    {
+        "tier": "2",
+        "assetName": "Policy.Read.IdentityProtection"
+    },
+    {
+        "tier": "2",
+        "assetName": "Policy.Read.PermissionGrant"
+    },
+    {
+        "tier": "2",
+        "assetName": "Presence.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "PrintJob.Manage.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "PrintJob.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "PrintJob.ReadBasic.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "PrintSettings.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Printer.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "PrivilegedAccess.Read.AzureAD"
+    },
+    {
+        "tier": "2",
+        "assetName": "PrivilegedAccess.Read.AzureADGroup"
+    },
+    {
+        "tier": "2",
+        "assetName": "PrivilegedAccess.Read.AzureResources"
+    },
+    {
+        "tier": "2",
+        "assetName": "PrivilegedAssignmentSchedule.Read.AzureADGroup"
+    },
+    {
+        "tier": "2",
+        "assetName": "PrivilegedEligibilitySchedule.Read.AzureADGroup"
+    },
+    {
+        "tier": "2",
+        "assetName": "ProfilePhoto.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ProgramControl.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "PublicKeyInfrastructure.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "QnA.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "RecordsManagement.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ReportSettings.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Reports.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ResourceSpecificPermissionGrant.ReadForUser.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "RoleAssignmentSchedule.Read.Directory"
+    },
+    {
+        "tier": "2",
+        "assetName": "RoleEligibilitySchedule.Read.Directory"
+    },
+    {
+        "tier": "2",
+        "assetName": "RoleManagement.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "RoleManagement.Read.CloudPC"
+    },
+    {
+        "tier": "2",
+        "assetName": "RoleManagement.Read.Directory"
+    },
+    {
+        "tier": "2",
+        "assetName": "RoleManagement.Read.Exchange"
+    },
+    {
+        "tier": "2",
+        "assetName": "RoleManagementAlert.Read.Directory"
+    },
+    {
+        "tier": "2",
+        "assetName": "RoleManagementPolicy.Read.AzureADGroup"
+    },
+    {
+        "tier": "2",
+        "assetName": "RoleManagementPolicy.Read.Directory"
+    },
+    {
+        "tier": "2",
+        "assetName": "Schedule.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "SearchConfiguration.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "SecurityActions.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "SecurityAlert.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "SecurityAnalyzedMessage.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "SecurityEvents.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "SecurityIdentitiesHealth.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "SecurityIdentitiesSensors.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "SecurityIncident.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ServiceActivity-Exchange.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ServiceActivity-Microsoft365Web.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ServiceActivity-OneDrive.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ServiceActivity-Teams.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ServiceHealth.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ServiceMessage.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ServicePrincipalEndpoint.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "SharePointTenantSettings.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ShortNotes.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Sites.FullControl.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Sites.Manage.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Sites.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Sites.Selected"
+    },
+    {
+        "tier": "2",
+        "assetName": "SpiffeTrustDomain.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "SubjectRightsRequest.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Synchronization.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "SynchronizationData-User.Upload"
+    },
+    {
+        "tier": "2",
+        "assetName": "Tasks.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Team.Create"
+    },
+    {
+        "tier": "2",
+        "assetName": "Team.ReadBasic.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "TeamMember.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "TeamSettings.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "TeamTemplates.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "TeamsActivity.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "TeamsActivity.Send"
+    },
+    {
+        "tier": "2",
+        "assetName": "TeamsAppInstallation.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "TeamsAppInstallation.ReadForChat.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "TeamsAppInstallation.ReadForTeam.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "TeamsAppInstallation.ReadForUser.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "TeamsTab.Create"
+    },
+    {
+        "tier": "2",
+        "assetName": "TeamsTab.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "TeamsUserConfiguration.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Teamwork.Migrate.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "Teamwork.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "TeamworkAppSettings.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "TeamworkDevice.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "TeamworkTag.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "TermStore.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ThreatAssessment.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ThreatHunting.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ThreatIndicators.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ThreatIntelligence.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "ThreatSubmission.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "TrustFrameworkKeySet.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "User-LifeCycleInfo.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "User.EnableDisableAccount.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "User.Export.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "User.Invite.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "User.ManageIdentities.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "User.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "User.ReadBasic.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "User.RevokeSessions.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "UserAuthenticationMethod.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "UserShiftPreferences.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "UserTeamwork.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "VirtualAppointment.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "VirtualAppointmentNotification.Send"
+    },
+    {
+        "tier": "2",
+        "assetName": "VirtualEvent.Read.All"
+    },
+    {
+        "tier": "2",
+        "assetName": "eDiscovery.Read.All"
+    }
+]

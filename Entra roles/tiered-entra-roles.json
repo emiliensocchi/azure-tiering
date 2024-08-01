@@ -1,0 +1,559 @@
+[
+    {
+        "tier": "0",
+        "assetName": "Application Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can impersonate any SP with privileged application permissions granted for Microsoft Graph, which can be abused to become Global Admin.",
+        "example": "TA identifies an SP with the RoleManagement.ReadWrite.Directory application permission. TA creates a new secret for the SP, impersonates it and abuses the granted permissions to escalate to Global Admin."
+    },
+    {
+        "tier": "0",
+        "assetName": "Authentication Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can reset the password of a user who owns an SP with privileged application permissions granted to Microsoft Graph, impersonate the user, then impersonate the SP to become Global Admin.  If the targeted user has Entra ID roles, it has to be roles for which password reset is allowed for an Authentication Administrator . The targeted user cannot be an owner or member of a role-assignable group.",
+        "example": "TA resets the password of a standard user who owns an SP with the granted RoleManagement.ReadWrite.Directory. TA impersonates the user, then the SP to abuse the granted application permission and escalates to Global Admin."
+    },
+    {
+        "tier": "0",
+        "assetName": "Azure DevOps Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can impersonate a DevOps pipeline with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin.",
+        "example": "A DevOps pipeline uses an SP with Contributor access to a subscription containing a resource with an assigned MI. The MI has privileged application permissions granted for Microsoft Graph. By triggering and impersonating the pipeline with Contributor access, the same path as Application Administrator can be followed. Note: many other paths of this kind are possible."
+    },
+    {
+        "tier": "0",
+        "assetName": "Cloud Application Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Application Administrator.",
+        "example": "Same as Application Administrator."
+    },
+    {
+        "tier": "0",
+        "assetName": "Directory Synchronization Accounts",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Application Administrator.  As of September 2023, cannot reset the password of cloud-only users via the synchronization API to take over break-glass accounts.",
+        "example": "Same as Application Administrator."
+    },
+    {
+        "tier": "0",
+        "assetName": "Directory Writers",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can become member of a non-role-assignable group with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin. Note: can also acquire access to external solutions integrated with Entra ID via SSO, and providing access based on non-role-assignable group memberships.",
+        "example": "TA adds the compromised user account to a group with Contributor access to a subscription containing a resource with an assigned MI. The MI has privileged application permissions granted for Microsoft Graph, and the same path as Application Administrator can be followed. Note: many other paths of this kind are possible."
+    },
+    {
+        "tier": "0",
+        "assetName": "Domain Name Administrator",
+        "pathType": "Direct",
+        "knownShortestPath": "Can add a federated domain to Entra ID and authenticate as an existing Global Admin without password or MFA requirements.",
+        "example": "TA adds a federated domain to Entra ID, by importing a certificate with the domain's public key. TA generates a SAML token for an existing Global Admin with an MFA claim and signs it with the private key. TA successfully authenticates as Global Admin, without MFA requirements."
+    },
+    {
+        "tier": "0",
+        "assetName": "External Identity Provider Administrator",
+        "pathType": "Direct",
+        "knownShortestPath": "Same as Domain Name Administrator.",
+        "example": "Same as Domain Name Administrator."
+    },
+    {
+        "tier": "0",
+        "assetName": "Exchange Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Directory Writers.",
+        "example": "Same as Directory Writers."
+    },
+    {
+        "tier": "0",
+        "assetName": "Global Administrator",
+        "pathType": "Direct",
+        "knownShortestPath": "Self-explanatory.",
+        "example": "Self-explanatory."
+    },
+    {
+        "tier": "0",
+        "assetName": "Groups Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Directory Writers.",
+        "example": "Same as Directory Writers."
+    },
+    {
+        "tier": "0",
+        "assetName": "Helpdesk Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Authentication Administrator.",
+        "example": "Same as Authentication Administrator."
+    },
+    {
+        "tier": "0",
+        "assetName": "Hybrid Identity Administrator",
+        "pathType": "Direct",
+        "knownShortestPath": "Same as Domain Name Administrator.",
+        "example": "Same as Domain Name Administrator."
+    },
+    {
+        "tier": "0",
+        "assetName": "Identity Governance Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can update the assignment policy of an access package provisionning access to Global Admin, so that requesting the package without approval is possible from a controlled user account. Has also the same path as Directory Writers.",
+        "example": "TA identifies an access package providing access to a security group with an active Global Admin assignment. TA adds an assignment policy to the access package, so that the latter can be requested from a controlled user account, without manual approval. TA requests the access package and escalates to Global Admin via group membership."
+    },
+    {
+        "tier": "0",
+        "assetName": "Intune Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can run commands on a device belonging to a Global Admin and extract their tokens to impersonate them.  Has also the same path as Directory Writers.",
+        "example": "TA runs a script on a device owned by a Global Administrator, extract their MS Graph tokens and escalates to Global Admin."
+    },
+    {
+        "tier": "0",
+        "assetName": "Knowledge Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Directory Writers.",
+        "example": "Same as Directory Writers."
+    },
+    {
+        "tier": "0",
+        "assetName": "Knowledge Manager",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Directory Writers.",
+        "example": "Same as Directory Writers."
+    },
+    {
+        "tier": "0",
+        "assetName": "Lifecycle Workflows Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can create a workflow with a task to become member of a non-role-assignable group with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin.",
+        "example": "Same as Directory Writers."
+    },
+    {
+        "tier": "0",
+        "assetName": "On Premises Directory Sync Account",
+        "pathType": "n/a",
+        "knownShortestPath": "Untested! Needs more research.  Note: does not seem to be able to create new SP credentials or give consent.",
+        "example": "n/a"
+    },
+    {
+        "tier": "0",
+        "assetName": "Partner Tier1 Support",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Application Administrator.",
+        "example": "Same as Application Administrator."
+    },
+    {
+        "tier": "0",
+        "assetName": "Partner Tier2 Support",
+        "pathType": "Direct",
+        "knownShortestPath": "Can reset the password of a break-glass account and take it over.",
+        "example": "TA resets the password of a break-glass account."
+    },
+    {
+        "tier": "0",
+        "assetName": "Password Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Authentication Administrator.",
+        "example": "Same as Authentication Administrator."
+    },
+    {
+        "tier": "0",
+        "assetName": "Privileged Authentication Administrator",
+        "pathType": "Direct",
+        "knownShortestPath": "Same as Partner Tier2 Support.",
+        "example": "Same as Partner Tier2 Support."
+    },
+    {
+        "tier": "0",
+        "assetName": "Privileged Role Administrator",
+        "pathType": "Direct",
+        "knownShortestPath": "Can assign the Global Admin role to itself.",
+        "example": "TA assigns the Global Admin role to a controlled user account, and authenticates as Global Admin."
+    },
+    {
+        "tier": "0",
+        "assetName": "Security Administrator",
+        "pathType": "Direct",
+        "knownShortestPath": "Same as Domain Name Administrator.",
+        "example": "Same as Domain Name Administrator."
+    },
+    {
+        "tier": "0",
+        "assetName": "SharePoint Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Directory Writers.",
+        "example": "Same as Directory Writers."
+    },
+    {
+        "tier": "0",
+        "assetName": "Teams Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Directory Writers.",
+        "example": "Same as Directory Writers."
+    },
+    {
+        "tier": "0",
+        "assetName": "User Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Authentication Administrator.",
+        "example": "Same as Authentication Administrator."
+    },
+    {
+        "tier": "0",
+        "assetName": "Windows 365 Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Directory Writers.",
+        "example": "Same as Directory Writers."
+    },
+    {
+        "tier": "0",
+        "assetName": "Yammer Administrator",
+        "pathType": "Indirect",
+        "knownShortestPath": "Same as Directory Writers.",
+        "example": "Same as Directory Writers."
+    },
+    {
+        "tier": "1",
+        "assetName": "Attack Simulation Administrator",
+        "providesFullAccessTo": "Attack simulations in Defender for Office."
+    },
+    {
+        "tier": "1",
+        "assetName": "Attribute Assignment Administrator",
+        "providesFullAccessTo": "Assignments of custom security attributes on users, service principals and devices.  Note: can be abused to bypass Conditional Access Policies when policies are set based on security attributes."
+    },
+    {
+        "tier": "1",
+        "assetName": "Authentication Policy Administrator",
+        "providesFullAccessTo": "Tenant-wide authentication method policies, MFA settings, per-user MFA , password protection policy."
+    },
+    {
+        "tier": "1",
+        "assetName": "Azure Information Protection Administrator",
+        "providesFullAccessTo": "Azure Information Protection."
+    },
+    {
+        "tier": "1",
+        "assetName": "B2C IEF Keyset Administrator",
+        "providesFullAccessTo": "Azure AD B2C policy keys and secrets for token encryption, token signatures, and claim encryption/decryption."
+    },
+    {
+        "tier": "1",
+        "assetName": "B2C IEF Policy Administrator",
+        "providesFullAccessTo": "Azure AD B2C policies and the Identity Experience Framework."
+    },
+    {
+        "tier": "1",
+        "assetName": "Billing Administrator",
+        "providesFullAccessTo": "Microsoft 365 and Azure billing."
+    },
+    {
+        "tier": "1",
+        "assetName": "Cloud App Security Administrator",
+        "providesFullAccessTo": "Defender for Cloud Apps."
+    },
+    {
+        "tier": "1",
+        "assetName": "Cloud Device Administrator",
+        "providesFullAccessTo": "Device-management features in Intune, such as reading BitLocker keys, enabling/disabling and deleting devices, but cannot modify device properties."
+    },
+    {
+        "tier": "1",
+        "assetName": "Compliance Administrator",
+        "providesFullAccessTo": "Compliance-related features in the Microsoft Purview compliance portal, Microsoft 365 admin center, Azure and the Microsoft 365 Defender portal."
+    },
+    {
+        "tier": "1",
+        "assetName": "Compliance Data Administrator",
+        "providesFullAccessTo": "Compliance-related features in the Microsoft Purview compliance portal, Microsoft 365 admin center, Azure and the Microsoft 365 Defender portal."
+    },
+    {
+        "tier": "1",
+        "assetName": "Conditional Access Administrator",
+        "providesFullAccessTo": "Conditional Access Policies and related settings."
+    },
+    {
+        "tier": "1",
+        "assetName": "Dynamics 365 Administrator",
+        "providesFullAccessTo": "Dynamics 365 Online."
+    },
+    {
+        "tier": "1",
+        "assetName": "Dynamics 365 Business Central Administrator",
+        "providesFullAccessTo": "Dynamics 365 Business Central."
+    },
+    {
+        "tier": "1",
+        "assetName": "External ID User Flow Administrator",
+        "providesFullAccessTo": "Azure AD B2C user flows."
+    },
+    {
+        "tier": "1",
+        "assetName": "Fabric Administrator",
+        "providesFullAccessTo": "Microsoft Fabric and Power BI."
+    },
+    {
+        "tier": "1",
+        "assetName": "Global Reader",
+        "providesFullAccessTo": "Entra ID and all M365 services ."
+    },
+    {
+        "tier": "1",
+        "assetName": "Global Secure Access Administrator",
+        "providesFullAccessTo": "Global Secure Access."
+    },
+    {
+        "tier": "1",
+        "assetName": "Guest Inviter",
+        "providesFullAccessTo": "Microsoft Entra B2B guest user invitations. Can be leveraged to abuse vulnerable dynamic groups if present."
+    },
+    {
+        "tier": "1",
+        "assetName": "Kaizala Administrator",
+        "providesFullAccessTo": "Kaizala."
+    },
+    {
+        "tier": "1",
+        "assetName": "Microsoft 365 Migration Administrator",
+        "providesFullAccessTo": "Microsoft 365 migrations."
+    },
+    {
+        "tier": "1",
+        "assetName": "Azure AD Joined Device Local Administrator",
+        "providesFullAccessTo": "Entra-joined Windows 10 devices ."
+    },
+    {
+        "tier": "1",
+        "assetName": "Organizational Messages Writer",
+        "providesFullAccessTo": "Organizational messages in Microsoft InTune.  Note: makes phishing attacks a lot easier to leverage."
+    },
+    {
+        "tier": "1",
+        "assetName": "Permissions Management Administrator",
+        "providesFullAccessTo": "Microsoft Entra Permissions Management."
+    },
+    {
+        "tier": "1",
+        "assetName": "Power Platform Administrator",
+        "providesFullAccessTo": "Dynamics 365, Power Automate, Power Apps."
+    },
+    {
+        "tier": "1",
+        "assetName": "Security Operator",
+        "providesFullAccessTo": "Microsoft 365 Defender portal, Microsoft Entra ID Protection, Privileged Identity Management and Microsoft Purview compliance portal ."
+    },
+    {
+        "tier": "1",
+        "assetName": "Security Reader",
+        "providesFullAccessTo": "Same as Security Operator."
+    },
+    {
+        "tier": "1",
+        "assetName": "SharePoint Embedded Administrator",
+        "providesFullAccessTo": "SharePoint Embedded containers."
+    },
+    {
+        "tier": "1",
+        "assetName": "Skype for Business Administrator",
+        "providesFullAccessTo": "Skype for Business."
+    },
+    {
+        "tier": "1",
+        "assetName": "Teams Communications Administrator",
+        "providesFullAccessTo": "Skype for Business, Teams workload related to voice and telephony."
+    },
+    {
+        "tier": "1",
+        "assetName": "Teams Communications Support Engineer",
+        "providesFullAccessTo": "Skype for Business."
+    },
+    {
+        "tier": "1",
+        "assetName": "Teams Devices Administrator",
+        "providesFullAccessTo": "Teams-certified devices joined to the tenant."
+    },
+    {
+        "tier": "1",
+        "assetName": "Teams Telephony Administrator",
+        "providesFullAccessTo": "Skype for Business."
+    },
+    {
+        "tier": "1",
+        "assetName": "Viva Goals Administrator",
+        "providesFullAccessTo": "Viva Goals."
+    },
+    {
+        "tier": "1",
+        "assetName": "Windows Update Deployment Administrator",
+        "providesFullAccessTo": "Windows Update deployments."
+    },
+    {
+        "tier": "2",
+        "assetName": "Application Developer"
+    },
+    {
+        "tier": "2",
+        "assetName": "Attack Payload Author"
+    },
+    {
+        "tier": "2",
+        "assetName": "Attribute Assignment Reader"
+    },
+    {
+        "tier": "2",
+        "assetName": "Attribute Definition Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Attribute Definition Reader"
+    },
+    {
+        "tier": "2",
+        "assetName": "Attribute Log Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Attribute Log Reader"
+    },
+    {
+        "tier": "2",
+        "assetName": "Authentication Extensibility Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Customer LockBox Access Approver"
+    },
+    {
+        "tier": "2",
+        "assetName": "Directory Readers"
+    },
+    {
+        "tier": "2",
+        "assetName": "Desktop Analytics Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Edge Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Exchange Recipient Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Extended Directory User Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "External ID User Flow Attribute Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Guest User"
+    },
+    {
+        "tier": "2",
+        "assetName": "Insights Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Insights Analyst"
+    },
+    {
+        "tier": "2",
+        "assetName": "Insights Business Leader"
+    },
+    {
+        "tier": "2",
+        "assetName": "License Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Message Center Privacy Reader"
+    },
+    {
+        "tier": "2",
+        "assetName": "Message Center Reader"
+    },
+    {
+        "tier": "2",
+        "assetName": "Microsoft Hardware Warranty Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Microsoft Hardware Warranty Specialist"
+    },
+    {
+        "tier": "2",
+        "assetName": "Network Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Office Apps Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Organizational Branding Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Organizational Messages Approver"
+    },
+    {
+        "tier": "2",
+        "assetName": "Organizational Messages Writer"
+    },
+    {
+        "tier": "2",
+        "assetName": "Printer Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Printer Technician"
+    },
+    {
+        "tier": "2",
+        "assetName": "Reports Reader"
+    },
+    {
+        "tier": "2",
+        "assetName": "Restricted Guest User"
+    },
+    {
+        "tier": "2",
+        "assetName": "Search Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Search Editor"
+    },
+    {
+        "tier": "2",
+        "assetName": "Service Support Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Teams Communications Support Specialist"
+    },
+    {
+        "tier": "2",
+        "assetName": "Tenant Creator"
+    },
+    {
+        "tier": "2",
+        "assetName": "User"
+    },
+    {
+        "tier": "2",
+        "assetName": "Usage Summary Reports Reader"
+    },
+    {
+        "tier": "2",
+        "assetName": "User Experience Success Manager"
+    },
+    {
+        "tier": "2",
+        "assetName": "Virtual Visits Administrator"
+    },
+    {
+        "tier": "2",
+        "assetName": "Viva Pulse Administrator"
+    }
+]
