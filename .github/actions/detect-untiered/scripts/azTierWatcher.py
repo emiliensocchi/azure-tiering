@@ -9,7 +9,6 @@
          AzTierWatcher verifies if following have untiered assets, due to new additions and/removals in Microsoft's platform:
             - MS Graph application permissions
             - Entra roles
-            - Azure roles
 
     Requirements:
         - A service principal with the following granted application permissions:
@@ -17,10 +16,6 @@
             2. 'Application.Read.All' (to read the definitions of application permissions)
         - The credentials are expected to be available to AzTierWatcher via an environment variable with the following name and value:
             SP_CREDENTIALS_ENTRA = {"tenant_id": "__ID__", "client_id": "__ID__", "client_secret": "__SECRET__"}
-
-    Note:
-        The service principal does **not** require any explicit Azure role. 
-        In a tenant with a default configuration, service principals have permissions to read Azure role definitions by default.
 
 """
 import datetime
@@ -167,7 +162,7 @@ def get_tiered_from_markdown(tier_file):
 
         return tiered_assets
     except FileNotFoundError:
-        print('FATAL ERROR - Converting markdown to json has failed.')
+        print('FATAL ERROR - Retrieving tiered files has failed.')
         exit()
 
 
@@ -183,7 +178,7 @@ def update_untiered(untiered_file, added_assets, removed_assets):
     """
     try:
         has_content_been_updated = False    
-        update_type = untiered_file.rsplit('/', 2)[1] # Azure roles | Entra roles | Microsoft Graph application permissions
+        update_type = untiered_file.rsplit('/', 2)[1]
         page_metadata_content = ''
         additions_content = ''
         removals_content = ''
@@ -307,40 +302,33 @@ if __name__ == "__main__":
     client_id = sp_credentials['client_id']
     client_secret = sp_credentials['client_secret']
 
-    arm_access_token = request_access_token('arm', tenant_id, client_id, client_secret)
     graph_access_token = request_access_token('graph', tenant_id, client_id, client_secret)
 
-    if not arm_access_token or not graph_access_token:
-        print('FATAL ERROR - A valid access token for ARM and GRAPH is required.')
+    if not graph_access_token:
+        print('FATAL ERROR - A valid access token for GRAPH is required.')
         exit()
 
     # Get current built-in roles/permissions from APIs
     current_builtin_msgraph_app_permission_objects = get_builtin_msgraph_app_permission_objects_from_graph(graph_access_token)
     current_builtin_entra_role_objects = get_builtin_entra_role_objects_from_graph_without_deprecated(graph_access_token)
-    current_builtin_azure_role_objects = get_builtin_azure_role_objects_from_arm(arm_access_token)
     current_builtin_msgraph_app_permissions = sorted([permission_object['value'] for permission_object in current_builtin_msgraph_app_permission_objects])
     current_builtin_entra_roles = sorted([role_object['displayName'] for role_object in current_builtin_entra_role_objects])
-    current_builtin_azure_roles = sorted([role_object['properties']['roleName'] for role_object in current_builtin_azure_role_objects])
 
     # Set local tier files
     github_action_dir_name = '.github'
     absolute_path_to_script = os.path.abspath(sys.argv[0])
     root_dir = absolute_path_to_script.split(github_action_dir_name)[0]
-    azure_dir = root_dir + 'Azure roles'
     entra_dir = root_dir + 'Entra roles'
     app_permissions_dir = root_dir + 'Microsoft Graph application permissions'
-    azure_roles_tier_file = f"{azure_dir}/README.md"
     entra_roles_tier_file = f"{entra_dir}/README.md"
     msgraph_app_permissions_tier_file = f"{app_permissions_dir}/README.md"
 
     # Set local untiered files
-    azure_roles_untiered_file = f"{azure_dir}/Untiered Azure roles.md"
     entra_roles_untiered_file = f"{entra_dir}/Untiered Entra roles.md"
     msgraph_app_permissions_untiered_file = f"{app_permissions_dir}/Untiered MSGraph application permissions.md"
 
     # Get tiered built-in roles/permissions from local files
     tiered_builtin_entra_roles = sorted(get_tiered_from_markdown(entra_roles_tier_file))
-    tiered_builtin_azure_roles = sorted(get_tiered_from_markdown(azure_roles_tier_file))
     tiered_builtin_msgraph_app_permissions = sorted(get_tiered_from_markdown(msgraph_app_permissions_tier_file))
 
     # Compare MS Graph application permissions
