@@ -44,7 +44,7 @@
     {
         "tier": "0",
         "assetName": "Domain.ReadWrite.All",
-        "pathType": "Direct",
+        "pathType": "Indirect",
         "knownShortestPath": "Untested! Needs more research.  Can most likely add a federated domain to Entra ID to authenticate as an existing Global Admin without password or MFA requirements.",
         "example": "TA adds a federated domain to Entra ID, by importing a certificate with the domain's public key. TA generates a SAML token for an existing Global Admin with an MFA claim and signs it with the private key. TA successfully authenticates as Global Admin, without MFA requirements."
     },

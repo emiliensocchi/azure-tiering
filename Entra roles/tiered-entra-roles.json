@@ -44,14 +44,14 @@
     {
         "tier": "0",
         "assetName": "Domain Name Administrator",
-        "pathType": "Direct",
+        "pathType": "Indirect",
         "knownShortestPath": "Can add a federated domain to Entra ID and authenticate as an existing Global Admin without password or MFA requirements.",
         "example": "TA adds a federated domain to Entra ID, by importing a certificate with the domain's public key. TA generates a SAML token for an existing Global Admin with an MFA claim and signs it with the private key. TA successfully authenticates as Global Admin, without MFA requirements."
     },
     {
         "tier": "0",
         "assetName": "External Identity Provider Administrator",
-        "pathType": "Direct",
+        "pathType": "Indirect",
         "knownShortestPath": "Same as Domain Name Administrator.",
         "example": "Same as Domain Name Administrator."
     },
@@ -86,7 +86,7 @@
     {
         "tier": "0",
         "assetName": "Hybrid Identity Administrator",
-        "pathType": "Direct",
+        "pathType": "Indirect",
         "knownShortestPath": "Same as Domain Name Administrator.",
         "example": "Same as Domain Name Administrator."
     },
@@ -94,8 +94,8 @@
         "tier": "0",
         "assetName": "Identity Governance Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Can update the assignment policy of an access package provisionning access to Global Admin, so that requesting the package without approval is possible from a controlled user account. Has also the same path as Directory Writers.",
-        "example": "TA identifies an access package providing access to a security group with an active Global Admin assignment. TA adds an assignment policy to the access package, so that the latter can be requested from a controlled user account, without manual approval. TA requests the access package and escalates to Global Admin via group membership."
+        "knownShortestPath": "Can update the assignment policy of an access package provisionning access to Global Admin, so that requesting the package without approval is possible from the compromised user account. Has also the same path as Directory Writers.",
+        "example": "TA identifies an access package providing access to a security group with an active Global Admin assignment. TA adds an assignment policy to the access package, so that the latter can be requested from the compromised user account, without manual approval. TA requests the access package and escalates to Global Admin via group membership."
     },
     {
         "tier": "0",
@@ -165,12 +165,12 @@
         "assetName": "Privileged Role Administrator",
         "pathType": "Direct",
         "knownShortestPath": "Can assign the Global Admin role to itself.",
-        "example": "TA assigns the Global Admin role to a controlled user account, and authenticates as Global Admin."
+        "example": "TA assigns the Global Admin role to the compromised user account, and authenticates as Global Admin."
     },
     {
         "tier": "0",
         "assetName": "Security Administrator",
-        "pathType": "Direct",
+        "pathType": "Indirect",
         "knownShortestPath": "Same as Domain Name Administrator.",
         "example": "Same as Domain Name Administrator."
     },
