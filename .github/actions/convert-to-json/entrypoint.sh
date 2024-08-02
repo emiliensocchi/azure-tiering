@@ -8,6 +8,7 @@ set -x
 echo "Converting tiered roles and permissions from Markdown to JSON"
 
 script_dir='./.github/actions/convert-to-json/scripts'
+pip3 install -r "${script_dir}/requirements.txt" --break-system-packages
 python3 "${script_dir}/convert-tiered-in-markdown-to-json.py"
 
 ## Stage 1 ##############################################################

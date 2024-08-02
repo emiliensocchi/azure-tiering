@@ -8,7 +8,7 @@ jobs:
   have_builtin_roles_and_permissions_changed:
     runs-on: ubuntu-latest
     env:
-      API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
       SP_CREDENTIALS_ENTRA: ${{ secrets.SP_CREDENTIALS_ENTRA }}
     steps:
     - name: Checkout
@@ -16,5 +16,5 @@ jobs:
     - name: Run AzTierWatcher
       uses: ./.github/actions/detect-untiered
       with:
-        user_email: 'emilien.socchi@gmail.com'
-        user_name: 'emiliensocchi'
+        user_email: 'azure-tiering-robot@gmail.com'
+        user_name: 'azure-tiering-robot'
