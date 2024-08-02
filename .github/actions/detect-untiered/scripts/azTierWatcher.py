@@ -136,33 +136,22 @@ def get_builtin_azure_role_objects_from_arm(token):
     return complete_response
 
 
-def get_tiered_from_markdown(tier_file):
+def read_json_file(json_file):
     """
-         Retrieves the tiered roles or permissions from the passed file.
+         Retrieves the content of the passed JSON file as a dictionary.
 
         Args:
-            tier_file(str): the local file from which tiered roles/permissions are to be retrieved
+            json_file(str): path to the local JSON file from which the content is to be retrieved
 
-        Returns: 
-            list(str): the list of tiered roles or permissions
-
+        Returns:
+            dict(): the content of the passed JSON file
     """
     try:
-        tiered_assets = []
-        
-        with open(tier_file, 'r') as file:
+        with open(json_file, 'r') as file:
             file_content = file.read()
-            tiered_content = ''.join(file_content.split('##')[2:])
-            splitted_tiered_content = tiered_content.split('\n| [')[1:]
-
-            for line in splitted_tiered_content:
-                elements = line.split('|')
-                asset_name = elements[0].split(']', 1)[0].strip('`')
-                tiered_assets.append(asset_name)
-
-        return tiered_assets
+            return json.loads(file_content)
     except FileNotFoundError:
-        print('FATAL ERROR - Retrieving tiered files has failed.')
+        print('FATAL ERROR - The JSON file could not be retrieved.')
         exit()
 
 
@@ -172,7 +161,7 @@ def update_untiered(untiered_file, added_assets, removed_assets):
 
         Args:
             untiered_file(str): the local Markdown file with untiered roles and permissions
-            added_assets(list(dict)): the assets to be added to 'addition' part the untier file
+            added_assets(list(dict)): the assets to be added to the 'addition' part of the untier file
             removed_assets(list(dict)): the assets to be added to the 'removal' part of the untier file
 
     """
@@ -204,7 +193,7 @@ def update_untiered(untiered_file, added_assets, removed_assets):
 
         for asset in assets_to_add:
             date = asset['date']
-            name = asset['name']
+            name = f"[{asset['name']}]({asset['link']})"
             description = asset['description']
             line = f"\n| {date} | {name} | {description} |"
             new_additions_content += line
@@ -308,11 +297,34 @@ if __name__ == "__main__":
         print('FATAL ERROR - A valid access token for GRAPH is required.')
         exit()
 
-    # Get current built-in roles/permissions from APIs
+    # Set Microsoft APIs info
+    graph_role_template_base_uri = 'https://graph.microsoft.com/v1.0/directoryRoleTemplates/'
+    arm_role_template_base_uri = 'https://management.azure.com'
+    arm_role_template_api_version = '2022-04-01'
+
+    # Get current built-in MS Graph application permissions
+    current_builtin_msgraph_app_permissions = []
     current_builtin_msgraph_app_permission_objects = get_builtin_msgraph_app_permission_objects_from_graph(graph_access_token)
+
+    for current_builtin_msgraph_app_permission_object in current_builtin_msgraph_app_permission_objects:
+        current_builtin_msgraph_app_permissions.append({
+            'id': current_builtin_msgraph_app_permission_object['id'],
+            'name': current_builtin_msgraph_app_permission_object['value'],
+            'description': current_builtin_msgraph_app_permission_object['displayName'],
+            'link': f"{graph_role_template_base_uri}{current_builtin_msgraph_app_permission_object['id']}"
+        })
+
+    # Get current built-in Entra roles
+    current_builtin_entra_roles = []
     current_builtin_entra_role_objects = get_builtin_entra_role_objects_from_graph_without_deprecated(graph_access_token)
-    current_builtin_msgraph_app_permissions = sorted([permission_object['value'] for permission_object in current_builtin_msgraph_app_permission_objects])
-    current_builtin_entra_roles = sorted([role_object['displayName'] for role_object in current_builtin_entra_role_objects])
+
+    for current_builtin_entra_role_object in current_builtin_entra_role_objects:
+        current_builtin_entra_roles.append({
+            'id': current_builtin_entra_role_object['id'],
+            'name': current_builtin_entra_role_object['displayName'],
+            'description': current_builtin_entra_role_object['description'],
+            'link': f"{graph_role_template_base_uri}{current_builtin_entra_role_object['id']}"
+        })
 
     # Set local tier files
     github_action_dir_name = '.github'
@@ -320,102 +332,92 @@ if __name__ == "__main__":
     root_dir = absolute_path_to_script.split(github_action_dir_name)[0]
     entra_dir = root_dir + 'Entra roles'
     app_permissions_dir = root_dir + 'Microsoft Graph application permissions'
-    entra_roles_tier_file = f"{entra_dir}/README.md"
-    msgraph_app_permissions_tier_file = f"{app_permissions_dir}/README.md"
+    entra_roles_tier_file = f"{entra_dir}/tiered-entra-roles.json"
+    msgraph_app_permissions_tier_file = f"{app_permissions_dir}/tiered-msgraph-app-permissions.json"
 
     # Set local untiered files
     entra_roles_untiered_file = f"{entra_dir}/Untiered Entra roles.md"
     msgraph_app_permissions_untiered_file = f"{app_permissions_dir}/Untiered MSGraph application permissions.md"
 
     # Get tiered built-in roles/permissions from local files
-    tiered_builtin_entra_roles = sorted(get_tiered_from_markdown(entra_roles_tier_file))
-    tiered_builtin_msgraph_app_permissions = sorted(get_tiered_from_markdown(msgraph_app_permissions_tier_file))
+    tiered_builtin_msgraph_app_permissions = read_json_file(msgraph_app_permissions_tier_file)
+    tiered_builtin_entra_roles = read_json_file(entra_roles_tier_file)
 
     # Compare MS Graph application permissions
-    current_permissions = set(current_builtin_msgraph_app_permissions)
-    tiered_permissions = set(tiered_builtin_msgraph_app_permissions)
-    added_permissions= [permission for permission in current_builtin_msgraph_app_permissions if permission not in tiered_permissions]
-    removed_permissions = [permission for permission in tiered_builtin_msgraph_app_permissions if permission not in current_permissions]
+    current_permission_ids = [permission['id'] for permission in current_builtin_msgraph_app_permissions]
+    tiered_permission_ids = [permission['id'] for permission in tiered_builtin_msgraph_app_permissions]
+    added_permission_ids = [permission_id for permission_id in current_permission_ids if permission_id not in tiered_permission_ids]
+    removed_permission_ids = [permission_id for permission_id in tiered_permission_ids if permission_id not in current_permission_ids]
 
-    if added_permissions or removed_permissions:
+    if added_permission_ids or removed_permission_ids:
         now = datetime.datetime.now()
         date = now.strftime("%Y-%m-%d")
         added_items = []
         removed_items = []
 
-        for added_permission in added_permissions:
-            msgraph_app_permission_object_list = [permission_object for permission_object in current_builtin_msgraph_app_permission_objects if permission_object['value'] == added_permission]
+        for added_permission_id in added_permission_ids:
+            msgraph_app_permissions_list = [permission for permission in current_builtin_msgraph_app_permissions if permission['id'] == added_permission_id]
 
-            if not len(msgraph_app_permission_object_list) == 1:
+            if not len(msgraph_app_permissions_list) == 1:
                 print ('FATAL ERROR - Something is wrong with the addition of MS Graph app permissions.')
                 exit() 
 
-            msgraph_app_permission_object = msgraph_app_permission_object_list[0]
-            name = msgraph_app_permission_object['value']
-            link = f"https://graph.microsoft.com/v1.0/directoryRoleTemplates/{msgraph_app_permission_object['id']}"
-            hyperlinked_name = f"[`{name}`]({link})"
+            msgraph_app_permission = msgraph_app_permissions_list[0]
+            enriched_msgraph_app_permission = { 'date': now }
+            enriched_msgraph_app_permission.update(msgraph_app_permission)
+            added_items.append(enriched_msgraph_app_permission)
 
-            added_item = {
-                'date': date,
-                'name': hyperlinked_name,
-                'description': msgraph_app_permission_object['displayName']
-            }
+        for removed_permission_id in removed_permission_ids:
+            msgraph_app_permissions_list = [permission for permission in tiered_builtin_msgraph_app_permissions if permission['id'] == removed_permission_id]
 
-            added_items.append(added_item)
+            if not len(msgraph_app_permissions_list) == 1:
+                print ('FATAL ERROR - Something is wrong with the removal of MS Graph app permissions.')
+                exit() 
 
-        for removed_permission in removed_permissions:
-            added_item = {
-                'date': date,
-                'name': f"`{removed_permission}`",
-                'description': ''
-            }
-            
-            removed_items.append(added_item)
+            msgraph_app_permission = msgraph_app_permissions_list[0]
+            enriched_msgraph_app_permission = { 'date': now }
+            enriched_msgraph_app_permission.update(msgraph_app_permission)
+            removed_items.append(enriched_msgraph_app_permission)
 
         update_untiered(msgraph_app_permissions_untiered_file, added_items, removed_items)
     else:
         print ('MS Graph app permissions: no changes')
 
     # Compare Entra roles
-    current_roles = set(current_builtin_entra_roles)
-    tiered_roles = set(tiered_builtin_entra_roles)
-    added_roles = [role for role in current_builtin_entra_roles if role not in tiered_roles]
-    removed_roles = [role for role in tiered_builtin_entra_roles if role not in current_roles]
+    current_role_ids = [role['id'] for role in current_builtin_entra_roles]
+    tiered_role_ids = [role['id'] for role in tiered_builtin_entra_roles]
+    added_role_ids = [role_id for role_id in current_role_ids if role_id not in tiered_role_ids]
+    removed_role_ids = [role_id for role_id in tiered_role_ids if role_id not in current_role_ids]
 
-    if added_roles or removed_roles:
+    if added_role_ids or removed_role_ids:
         now = datetime.datetime.now()
         date = now.strftime("%Y-%m-%d")
         added_items = []
         removed_items = []
 
-        for added_role in added_roles:
-            entra_role_object_list = [role_object for role_object in current_builtin_entra_role_objects if role_object['displayName'] == added_role]
+        for added_role_id in added_role_ids:
+            entra_role_list = [role for role in current_builtin_entra_roles if role['id'] == added_role_id]
 
-            if not len(entra_role_object_list) == 1:
+            if not len(entra_role_list) == 1:
                 print ('FATAL ERROR - Something is wrong with the addition of Entra roles.')
                 exit() 
 
-            entra_role_object = entra_role_object_list[0]
-            name = entra_role_object['displayName']
-            link = f"https://graph.microsoft.com/v1.0/directoryRoleTemplates/{entra_role_object['id']}"
-            hyperlinked_name = f"[{name}]({link})"
+            entra_role = entra_role_list[0]
+            enriched_entra_role = { 'date': now }
+            enriched_entra_role.update(entra_role)
+            added_items.append(enriched_entra_role)
 
-            added_item = {
-                'date': date,
-                'name': hyperlinked_name,
-                'description': entra_role_object['description']
-            }
+        for removed_role_id in removed_role_ids:
+            entra_role_list = [role for role in current_builtin_entra_roles if role['id'] == added_role_id]
 
-            added_items.append(added_item)
+            if not len(entra_role_list) == 1:
+                print ('FATAL ERROR - Something is wrong with the removal of Entra roles.')
+                exit() 
 
-        for removed_role in removed_roles:
-            added_item = {
-                'date': date,
-                'name': removed_role,
-                'description': ''
-            }
-            
-            removed_items.append(added_item)
+            entra_role = entra_role_list[0]
+            enriched_entra_role = { 'date': now }
+            enriched_entra_role.update(entra_role)
+            removed_items.append(enriched_entra_role)
 
         update_untiered(entra_roles_untiered_file, added_items, removed_items)
     else:

@@ -12,16 +12,145 @@
 import json
 import os
 import re
+import requests
 import sys
 
 
-def convert_markdown_to_json(markdown_file, json_file):
+def get_builtin_msgraph_app_permission_objects_from_graph(token):
+    """
+        Retrieves the current built-in Microsoft Graph application permission objects from MS Graph.
+
+        Args:
+            str: a valid access token for MS Graph
+
+        Returns:
+            list(str): list of built-in MS Graph application permission objects
+
+    """
+    endpoint = "https://graph.microsoft.com/v1.0/servicePrincipals(appId='00000003-0000-0000-c000-000000000000')"
+    headers = {'Authorization': f"Bearer {token}"}
+    response = requests.get(endpoint, headers = headers)
+
+    if response.status_code != 200:
+        print('FATAL ERROR - The MS Graph application permissions could not be retrieved from Graph.')
+        exit()
+
+    response_content = response.json()['appRoles']
+    return response_content
+
+
+def get_builtin_entra_role_objects_from_graph(token):
+    """
+        Retrieves the current built-in Entra role objects from MS Graph.
+
+        Args:
+            str: a valid access token for MS Graph
+
+        Returns:
+            list(str): list of built-in Entra-role objects
+
+    """
+    endpoint = 'https://graph.microsoft.com/v1.0/directoryRoleTemplates'
+    headers = {'Authorization': f"Bearer {token}"}
+    response = requests.get(endpoint, headers = headers)
+
+    if response.status_code != 200:
+        print('FATAL ERROR - The Entra roles could not be retrieved from Graph.')
+        exit()
+
+    response_content = response.json()['value']
+    return response_content
+
+
+def get_builtin_azure_role_objects_from_arm(token):
+    """
+        Retrieves the current built-in Azure role objects from ARM.
+
+        Args:
+            str: a valid access token for ARM
+
+        Returns:
+            list(str): list of built-in Azure-role objects
+
+    """
+    endpoint = 'https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2022-04-01'
+    headers = {'Authorization': f"Bearer {token}"}
+    response = requests.get(endpoint, headers = headers)
+
+    if response.status_code != 200:
+        print('FATAL ERROR - The Azure roles could not be retrieved from ARM.')
+        exit()
+
+    paginated_response = response.json()['value']
+    complete_response = paginated_response
+    next_page = response.json()['nextLink'] if 'nextLink' in response.json() else ''
+
+    while next_page:
+        response = requests.get(next_page, headers = headers)
+
+        if response.status_code != 200:
+            print('FATAL ERROR - The Azure roles could not be retrieved from ARM.')
+            exit()
+        
+        paginated_response = response.json()['value']
+        next_page = response.json()['nextLink'] if 'nextLink' in response.json() else ''
+        complete_response += paginated_response
+
+    return complete_response
+
+
+def request_access_token(resource, tenant_id, client_id, client_secret):
+    """
+        Requests an access token for the passed resource on behalf of the service principal with the passed information.
+
+        Args:
+            resource (str): the resource to authenticate to (only valid values are: 'arm', 'graph')
+            tenant_id (str): the id of the service principal's home tenant
+            client_id (str): the application id of the service principal
+            client_secret (str): a valid secret for the service principal
+        
+        Returns:
+            str: a valid access token for the requested resource
+
+    """
+    valid_resources = ['arm', 'graph']
+
+    if resource not in valid_resources:
+        return
+
+    endpoint = f"https://login.microsoftonline.com/{tenant_id}"
+    body = {
+        'grant_type': 'client_credentials',
+        'client_id': client_id,
+        'client_secret': client_secret
+    }
+
+    if resource == 'arm':
+        endpoint += '/oauth2/token'
+        body['resource'] = 'https://management.azure.com/'
+    else:
+        endpoint += '/oauth2/v2.0/token'
+        body['scope'] = 'https://graph.microsoft.com/.default'
+
+    response = requests.post(endpoint, body)
+
+    if response.status_code != 200:
+        print(f"FATAL ERROR - A token for {resource} could not be retrieved.")
+        exit()
+
+    access_token = response.json()['access_token']
+    return access_token
+
+
+def convert_markdown_to_json(markdown_file, json_file, asset_ids):
     """
         Converts the administrative-asset info located in the passed Markdown file to JSON, and outputs it to the passed JSON file.
+        The data of the administrative asset is enriched with the asset's ID in the process.
 
         Args:
             markdown_file(str): the Markdown file to parse from
             json_file(str): the output file to which the converted JSON is exported to
+            asset_ids(dict(str:str)): dictionary mapping asset names to their respective IDs
 
         Returns:
             None
@@ -29,7 +158,7 @@ def convert_markdown_to_json(markdown_file, json_file):
     """
     try:
         json_roles = []
-        regex = r"(\[|\]|\(.*\)|\\u26a0\\ufe0f |\*|<br>|`|\\ud83d\\udd70\\ufe0f )"    # strips unwanted content in programmatic form
+        regex = r"(\[|\]|\(.*\)|\\u26a0\\ufe0f |\*|<br>|`|\\ud83d\\udd70\\ufe0f )"    # strips unwanted content
         
         with open(markdown_file, 'r') as file:
             file_content = file.read()
@@ -44,12 +173,20 @@ def convert_markdown_to_json(markdown_file, json_file):
 
             for line in splitted_tier_0_content:
                 elements = line.split('|')
+                asset_name = re.sub(regex, '', elements[0].split(']', 1)[0])
+                asset_name_key = asset_name.lower().replace(' ', '')
+                asset_id = asset_ids[asset_name_key] if asset_name_key in asset_ids.keys() else ''
+                path_type = elements[1].strip()
+                known_shortest_path = re.sub(regex, '', elements[2]).encode('ascii', 'ignore').decode().strip()
+                example = re.sub(regex, '', elements[3].strip())
+
                 json_role = {
                     "tier": "0", 
-                    "assetName": re.sub(regex, '', elements[0].split(']', 1)[0]), 
-                    "pathType": elements[1].strip(),
-                    "knownShortestPath": re.sub(regex, '', elements[2]).encode('ascii', 'ignore').decode().strip(),
-                    "example": re.sub(regex, '', elements[3].strip())
+                    "id": asset_id,
+                    "assetName": asset_name, 
+                    "pathType": path_type,
+                    "knownShortestPath": known_shortest_path,
+                    "example": example
                 }
 
                 json_roles.append(json_role)
@@ -59,17 +196,23 @@ def convert_markdown_to_json(markdown_file, json_file):
 
             for line in splitted_tier_1_content:
                 elements = line.split('|')
+                asset_name = re.sub(regex, '', elements[0].split(']', 1)[0])
+                asset_name_key = asset_name.lower().replace(' ', '')
+                asset_id = asset_ids[asset_name_key] if asset_name_key in asset_ids else ''
+                provides_full_access_to = re.sub(regex, '', elements[1].strip())
 
                 if elements [1]:
                     json_role = {
                         "tier": "1", 
-                        "assetName": re.sub(regex, '', elements[0].split(']', 1)[0]),
-                        "providesFullAccessTo": re.sub(regex, '', elements[1].strip())
+                        "id": asset_id,
+                        "assetName": asset_name,
+                        "providesFullAccessTo": provides_full_access_to
                     }
                 else:
                     json_role = {
                         "tier": "1", 
-                        "assetName": re.sub(regex, '', elements[0].split(']', 1)[0])
+                        "id": asset_id,
+                        "assetName": asset_name
                     }
 
                 json_roles.append(json_role)
@@ -79,9 +222,13 @@ def convert_markdown_to_json(markdown_file, json_file):
 
             for line in splitted_tier_2_content:
                 elements = line.split('|')
+                asset_name = re.sub(regex, '', elements[0].split(']', 1)[0])
+                asset_name_key = asset_name.lower().replace(' ', '')
+                asset_id = asset_ids[asset_name_key] if asset_name_key in asset_ids else ''
                 json_role = {
-                    "tier": "2", 
-                    "assetName": re.sub(regex, '', elements[0].split(']', 1)[0]),
+                    "tier": "2",
+                    "id": asset_id,
+                    "assetName": asset_name
                 }
 
                 json_roles.append(json_role)
@@ -95,37 +242,63 @@ def convert_markdown_to_json(markdown_file, json_file):
 
 
 if __name__ == "__main__":
+    # Get access tokens for ARM and MS Graph
+    raw_sp_credentials = os.environ['SP_CREDENTIALS_ENTRA']
+
+    if not raw_sp_credentials:
+        print('FATAL ERROR - A service principal with valid access to ARM and MS Graph is required.')
+        exit()
+
+    sp_credentials = json.loads(raw_sp_credentials)
+    tenant_id = sp_credentials['tenant_id']
+    client_id = sp_credentials['client_id']
+    client_secret = sp_credentials['client_secret']
+
+    graph_access_token = request_access_token('graph', tenant_id, client_id, client_secret)
+
+    if not graph_access_token:
+        print('FATAL ERROR - A valid access token for GRAPH is required.')
+        exit()
+
     # Set local directories
     github_action_dir_name = '.github'
     absolute_path_to_script = os.path.abspath(sys.argv[0])
     root_dir = absolute_path_to_script.split(github_action_dir_name)[0]
-    azure_dir = root_dir + 'Azure roles'
     entra_dir = root_dir + 'Entra roles'
     app_permissions_dir = root_dir + 'Microsoft Graph application permissions'
     
     # Set local Markdown files
-    azure_roles_markdown_file = f"{azure_dir}/README.md"
     entra_roles_markdown_file = f"{entra_dir}/README.md"
     app_permissions_markdown_file = f"{app_permissions_dir}/README.md"
 
     # Set local JSON files
-    azure_roles_json_file = f"{azure_dir}/tiered-azure-roles.json"
     entra_roles_json_file = f"{entra_dir}/tiered-entra-roles.json"
     app_permissions_json_file = f"{app_permissions_dir}/tiered-msgraph-app-permissions.json"
 
-    all_markdown_files = [
-        entra_roles_markdown_file,
-        app_permissions_markdown_file
-    ]
+    # Get current built-in Entra roles from MS Graph
+    current_builtin_entra_roles = {}
+    current_builtin_entra_role_objects = get_builtin_entra_role_objects_from_graph(graph_access_token)
 
-    all_json_files =[
-        entra_roles_json_file,
-        app_permissions_json_file
-    ]
+    for current_builtin_entra_role_object in current_builtin_entra_role_objects:
+        id = current_builtin_entra_role_object['id']
+        name = current_builtin_entra_role_object['displayName'].lower().replace(' ', '')
+        current_builtin_entra_roles[name] = id
 
-    for i in range(len(all_markdown_files)):
-        markdown_file = all_markdown_files[i]
-        markdown_file_name = markdown_file.rsplit('/', 2)[1]
-        json_file = all_json_files[i]
-        print (f"Converting for: {markdown_file_name}")
-        convert_markdown_to_json(markdown_file, json_file)
+    # Get current built-in MS Graph application permissions from MS Graph
+    current_builtin_msgraph_app_permissions = {}
+    current_builtin_msgraph_app_permission_objects = get_builtin_msgraph_app_permission_objects_from_graph(graph_access_token)
+
+    for current_builtin_msgraph_app_permission_object in current_builtin_msgraph_app_permission_objects:
+        id = current_builtin_msgraph_app_permission_object['id']
+        name = current_builtin_msgraph_app_permission_object['value'].lower().replace(' ', '')
+        current_builtin_msgraph_app_permissions[name] = id
+
+    # Convert Markdown content for Entra roles to JSON
+    markdown_file_name = entra_roles_markdown_file.rsplit('/', 2)[1]
+    print (f"Converting for: {markdown_file_name}")
+    convert_markdown_to_json(entra_roles_markdown_file, entra_roles_json_file, current_builtin_entra_roles)
+
+    # Convert Markdown content for MS Graph application permissions to JSON
+    markdown_file_name = app_permissions_markdown_file.rsplit('/', 2)[1]
+    print (f"Converting for: {markdown_file_name}")
+    convert_markdown_to_json(app_permissions_markdown_file, app_permissions_json_file, current_builtin_msgraph_app_permissions)

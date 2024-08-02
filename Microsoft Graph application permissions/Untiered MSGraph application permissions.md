@@ -13,5 +13,5 @@ The following changes have been detected through automation, **since the last up
 
 ### ❌ Removals
 
-| Detected on | Application permission | 
-|---|---|
+| Detected on | Application permission | Description | 
+|---|---|---|

@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      SP_CREDENTIALS_ENTRA: ${{ secrets.SP_CREDENTIALS_ENTRA }}
     steps:
     - name: Checkout
       uses: emiliensocchi/actions@checkout
