@@ -2,7 +2,7 @@ name: Are built-in roles and permissions untiered?
 on:
   workflow_dispatch:
   schedule:
-    - cron: "* 01 * * *"
+    - cron: "00 01 * * *"
 
 jobs:
   have_builtin_roles_and_permissions_changed:
