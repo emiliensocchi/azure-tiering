@@ -11,7 +11,7 @@ Collection of personal tier models for Microsoft Graph and Azure administrative 
 
 ## 🎯 Objectives
 
-> 📌 See the [release post]() for full information
+> 📌 See the [release post](https://www.emiliensocchi.io/tiering-entra-roles-and-application-permissions-based-on-attack-paths/) for full information
 
 #### Objective 1: provide a better understanding of security implications
 
@@ -31,7 +31,7 @@ The definition of a "tier" and its content is highly dependent on the business r
 
 ## 🧱 Opiniated design
 
-> 📌 See the [release post]() for full information
+> 📌 See the [release post](https://www.emiliensocchi.io/tiering-entra-roles-and-application-permissions-based-on-attack-paths/) for full information
 
 This project tiers administrative assets in Microsoft Graph and Azure based on testing their effective capabilities. This means all information coming from role actions, permission names and Microsoft documentation is ignored as much as possible, as those do not provide a reliable way to be certain of what an asset is effectively capable of doing.
 
