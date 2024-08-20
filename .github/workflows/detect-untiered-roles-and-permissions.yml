@@ -16,5 +16,5 @@ jobs:
     - name: Run AzTierWatcher
       uses: ./.github/actions/detect-untiered
       with:
-        user_email: 'emilien.socchi@gmail.com'
-        user_name: 'emiliensocchi'
+        user_email: 'azure-tiering-robot@gmail.com'
+        user_name: 'azure-tiering-robot'
