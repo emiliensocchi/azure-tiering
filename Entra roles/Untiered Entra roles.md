@@ -10,6 +10,7 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Entra role | Description | 
 |---|---|---|
+| 2024-08-26 | [Microsoft 365 Backup Administrator](https://graph.microsoft.com/v1.0/directoryRoleTemplates/1707125e-0aa2-4d4d-8655-a7c786c76a25) | Back up and restore content across supported services (SharePoint, OneDrive, and Exchange Online) in Microsoft 365 Backup. |
 | 2024-08-25 | [Microsoft 365 Backup Administrator](https://graph.microsoft.com/v1.0/directoryRoleTemplates/1707125e-0aa2-4d4d-8655-a7c786c76a25) | Back up and restore content across supported services (SharePoint, OneDrive, and Exchange Online) in Microsoft 365 Backup. |
 | 2024-08-24 | [Microsoft 365 Backup Administrator](https://graph.microsoft.com/v1.0/directoryRoleTemplates/1707125e-0aa2-4d4d-8655-a7c786c76a25) | Back up and restore content across supported services (SharePoint, OneDrive, and Exchange Online) in Microsoft 365 Backup. |
 | 2024-08-23 | [Microsoft 365 Backup Administrator](https://graph.microsoft.com/v1.0/directoryRoleTemplates/1707125e-0aa2-4d4d-8655-a7c786c76a25) | Back up and restore content across supported services (SharePoint, OneDrive, and Exchange Online) in Microsoft 365 Backup. |
