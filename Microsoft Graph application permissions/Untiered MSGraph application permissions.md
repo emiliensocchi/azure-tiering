@@ -10,8 +10,6 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description | 
 |---|---|---|
-| 2024-08-27 | [BackupRestore-Control.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/6fe20a79-0e15-45a1-b019-834c125993a0) | Read the status of the M365 backup service |
-| 2024-08-27 | [BackupRestore-Control.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/fb240865-88f8-4a1d-923f-98dbc7920860) | Update or read the status of the M365 backup service |
 | 2024-08-27 | [BitlockerKey.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/57f1cf28-c0c4-4ec3-9a30-19a2eaaf2f6e) | Read all BitLocker keys |
 | 2024-08-27 | [BitlockerKey.ReadBasic.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/f690d423-6b29-4d04-98c6-694c42282419) | Read all BitLocker keys basic information |
 | 2024-08-27 | [MailboxFolder.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/99280d24-a782-4793-93cc-0888549957f6) | Read all the users' mailbox folders |
@@ -24,18 +22,6 @@ The following changes have been detected through automation, **since the last up
 | 2024-08-27 | [User-PasswordProfile.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/cc117bb9-00cf-4eb8-b580-ea2a878fe8f7) | Read and write all password profiles and reset user passwords |
 | 2024-08-27 | [User-Phone.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/86ceff06-c822-49ff-989a-d912845ffe69) | Read and write all user mobile phone and business phones |
 | 2024-08-27 | [User.DeleteRestore.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/eccc023d-eccf-4e7b-9683-8813ab36cecc) | Delete and restore all users |
-| 2024-08-26 | [BackupRestore-Control.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/6fe20a79-0e15-45a1-b019-834c125993a0) | Read the status of the M365 backup service |
-| 2024-08-26 | [BackupRestore-Control.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/fb240865-88f8-4a1d-923f-98dbc7920860) | Update or read the status of the M365 backup service |
-| 2024-08-25 | [BackupRestore-Control.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/6fe20a79-0e15-45a1-b019-834c125993a0) | Read the status of the M365 backup service |
-| 2024-08-25 | [BackupRestore-Control.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/fb240865-88f8-4a1d-923f-98dbc7920860) | Update or read the status of the M365 backup service |
-| 2024-08-24 | [BackupRestore-Control.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/6fe20a79-0e15-45a1-b019-834c125993a0) | Read the status of the M365 backup service |
-| 2024-08-24 | [BackupRestore-Control.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/fb240865-88f8-4a1d-923f-98dbc7920860) | Update or read the status of the M365 backup service |
-| 2024-08-23 | [BackupRestore-Control.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/6fe20a79-0e15-45a1-b019-834c125993a0) | Read the status of the M365 backup service |
-| 2024-08-23 | [BackupRestore-Control.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/fb240865-88f8-4a1d-923f-98dbc7920860) | Update or read the status of the M365 backup service |
-| 2024-08-22 | [BackupRestore-Control.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/6fe20a79-0e15-45a1-b019-834c125993a0) | Read the status of the M365 backup service |
-| 2024-08-22 | [BackupRestore-Control.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/fb240865-88f8-4a1d-923f-98dbc7920860) | Update or read the status of the M365 backup service |
-| 2024-08-21 | [BackupRestore-Control.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/6fe20a79-0e15-45a1-b019-834c125993a0) | Read the status of the M365 backup service |
-| 2024-08-21 | [BackupRestore-Control.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/fb240865-88f8-4a1d-923f-98dbc7920860) | Update or read the status of the M365 backup service |
 | 2024-08-20 | [BackupRestore-Control.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/6fe20a79-0e15-45a1-b019-834c125993a0) | Read the status of the M365 backup service |
 | 2024-08-20 | [BackupRestore-Control.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/fb240865-88f8-4a1d-923f-98dbc7920860) | Update or read the status of the M365 backup service |
 
