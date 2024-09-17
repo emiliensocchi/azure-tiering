@@ -200,7 +200,7 @@ def update_untiered(untiered_file, added_assets, removed_assets):
                 line = f"\n| {date} | {name} | {description} |"
                 new_additions_content += line
 
-            updated_additions_content = additions_metadata_content + new_additions_content + current_additions_content
+        updated_additions_content = additions_metadata_content + new_additions_content + current_additions_content
 
         # Add to untiered removals
         updated_removals_content = ''
@@ -223,7 +223,7 @@ def update_untiered(untiered_file, added_assets, removed_assets):
                 line = f"\n| {date} | {name} |"
                 new_removals_content += line
 
-            updated_removals_content = removals_metadata_content + new_removals_content + current_removals_content
+        updated_removals_content = removals_metadata_content + new_removals_content + current_removals_content
 
         # Update the untiered file with the new content
         updated_content = page_metadata_content + updated_additions_content + updated_removals_content
