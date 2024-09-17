@@ -209,7 +209,7 @@ def update_untiered(untiered_file, added_assets, removed_assets):
         removals_metadata_content = splitted_removals_content[0] + splitter
         current_removals_content = splitted_removals_content[1]
         current_removals_assets = set(current_removals_content.split('\n|')[1:])
-        assets_to_remove = [asset for asset in removed_assets if not str(current_removals_assets).find(asset['name'])]
+        assets_to_remove = [asset for asset in removed_assets if (current_removals_assets and not str(current_removals_assets).find(asset['name']))]
         if not has_content_been_updated:
             has_content_been_updated = True if len(assets_to_remove) > 0 else False      
 
