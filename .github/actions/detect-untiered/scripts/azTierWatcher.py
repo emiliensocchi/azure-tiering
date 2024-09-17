@@ -188,7 +188,7 @@ def update_untiered(untiered_file, added_assets, removed_assets):
         additions_metadata_content = splitted_additions_content[0] + splitter
         current_additions_content = splitted_additions_content[1]
         current_additions_assets = set(current_additions_content.split('\n|')[1:])
-        assets_to_add = [asset for asset in added_assets if not str(current_additions_assets).find(asset['name'])]
+        assets_to_add = [asset for asset in added_assets if (current_additions_assets and not str(current_additions_assets).find(asset['name']))]
 
         has_content_been_updated = True if len(assets_to_add) > 0 else False
 
