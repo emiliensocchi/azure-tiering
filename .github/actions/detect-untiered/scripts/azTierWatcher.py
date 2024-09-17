@@ -188,17 +188,16 @@ def update_untiered(untiered_file, added_assets, removed_assets):
         additions_metadata_content = splitted_additions_content[0] + splitter
         current_additions_content = splitted_additions_content[1]
         current_additions_assets = set(current_additions_content.split('\n|')[1:])
+        assets_to_add = [asset for asset in added_assets if (str(current_additions_assets).find(asset['name']) == -1)]
 
-        if current_additions_assets:
-            assets_to_add = [asset for asset in added_assets if not str(current_additions_assets).find(asset['name'])]
-            has_content_been_updated = True if len(assets_to_add) > 0 else False
+        has_content_been_updated = True if len(assets_to_add) > 0 else False
 
-            for asset in assets_to_add:
-                date = asset['date']
-                name = f"[{asset['name']}]({asset['link']})"
-                description = asset['description']
-                line = f"\n| {date} | {name} | {description} |"
-                new_additions_content += line
+        for asset in assets_to_add:
+            date = asset['date']
+            name = f"[{asset['name']}]({asset['link']})"
+            description = asset['description']
+            line = f"\n| {date} | {name} | {description} |"
+            new_additions_content += line
 
         updated_additions_content = additions_metadata_content + new_additions_content + current_additions_content
 
@@ -210,18 +209,15 @@ def update_untiered(untiered_file, added_assets, removed_assets):
         removals_metadata_content = splitted_removals_content[0] + splitter
         current_removals_content = splitted_removals_content[1]
         current_removals_assets = set(current_removals_content.split('\n|')[1:])
+        assets_to_remove = [asset for asset in removed_assets if (str(current_removals_assets).find(asset['assetName']) == -1)]
+        if not has_content_been_updated:
+            has_content_been_updated = True if len(assets_to_remove) > 0 else False      
 
-        if current_removals_assets:
-            assets_to_remove = [asset for asset in removed_assets if not str(current_removals_assets).find(asset['name'])]
-
-            if not has_content_been_updated:
-                has_content_been_updated = True if len(assets_to_remove) > 0 else False      
-
-            for asset in assets_to_remove:
-                date = asset['date']
-                name = asset['name']
-                line = f"\n| {date} | {name} |"
-                new_removals_content += line
+        for asset in assets_to_remove:
+            date = asset['date']
+            name = asset['assetName']
+            line = f"\n| {date} | {name} |"
+            new_removals_content += line
 
         updated_removals_content = removals_metadata_content + new_removals_content + current_removals_content
 
