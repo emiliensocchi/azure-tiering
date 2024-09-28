@@ -10,6 +10,7 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description | 
 |---|---|---|
+| 2024-09-28 | [CallEvents-Emergency.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/f0a35f91-2aa6-4a99-9d5a-5b6bcb66204e) | Read all emergency call events |
 | 2024-09-24 | [SecurityIdentitiesUserActions.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/3e5d0bee-973f-4736-a123-4e1ab146f3a8) | Read all identity security available user actions |
 | 2024-09-24 | [SecurityIdentitiesUserActions.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/b4146a3a-dd4f-4af4-8d91-7cc0eef3d041) | Read and perform all identity security available user actions |
 | 2024-09-17 | [AiEnterpriseInteraction.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/839c90ab-5771-41ee-aef8-a562e8487c1e) | Read all AI enterprise interactions. |
