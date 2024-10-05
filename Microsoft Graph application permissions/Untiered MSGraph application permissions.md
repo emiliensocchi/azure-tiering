@@ -10,6 +10,10 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description | 
 |---|---|---|
+| 2024-10-05 | [DeviceManagementCloudCA.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/315b6e8c-d92a-4691-919d-00ce76d1344a) | Read Microsoft Cloud PKI objects |
+| 2024-10-05 | [DeviceManagementCloudCA.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/f15eb2ba-ef8a-4f70-991d-da5d045154e2) | Read and write Microsoft Cloud PKI objects |
+| 2024-10-05 | [OnlineMeetingAiInsight.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/c0cf7895-985f-42d4-a693-b618f36674ad) | Read all AI Insights for online meetings. |
+| 2024-10-05 | [OnlineMeetingAiInsight.Read.Chat](https://graph.microsoft.com/v1.0/directoryRoleTemplates/01892c31-3b66-4bcf-b5f5-bf0a03d5ed9f) | Read all AI Insights for online meetings where the Teams application is installed. |
 | 2024-09-28 | [CallEvents-Emergency.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/f0a35f91-2aa6-4a99-9d5a-5b6bcb66204e) | Read all emergency call events |
 | 2024-09-24 | [SecurityIdentitiesUserActions.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/3e5d0bee-973f-4736-a123-4e1ab146f3a8) | Read all identity security available user actions |
 | 2024-09-24 | [SecurityIdentitiesUserActions.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/b4146a3a-dd4f-4af4-8d91-7cc0eef3d041) | Read and perform all identity security available user actions |
