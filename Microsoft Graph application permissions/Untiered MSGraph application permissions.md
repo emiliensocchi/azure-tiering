@@ -10,6 +10,8 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description | 
 |---|---|---|
+| 2024-10-16 | [CustomSecAttributeProvisioning.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/9fd1f8bf-a443-4df6-bc2a-5d00c5ec7828) | Read the provisioning configuration of all active custom security attributes |
+| 2024-10-16 | [CustomSecAttributeProvisioning.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/1db69e9c-8d0a-498d-a5df-11fd0b68ceab) | Read and edit the provisioning configuration of all active custom security attributes |
 | 2024-10-05 | [DeviceManagementCloudCA.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/315b6e8c-d92a-4691-919d-00ce76d1344a) | Read Microsoft Cloud PKI objects |
 | 2024-10-05 | [DeviceManagementCloudCA.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/f15eb2ba-ef8a-4f70-991d-da5d045154e2) | Read and write Microsoft Cloud PKI objects |
 | 2024-10-05 | [OnlineMeetingAiInsight.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/c0cf7895-985f-42d4-a693-b618f36674ad) | Read all AI Insights for online meetings. |
