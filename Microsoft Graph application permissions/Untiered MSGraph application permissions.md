@@ -10,6 +10,12 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description | 
 |---|---|---|
+| 2024-11-23 | [FileIngestion.Ingest](https://graph.microsoft.com/v1.0/directoryRoleTemplates/65891b00-2fd9-4e33-be27-04a53132e3df) | Ingest SharePoint and OneDrive content to make it available in the search index |
+| 2024-11-23 | [FileIngestionHybridOnboarding.Manage](https://graph.microsoft.com/v1.0/directoryRoleTemplates/766c601b-c009-4438-8290-c8b05fa00c4b) | Manage onboarding for a Hybrid Cloud tenant |
+| 2024-11-23 | [RoleManagement.Read.Defender](https://graph.microsoft.com/v1.0/directoryRoleTemplates/4d6e30d1-e64e-4ae7-bf9d-c706cc928cef) | Read M365 Defender RBAC configuration |
+| 2024-11-23 | [RoleManagement.ReadWrite.Defender](https://graph.microsoft.com/v1.0/directoryRoleTemplates/8b7e8c0a-7e9d-4049-97ec-04b5e1bcaf05) | Read M365 Defender RBAC configuration |
+| 2024-11-23 | [UserAuthMethod-Passkey.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/72e00c1d-3e3d-43bb-a0b9-c435611bb1d2) | Read all users' passkey authentication methods |
+| 2024-11-23 | [UserAuthMethod-Passkey.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/0400e371-7db1-4338-a269-96069eb65227) | Read and write all users' passkey authentication methods |
 | 2024-10-23 | [ChangeManagement.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/418dae40-2b65-4819-900c-519a04e4d278) | Read Change Management items |
 | 2024-10-16 | [CustomSecAttributeProvisioning.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/9fd1f8bf-a443-4df6-bc2a-5d00c5ec7828) | Read the provisioning configuration of all active custom security attributes |
 | 2024-10-16 | [CustomSecAttributeProvisioning.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/1db69e9c-8d0a-498d-a5df-11fd0b68ceab) | Read and edit the provisioning configuration of all active custom security attributes |
