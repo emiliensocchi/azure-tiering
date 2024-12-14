@@ -10,6 +10,10 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description | 
 |---|---|---|
+| 2024-12-14 | [DeviceTemplate.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/dd9febb5-0c6d-419f-b256-3afe12c6adeb) | Read all device templates |
+| 2024-12-14 | [DeviceTemplate.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/9fadb66e-6421-4744-aede-4ab6fb98a884) | Read and write all device templates |
+| 2024-12-14 | [MutualTlsOauthConfiguration.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/6daaff82-2880-496d-9d80-57e8e31195e2) | Read all configurations used for mutual-TLS client authentication. |
+| 2024-12-14 | [MutualTlsOauthConfiguration.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/78bbf8cf-07d8-45ba-b0eb-1a7b48efbcf1) | Read and write all configurations used for mutual-TLS client authentication. |
 | 2024-11-23 | [FileIngestion.Ingest](https://graph.microsoft.com/v1.0/directoryRoleTemplates/65891b00-2fd9-4e33-be27-04a53132e3df) | Ingest SharePoint and OneDrive content to make it available in the search index |
 | 2024-11-23 | [FileIngestionHybridOnboarding.Manage](https://graph.microsoft.com/v1.0/directoryRoleTemplates/766c601b-c009-4438-8290-c8b05fa00c4b) | Manage onboarding for a Hybrid Cloud tenant |
 | 2024-11-23 | [RoleManagement.Read.Defender](https://graph.microsoft.com/v1.0/directoryRoleTemplates/4d6e30d1-e64e-4ae7-bf9d-c706cc928cef) | Read M365 Defender RBAC configuration |
