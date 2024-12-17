@@ -10,6 +10,17 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description | 
 |---|---|---|
+| 2024-12-17 | [RiskPreventionProviders.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/2a6baefd-edea-4ff6-b24e-bebcaa27a50d) | Read all identity risk prevention providers |
+| 2024-12-17 | [RiskPreventionProviders.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/7fc7225d-eb37-4c39-90f3-a33a57cf1081) | Read and write all identity risk prevention providers |
+| 2024-12-17 | [TeamsAppInstallation.ManageSelectedForChat.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/22b74aab-d9e4-46f7-9424-f24b42307227) | Manage installation and permission grants of selected Teams apps in all chats |
+| 2024-12-17 | [TeamsAppInstallation.ManageSelectedForTeam.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/b448d252-1f26-4227-b6ff-21ab510975a2) | Manage installation and permission grants of selected Teams apps in all teams |
+| 2024-12-17 | [TeamsAppInstallation.ManageSelectedForUser.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/e97a9235-5b3c-43c4-b37d-6786a173fae4) | Manage installation and permission grants of selected Teams apps for all user accounts |
+| 2024-12-17 | [TeamsAppInstallation.ReadSelectedForChat.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/53d40ddb-9b27-4c97-b800-985be6041990) | Read selected installed Teams apps in all chats |
+| 2024-12-17 | [TeamsAppInstallation.ReadSelectedForTeam.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/93c6a289-70fd-489e-a053-6cf8f7d772f6) | Read selected installed Teams apps in all teams |
+| 2024-12-17 | [TeamsAppInstallation.ReadSelectedForUser.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/44fb0e7c-1f9a-47f1-bb9e-7f92d48ed288) | Read selected installed Teams apps for all users |
+| 2024-12-17 | [TeamsAppInstallation.ReadWriteSelectedForChat.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/25bbeaad-04be-4207-83ed-a263aae76ddf) | Manage selected installed Teams apps in all chats |
+| 2024-12-17 | [TeamsAppInstallation.ReadWriteSelectedForTeam.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/7b5823ae-d0f2-424d-b90c-d843ffada7d9) | Manage selected installed Teams apps in all teams |
+| 2024-12-17 | [TeamsAppInstallation.ReadWriteSelectedForUser.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/650a76ec-4118-4b25-9d3a-1f98048a5ee0) | Manage selected Teams apps installed for all users |
 | 2024-12-14 | [DeviceTemplate.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/dd9febb5-0c6d-419f-b256-3afe12c6adeb) | Read all device templates |
 | 2024-12-14 | [DeviceTemplate.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/9fadb66e-6421-4744-aede-4ab6fb98a884) | Read and write all device templates |
 | 2024-12-14 | [MutualTlsOauthConfiguration.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/6daaff82-2880-496d-9d80-57e8e31195e2) | Read all configurations used for mutual-TLS client authentication. |
