@@ -10,6 +10,7 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description | 
 |---|---|---|
+| 2024-12-21 | [TeamsPolicyUserAssign.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/1801e8f4-cf09-4c4e-a1b5-036dfcca6c90) | Read and Write Teams policy user assignment and unassigment for all policy types. |
 | 2024-12-17 | [RiskPreventionProviders.Read.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/2a6baefd-edea-4ff6-b24e-bebcaa27a50d) | Read all identity risk prevention providers |
 | 2024-12-17 | [RiskPreventionProviders.ReadWrite.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/7fc7225d-eb37-4c39-90f3-a33a57cf1081) | Read and write all identity risk prevention providers |
 | 2024-12-17 | [TeamsAppInstallation.ManageSelectedForChat.All](https://graph.microsoft.com/v1.0/directoryRoleTemplates/22b74aab-d9e4-46f7-9424-f24b42307227) | Manage installation and permission grants of selected Teams apps in all chats |
