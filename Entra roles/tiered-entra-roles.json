@@ -241,6 +241,12 @@
     },
     {
         "tier": "1",
+        "id": "d2562ede-74db-457e-a7b6-544e236ebb61",
+        "assetName": "AI Administrator",
+        "providesFullAccessTo": "Microsoft 365 Copilot and AI-related enterprise services in Microsoft 365."
+    },
+    {
+        "tier": "1",
         "id": "c430b396-e693-46cc-96f3-db01bf8bb62a",
         "assetName": "Attack Simulation Administrator",
         "providesFullAccessTo": "Attack simulations in Defender for Office."
@@ -256,6 +262,12 @@
         "id": "0526716b-113d-4c15-b2c8-68e3c22b9f80",
         "assetName": "Authentication Policy Administrator",
         "providesFullAccessTo": "Tenant-wide authentication method policies, MFA settings, per-user MFA , password protection policy."
+    },
+    {
+        "tier": "1",
+        "id": "9f06204d-73c1-4d4c-880a-6edb90606fd8",
+        "assetName": "Azure AD Joined Device Local Administrator",
+        "providesFullAccessTo": "Entra-joined Windows 10 devices ."
     },
     {
         "tier": "1",
@@ -367,9 +379,9 @@
     },
     {
         "tier": "1",
-        "id": "9f06204d-73c1-4d4c-880a-6edb90606fd8",
-        "assetName": "Azure AD Joined Device Local Administrator",
-        "providesFullAccessTo": "Entra-joined Windows 10 devices ."
+        "id": "1707125e-0aa2-4d4d-8655-a7c786c76a25",
+        "assetName": "Microsoft 365 Backup Administrator",
+        "providesFullAccessTo": "Microsoft 365 Backup."
     },
     {
         "tier": "1",
@@ -483,6 +495,16 @@
         "tier": "2",
         "id": "9c99539d-8186-4804-835f-fd51ef9e2dcd",
         "assetName": "Attribute Log Reader"
+    },
+    {
+        "tier": "2",
+        "id": "422218e4-db15-4ef9-bbe0-8afb41546d79",
+        "assetName": "Attribute Provisioning Reader"
+    },
+    {
+        "tier": "2",
+        "id": "ecb2c6bf-0ab6-418e-bd87-7986f8d63bbe",
+        "assetName": "Attribute Provisioning Administrator"
     },
     {
         "tier": "2",
