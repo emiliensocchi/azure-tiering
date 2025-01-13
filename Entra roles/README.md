@@ -58,7 +58,7 @@ Tiering of Microsoft Entra roles **based on known attack paths**.
 
 | Entra role | Provides <u>full</u> access to |
 |---|---|
-| [AI Administrator](https://graph.microsoft.com/v1.0/directoryRoleTemplates/d2562ede-74db-457e-a7b6-544e236ebb61) | Microsoft 365 Copilot and AI-related enterprise services in Microsoft 365. |
+| [AI Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#ai-administrator) | Microsoft 365 Copilot and AI-related enterprise services in Microsoft 365. |
 | [Attack Simulation Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#attack-simulation-administrator) | Attack simulations in Defender for Office. |
 | [Attribute Assignment Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#attribute-assignment-administrator) | Assignments of custom security attributes on users, service principals and devices. <br> Note: can be abused to bypass Conditional Access Policies when policies are set based on security attributes. |
 | [Authentication Policy Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator) | Tenant-wide authentication method policies, MFA settings, per-user MFA (if not using Conditional Access Policies), password protection policy. |
@@ -110,8 +110,8 @@ Tiering of Microsoft Entra roles **based on known attack paths**.
 | [Attribute Definition Reader](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#attribute-definition-reader) |
 | [Attribute Log Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#attribute-log-administrator) |
 | [Attribute Log Reader](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#attribute-log-reader) |
-| [Attribute Provisioning Reader](https://graph.microsoft.com/v1.0/directoryRoleTemplates/422218e4-db15-4ef9-bbe0-8afb41546d79) |
-| [Attribute Provisioning Administrator](https://graph.microsoft.com/v1.0/directoryRoleTemplates/ecb2c6bf-0ab6-418e-bd87-7986f8d63bbe) |
+| [Attribute Provisioning Reader](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#attribute-provisioning-reader) |
+| [Attribute Provisioning Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#attribute-provisioning-administrator) |
 | [Authentication Extensibility Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#authentication-extensibility-administrator) |
 | [Customer LockBox Access Approver](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#customer-lockbox-access-approver) |
 | [Directory Readers](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#directory-readers) |
