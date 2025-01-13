@@ -213,6 +213,7 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`TeamsAppInstallation.ReadWriteSelfForChat.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadwriteselfforchatall) |
 | [`TeamsAppInstallation.ReadWriteSelfForTeam.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadwriteselfforteamall) |
 | [`TeamsAppInstallation.ReadWriteSelfForUser.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadwriteselfforuserall) |
+| [`TeamsPolicyUserAssign.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamspolicyuserassignreadwriteall) |
 | [`TeamsTab.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstabreadwriteall) |
 | [`TeamsTab.ReadWriteForChat.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstabreadwriteforchatall) |
 | [`TeamsTab.ReadWriteForTeam.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstabreadwriteforteamall) |
@@ -230,6 +231,7 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`TrustFrameworkKeySet.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#trustframeworkkeysetreadwriteall) |
 | [`User-ConvertToInternal.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#user-converttointernalreadwriteall) |
 | [`User-LifeCycleInfo.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#user-lifecycleinforeadwriteall) |
+| [`User-Phone.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#user-phonereadwriteall) |
 | [`UserNotification.ReadWrite.CreatedByApp`](https://learn.microsoft.com/en-us/graph/permissions-reference#usernotificationreadwritecreatedbyapp) |
 | [`UserShiftPreferences.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#usershiftpreferencesreadwriteall) |
 | [`VirtualAppointment.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#virtualappointmentreadwriteall) |
