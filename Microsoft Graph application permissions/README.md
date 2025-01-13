@@ -98,7 +98,6 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`DeviceManagementManagedDevices.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#devicemanagementmanageddevicesreadwriteall) |
 | [`DeviceManagementRBAC.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#devicemanagementrbacreadwriteall) |
 | [`DeviceManagementServiceConfig.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#devicemanagementserviceconfigreadwriteall) |
-| [`Directory.Write.Restricted`](https://learn.microsoft.com/en-us/graph/permissions-reference#directorywriterestricted) |
 | [`DirectoryRecommendations.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#directoryrecommendationsreadwriteall) |
 | [`EduAdministration.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#eduadministrationreadwriteall) |
 | [`EduAssignments.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#eduassignmentsreadwriteall) |
@@ -231,6 +230,7 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`TrustFrameworkKeySet.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#trustframeworkkeysetreadwriteall) |
 | [`User-ConvertToInternal.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#user-converttointernalreadwriteall) |
 | [`User-LifeCycleInfo.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#user-lifecycleinforeadwriteall) |
+| [`User-Mail.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#user-mailreadwriteall) |
 | [`User-Phone.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#user-phonereadwriteall) |
 | [`UserNotification.ReadWrite.CreatedByApp`](https://learn.microsoft.com/en-us/graph/permissions-reference#usernotificationreadwritecreatedbyapp) |
 | [`UserShiftPreferences.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#usershiftpreferencesreadwriteall) |
