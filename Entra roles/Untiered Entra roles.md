@@ -8,6 +8,9 @@ The following changes have been detected through automation, **since the last up
 
 ### ➕ Additions
 
+| Detected on | Entra role | Description |
+|---|---|---|
+
 ### ❌ Removals
 
 | Detected on | Entra role | Description |
