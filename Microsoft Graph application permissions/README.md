@@ -9,7 +9,7 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | Tag | Tier | Name | Definition | 
 |---|---|---|---|
 | 🔴 | 0 | [Family of Global Admins](#tier-0) | Permissions with a risk of having a direct or indirect path to Global Admin and full tenant takeover. |
-| 🟠 | 1 | [Family of restricted Graph permissions](#tier-1) | Permissions with write access to MS Graph scopes, but <u>without</u> a known path to Global Admin. |
+| 🟠 | 1 | [Family of restricted Graph permissions](#tier-1) | Permissions with write access to MS Graph scopes or read access to sensitive scopes (e.g. email content), but <u>without</u> a known path to Global Admin. |
 | 🟢 | 2 | [Family of unprivileged Graph permission](#tier-2) | Permissions with read access to MS Graph scopes and little to no security implications. |
 
 
@@ -46,6 +46,7 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`RoleManagementPolicy.ReadWrite.Directory`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementpolicyreadwritedirectory) <a id='rolemanagementpolicy-readwrite-directory'></a> | Indirect | Can remove Entra role assignment and activation constrains, such as MFA requirements or admin approval, to help leveraging [`RoleAssignmentSchedule.ReadWrite.Directory`](#roleassignmentschedule-readwrite-directory) or [`RoleEligibilitySchedule.ReadWrite.Directory`](#roleeligibilityschedule-readwrite-directory), and follow the same path as those permissions in a tenant with strict PIM settings. | TA has compromised user credentials for an account that is eligible to the Global Admin role. TA updates the role's management policy to remove all activation requirements. TA activates the role and escalates to Global Admin. |
 | [`Synchronization.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#synchronizationreadwriteall) | n/a | ⚠️ *Untested! Needs more research.* <br> Note: does not seem to be able to create new SP credentials. | n/a |
 | [`User.DeleteRestore.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#userdeleterestoreall) | Direct | Can delete all user accounts in the tenant (making the latter unavailable), and ask for a ransomware to restore one of the break-glass accounts. <br>Note: this permission is "Global-Admin-like", as it affects the availability of the tenant in the same way as a Global Admin. | TA deletes all users in the tenant, including break-glass accounts, and ask for a ransom to restore one emergency account. <br>Note: TA has the ability to delete user accounts <u>permanently.</u> |
+| [`User.EnableDisableAccount.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#userenabledisableaccountall) | Direct | When combined with [`User.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#userreadall), can disable all user accounts in the tenant (making the latter unavailable), and ask for a ransomware to re-enable one of the break-glass accounts. <br>Note: this permission is "Global-Admin-like", as it affects the availability of the tenant in the same way as a Global Admin. | TA disables all users in the tenant, including break-glass accounts, and ask for a ransom to re-enable one emergency account. |
 | [`User.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#userreadwriteall) | Indirect | Can edit sensitive properties of a controlled user account, such as "Employee ID" and "Department", to become member of a dynamic group with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin. | TA identifies a dynamic group with a membership rule based on a user property (e.g. department) and with assigned Contributor access to a subscription. TA updates the appropriate property of a controlled user account accordingly, to become part of the dynamic group. With the new Azure permissions, TA identifies a compute resource with an assigned MI granted [`Application.ReadWrite.All`](#application-readwrite-all) or similar, and the same path as that permission can be followed to escalate to Global Admin. <br>Note: many other paths of this kind are possible. |
 | [`User-PasswordProfile.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#user-passwordprofilereadwriteall) | Indirect | Same as [`Directory.ReadWrite.All`](#directory-readwrite-all). | Same as [`Directory.ReadWrite.All`](#directory-readwrite-all). |
 | [`UserAuthenticationMethod.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#userauthenticationmethodreadwriteall) <a id='userauthenticationmethod-readwrite-all'></a> | Direct | Can generate a [Temporary Access Pass (TAP)](https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-temporary-access-pass) and take over any user account in the tenant. <br> Note: if TAP is not an enabled authentication method in the tenant, this path needs to be combined with [`Policy.ReadWrite.AuthenticationMethod`](#policy-readwrite-authenticationmethod) to be successful. | TA creates a TAP for a [break-glass account](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access), authenticates with the TAP instead of the account's password and escalates to Global Admin. | 
@@ -54,7 +55,7 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 <a id='tier-1'></a>
 ## 🟠 Tier 1: Family of restricted Graph permissions
 
-**Description**: permissions with write access to MS Graph scopes, but <u>without</u> a known path to Global Admin.
+**Description**: permissions with write access to MS Graph scopes or read access to sensitive scopes (e.g. email content), but <u>without</u> a known path to Global Admin.
 
 | Application permission |
 |---|
@@ -65,6 +66,14 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`AppCatalog.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#appcatalogreadwriteall) |
 | [`Application-RemoteDesktopConfig.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#application-remotedesktopconfigreadwriteall) |
 | [`AttackSimulation.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#attacksimulationreadwriteall) |
+| [`AuditLog.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#auditlogreadall) |
+| [`AuditLogsQuery-CRM.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#auditlogsquery-crmreadall) |
+| [`AuditLogsQuery-Endpoint.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#auditlogsquery-endpointreadall) |
+| [`AuditLogsQuery-Entra.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#auditlogsquery-entrareadall) |
+| [`AuditLogsQuery-Exchange.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#auditlogsquery-exchangereadall) |
+| [`AuditLogsQuery-OneDrive.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#auditlogsquery-onedrivereadall) |
+| [`AuditLogsQuery-SharePoint.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#auditlogsquery-sharepointreadall) |
+| [`AuditLogsQuery.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#auditlogsqueryreadall) |
 | [`AuthenticationContext.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#authenticationcontextreadwriteall) |
 | [`BackupRestore-Configuration.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#backuprestore-configurationreadwriteall) |
 | [`BackupRestore-Control.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#backuprestore-controlreadwriteall) |
@@ -75,8 +84,17 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`BusinessScenarioConfig.ReadWrite.OwnedBy`](https://learn.microsoft.com/en-us/graph/permissions-reference#businessscenarioconfigreadwriteownedby) |
 | [`BusinessScenarioData.ReadWrite.OwnedBy`](https://learn.microsoft.com/en-us/graph/permissions-reference#businessscenariodatareadwriteownedby) |
 | [`Calendars.ReadWrite`](https://learn.microsoft.com/en-us/graph/permissions-reference#calendarsreadwrite) |
+| [`Calls.JoinGroupCall.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#callsjoingroupcallall) |
+| [`Calls.JoinGroupCallAsGuest.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#callsjoingroupcallasguestall) |
+| [`CallRecord-PstnCalls.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#callrecord-pstncallsreadall) |
+| [`CallRecords.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#callrecordsreadall) |
+| [`Channel.Delete.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#channeldeleteall) |
 | [`ChannelMember.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#channelmemberreadwriteall) |
+| [`ChannelMessage.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#channelmessagereadall) |
 | [`ChannelSettings.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#channelsettingsreadwriteall) |
+| [`Chat.ManageDeletion.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#chatmanagedeletionall) |
+| [`Chat.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#chatreadall) |
+| [`Chat.Read.WhereInstalled`](https://learn.microsoft.com/en-us/graph/permissions-reference#chatreadwhereinstalled) |
 | [`Chat.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#chatreadwriteall) |
 | [`Chat.ReadWrite.WhereInstalled`](https://learn.microsoft.com/en-us/graph/permissions-reference#chatreadwritewhereinstalled) |
 | [`ChatMember.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#chatmemberreadwriteall) |
@@ -87,12 +105,14 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`Contacts.ReadWrite`](https://learn.microsoft.com/en-us/graph/permissions-reference#contactsreadwrite) |
 | [`CrossTenantUserProfileSharing.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#crosstenantuserprofilesharingreadwriteall) |
 | [`CustomAuthenticationExtension.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#customauthenticationextensionreadwriteall) |
+| [`CustomDetection.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#customdetectionreadall) |
 | [`CustomDetection.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#customdetectionreadwriteall) |
 | [`CustomSecAttributeAssignment.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#customsecattributeassignmentreadwriteall) |
 | [`CustomSecAttributeDefinition.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#customsecattributedefinitionreadwriteall) |
 | [`CustomTags.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#customtagsreadwriteall) |
 | [`DelegatedPermissionGrant.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#delegatedpermissiongrantreadwriteall) |
 | [`Device.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#devicereadwriteall) |
+| [`DeviceLocalCredential.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#devicelocalcredentialreadall) |
 | [`DeviceManagementApps.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#devicemanagementappsreadwriteall) |
 | [`DeviceManagementConfiguration.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#devicemanagementconfigurationreadwriteall) |
 | [`DeviceManagementManagedDevices.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#devicemanagementmanageddevicesreadwriteall) |
@@ -110,9 +130,12 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`ExternalItem.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#externalitemreadwriteall) |
 | [`ExternalItem.ReadWrite.OwnedBy`](https://learn.microsoft.com/en-us/graph/permissions-reference#externalitemreadwriteownedby) |
 | [`ExternalUserProfile.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#externaluserprofilereadwriteall) |
+| [`Files.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#filesreadall) |
 | [`Files.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#filesreadwriteall) |
 | [`Files.ReadWrite.AppFolder`](https://learn.microsoft.com/en-us/graph/permissions-reference#filesreadwriteappfolder) |
+| [`Group-Conversation.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#group-conversationreadall) |
 | [`Group-Conversation.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#group-conversationreadwriteall) |
+| [`Group.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#groupreadall) |
 | [`HealthMonitoringAlert.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#healthmonitoringalertreadwriteall) |
 | [`HealthMonitoringAlertConfig.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#healthmonitoringalertconfigreadwriteall) |
 | [`IdentityProvider.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#identityproviderreadwriteall) |
@@ -121,26 +144,36 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`IdentityRiskyUser.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#identityriskyuserreadwriteall) |
 | [`IdentityUserFlow.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#identityuserflowreadwriteall) |
 | [`IndustryData-DataConnector.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#industrydata-dataconnectorreadwriteall) |
+| [`IndustryData-DataConnector.Upload`](https://learn.microsoft.com/en-us/graph/permissions-reference#industrydata-dataconnectorupload) |
 | [`IndustryData-InboundFlow.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#industrydata-inboundflowreadwriteall) |
 | [`IndustryData-OutboundFlow.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#industrydata-outboundflowreadwriteall) |
 | [`IndustryData-ReferenceDefinition.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#industrydata-referencedefinitionreadwriteall) |
 | [`IndustryData-SourceSystem.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#industrydata-sourcesystemreadwriteall) |
 | [`IndustryData-TimePeriod.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#industrydata-timeperiodreadwriteall) |
+| [`InformationProtectionContent.Sign.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#informationprotectioncontentsignall) |
 | [`InformationProtectionContent.Write.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#informationprotectioncontentwriteall) |
 | [`LearningAssignedCourse.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#learningassignedcoursereadwriteall) |
 | [`LearningContent.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#learningcontentreadwriteall) |
 | [`LearningSelfInitiatedCourse.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#learningselfinitiatedcoursereadwriteall) |
 | [`LicenseAssignment.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#licenseassignmentreadwriteall) |
 | [`LifecycleWorkflows.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#lifecycleworkflowsreadwriteall) |
+| [`Mail.Read`](https://learn.microsoft.com/en-us/graph/permissions-reference#mailread) |
+| [`Mail.ReadBasic`](https://learn.microsoft.com/en-us/graph/permissions-reference#mailreadbasic) |
+| [`Mail.ReadBasic.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#mailreadbasicall) |
 | [`Mail.ReadWrite`](https://learn.microsoft.com/en-us/graph/permissions-reference#mailreadwrite) |
+| [`Mail.Send`](https://learn.microsoft.com/en-us/graph/permissions-reference#mailsend) |
 | [`MailboxSettings.ReadWrite`](https://learn.microsoft.com/en-us/graph/permissions-reference#mailboxsettingsreadwrite) |
 | [`MultiTenantOrganization.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#multitenantorganizationreadwriteall) |
 | [`NetworkAccess.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#networkaccessreadwriteall) |
 | [`NetworkAccessBranch.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#networkaccessbranchreadwriteall) |
 | [`NetworkAccessPolicy.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#networkaccesspolicyreadwriteall) |
+| [`Notes.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#notesreadall) |
 | [`Notes.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#notesreadwriteall) |
 | [`OnPremisesPublishingProfiles.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#onpremisespublishingprofilesreadwriteall) |
+| [`OnlineMeetingRecording.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingrecordingreadall) |
+| [`OnlineMeetings.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingsreadall) |
 | [`OnlineMeetings.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingsreadwriteall) |
+| [`OnlineMeetingTranscript.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingtranscriptreadall) |
 | [`OrgSettings-AppsAndServices.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#orgsettings-appsandservicesreadwriteall) |
 | [`OrgSettings-DynamicsVoice.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#orgsettings-dynamicsvoicereadwriteall) |
 | [`OrgSettings-Forms.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#orgsettings-formsreadwriteall) |
@@ -153,6 +186,8 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`PeopleSettings.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#peoplesettingsreadwriteall) |
 | [`PlaceDevice.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#placedevicereadwriteall) |
 | [`PlaceDeviceTelemetry.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#placedevicetelemetryreadwriteall) |
+| [`Policy.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadall) |
+| [`Policy.Read.ConditionalAccess`](https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadconditionalaccess) |
 | [`Policy.ReadWrite.AccessReview`](https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadwriteaccessreview) |
 | [`Policy.ReadWrite.ApplicationConfiguration`](https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadwriteapplicationconfiguration) |
 | [`Policy.ReadWrite.AuthenticationFlows`](https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadwriteauthenticationflows) |
@@ -167,39 +202,62 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`Policy.ReadWrite.SecurityDefaults`](https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadwritesecuritydefaults) |
 | [`Policy.ReadWrite.TrustFramework`](https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadwritetrustframework) |
 | [`Presence.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#presencereadwriteall) |
+| [`PrintJob.Manage.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#printjobmanageall) |
+| [`PrintJob.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#printjobreadall) |
 | [`PrintJob.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#printjobreadwriteall) |
 | [`PrintJob.ReadWriteBasic.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#printjobreadwritebasicall) |
 | [`PrintTaskDefinition.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#printtaskdefinitionreadwriteall) |
 | [`Printer.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#printerreadwriteall) |
+| [`PrivilegedAccess.Read.AzureAD`](https://learn.microsoft.com/en-us/graph/permissions-reference#privilegedaccessreadazuread) |
+| [`PrivilegedAccess.Read.AzureADGroup`](https://learn.microsoft.com/en-us/graph/permissions-reference#privilegedaccessreadazureadgroup) |
+| [`PrivilegedAccess.Read.AzureResources`](https://learn.microsoft.com/en-us/graph/permissions-reference#privilegedaccessreadazureresources) |
+| [`PrivilegedAssignmentSchedule.Read.AzureADGroup`](https://learn.microsoft.com/en-us/graph/permissions-reference#privilegedassignmentschedulereadazureadgroup) |
+| [`PrivilegedEligibilitySchedule.Read.AzureADGroup`](https://learn.microsoft.com/en-us/graph/permissions-reference#privilegedeligibilityschedulereadazureadgroup) |
 | [`ProfilePhoto.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#profilephotoreadwriteall) |
 | [`ProgramControl.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#programcontrolreadwriteall) |
 | [`PublicKeyInfrastructure.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#publickeyinfrastructurereadwriteall) |
 | [`RecordsManagement.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#recordsmanagementreadwriteall) |
 | [`ReportSettings.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#reportsettingsreadwriteall) |
+| [`RoleManagement.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementreadall) |
+| [`RoleManagement.Read.CloudPC`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementreadcloudpc) |
+| [`RoleManagement.Read.Directory`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementreaddirectory) |
+| [`RoleManagement.Read.Exchange`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementreadexchange) |
 | [`RoleManagement.ReadWrite.CloudPC`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementreadwritecloudpc) |
 | [`RoleManagement.ReadWrite.Exchange`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementreadwriteexchange) |
 | [`RoleManagementAlert.ReadWrite.Directory`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementalertreadwritedirectory) |
+| [`RoleManagementPolicy.Read.AzureADGroup`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementpolicyreadazureadgroup) |
+| [`RoleManagementPolicy.Read.Directory`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementpolicyreaddirectory) |
 | [`Schedule-WorkingTime.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#schedule-workingtimereadwriteall) |
 | [`Schedule.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#schedulereadwriteall) |
 | [`SchedulePermissions.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#schedulepermissionsreadwriteall) |
 | [`SearchConfiguration.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#searchconfigurationreadwriteall) |
 | [`SecurityActions.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityactionsreadwriteall) |
+| [`SecurityAlert.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityalertreadall) |
 | [`SecurityAlert.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityalertreadwriteall) |
 | [`SecurityAnalyzedMessage.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityanalyzedmessagereadwriteall) |
+| [`SecurityEvents.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityeventsreadall) |
 | [`SecurityEvents.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityeventsreadwriteall) |
 | [`SecurityIdentitiesHealth.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityidentitieshealthreadwriteall) |
 | [`SecurityIdentitiesSensors.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityidentitiessensorsreadwriteall) |
+| [`SecurityIncident.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityincidentreadall) |
 | [`SecurityIncident.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityincidentreadwriteall) |
 | [`ServicePrincipalEndpoint.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#serviceprincipalendpointreadwriteall) |
 | [`SharePointTenantSettings.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#sharepointtenantsettingsreadwriteall) |
+| [`ShortNotes.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#shortnotesreadall) |
 | [`ShortNotes.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#shortnotesreadwriteall) |
+| [`Sites.FullControl.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#sitesfullcontrolall) |
+| [`Sites.Manage.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#sitesmanageall) |
+| [`Sites.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#sitesreadall) |
 | [`Sites.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#sitesreadwriteall) |
+| [`Sites.Selected`](https://learn.microsoft.com/en-us/graph/permissions-reference#sitesselected) |
 | [`SpiffeTrustDomain.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#spiffetrustdomainreadwriteall) |
 | [`SubjectRightsRequest.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#subjectrightsrequestreadwriteall) |
+| [`SynchronizationData-User.Upload`](https://learn.microsoft.com/en-us/graph/permissions-reference#synchronizationdata-userupload) |
 | [`Tasks.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#tasksreadwriteall) |
+| [`Team.Create`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamcreate) |
 | [`TeamMember.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teammemberreadwriteall) |
 | [`TeamMember.ReadWriteNonOwnerRole.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teammemberreadwritenonownerroleall) |
-| [`TeamSettings.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsettingsreadwriteall) |
+| [`TeamsActivity.Send`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsactivitysend) |
 | [`TeamsAppInstallation.ReadWriteAndConsentForChat.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadwriteandconsentforchatall) |
 | [`TeamsAppInstallation.ReadWriteAndConsentForTeam.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadwriteandconsentforteamall) |
 | [`TeamsAppInstallation.ReadWriteAndConsentForUser.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadwriteandconsentforuserall) |
@@ -212,7 +270,10 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`TeamsAppInstallation.ReadWriteSelfForChat.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadwriteselfforchatall) |
 | [`TeamsAppInstallation.ReadWriteSelfForTeam.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadwriteselfforteamall) |
 | [`TeamsAppInstallation.ReadWriteSelfForUser.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadwriteselfforuserall) |
+| [`TeamSettings.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsettingsreadwriteall) |
 | [`TeamsPolicyUserAssign.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamspolicyuserassignreadwriteall) |
+| [`TeamsTab.Create`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstabcreate) |
+| [`TeamsTab.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstabreadall) |
 | [`TeamsTab.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstabreadwriteall) |
 | [`TeamsTab.ReadWriteForChat.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstabreadwriteforchatall) |
 | [`TeamsTab.ReadWriteForTeam.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstabreadwriteforteamall) |
@@ -220,11 +281,17 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`TeamsTab.ReadWriteSelfForChat.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstabreadwriteselfforchatall) |
 | [`TeamsTab.ReadWriteSelfForTeam.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstabreadwriteselfforteamall) |
 | [`TeamsTab.ReadWriteSelfForUser.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstabreadwriteselfforuserall) |
+| [`Teamwork.Migrate.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkmigrateall) |
 | [`TeamworkAppSettings.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkappsettingsreadwriteall) |
 | [`TeamworkDevice.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkdevicereadwriteall) |
 | [`TeamworkTag.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworktagreadwriteall) |
 | [`TermStore.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#termstorereadwriteall) |
+| [`ThreatAssessment.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#threatassessmentreadall) |
+| [`ThreatHunting.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#threathuntingreadall) |
+| [`ThreatIndicators.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#threatindicatorsreadall) |
 | [`ThreatIndicators.ReadWrite.OwnedBy`](https://learn.microsoft.com/en-us/graph/permissions-reference#threatindicatorsreadwriteownedby) |
+| [`ThreatIntelligence.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#threatintelligencereadall) |
+| [`ThreatSubmission.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#threatsubmissionreadall) |
 | [`ThreatSubmission.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#threatsubmissionreadwriteall) |
 | [`ThreatSubmissionPolicy.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#threatsubmissionpolicyreadwriteall) |
 | [`TrustFrameworkKeySet.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#trustframeworkkeysetreadwriteall) |
@@ -232,9 +299,14 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`User-LifeCycleInfo.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#user-lifecycleinforeadwriteall) |
 | [`User-Mail.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#user-mailreadwriteall) |
 | [`User-Phone.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#user-phonereadwriteall) |
+| [`User.Export.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#userexportall) |
+| [`User.ManageIdentities.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#usermanageidentitiesall) |
+| [`User.RevokeSessions.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#userrevokesessionsall) |
 | [`UserNotification.ReadWrite.CreatedByApp`](https://learn.microsoft.com/en-us/graph/permissions-reference#usernotificationreadwritecreatedbyapp) |
 | [`UserShiftPreferences.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#usershiftpreferencesreadwriteall) |
+| [`VirtualAppointment.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#virtualappointmentreadall) |
 | [`VirtualAppointment.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#virtualappointmentreadwriteall) |
+| [`VirtualEvent.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#virtualeventreadall) |
 | [`VirtualEventRegistration-Anon.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#virtualeventregistration-anonreadwriteall) |
 | [`WindowsUpdates.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#windowsupdatesreadwriteall) |
 | [`WorkforceIntegration.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#workforceintegrationreadwriteall) |
@@ -257,14 +329,6 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`AppCatalog.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#appcatalogreadall) |
 | [`Application.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#applicationreadall) |
 | [`AttackSimulation.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#attacksimulationreadall) |
-| [`AuditLog.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#auditlogreadall) |
-| [`AuditLogsQuery-CRM.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#auditlogsquery-crmreadall) |
-| [`AuditLogsQuery-Endpoint.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#auditlogsquery-endpointreadall) |
-| [`AuditLogsQuery-Entra.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#auditlogsquery-entrareadall) |
-| [`AuditLogsQuery-Exchange.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#auditlogsquery-exchangereadall) |
-| [`AuditLogsQuery-OneDrive.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#auditlogsquery-onedrivereadall) |
-| [`AuditLogsQuery-SharePoint.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#auditlogsquery-sharepointreadall) |
-| [`AuditLogsQuery.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#auditlogsqueryreadall) |
 | [`AuthenticationContext.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#authenticationcontextreadall) |
 | [`BackupRestore-Configuration.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#backuprestore-configurationreadall) |
 | [`BackupRestore-Control.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#backuprestore-controlreadall) |
@@ -279,24 +343,15 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`Calendars.Read`](https://learn.microsoft.com/en-us/graph/permissions-reference#calendarsread) |
 | [`Calendars.ReadBasic.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#calendarsreadbasicall) |
 | [`CallEvents.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#calleventsreadall) |
-| [`CallRecord-PstnCalls.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#callrecord-pstncallsreadall) |
-| [`CallRecords.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#callrecordsreadall) |
 | [`Calls.AccessMedia.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#callsaccessmediaall) |
 | [`Calls.Initiate.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#callsinitiateall) |
 | [`Calls.InitiateGroupCall.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#callsinitiategroupcallall) |
-| [`Calls.JoinGroupCall.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#callsjoingroupcallall) |
-| [`Calls.JoinGroupCallAsGuest.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#callsjoingroupcallasguestall) |
 | [`Channel.Create`](https://learn.microsoft.com/en-us/graph/permissions-reference#channelcreate) |
-| [`Channel.Delete.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#channeldeleteall) |
 | [`Channel.ReadBasic.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#channelreadbasicall) |
 | [`ChannelMember.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#channelmemberreadall) |
-| [`ChannelMessage.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#channelmessagereadall) |
 | [`ChannelMessage.UpdatePolicyViolation.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#channelmessageupdatepolicyviolationall) |
 | [`ChannelSettings.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#channelsettingsreadall) |
 | [`Chat.Create`](https://learn.microsoft.com/en-us/graph/permissions-reference#chatcreate) |
-| [`Chat.ManageDeletion.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#chatmanagedeletionall) |
-| [`Chat.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#chatreadall) |
-| [`Chat.Read.WhereInstalled`](https://learn.microsoft.com/en-us/graph/permissions-reference#chatreadwhereinstalled) |
 | [`Chat.ReadBasic.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#chatreadbasicall) |
 | [`Chat.ReadBasic.WhereInstalled`](https://learn.microsoft.com/en-us/graph/permissions-reference#chatreadbasicwhereinstalled) |
 | [`Chat.UpdatePolicyViolation.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#chatupdatepolicyviolationall) |
@@ -312,7 +367,6 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`CrossTenantUserProfileSharing.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#crosstenantuserprofilesharingreadall) |
 | [`CustomAuthenticationExtension.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#customauthenticationextensionreadall) |
 | [`CustomAuthenticationExtension.Receive.Payload`](https://learn.microsoft.com/en-us/graph/permissions-reference#customauthenticationextensionreceivepayload) |
-| [`CustomDetection.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#customdetectionreadall) |
 | [`CustomSecAttributeAssignment.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#customsecattributeassignmentreadall) |
 | [`CustomSecAttributeAuditLogs.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#customsecattributeauditlogsreadall) |
 | [`CustomSecAttributeDefinition.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#customsecattributedefinitionreadall) |
@@ -320,7 +374,6 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`DelegatedAdminRelationship.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#delegatedadminrelationshipreadall) |
 | [`DelegatedPermissionGrant.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#delegatedpermissiongrantreadall) |
 | [`Device.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#devicereadall) |
-| [`DeviceLocalCredential.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#devicelocalcredentialreadall) |
 | [`DeviceLocalCredential.ReadBasic.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#devicelocalcredentialreadbasicall) |
 | [`DeviceManagementApps.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#devicemanagementappsreadall) |
 | [`DeviceManagementConfiguration.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#devicemanagementconfigurationreadall) |
@@ -347,11 +400,8 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`ExternalItem.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#externalitemreadall) |
 | [`ExternalUserProfile.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#externaluserprofilereadall) |
 | [`FileStorageContainer.Selected`](https://learn.microsoft.com/en-us/graph/permissions-reference#filestoragecontainerselected) |
-| [`Files.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#filesreadall) |
 | [`Files.SelectedOperations.Selected`](https://learn.microsoft.com/en-us/graph/permissions-reference#filesselectedoperationsselected) |
-| [`Group-Conversation.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#group-conversationreadall) |
 | [`Group.Create`](https://learn.microsoft.com/en-us/graph/permissions-reference#groupcreate) |
-| [`Group.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#groupreadall) |
 | [`GroupMember.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#groupmemberreadall) |
 | [`HealthMonitoringAlert.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#healthmonitoringalertreadall) |
 | [`HealthMonitoringAlertConfig.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#healthmonitoringalertconfigreadall) |
@@ -361,7 +411,6 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`IdentityRiskyUser.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#identityriskyuserreadall) |
 | [`IdentityUserFlow.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#identityuserflowreadall) |
 | [`IndustryData-DataConnector.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#industrydata-dataconnectorreadall) |
-| [`IndustryData-DataConnector.Upload`](https://learn.microsoft.com/en-us/graph/permissions-reference#industrydata-dataconnectorupload) |
 | [`IndustryData-InboundFlow.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#industrydata-inboundflowreadall) |
 | [`IndustryData-OutboundFlow.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#industrydata-outboundflowreadall) |
 | [`IndustryData-ReferenceDefinition.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#industrydata-referencedefinitionreadall) |
@@ -370,7 +419,6 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`IndustryData-TimePeriod.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#industrydata-timeperiodreadall) |
 | [`IndustryData.ReadBasic.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#industrydatareadbasicall) |
 | [`InformationProtectionConfig.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#informationprotectionconfigreadall) |
-| [`InformationProtectionContent.Sign.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#informationprotectioncontentsignall) |
 | [`InformationProtectionPolicy.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#informationprotectionpolicyreadall) |
 | [`Insights-UserMetric.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#insights-usermetricreadall) |
 | [`LearningAssignedCourse.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#learningassignedcoursereadall) |
@@ -379,10 +427,6 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`LifecycleWorkflows.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#lifecycleworkflowsreadall) |
 | [`ListItems.SelectedOperations.Selected`](https://learn.microsoft.com/en-us/graph/permissions-reference#listitemsselectedoperationsselected) |
 | [`Lists.SelectedOperations.Selected`](https://learn.microsoft.com/en-us/graph/permissions-reference#listsselectedoperationsselected) |
-| [`Mail.Read`](https://learn.microsoft.com/en-us/graph/permissions-reference#mailread) |
-| [`Mail.ReadBasic`](https://learn.microsoft.com/en-us/graph/permissions-reference#mailreadbasic) |
-| [`Mail.ReadBasic.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#mailreadbasicall) |
-| [`Mail.Send`](https://learn.microsoft.com/en-us/graph/permissions-reference#mailsend) |
 | [`MailboxSettings.Read`](https://learn.microsoft.com/en-us/graph/permissions-reference#mailboxsettingsread) |
 | [`Member.Read.Hidden`](https://learn.microsoft.com/en-us/graph/permissions-reference#memberreadhidden) |
 | [`MultiTenantOrganization.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#multitenantorganizationreadall) |
@@ -391,12 +435,8 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`NetworkAccess.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#networkaccessreadall) |
 | [`NetworkAccessBranch.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#networkaccessbranchreadall) |
 | [`NetworkAccessPolicy.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#networkaccesspolicyreadall) |
-| [`Notes.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#notesreadall) |
 | [`OnPremDirectorySynchronization.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#onpremdirectorysynchronizationreadall) |
 | [`OnlineMeetingArtifact.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingartifactreadall) |
-| [`OnlineMeetingRecording.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingrecordingreadall) |
-| [`OnlineMeetingTranscript.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingtranscriptreadall) |
-| [`OnlineMeetings.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingsreadall) |
 | [`OrgContact.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#orgcontactreadall) |
 | [`OrgSettings-AppsAndServices.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#orgsettings-appsandservicesreadall) |
 | [`OrgSettings-DynamicsVoice.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#orgsettings-dynamicsvoicereadall) |
@@ -412,21 +452,12 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`PeopleSettings.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#peoplesettingsreadall) |
 | [`Place.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#placereadall) |
 | [`PlaceDevice.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#placedevicereadall) |
-| [`Policy.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadall) |
-| [`Policy.Read.ConditionalAccess`](https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadconditionalaccess) |
 | [`Policy.Read.IdentityProtection`](https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadidentityprotection) |
 | [`Policy.Read.PermissionGrant`](https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadpermissiongrant) |
 | [`Presence.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#presencereadall) |
-| [`PrintJob.Manage.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#printjobmanageall) |
-| [`PrintJob.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#printjobreadall) |
 | [`PrintJob.ReadBasic.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#printjobreadbasicall) |
 | [`PrintSettings.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#printsettingsreadall) |
 | [`Printer.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#printerreadall) |
-| [`PrivilegedAccess.Read.AzureAD`](https://learn.microsoft.com/en-us/graph/permissions-reference#privilegedaccessreadazuread) |
-| [`PrivilegedAccess.Read.AzureADGroup`](https://learn.microsoft.com/en-us/graph/permissions-reference#privilegedaccessreadazureadgroup) |
-| [`PrivilegedAccess.Read.AzureResources`](https://learn.microsoft.com/en-us/graph/permissions-reference#privilegedaccessreadazureresources) |
-| [`PrivilegedAssignmentSchedule.Read.AzureADGroup`](https://learn.microsoft.com/en-us/graph/permissions-reference#privilegedassignmentschedulereadazureadgroup) |
-| [`PrivilegedEligibilitySchedule.Read.AzureADGroup`](https://learn.microsoft.com/en-us/graph/permissions-reference#privilegedeligibilityschedulereadazureadgroup) |
 | [`ProfilePhoto.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#profilephotoreadall) |
 | [`ProgramControl.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#programcontrolreadall) |
 | [`PublicKeyInfrastructure.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#publickeyinfrastructurereadall) |
@@ -434,25 +465,18 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`RecordsManagement.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#recordsmanagementreadall) |
 | [`ReportSettings.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#reportsettingsreadall) |
 | [`Reports.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#reportsreadall) |
+| [`ResourceSpecificPermissionGrant.ReadForChat.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#resourcespecificpermissiongrantreadforchatall) |
+| [`ResourceSpecificPermissionGrant.ReadForTeam.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#resourcespecificpermissiongrantreadforteamall) |
 | [`ResourceSpecificPermissionGrant.ReadForUser.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#resourcespecificpermissiongrantreadforuserall) |
 | [`RoleAssignmentSchedule.Read.Directory`](https://learn.microsoft.com/en-us/graph/permissions-reference#roleassignmentschedulereaddirectory) |
 | [`RoleEligibilitySchedule.Read.Directory`](https://learn.microsoft.com/en-us/graph/permissions-reference#roleeligibilityschedulereaddirectory) |
-| [`RoleManagement.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementreadall) |
-| [`RoleManagement.Read.CloudPC`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementreadcloudpc) |
-| [`RoleManagement.Read.Directory`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementreaddirectory) |
-| [`RoleManagement.Read.Exchange`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementreadexchange) |
 | [`RoleManagementAlert.Read.Directory`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementalertreaddirectory) |
-| [`RoleManagementPolicy.Read.AzureADGroup`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementpolicyreadazureadgroup) |
-| [`RoleManagementPolicy.Read.Directory`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementpolicyreaddirectory) |
 | [`Schedule.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#schedulereadall) |
 | [`SearchConfiguration.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#searchconfigurationreadall) |
 | [`SecurityActions.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityactionsreadall) |
-| [`SecurityAlert.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityalertreadall) |
 | [`SecurityAnalyzedMessage.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityanalyzedmessagereadall) |
-| [`SecurityEvents.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityeventsreadall) |
 | [`SecurityIdentitiesHealth.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityidentitieshealthreadall) |
 | [`SecurityIdentitiesSensors.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityidentitiessensorsreadall) |
-| [`SecurityIncident.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#securityincidentreadall) |
 | [`ServiceActivity-Exchange.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#serviceactivity-exchangereadall) |
 | [`ServiceActivity-Microsoft365Web.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#serviceactivity-microsoft365webreadall) |
 | [`ServiceActivity-OneDrive.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#serviceactivity-onedrivereadall) |
@@ -461,54 +485,32 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`ServiceMessage.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#servicemessagereadall) |
 | [`ServicePrincipalEndpoint.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#serviceprincipalendpointreadall) |
 | [`SharePointTenantSettings.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#sharepointtenantsettingsreadall) |
-| [`ShortNotes.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#shortnotesreadall) |
-| [`Sites.FullControl.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#sitesfullcontrolall) |
-| [`Sites.Manage.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#sitesmanageall) |
-| [`Sites.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#sitesreadall) |
-| [`Sites.Selected`](https://learn.microsoft.com/en-us/graph/permissions-reference#sitesselected) |
 | [`SpiffeTrustDomain.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#spiffetrustdomainreadall) |
 | [`SubjectRightsRequest.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#subjectrightsrequestreadall) |
 | [`Synchronization.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#synchronizationreadall) |
-| [`SynchronizationData-User.Upload`](https://learn.microsoft.com/en-us/graph/permissions-reference#synchronizationdata-userupload) |
 | [`Tasks.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#tasksreadall) |
-| [`Team.Create`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamcreate) |
 | [`Team.ReadBasic.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamreadbasicall) |
 | [`TeamMember.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teammemberreadall) |
 | [`TeamSettings.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsettingsreadall) |
 | [`TeamTemplates.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamtemplatesreadall) |
 | [`TeamsActivity.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsactivityreadall) |
-| [`TeamsActivity.Send`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsactivitysend) |
 | [`TeamsAppInstallation.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadall) |
 | [`TeamsAppInstallation.ReadForChat.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadforchatall) |
 | [`TeamsAppInstallation.ReadForTeam.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadforteamall) |
 | [`TeamsAppInstallation.ReadForUser.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadforuserall) |
-| [`TeamsTab.Create`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstabcreate) |
-| [`TeamsTab.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstabreadall) |
 | [`TeamsUserConfiguration.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsuserconfigurationreadall) |
-| [`Teamwork.Migrate.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkmigrateall) |
 | [`Teamwork.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkreadall) |
 | [`TeamworkAppSettings.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkappsettingsreadall) |
 | [`TeamworkDevice.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkdevicereadall) |
 | [`TeamworkTag.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworktagreadall) |
 | [`TermStore.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#termstorereadall) |
-| [`ThreatAssessment.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#threatassessmentreadall) |
-| [`ThreatHunting.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#threathuntingreadall) |
-| [`ThreatIndicators.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#threatindicatorsreadall) |
-| [`ThreatIntelligence.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#threatintelligencereadall) |
-| [`ThreatSubmission.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#threatsubmissionreadall) |
 | [`TrustFrameworkKeySet.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#trustframeworkkeysetreadall) |
 | [`User-LifeCycleInfo.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#user-lifecycleinforeadall) |
-| [`User.EnableDisableAccount.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#userenabledisableaccountall) |
-| [`User.Export.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#userexportall) |
 | [`User.Invite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#userinviteall) |
-| [`User.ManageIdentities.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#usermanageidentitiesall) |
 | [`User.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#userreadall) |
 | [`User.ReadBasic.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#userreadbasicall) |
-| [`User.RevokeSessions.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#userrevokesessionsall) |
 | [`UserAuthenticationMethod.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#userauthenticationmethodreadall) |
 | [`UserShiftPreferences.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#usershiftpreferencesreadall) |
 | [`UserTeamwork.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#userteamworkreadall) |
-| [`VirtualAppointment.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#virtualappointmentreadall) |
 | [`VirtualAppointmentNotification.Send`](https://learn.microsoft.com/en-us/graph/permissions-reference#virtualappointmentnotificationsend) |
-| [`VirtualEvent.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#virtualeventreadall) |
 | [`eDiscovery.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#ediscoveryreadall) |
