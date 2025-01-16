@@ -41,6 +41,22 @@
     },
     {
         "tier": "0",
+        "id": "9241abd9-d0e6-425a-bd4f-47ba86e767a4",
+        "assetName": "DeviceManagementConfiguration.ReadWrite.All",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can run arbitrary commands on the InTune-managed endpoint of a Global Administrator and steal their tokens to impersonate them.",
+        "example": "TA  identifies an InTune-managed endpoint belonging to a Global Administrator, runs commands remotey to extract PRT, refresh and/or access tokens issued for MS Graph from the endpoint, and uses those to escalate to Global Admin."
+    },
+    {
+        "tier": "0",
+        "id": "e330c4f0-4170-414e-a55a-2f022ec2b57b",
+        "assetName": "DeviceManagementRBAC.ReadWrite.All",
+        "pathType": "Indirect",
+        "knownShortestPath": "Can assign InTune roles to a controlled user account, which allows running arbitrary commands on the InTune-managed endpoint of a Global Administrator and steal their tokens to impersonate them.",
+        "example": "TA assigns the School Administrator can be followed to escalate to Global Admin."
+    },
+    {
+        "tier": "0",
         "id": "19dbc75e-c2e2-444c-a770-ec69d8559fc7",
         "assetName": "Directory.ReadWrite.All",
         "pathType": "Indirect",
@@ -543,18 +559,8 @@
     },
     {
         "tier": "1",
-        "id": "9241abd9-d0e6-425a-bd4f-47ba86e767a4",
-        "assetName": "DeviceManagementConfiguration.ReadWrite.All"
-    },
-    {
-        "tier": "1",
         "id": "243333ab-4d21-40cb-a475-36241daa0842",
         "assetName": "DeviceManagementManagedDevices.ReadWrite.All"
-    },
-    {
-        "tier": "1",
-        "id": "e330c4f0-4170-414e-a55a-2f022ec2b57b",
-        "assetName": "DeviceManagementRBAC.ReadWrite.All"
     },
     {
         "tier": "1",
