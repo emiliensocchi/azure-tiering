@@ -1189,6 +1189,12 @@
     },
     {
         "tier": "1",
+        "id": "8b7e8c0a-7e9d-4049-97ec-04b5e1bcaf05",
+        "assetName": "RoleManagement.ReadWrite.Defender",
+        "providesFullAccessTo": ""
+    },
+    {
+        "tier": "1",
         "id": "025d3225-3f02-4882-b4c0-cd5b541a4e80",
         "assetName": "RoleManagement.ReadWrite.Exchange"
     },
@@ -2455,6 +2461,11 @@
     },
     {
         "tier": "2",
+        "id": "4d6e30d1-e64e-4ae7-bf9d-c706cc928cef",
+        "assetName": "RoleManagement.Read.Defender"
+    },
+    {
+        "tier": "2",
         "id": "2a6baefd-edea-4ff6-b24e-bebcaa27a50d",
         "assetName": "RiskPreventionProviders.Read.All"
     },
@@ -2617,6 +2628,11 @@
         "tier": "2",
         "id": "a91eadaf-2c3c-4362-908b-fb172d208fc6",
         "assetName": "TeamsUserConfiguration.Read.All"
+    },
+    {
+        "tier": "2",
+        "id": "b55aa226-33a1-4396-bcf4-edce5e7a31c1",
+        "assetName": "TeamsResourceAccount.Read.All"
     },
     {
         "tier": "2",

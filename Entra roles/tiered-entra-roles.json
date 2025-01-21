@@ -33,14 +33,6 @@
     },
     {
         "tier": "0",
-        "id": "d29b2b05-8046-44ba-8758-1e26182fcf32",
-        "assetName": "Directory Synchronization Accounts",
-        "pathType": "Indirect",
-        "knownShortestPath": "Same as Application Administrator.  As of September 2023, cannot reset the password of cloud-only users via the synchronization API to take over break-glass accounts.",
-        "example": "Same as Application Administrator."
-    },
-    {
-        "tier": "0",
         "id": "9360feb5-f418-4baa-8175-e2a00bac4301",
         "assetName": "Directory Writers",
         "pathType": "Indirect",
@@ -322,6 +314,12 @@
         "id": "b1be1c3e-b65d-4f19-8427-f6fa0d97feb9",
         "assetName": "Conditional Access Administrator",
         "providesFullAccessTo": "Conditional Access Policies and related settings."
+    },
+    {
+        "tier": "1",
+        "id": "d29b2b05-8046-44ba-8758-1e26182fcf32",
+        "assetName": "Directory Synchronization Accounts",
+        "providesFullAccessTo": "On-premises directory synchronization. As of September 2024, cannot create new SP credentials for SP takeover.  As of September 2023, cannot reset the password of cloud-only users via the synchronization API to take over break-glass accounts."
     },
     {
         "tier": "1",
