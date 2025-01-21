@@ -249,6 +249,7 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`RoleManagement.Read.Directory`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementreaddirectory) |
 | [`RoleManagement.Read.Exchange`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementreadexchange) |
 | [`RoleManagement.ReadWrite.CloudPC`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementreadwritecloudpc) |
+| [`RoleManagement.ReadWrite.Defender`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementreadwritedefender) | 
 | [`RoleManagement.ReadWrite.Exchange`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementreadwriteexchange) |
 | [`RoleManagementAlert.Read.Directory`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementalertreaddirectory) |
 | [`RoleManagementAlert.ReadWrite.Directory`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementalertreadwritedirectory) |
@@ -511,6 +512,7 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`ResourceSpecificPermissionGrant.ReadForChat.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#resourcespecificpermissiongrantreadforchatall) |
 | [`ResourceSpecificPermissionGrant.ReadForTeam.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#resourcespecificpermissiongrantreadforteamall) |
 | [`ResourceSpecificPermissionGrant.ReadForUser.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#resourcespecificpermissiongrantreadforuserall) |
+| [`RoleManagement.Read.Defender`](https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementreaddefender) |
 | [`RiskPreventionProviders.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#riskpreventionprovidersreadall) |
 | [`Schedule.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#schedulereadall) |
 | [`SearchConfiguration.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#searchconfigurationreadall) |
@@ -544,6 +546,7 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`TeamsAppInstallation.ReadSelectedForTeam.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadselectedforteamall) |
 | [`TeamsAppInstallation.ReadSelectedForUser.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadselectedforuserall) |
 | [`TeamsUserConfiguration.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsuserconfigurationreadall) |
+| [`TeamsResourceAccount.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsresourceaccountreadall) |
 | [`Teamwork.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkreadall) |
 | [`TeamworkAppSettings.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkappsettingsreadall) |
 | [`TeamworkDevice.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkdevicereadall) |
