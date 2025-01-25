@@ -25,6 +25,14 @@
     },
     {
         "tier": "0",
+        "id": "b1be1c3e-b65d-4f19-8427-f6fa0d97feb9",
+        "assetName": "Conditional Access Administrator",
+        "pathType": "Direct",
+        "knownShortestPath": "Can create a CAP blocking all users , and ask for a ransomware to remove the malicious CAP. Note: this role is \"Global-Admin-like\", as it affects the availability of the tenant in the same way as a Global Admin.",
+        "example": "TA creates a CAP blocking all users  for all applications, apart from the compromised user account, and asks for a ransomware to remove the malicious CAP."
+    },
+    {
+        "tier": "0",
         "id": "158c047a-c907-4556-b7ef-446551a6b5f7",
         "assetName": "Cloud Application Administrator",
         "pathType": "Indirect",
@@ -308,12 +316,6 @@
         "id": "e6d1a23a-da11-4be4-9570-befc86d067a7",
         "assetName": "Compliance Data Administrator",
         "providesFullAccessTo": "Compliance-related features in the Microsoft Purview compliance portal, Microsoft 365 admin center, Azure and the Microsoft 365 Defender portal."
-    },
-    {
-        "tier": "1",
-        "id": "b1be1c3e-b65d-4f19-8427-f6fa0d97feb9",
-        "assetName": "Conditional Access Administrator",
-        "providesFullAccessTo": "Conditional Access Policies and related settings."
     },
     {
         "tier": "1",
