@@ -68,7 +68,7 @@
         "id": "7e05723c-0bb0-42da-be95-ae9f08a6e53c",
         "assetName": "Domain.ReadWrite.All",
         "pathType": "Indirect",
-        "knownShortestPath": "Untested! Needs more research.  Can most likely add a federated domain to Entra ID to authenticate as an existing Global Admin without password or MFA requirements.",
+        "knownShortestPath": "Can add a federated domain to Entra ID and authenticate as an existing Global Admin without password or MFA requirements.",
         "example": "TA adds a federated domain to Entra ID, by importing a certificate with the domain's public key. TA generates a SAML token for an existing Global Admin with an MFA claim and signs it with the private key. TA successfully authenticates as Global Admin, without MFA requirements."
     },
     {
@@ -97,11 +97,11 @@
     },
     {
         "tier": "0",
-        "id": "c22a92cc-79bf-4bb1-8b6c-e0a05d3d80ce",
-        "assetName": "OnPremDirectorySynchronization.ReadWrite.All",
-        "pathType": "n/a",
-        "knownShortestPath": "Untested! Needs more research.",
-        "example": "n/a"
+        "id": "292d869f-3427-49a8-9dab-8c70152b74e9",
+        "assetName": "Organization.ReadWrite.All",
+        "pathType": "Indirect",
+        "knownShortestPath": "If Certificate Based Authentication  is enabled in the tenant, can upload a trusted root certificate to Entra ID and impersonate a Global Admin.",
+        "example": "TA identifies the UPN of a Global admin. TA adds a trusted root certificate to Entra ID, and uses the associated private key to generate a user certificate for the UPN. TA authenticates with the user certificate to escalate to Global Admin."
     },
     {
         "tier": "0",
@@ -864,6 +864,12 @@
     },
     {
         "tier": "1",
+        "id": "c22a92cc-79bf-4bb1-8b6c-e0a05d3d80ce",
+        "assetName": "OnPremDirectorySynchronization.ReadWrite.All",
+        "providesFullAccessTo": ""
+    },
+    {
+        "tier": "1",
         "id": "0b57845e-aa49-4e6f-8109-ce654fffa618",
         "assetName": "OnPremisesPublishingProfiles.ReadWrite.All"
     },
@@ -921,11 +927,6 @@
         "tier": "1",
         "id": "5febc9da-e0d0-4576-bd13-ae70b2179a39",
         "assetName": "OrgSettings-Todo.ReadWrite.All"
-    },
-    {
-        "tier": "1",
-        "id": "292d869f-3427-49a8-9dab-8c70152b74e9",
-        "assetName": "Organization.ReadWrite.All"
     },
     {
         "tier": "1",
