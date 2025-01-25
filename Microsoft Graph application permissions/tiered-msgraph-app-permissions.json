@@ -117,7 +117,7 @@
         "assetName": "Policy.ReadWrite.ConditionalAccess",
         "pathType": "Direct",
         "knownShortestPath": "Can create a CAP blocking all users , and ask for a ransomware to remove the malicious CAP. Note: this role is \"Global-Admin-like\", as it affects the availability of the tenant in the same way as a Global Admin.",
-        "example": "TA creates a CAP blocking all users  for all applications, apart from the compromised user account, and asks for a ransomware to remove the malicious CAP."
+        "example": "TA creates a CAP blocking all users  for all applications, and asks for a ransomware to remove the malicious CAP."
     },
     {
         "tier": "0",
