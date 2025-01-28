@@ -195,7 +195,7 @@
         "tier": "0",
         "id": "194ae4cb-b126-40b2-bd5b-6091b380977d",
         "assetName": "Security Administrator",
-        "pathType": "Indirect",
+        "pathType": "Direct",
         "knownShortestPath": "Same as Domain Name Administrator.",
         "example": "Same as Domain Name Administrator."
     },
