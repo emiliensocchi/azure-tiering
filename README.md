@@ -46,7 +46,7 @@ Each tier model is available in table format for human readability, as well as J
 | [Entra roles tiering](https://github.com/emiliensocchi/azure-tiering/tree/main/Entra%20roles) | [`tiered-entra-roles.json`](https://github.com/emiliensocchi/azure-tiering/blob/main/Entra%20roles/tiered-entra-roles.json) |
 | [MS Graph application permissions tiering](https://github.com/emiliensocchi/azure-tiering/tree/main/Microsoft%20Graph%20application%20permissions) | [`tiered-msgraph-app-permissions.json`](https://github.com/emiliensocchi/azure-tiering/blob/main/Microsoft%20Graph%20application%20permissions/tiered-msgraph-app-permissions.json) |
 
-By integrating this project with multiple tools, organizations can easily ensure that the same Tiers are used accross their entire technology stack, while centralizing tier definitions into a single place.
+By integrating this project with multiple tools, organizations can easily ensure that the same Tiers are used across their entire technology stack, while centralizing tier definitions into a single place.
 
 ## 📢 Disclaimer
 

@@ -7,7 +7,7 @@ Tiering of Microsoft Entra roles **based on known attack paths**.
 | Color | Tier | Name | Definition |
 |---|---|---|---|
 | 🔴 | 0 | [Family of Global Admins](#tier-0) | Roles with a risk of having a direct or indirect path to Global Admin and full tenant takeover. |
-| 🟠 | 1 | [Family of M365 and restricted Entra Admins](#tier-1) | Roles with full access to individual Microsoft 365 services, limited administrative access to Entra ID, or global read access accross services, but <u>without</u> a known path to Global Admin. |
+| 🟠 | 1 | [Family of M365 and restricted Entra Admins](#tier-1) | Roles with full access to individual Microsoft 365 services, limited administrative access to Entra ID, or global read access across services, but <u>without</u> a known path to Global Admin. |
 | 🟢 | 2 | [Family of unprivileged administrators](#tier-2) | Roles with little to no security implications. |
 
 
@@ -54,7 +54,7 @@ Tiering of Microsoft Entra roles **based on known attack paths**.
 <a id='tier-1'></a>
 ## 🟠 Tier 1: Family of M365 and restricted Entra Admins
 
-**Description**: roles with full access to individual Microsoft 365 services, limited administrative access to Entra ID, or global read access accross services, but <u>without</u> a known path to Global Admin.
+**Description**: roles with full access to individual Microsoft 365 services, limited administrative access to Entra ID, or global read access across services, but <u>without</u> a known path to Global Admin.
 
 | Entra role | Provides <u>full</u> access to |
 |---|---|
@@ -85,7 +85,7 @@ Tiering of Microsoft Entra roles **based on known attack paths**.
 | [Organizational Messages Writer](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#organizational-messages-writer) |  [Organizational messages](https://learn.microsoft.com/en-us/mem/intune/remote-actions/organizational-messages-overview) in Microsoft InTune. <br> Note: makes phishing attacks a lot easier to leverage. | 
 | [Permissions Management Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#permissions-management-administrator) | Microsoft Entra Permissions Management. |
 | [Power Platform Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#power-platform-administrator) | Dynamics 365, Power Automate, Power Apps. |
-| [Security Operator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#security-operator) <a id='security-operator'></a> | Microsoft 365 Defender portal, Microsoft Entra ID Protection, Privileged Identity Management and Microsoft Purview compliance portal (global read-only access accross those services). |
+| [Security Operator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#security-operator) <a id='security-operator'></a> | Microsoft 365 Defender portal, Microsoft Entra ID Protection, Privileged Identity Management and Microsoft Purview compliance portal (global read-only access across those services). |
 | [Security Reader](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#security-reader) | Same as [Security Operator](#security-operator). |
 | [SharePoint Embedded Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#sharepoint-embedded-administrator) | [SharePoint Embedded containers](https://learn.microsoft.com/en-us/sharepoint/dev/embedded/overview). |
 | [Skype for Business Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#skype-for-business-administrator) | Skype for Business. |
