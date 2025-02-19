@@ -91,8 +91,8 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`BrowserSiteLists.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#browsersitelistsreadwriteall) |
 | [`BusinessScenarioConfig.ReadWrite.OwnedBy`](https://learn.microsoft.com/en-us/graph/permissions-reference#businessscenarioconfigreadwriteownedby) |
 | [`BusinessScenarioData.ReadWrite.OwnedBy`](https://learn.microsoft.com/en-us/graph/permissions-reference#businessscenariodatareadwriteownedby) |
-| [`Calendars.ReadWrite`](https://learn.microsoft.com/en-us/graph/permissions-reference#calendarsreadwrite) |
 | [`CallDelegation.ReadWrite.All`](https://graph.microsoft.com/v1.0/directoryRoleTemplates/8d06abce-e69b-4122-ba60-4f901bb1db2f) |
+| [`Calendars.ReadWrite`](https://learn.microsoft.com/en-us/graph/permissions-reference#calendarsreadwrite) |
 | [`Calls.JoinGroupCall.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#callsjoingroupcallall) |
 | [`Calls.JoinGroupCallAsGuest.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#callsjoingroupcallasguestall) |
 | [`CallRecord-PstnCalls.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#callrecord-pstncallsreadall) |
