@@ -407,6 +407,11 @@
     },
     {
         "tier": "1",
+        "id": "8d06abce-e69b-4122-ba60-4f901bb1db2f",
+        "assetName": "CallDelegation.ReadWrite.All"
+    },
+    {
+        "tier": "1",
         "id": "f6b49018-60ab-4f81-83bd-22caeabfed2d",
         "assetName": "Calls.JoinGroupCall.All"
     },
@@ -577,6 +582,11 @@
     },
     {
         "tier": "1",
+        "id": "abf6441f-0772-4932-96e7-0191478dd73a",
+        "assetName": "DeviceTemplate.Create"
+    },
+    {
+        "tier": "1",
         "id": "9fadb66e-6421-4744-aede-4ab6fb98a884",
         "assetName": "DeviceTemplate.ReadWrite.All"
     },
@@ -742,6 +752,11 @@
     },
     {
         "tier": "1",
+        "id": "7e429772-5b5e-47c0-8fd6-7279294c8033",
+        "assetName": "IndustryData-Run.Start"
+    },
+    {
+        "tier": "1",
         "id": "7d866958-e06e-4dd6-91c6-a086b3f5cfeb",
         "assetName": "IndustryData-SourceSystem.ReadWrite.All"
     },
@@ -784,6 +799,21 @@
         "tier": "1",
         "id": "5c505cf4-8424-4b8e-aa14-ee06e3bb23e3",
         "assetName": "LifecycleWorkflows.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "id": "3351c766-bacc-4d93-94fa-f2c8b1986ee7",
+        "assetName": "LifecycleWorkflows-CustomExt.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "id": "3a87a643-13d2-47aa-8d6a-b0a8377cb03b",
+        "assetName": "LifecycleWorkflows-Workflow.Activate"
+    },
+    {
+        "tier": "1",
+        "id": "94c88098-1d9d-4c42-a356-4d5a95312554",
+        "assetName": "LifecycleWorkflows-Workflow.ReadWrite.All"
     },
     {
         "tier": "1",
@@ -1319,6 +1349,11 @@
     },
     {
         "tier": "1",
+        "id": "e3530185-4080-478c-a4ab-39322704df58",
+        "assetName": "Sites.Archive.All"
+    },
+    {
+        "tier": "1",
         "id": "a82116e5-55eb-4c41-a434-62fe8a61c773",
         "assetName": "Sites.FullControl.All"
     },
@@ -1356,6 +1391,11 @@
         "tier": "1",
         "id": "db31e92a-b9ea-4d87-bf6a-75a37a9ca35a",
         "assetName": "SynchronizationData-User.Upload"
+    },
+    {
+        "tier": "1",
+        "id": "25c32ff3-849a-494b-b94f-20a8ac4e6774",
+        "assetName": "SynchronizationData-User.Upload.OwnedBy"
     },
     {
         "tier": "1",
@@ -1805,6 +1845,11 @@
     },
     {
         "tier": "2",
+        "id": "5aa33e77-b893-495e-bdc5-4bf6f27d42a0",
+        "assetName": "CallDelegation.Read.All"
+    },
+    {
+        "tier": "2",
         "id": "f0a35f91-2aa6-4a99-9d5a-5b6bcb66204e",
         "assetName": "CallEvents-Emergency.Read.All"
     },
@@ -2012,6 +2057,11 @@
         "tier": "2",
         "id": "58ca0d9a-1575-47e1-a3cb-007ef2e4583b",
         "assetName": "DeviceManagementRBAC.Read.All"
+    },
+    {
+        "tier": "2",
+        "id": "c7a5be92-2b3d-4540-8a67-c96dcaae8b43",
+        "assetName": "DeviceManagementScripts.Read.All"
     },
     {
         "tier": "2",
@@ -2240,8 +2290,33 @@
     },
     {
         "tier": "2",
+        "id": "e2f98668-2877-4f38-a2f4-8202e0717aa1",
+        "assetName": "LicenseAssignment.Read.All"
+    },
+    {
+        "tier": "2",
         "id": "7c67316a-232a-4b84-be22-cea2c0906404",
         "assetName": "LifecycleWorkflows.Read.All"
+    },
+    {
+        "tier": "2",
+        "id": "2cb19e7d-9012-40bf-9a22-69fc776af8b0",
+        "assetName": "LifecycleWorkflows-CustomExt.Read.All"
+    },
+    {
+        "tier": "2",
+        "id": "fe615156-48b5-4c83-b613-e6e31a43c446",
+        "assetName": "LifecycleWorkflows-Reports.Read.All"
+    },
+    {
+        "tier": "2",
+        "id": "03b0ad3e-fc2b-4ef1-b0ff-252e865cb608",
+        "assetName": "LifecycleWorkflows-Workflow.Read.All"
+    },
+    {
+        "tier": "2",
+        "id": "021ea6db-c06b-45c6-8c9c-c1cd9a37a483",
+        "assetName": "LifecycleWorkflows-Workflow.ReadBasic.All"
     },
     {
         "tier": "2",
