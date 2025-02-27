@@ -10,6 +10,9 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Entra role | Description |
 |---|---|---|
+| 2025-02-27 | [Global Secure Access Log Reader](https://graph.microsoft.com/v1.0/directoryRoleTemplates/843318fb-79a6-4168-9e6f-aa9a07481cc4) | Provides designated security personnel with read-only access to network traffic logs in Microsoft Entra Internet Access and Microsoft Entra Private Access for secure and detailed analysis. |
+| 2025-02-27 | [People Administrator](https://graph.microsoft.com/v1.0/directoryRoleTemplates/024906de-61e5-49c8-8572-40335f1e0e10) | Manage profile photos of users and people settings for all users in the organization. |
+| 2025-02-27 | [IoT Device Administrator](https://graph.microsoft.com/v1.0/directoryRoleTemplates/2ea5ce4c-b2d8-4668-bd81-3680bd2d227a) | Provision new IoT devices, manage their lifecycle, configure certificates, and manage device templates. |
 
 ### ❌ Removals
 
