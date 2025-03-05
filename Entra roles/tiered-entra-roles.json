@@ -373,6 +373,12 @@
     },
     {
         "tier": "1",
+        "id": "4d6ac14f-3453-41d0-bef9-a3e0c569773a",
+        "assetName": "License Administrator",
+        "providesFullAccessTo": "License assignments. Can be leveraged to unassign licenses on all users and disturb the availability of M365 productivity tools."
+    },
+    {
+        "tier": "1",
         "id": "8c8b803f-96e1-4129-9349-20738d9f9652",
         "assetName": "Microsoft 365 Migration Administrator",
         "providesFullAccessTo": "Microsoft 365 migrations."
@@ -565,11 +571,6 @@
         "tier": "2",
         "id": "31e939ad-9672-4796-9c2e-873181342d2d",
         "assetName": "Insights Business Leader"
-    },
-    {
-        "tier": "2",
-        "id": "4d6ac14f-3453-41d0-bef9-a3e0c569773a",
-        "assetName": "License Administrator"
     },
     {
         "tier": "2",
