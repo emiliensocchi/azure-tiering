@@ -80,6 +80,7 @@ Tiering of Microsoft Entra roles **based on known attack paths**.
 | [Global Secure Access Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#global-secure-access-administrator) | Global Secure Access. |
 | [Guest Inviter](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#guest-inviter) | Microsoft Entra B2B guest user invitations. Can be leveraged to abuse [vulnerable dynamic groups](https://codyburkard.com/blog/abusingdynamicgroups/) if present. |
 | [Kaizala Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#kaizala-administrator) | Kaizala. |
+| [License Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#license-administrator) | License assignments. Can be leveraged to unassign licenses on all users and disturb the availability of M365 productivity tools. |
 | [Microsoft 365 Migration Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#microsoft-365-migration-administrator) | [Microsoft 365 migrations](https://learn.microsoft.com/en-us/sharepointmigration/migrate-to-sharepoint-online). | 
 | [Microsoft 365 Backup Administrator](https://graph.microsoft.com/v1.0/directoryRoleTemplates/1707125e-0aa2-4d4d-8655-a7c786c76a25) | [Microsoft 365 Backup](https://learn.microsoft.com/en-us/microsoft-365/backup/backup-overview?view=o365-worldwide). |
 | [Organizational Messages Writer](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#organizational-messages-writer) |  [Organizational messages](https://learn.microsoft.com/en-us/mem/intune/remote-actions/organizational-messages-overview) in Microsoft InTune. <br> Note: makes phishing attacks a lot easier to leverage. | 
@@ -124,7 +125,6 @@ Tiering of Microsoft Entra roles **based on known attack paths**.
 | [Insights Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#insights-administrator) |
 | [Insights Analyst](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#insights-analyst) |
 | [Insights Business Leader](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#insights-business-leader) |
-| [License Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#license-administrator) |
 | [Message Center Privacy Reader](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#message-center-privacy-reader) |
 | [Message Center Reader](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#message-center-reader) |
 | [Microsoft Hardware Warranty Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#microsoft-hardware-warranty-administrator) |
