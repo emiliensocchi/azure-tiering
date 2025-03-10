@@ -1,16 +1,19 @@
-name: Are built-in roles and permissions untiered?
+name: Convert Markdown to JSON
 
 on:
   workflow_dispatch: {}
-  schedule:
-    - cron: "00 01 * * *"  # Every day at 1:00 AM UTC
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'Entra roles/README.md'
+      - 'Microsoft Graph application permissions/README.md'
 
 permissions:
   contents: write
   id-token: write
 
 jobs:
-  have_builtin_roles_and_permissions_changed:
+  convert_tiered_roles_and_permission_from_markdown_to_json:
     runs-on: ubuntu-latest
     steps:
     - name: Az Login
@@ -27,10 +30,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@1fb4a623cfbc661771f7005e00e2cf74acf32037   # v4.2.2
 
-    - name: Run AzTierWatcher
-      uses: ./.github/actions/detect-untiered
+    - name: Convert to JSON
+      uses: ./.github/actions/convert-to-json
       env:
         MSGRAPH_ACCESS_TOKEN: ${{ steps.get-token.outputs.token }}
       with:
-        user_email: 'azure-tiering-robot@gmail.com'
-        user_name: 'azure-tiering-robot'
+        user_email: 'entra-tiering-robot@gmail.com'
+        user_name: 'entra-tiering-robot'

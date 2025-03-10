@@ -14,8 +14,8 @@
         - A service principal with the following granted application permissions:
             1. 'RoleManagement.Read.Directory' (to read Entra role definitions)
             2. 'Application.Read.All' (to read the definitions of application permissions)
-        - The credentials are expected to be available to AzTierWatcher via an environment variable with the following name and value:
-            SP_CREDENTIALS_ENTRA = {"tenant_id": "__ID__", "client_id": "__ID__", "client_secret": "__SECRET__"}
+        - A valid access token for MS Graph is expected to be available to AzTierWatcher via the following environment variable:
+            - 'MSGRAPH_ACCESS_TOKEN'
 
 """
 import datetime
@@ -59,7 +59,7 @@ def get_builtin_entra_role_objects_from_graph(token):
             list(str): list of built-in Entra-role objects
 
     """
-    endpoint = 'https://graph.microsoft.com/v1.0/directoryRoleTemplates'
+    endpoint = 'https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions?$filter=isBuiltIn eq true'
     headers = {'Authorization': f"Bearer {token}"}
     response = requests.get(endpoint, headers = headers)
 
@@ -97,43 +97,6 @@ def get_builtin_entra_role_objects_from_graph_without_deprecated(token):
     current_builtin_roles = [role_object for role_object in current_built_in_role_objects if role_object['displayName'] not in deprecated_entra_roles]
 
     return current_builtin_roles
-
-
-def get_builtin_azure_role_objects_from_arm(token):
-    """
-        Retrieves the current built-in Azure role objects from ARM.
-
-        Args:
-            str: a valid access token for ARM
-
-        Returns:
-            list(str): list of built-in Azure-role objects
-
-    """
-    endpoint = 'https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2022-04-01'
-    headers = {'Authorization': f"Bearer {token}"}
-    response = requests.get(endpoint, headers = headers)
-
-    if response.status_code != 200:
-        print('FATAL ERROR - The Azure roles could not be retrieved from ARM.')
-        exit()
-
-    paginated_response = response.json()['value']
-    complete_response = paginated_response
-    next_page = response.json()['nextLink'] if 'nextLink' in response.json() else ''
-
-    while next_page:
-        response = requests.get(next_page, headers = headers)
-
-        if response.status_code != 200:
-            print('FATAL ERROR - The Azure roles could not be retrieved from ARM.')
-            exit()
-        
-        paginated_response = response.json()['value']
-        next_page = response.json()['nextLink'] if 'nextLink' in response.json() else ''
-        complete_response += paginated_response
-
-    return complete_response
 
 
 def read_json_file(json_file):
@@ -237,66 +200,12 @@ def update_untiered(untiered_file, added_assets, removed_assets):
         exit()
 
 
-def request_access_token(resource, tenant_id, client_id, client_secret):
-    """
-        Requests an access token for the passed resource on behalf of the service principal with the passed information.
-
-        Args:
-            resource (str): the resource to authenticate to (only valid values are: 'arm', 'graph')
-            tenant_id (str): the id of the service principal's home tenant
-            client_id (str): the application id of the service principal
-            client_secret (str): a valid secret for the service principal
-        
-        Returns:
-            str: a valid access token for the requested resource
-
-    """
-    valid_resources = ['arm', 'graph']
-
-    if resource not in valid_resources:
-        return
-
-    endpoint = f"https://login.microsoftonline.com/{tenant_id}"
-    body = {
-        'grant_type': 'client_credentials',
-        'client_id': client_id,
-        'client_secret': client_secret
-    }
-
-    if resource == 'arm':
-        endpoint += '/oauth2/token'
-        body['resource'] = 'https://management.azure.com/'
-    else:
-        endpoint += '/oauth2/v2.0/token'
-        body['scope'] = 'https://graph.microsoft.com/.default'
-
-    response = requests.post(endpoint, body)
-
-    if response.status_code != 200:
-        print(f"FATAL ERROR - A token for {resource} could not be retrieved.")
-        exit()
-
-    access_token = response.json()['access_token']
-    return access_token
-
-
 if __name__ == "__main__":
-    # Get access tokens for ARM and MS Graph
-    raw_sp_credentials = os.environ['SP_CREDENTIALS_ENTRA']
-
-    if not raw_sp_credentials:
-        print('FATAL ERROR - A service principal with valid access to ARM and MS Graph is required.')
-        exit()
-
-    sp_credentials = json.loads(raw_sp_credentials)
-    tenant_id = sp_credentials['tenant_id']
-    client_id = sp_credentials['client_id']
-    client_secret = sp_credentials['client_secret']
-
-    graph_access_token = request_access_token('graph', tenant_id, client_id, client_secret)
+    # Get MS Graph access token from environment variable
+    graph_access_token = os.environ['MSGRAPH_ACCESS_TOKEN']
 
     if not graph_access_token:
-        print('FATAL ERROR - A valid access token for GRAPH is required.')
+        print('FATAL ERROR - A valid access token for MS Graph is required.')
         exit()
 
     # Set Microsoft APIs info
