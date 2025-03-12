@@ -157,7 +157,7 @@ def update_untiered(untiered_file, added_assets, removed_assets):
 
         for asset in assets_to_add:
             date = asset['date']
-            name = f"[{asset['name']}]({asset['link']})"
+            name = f"[{asset['name']}]({asset['link']})" if 'link' in asset else asset['name']
             description = asset['description']
             line = f"\n| {date} | {name} | {description} |"
             new_additions_content += line
@@ -203,7 +203,7 @@ def update_untiered(untiered_file, added_assets, removed_assets):
 if __name__ == "__main__":
     # Get MS Graph access token from environment variable
     graph_access_token = os.environ['MSGRAPH_ACCESS_TOKEN']
-
+    
     if not graph_access_token:
         print('FATAL ERROR - A valid access token for MS Graph is required.')
         exit()
@@ -221,8 +221,7 @@ if __name__ == "__main__":
         current_builtin_msgraph_app_permissions.append({
             'id': current_builtin_msgraph_app_permission_object['id'],
             'name': current_builtin_msgraph_app_permission_object['value'],
-            'description': current_builtin_msgraph_app_permission_object['displayName'],
-            'link': f"{graph_role_template_base_uri}{current_builtin_msgraph_app_permission_object['id']}"
+            'description': current_builtin_msgraph_app_permission_object['displayName']
         })
 
     # Get current built-in Entra roles
