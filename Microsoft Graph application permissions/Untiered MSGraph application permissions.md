@@ -10,6 +10,9 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description |
 |---|---|---|
+| 2025-03-26 | ConfigurationMonitoring.Read.All | Read all Configuration Monitoring entities |
+| 2025-03-26 | ConfigurationMonitoring.ReadWrite.All | Read and write all Configuration Monitoring entities |
+| 2025-03-26 | User.ReadWrite.CrossCloud | Read and write profiles of users that originate from an external cloud. |
 | 2025-03-18 | EngagementConversation.Migration.All | Read and write all Viva Engage conversations |
 | 2025-03-18 | EngagementRole.Read.All | Read all Viva Engage roles and role memberships |
 | 2025-03-18 | EngagementRole.ReadWrite.All | Modify Viva Engage role membership |
