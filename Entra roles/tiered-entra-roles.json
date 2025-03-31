@@ -361,9 +361,21 @@
     },
     {
         "tier": "1",
+        "id": "843318fb-79a6-4168-9e6f-aa9a07481cc4",
+        "assetName": "Global Secure Access Log Reader",
+        "providesFullAccessTo": "Global Secure Access."
+    },
+    {
+        "tier": "1",
         "id": "95e79109-95c0-4d8e-aee3-d01accf2d47b",
         "assetName": "Guest Inviter",
         "providesFullAccessTo": "Microsoft Entra B2B guest user invitations. Can be leveraged to abuse vulnerable dynamic groups if present."
+    },
+    {
+        "tier": "1",
+        "id": "2ea5ce4c-b2d8-4668-bd81-3680bd2d227a",
+        "assetName": "IoT Device Administrator",
+        "providesFullAccessTo": "IoT Devices templates of type \"IoT\" based on templates, but has no permissions the created resources."
     },
     {
         "tier": "1",
@@ -394,6 +406,12 @@
         "id": "507f53e4-4e52-4077-abd3-d2e1558b6ea2",
         "assetName": "Organizational Messages Writer",
         "providesFullAccessTo": "Organizational messages.  Note: makes phishing attacks significantly easier to leverage."
+    },
+    {
+        "tier": "1",
+        "id": "024906de-61e5-49c8-8572-40335f1e0e10",
+        "assetName": "People Administrator",
+        "providesFullAccessTo": "People"
     },
     {
         "tier": "1",
@@ -454,6 +472,12 @@
         "id": "aa38014f-0993-46e9-9b45-30501a20909d",
         "assetName": "Teams Telephony Administrator",
         "providesFullAccessTo": "Skype for Business Online."
+    },
+    {
+        "tier": "1",
+        "id": "0ec3f692-38d6-4d14-9e69-0377ca7797ad",
+        "assetName": "Viva Glint Tenant Administrator",
+        "providesFullAccessTo": "Viva Glint"
     },
     {
         "tier": "1",
