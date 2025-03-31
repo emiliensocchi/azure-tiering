@@ -249,7 +249,7 @@
         "tier": "1",
         "id": "c430b396-e693-46cc-96f3-db01bf8bb62a",
         "assetName": "Attack Simulation Administrator",
-        "providesFullAccessTo": "Attack simulations in Defender for Office."
+        "providesFullAccessTo": "Attack simulations in Defender for Office 365."
     },
     {
         "tier": "1",
@@ -261,7 +261,7 @@
         "tier": "1",
         "id": "0526716b-113d-4c15-b2c8-68e3c22b9f80",
         "assetName": "Authentication Policy Administrator",
-        "providesFullAccessTo": "Tenant-wide authentication method policies, MFA settings, per-user MFA , password protection policy."
+        "providesFullAccessTo": "Tenant-wide authentication method, password protection policy."
     },
     {
         "tier": "1",
@@ -285,13 +285,13 @@
         "tier": "1",
         "id": "3edaf663-341e-4475-9f94-5c398ef6c070",
         "assetName": "B2C IEF Policy Administrator",
-        "providesFullAccessTo": "Azure AD B2C policies and the Identity Experience Framework."
+        "providesFullAccessTo": "Azure AD B2C policies."
     },
     {
         "tier": "1",
         "id": "b0f54661-2d74-4c50-afa3-1ec803f12efe",
         "assetName": "Billing Administrator",
-        "providesFullAccessTo": "Microsoft 365 and Azure billing."
+        "providesFullAccessTo": "Microsoft 365 billing."
     },
     {
         "tier": "1",
@@ -303,19 +303,19 @@
         "tier": "1",
         "id": "7698a772-787b-4ac8-901f-60d6b08affd2",
         "assetName": "Cloud Device Administrator",
-        "providesFullAccessTo": "Device-management features in Intune, such as reading BitLocker keys, enabling/disabling and deleting devices, but cannot modify device properties."
+        "providesFullAccessTo": "Device-management features in Microsoft Intune, such as reading BitLocker keys, enabling/disabling and deleting devices, but cannot modify device properties."
     },
     {
         "tier": "1",
         "id": "17315797-102d-40b4-93e0-432062caca18",
         "assetName": "Compliance Administrator",
-        "providesFullAccessTo": "Compliance-related features in the Microsoft Purview compliance portal, Microsoft 365 admin center, Azure and the Microsoft 365 Defender portal."
+        "providesFullAccessTo": "Compliance-related features in the Microsoft Purview portal."
     },
     {
         "tier": "1",
         "id": "e6d1a23a-da11-4be4-9570-befc86d067a7",
         "assetName": "Compliance Data Administrator",
-        "providesFullAccessTo": "Compliance-related features in the Microsoft Purview compliance portal, Microsoft 365 admin center, Azure and the Microsoft 365 Defender portal."
+        "providesFullAccessTo": "Compliance-related features in the Microsoft Purview portal."
     },
     {
         "tier": "1",
@@ -327,7 +327,7 @@
         "tier": "1",
         "id": "44367163-eba1-44c3-98af-f5787879f96a",
         "assetName": "Dynamics 365 Administrator",
-        "providesFullAccessTo": "Dynamics 365 Online."
+        "providesFullAccessTo": "Dynamics 365."
     },
     {
         "tier": "1",
@@ -345,13 +345,13 @@
         "tier": "1",
         "id": "a9ea8996-122f-4c74-9520-8edcd192826c",
         "assetName": "Fabric Administrator",
-        "providesFullAccessTo": "Microsoft Fabric and Power BI."
+        "providesFullAccessTo": "Microsoft Fabric."
     },
     {
         "tier": "1",
         "id": "f2ef992c-3afb-46b9-b7cf-a126ee74c451",
         "assetName": "Global Reader",
-        "providesFullAccessTo": "Entra ID and all M365 services ."
+        "providesFullAccessTo": "Entra ID."
     },
     {
         "tier": "1",
@@ -369,13 +369,13 @@
         "tier": "1",
         "id": "74ef975b-6605-40af-a5d2-b9539d836353",
         "assetName": "Kaizala Administrator",
-        "providesFullAccessTo": "Kaizala."
+        "providesFullAccessTo": "Microsoft Kaizala."
     },
     {
         "tier": "1",
         "id": "4d6ac14f-3453-41d0-bef9-a3e0c569773a",
         "assetName": "License Administrator",
-        "providesFullAccessTo": "License assignments. Can be leveraged to unassign licenses on all users and disturb the availability of M365 productivity tools."
+        "providesFullAccessTo": "Microsoft 365 license assignments. Can be leveraged to unassign licenses on all users and disturb the availability of M365 productivity tools."
     },
     {
         "tier": "1",
@@ -393,7 +393,7 @@
         "tier": "1",
         "id": "507f53e4-4e52-4077-abd3-d2e1558b6ea2",
         "assetName": "Organizational Messages Writer",
-        "providesFullAccessTo": "Organizational messages in Microsoft InTune.  Note: makes phishing attacks a lot easier to leverage."
+        "providesFullAccessTo": "Organizational messages.  Note: makes phishing attacks significantly easier to leverage."
     },
     {
         "tier": "1",
@@ -405,13 +405,13 @@
         "tier": "1",
         "id": "11648597-926c-4cf3-9c36-bcebb0ba8dcc",
         "assetName": "Power Platform Administrator",
-        "providesFullAccessTo": "Dynamics 365, Power Automate, Power Apps."
+        "providesFullAccessTo": "Dynamics 365."
     },
     {
         "tier": "1",
         "id": "5f2222b1-57c3-48ba-8ad5-d4759f1fde6f",
         "assetName": "Security Operator",
-        "providesFullAccessTo": "Microsoft 365 Defender portal, Microsoft Entra ID Protection, Privileged Identity Management and Microsoft Purview compliance portal ."
+        "providesFullAccessTo": "Microsoft 365 Defender."
     },
     {
         "tier": "1",
@@ -435,13 +435,13 @@
         "tier": "1",
         "id": "baf37b3a-610e-45da-9e62-d9d1e5e8914b",
         "assetName": "Teams Communications Administrator",
-        "providesFullAccessTo": "Skype for Business, Teams workload related to voice and telephony."
+        "providesFullAccessTo": "Skype for Business Online workload related to meetings, voice and telephony."
     },
     {
         "tier": "1",
         "id": "f70938a0-fc10-4177-9e90-2178f8765737",
         "assetName": "Teams Communications Support Engineer",
-        "providesFullAccessTo": "Skype for Business."
+        "providesFullAccessTo": "Skype for Business Online."
     },
     {
         "tier": "1",
@@ -453,7 +453,7 @@
         "tier": "1",
         "id": "aa38014f-0993-46e9-9b45-30501a20909d",
         "assetName": "Teams Telephony Administrator",
-        "providesFullAccessTo": "Skype for Business."
+        "providesFullAccessTo": "Skype for Business Online."
     },
     {
         "tier": "1",
