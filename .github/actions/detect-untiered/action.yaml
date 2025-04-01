@@ -1,5 +1,5 @@
 name: 'Detect if built-in roles and permissions are untiered'
-description: 'Detects if some built-in roles and permissions in Entra ID and Azure are untiered'
+description: 'Detects if built-in roles and application permissions from Entra ID and MS Graph are untiered'
 inputs:
   user_email:
     description: 'Email for the git commit'

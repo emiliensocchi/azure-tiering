@@ -7,8 +7,8 @@
 
     Description:  
          AzTierWatcher verifies if following have untiered assets, due to new additions and/removals in Microsoft's platform:
-            - MS Graph application permissions
             - Entra roles
+            - MS Graph application permissions
 
     Requirements:
         - A service principal with the following granted application permissions:
@@ -25,15 +25,15 @@ import requests
 import sys
 
 
-def get_builtin_msgraph_app_permission_objects_from_graph(token):
+def get_builtin_msgraph_app_permission_definitions_from_graph(token):
     """
-        Retrieves the current built-in Microsoft Graph application permission objects from MS Graph.
+        Retrieves the current built-in Microsoft Graph application permission definitions from MS Graph.
 
         Args:
             str: a valid access token for MS Graph
 
         Returns:
-            list(str): list of built-in MS Graph application permission objects
+            list(str): list of built-in MS Graph application permission definitions
 
     """
     endpoint = "https://graph.microsoft.com/v1.0/servicePrincipals(appId='00000003-0000-0000-c000-000000000000')"
@@ -48,15 +48,15 @@ def get_builtin_msgraph_app_permission_objects_from_graph(token):
     return response_content
 
 
-def get_builtin_entra_role_objects_from_graph(token):
+def get_builtin_entra_role_definitions_from_graph(token):
     """
-        Retrieves the current built-in Entra role objects from MS Graph.
+        Retrieves the current built-in Entra role definitions from MS Graph.
 
         Args:
             str: a valid access token for MS Graph
 
         Returns:
-            list(str): list of built-in Entra-role objects
+            list(str): list of built-in Entra-role definitions
 
     """
     endpoint = 'https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions?$filter=isBuiltIn eq true'
@@ -71,9 +71,9 @@ def get_builtin_entra_role_objects_from_graph(token):
     return response_content
 
 
-def get_builtin_entra_role_objects_from_graph_without_deprecated(token):
+def get_builtin_entra_role_definitions_from_graph_without_deprecated(token):
     """
-        Retrieves the current built-in Entra role objects from MS Graph, excluding deprecated roles.
+        Retrieves the current built-in Entra role definitions from MS Graph, excluding deprecated roles.
 
         References: 
             https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#deprecated-roles
@@ -82,10 +82,10 @@ def get_builtin_entra_role_objects_from_graph_without_deprecated(token):
             str: a valid access token for MS Graph
 
         Returns:
-            list(str): list of built-in Entra-role objects
+            list(str): list of built-in Entra-role definitions
 
     """
-    current_built_in_role_objects = get_builtin_entra_role_objects_from_graph(token)
+    current_built_in_role_definitions = get_builtin_entra_role_definitions_from_graph(token)
     deprecated_entra_roles = {
         'Device Join',
         'Device Managers',
@@ -94,7 +94,7 @@ def get_builtin_entra_role_objects_from_graph_without_deprecated(token):
         'Mailbox Administrator',
         'Workplace Device Join'
     }
-    current_builtin_roles = [role_object for role_object in current_built_in_role_objects if role_object['displayName'] not in deprecated_entra_roles]
+    current_builtin_roles = [role_definition for role_definition in current_built_in_role_definitions if role_definition['displayName'] not in deprecated_entra_roles]
 
     return current_builtin_roles
 
@@ -215,25 +215,25 @@ if __name__ == "__main__":
 
     # Get current built-in MS Graph application permissions
     current_builtin_msgraph_app_permissions = []
-    current_builtin_msgraph_app_permission_objects = get_builtin_msgraph_app_permission_objects_from_graph(graph_access_token)
+    current_builtin_msgraph_app_permission_definitions = get_builtin_msgraph_app_permission_definitions_from_graph(graph_access_token)
 
-    for current_builtin_msgraph_app_permission_object in current_builtin_msgraph_app_permission_objects:
+    for current_builtin_msgraph_app_permission_definition in current_builtin_msgraph_app_permission_definitions:
         current_builtin_msgraph_app_permissions.append({
-            'id': current_builtin_msgraph_app_permission_object['id'],
-            'name': current_builtin_msgraph_app_permission_object['value'],
-            'description': current_builtin_msgraph_app_permission_object['displayName']
+            'id': current_builtin_msgraph_app_permission_definition['id'],
+            'name': current_builtin_msgraph_app_permission_definition['value'],
+            'description': current_builtin_msgraph_app_permission_definition['displayName']
         })
 
     # Get current built-in Entra roles
     current_builtin_entra_roles = []
-    current_builtin_entra_role_objects = get_builtin_entra_role_objects_from_graph_without_deprecated(graph_access_token)
+    current_builtin_entra_role_definitions = get_builtin_entra_role_definitions_from_graph_without_deprecated(graph_access_token)
 
-    for current_builtin_entra_role_object in current_builtin_entra_role_objects:
+    for current_builtin_entra_role_definition in current_builtin_entra_role_definitions:
         current_builtin_entra_roles.append({
-            'id': current_builtin_entra_role_object['id'],
-            'name': current_builtin_entra_role_object['displayName'],
-            'description': current_builtin_entra_role_object['description'],
-            'link': f"{graph_role_template_base_uri}{current_builtin_entra_role_object['id']}"
+            'id': current_builtin_entra_role_definition['id'],
+            'name': current_builtin_entra_role_definition['displayName'],
+            'description': current_builtin_entra_role_definition['description'],
+            'link': f"{graph_role_template_base_uri}{current_builtin_entra_role_definition['id']}"
         })
 
     # Set local tier files

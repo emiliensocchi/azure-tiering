@@ -1,4 +1,4 @@
-name: Are built-in roles and permissions untiered?
+name: Detect untiered assets
 
 on:
   workflow_dispatch: {}
@@ -10,7 +10,7 @@ permissions:
   id-token: write
 
 jobs:
-  have_builtin_roles_and_permissions_changed:
+  detect_untiered_assets:
     runs-on: ubuntu-latest
     steps:
     - name: Az Login

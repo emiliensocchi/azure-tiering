@@ -5,6 +5,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
+      - 'Azure roles/README.md'
       - 'Entra roles/README.md'
       - 'Microsoft Graph application permissions/README.md'
 
@@ -13,7 +14,7 @@ permissions:
   id-token: write
 
 jobs:
-  convert_tiered_roles_and_permission_from_markdown_to_json:
+  convert_markdown_to_json:
     runs-on: ubuntu-latest
     steps:
     - name: Az Login
@@ -23,17 +24,22 @@ jobs:
         tenant-id: ${{ vars.AZURE_TENANT_ID }}
         allow-no-subscriptions: true
 
+    - name: Get ARM access token
+      id: get-arm-token
+      run: echo "token=$(az account get-access-token --resource=https://management.azure.com --query accessToken -o tsv)" >> $GITHUB_OUTPUT
+
     - name: Get MS Graph access token
-      id: get-token
+      id: get-msgraph-token
       run: echo "token=$(az account get-access-token --resource=https://graph.microsoft.com --query accessToken -o tsv)" >> $GITHUB_OUTPUT
 
     - name: Checkout
       uses: actions/checkout@1fb4a623cfbc661771f7005e00e2cf74acf32037   # v4.2.2
 
     - name: Convert to JSON
-      uses: ./.github/actions/convert-to-json
+      uses: ./.github/actions/convert-markdown-to-json
       env:
-        MSGRAPH_ACCESS_TOKEN: ${{ steps.get-token.outputs.token }}
+        ARM_ACCESS_TOKEN: ${{ steps.get-arm-token.outputs.token }}
+        MSGRAPH_ACCESS_TOKEN: ${{ steps.get-msgraph-token.outputs.token }}
       with:
-        user_email: 'entra-tiering-robot@gmail.com'
-        user_name: 'entra-tiering-robot'
+        user_email: 'azure-tiering-integration-robot@gmail.com'
+        user_name: 'azure-tiering-integration-robot'
