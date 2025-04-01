@@ -110,6 +110,7 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`ChatMember.ReadWrite.WhereInstalled`](https://learn.microsoft.com/en-us/graph/permissions-reference#chatmemberreadwritewhereinstalled) |
 | [`CloudPC.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#cloudpcreadwriteall) |
 | [`Community.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#communityreadwriteall) |
+| [`ConfigurationMonitoring.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#configurationmonitoringreadwriteall) |
 | [`ConsentRequest.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#consentrequestreadwriteall) |
 | [`Contacts.ReadWrite`](https://learn.microsoft.com/en-us/graph/permissions-reference#contactsreadwrite) |
 | [`CrossTenantUserProfileSharing.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#crosstenantuserprofilesharingreadwriteall) |
@@ -135,6 +136,8 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`EduAssignments.ReadWriteBasic.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#eduassignmentsreadwritebasicall) |
 | [`EduCurricula.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#educurriculareadwriteall) |
 | [`EduRoster.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#edurosterreadwriteall) |
+| [`EngagementConversation.Migration.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#engagementconversationmigrationall) | 
+| [`EngagementRole.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#engagementrolereadwriteall) | 
 | [`EventListener.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#eventlistenerreadwriteall) |
 | [`ExternalConnection.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#externalconnectionreadwriteall) |
 | [`ExternalConnection.ReadWrite.OwnedBy`](https://learn.microsoft.com/en-us/graph/permissions-reference#externalconnectionreadwriteownedby) |
@@ -324,6 +327,7 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`TeamsTab.ReadWriteSelfForChat.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstabreadwriteselfforchatall) |
 | [`TeamsTab.ReadWriteSelfForTeam.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstabreadwriteselfforteamall) |
 | [`TeamsTab.ReadWriteSelfForUser.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstabreadwriteselfforuserall) |
+| [`TeamsTelephoneNumber.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstelephonenumberreadwriteall) | 
 | [`Teamwork.Migrate.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkmigrateall) |
 | [`TeamworkAppSettings.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkappsettingsreadwriteall) |
 | [`TeamworkDevice.ReadWrite.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkdevicereadwriteall) |
@@ -410,6 +414,7 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`CloudApp-Discovery.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#cloudapp-discoveryreadall) |
 | [`CloudPC.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#cloudpcreadall) |
 | [`Community.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#communityreadall) |
+| [`ConfigurationMonitoring.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#configurationmonitoringreadall) | Read all Configuration Monitoring entities |
 | [`ConsentRequest.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#consentrequestreadall) |
 | [`Contacts.Read`](https://learn.microsoft.com/en-us/graph/permissions-reference#contactsread) |
 | [`CrossTenantInformation.ReadBasic.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#crosstenantinformationreadbasicall) |
@@ -447,6 +452,7 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`EduReports-Reflect.ReadAnonymous.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#edureports-reflectreadanonymousall) |
 | [`EduRoster.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#edurosterreadall) |
 | [`EduRoster.ReadBasic.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#edurosterreadbasicall) |
+| [`EngagementRole.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#engagementrolereadall) |
 | [`EntitlementManagement.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#entitlementmanagementreadall) |
 | [`EventListener.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#eventlistenerreadall) |
 | [`ExternalConnection.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#externalconnectionreadall) |
@@ -560,8 +566,9 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 | [`TeamsAppInstallation.ReadSelectedForChat.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadselectedforchatall) |
 | [`TeamsAppInstallation.ReadSelectedForTeam.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadselectedforteamall) |
 | [`TeamsAppInstallation.ReadSelectedForUser.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsappinstallationreadselectedforuserall) |
-| [`TeamsUserConfiguration.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsuserconfigurationreadall) |
 | [`TeamsResourceAccount.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsresourceaccountreadall) |
+| [`TeamsTelephoneNumber.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamstelephonenumberreadall) |
+| [`TeamsUserConfiguration.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamsuserconfigurationreadall) |
 | [`Teamwork.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkreadall) |
 | [`TeamworkAppSettings.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkappsettingsreadall) |
 | [`TeamworkDevice.Read.All`](https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkdevicereadall) |
