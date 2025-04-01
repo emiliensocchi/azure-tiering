@@ -497,6 +497,11 @@
     },
     {
         "tier": "1",
+        "id": "cfa85bfb-2ee8-4e13-8e7f-489e57a015a1",
+        "assetName": "ConfigurationMonitoring.ReadWrite.All"
+    },
+    {
+        "tier": "1",
         "id": "9f1b81a7-0223-4428-bfa4-0bcb5535f27d",
         "assetName": "ConsentRequest.ReadWrite.All"
     },
@@ -619,6 +624,18 @@
         "tier": "1",
         "id": "d1808e82-ce13-47af-ae0d-f9b254e6d58a",
         "assetName": "EduRoster.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "id": "e1d2136d-eaaf-427a-a7db-f97dbe847c27",
+        "assetName": "EngagementConversation.Migration.All",
+        "providesFullAccessTo": ""
+    },
+    {
+        "tier": "1",
+        "id": "3ede5358-7366-4da8-a2f7-472bf9c7cc34",
+        "assetName": "EngagementRole.ReadWrite.All",
+        "providesFullAccessTo": ""
     },
     {
         "tier": "1",
@@ -1569,6 +1586,12 @@
     },
     {
         "tier": "1",
+        "id": "0a42382f-155c-4eb1-9bdc-21548ccaa387",
+        "assetName": "TeamsTelephoneNumber.ReadWrite.All",
+        "providesFullAccessTo": ""
+    },
+    {
+        "tier": "1",
         "id": "dfb0dd15-61de-45b2-be36-d6a69fba3c79",
         "assetName": "Teamwork.Migrate.All"
     },
@@ -1955,6 +1978,11 @@
     },
     {
         "tier": "2",
+        "id": "aca929ec-9830-44dc-bda1-85cf938aaa95",
+        "assetName": "ConfigurationMonitoring.Read.All"
+    },
+    {
+        "tier": "2",
         "id": "1260ad83-98fb-4785-abbb-d6cc1806fd41",
         "assetName": "ConsentRequest.Read.All"
     },
@@ -2137,6 +2165,11 @@
         "tier": "2",
         "id": "0d412a8c-a06c-439f-b3ec-8abcf54d2f96",
         "assetName": "EduRoster.ReadBasic.All"
+    },
+    {
+        "tier": "2",
+        "id": "30614864-4114-45ef-bdd9-0dd7894a1cc4",
+        "assetName": "EngagementRole.Read.All"
     },
     {
         "tier": "2",
@@ -2705,13 +2738,18 @@
     },
     {
         "tier": "2",
-        "id": "a91eadaf-2c3c-4362-908b-fb172d208fc6",
-        "assetName": "TeamsUserConfiguration.Read.All"
+        "id": "b55aa226-33a1-4396-bcf4-edce5e7a31c1",
+        "assetName": "TeamsResourceAccount.Read.All"
     },
     {
         "tier": "2",
-        "id": "b55aa226-33a1-4396-bcf4-edce5e7a31c1",
-        "assetName": "TeamsResourceAccount.Read.All"
+        "id": "39b17d18-680c-41f4-b9c2-5f30629e7cb6",
+        "assetName": "TeamsTelephoneNumber.Read.All"
+    },
+    {
+        "tier": "2",
+        "id": "a91eadaf-2c3c-4362-908b-fb172d208fc6",
+        "assetName": "TeamsUserConfiguration.Read.All"
     },
     {
         "tier": "2",
