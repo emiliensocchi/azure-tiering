@@ -292,6 +292,12 @@
     },
     {
         "tier": "2",
+        "id": "7efff54f-a5b4-42b5-a1c5-5411624893ce",
+        "assetName": "Disk Snapshot Contributor",
+        "worstCaseScenario": "Can download all Azure Disk Snapshots within reach, where some of them may contain sensitive data."
+    },
+    {
+        "tier": "2",
         "id": "befefa01-2a29-4197-83a8-272ff33ce314",
         "assetName": "DNS Zone Contributor",
         "worstCaseScenario": "Can modify all Azure DNS zones within reach, and conduct DNS hijacking attacks on the environment."
@@ -571,12 +577,6 @@
         "id": "1d18fff3-a72a-46b5-b4a9-0b38a3cd7e63",
         "assetName": "Desktop Virtualization User",
         "worstCaseScenario": "In the Azure Virtual Desktop instances within reach that are network accessible, can access all applications available to the user, where some of them may contain sensitive data."
-    },
-    {
-        "tier": "3",
-        "id": "7efff54f-a5b4-42b5-a1c5-5411624893ce",
-        "assetName": "Disk Snapshot Contributor",
-        "worstCaseScenario": "Can download all Azure Disk Snapshots within reach, where some of them may contain sensitive data."
     },
     {
         "tier": "3",
