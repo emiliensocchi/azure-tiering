@@ -4,7 +4,7 @@
         "id": "9b895d92-2cd3-44c7-9d02-a6ac2d5ea5c3",
         "assetName": "Application Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Can impersonate any SP with privileged application permissions granted for Microsoft Graph, which can be abused to become Global Admin.",
+        "shortestPath": "Can impersonate any SP with privileged application permissions granted for Microsoft Graph, which can be abused to become Global Admin.",
         "example": "TA identifies an SP with the RoleManagement.ReadWrite.Directory application permission. TA creates a new secret for the SP, impersonates it and abuses the granted permissions to escalate to Global Admin."
     },
     {
@@ -12,7 +12,7 @@
         "id": "c4e39bd9-1100-46d3-8c65-fb160da0071f",
         "assetName": "Authentication Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Can reset the password of a user who owns an SP with privileged application permissions granted to Microsoft Graph, impersonate the user, then impersonate the SP to become Global Admin.  If the targeted user has Entra ID roles, it has to be roles for which password reset is allowed for an Authentication Administrator . The targeted user cannot be an owner or member of a role-assignable group.",
+        "shortestPath": "Can reset the password of a user who owns an SP with privileged application permissions granted to Microsoft Graph, impersonate the user, then impersonate the SP to become Global Admin.  If the targeted user has Entra ID roles, it has to be roles for which password reset is allowed for an Authentication Administrator . The targeted user cannot be an owner or member of a role-assignable group.",
         "example": "TA resets the password of a standard user who owns an SP with the granted RoleManagement.ReadWrite.Directory. TA impersonates the user, then the SP to abuse the granted application permission and escalates to Global Admin."
     },
     {
@@ -20,7 +20,7 @@
         "id": "e3973bdf-4987-49ae-837a-ba8e231c7286",
         "assetName": "Azure DevOps Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Can impersonate a DevOps pipeline with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin.",
+        "shortestPath": "Can impersonate a DevOps pipeline with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin.",
         "example": "A DevOps pipeline uses an SP with Contributor access to a subscription containing a resource with an assigned MI. The MI has privileged application permissions granted for Microsoft Graph. By triggering and impersonating the pipeline with Contributor access, the same path as Application Administrator can be followed. Note: many other paths of this kind are possible."
     },
     {
@@ -28,7 +28,7 @@
         "id": "b1be1c3e-b65d-4f19-8427-f6fa0d97feb9",
         "assetName": "Conditional Access Administrator",
         "pathType": "Direct",
-        "knownShortestPath": "Can create a CAP blocking all users , and ask for a ransomware to remove the malicious CAP. Note: this role is \"Global-Admin-like\", as it affects the availability of the tenant in the same way as a Global Admin.",
+        "shortestPath": "Can create a CAP blocking all users , and ask for a ransomware to remove the malicious CAP. Note: this role is Global-Admin-like, as it affects the availability of the tenant in the same way as a Global Admin.",
         "example": "TA creates a CAP blocking all users  for all applications, apart from the compromised user account, and asks for a ransomware to remove the malicious CAP."
     },
     {
@@ -36,7 +36,7 @@
         "id": "158c047a-c907-4556-b7ef-446551a6b5f7",
         "assetName": "Cloud Application Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Application Administrator.",
+        "shortestPath": "Same as Application Administrator.",
         "example": "Same as Application Administrator."
     },
     {
@@ -44,7 +44,7 @@
         "id": "9360feb5-f418-4baa-8175-e2a00bac4301",
         "assetName": "Directory Writers",
         "pathType": "Indirect",
-        "knownShortestPath": "Can become member of a non-role-assignable group with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin. Note: can also acquire access to external solutions integrated with Entra ID via SSO, and providing access based on non-role-assignable group memberships.",
+        "shortestPath": "Can become member of a non-role-assignable group with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin. Note: can also acquire access to external solutions integrated with Entra ID via SSO, and providing access based on non-role-assignable group memberships.",
         "example": "TA adds the compromised user account to a group with Contributor access to a subscription containing a resource with an assigned MI. The MI has privileged application permissions granted for Microsoft Graph, and the same path as Application Administrator can be followed. Note: many other paths of this kind are possible."
     },
     {
@@ -52,7 +52,7 @@
         "id": "8329153b-31d0-4727-b945-745eb3bc5f31",
         "assetName": "Domain Name Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Can add a federated domain to Entra ID and authenticate as an existing Global Admin without password or MFA requirements.",
+        "shortestPath": "Can add a federated domain to Entra ID and authenticate as an existing Global Admin without password or MFA requirements.",
         "example": "TA adds a federated domain to Entra ID, by importing a certificate with the domain's public key. TA generates a SAML token for an existing Global Admin with an MFA claim and signs it with the private key. TA successfully authenticates as Global Admin, without MFA requirements."
     },
     {
@@ -60,7 +60,7 @@
         "id": "be2f45a1-457d-42af-a067-6ec1fa63bc45",
         "assetName": "External Identity Provider Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Domain Name Administrator.",
+        "shortestPath": "Same as Domain Name Administrator.",
         "example": "Same as Domain Name Administrator."
     },
     {
@@ -68,7 +68,7 @@
         "id": "29232cdf-9323-42fd-ade2-1d097af3e4de",
         "assetName": "Exchange Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Directory Writers.",
+        "shortestPath": "Same as Directory Writers.",
         "example": "Same as Directory Writers."
     },
     {
@@ -76,7 +76,7 @@
         "id": "62e90394-69f5-4237-9190-012177145e10",
         "assetName": "Global Administrator",
         "pathType": "Direct",
-        "knownShortestPath": "Self-explanatory.",
+        "shortestPath": "Self-explanatory.",
         "example": "Self-explanatory."
     },
     {
@@ -84,7 +84,7 @@
         "id": "fdd7a751-b60b-444a-984c-02652fe8fa1c",
         "assetName": "Groups Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Directory Writers.",
+        "shortestPath": "Same as Directory Writers.",
         "example": "Same as Directory Writers."
     },
     {
@@ -92,7 +92,7 @@
         "id": "729827e3-9c14-49f7-bb1b-9608f156bbb8",
         "assetName": "Helpdesk Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Authentication Administrator.",
+        "shortestPath": "Same as Authentication Administrator.",
         "example": "Same as Authentication Administrator."
     },
     {
@@ -100,7 +100,7 @@
         "id": "8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2",
         "assetName": "Hybrid Identity Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Domain Name Administrator.",
+        "shortestPath": "Same as Domain Name Administrator.",
         "example": "Same as Domain Name Administrator."
     },
     {
@@ -108,7 +108,7 @@
         "id": "45d8d3c5-c802-45c6-b32a-1d70b5e1e86e",
         "assetName": "Identity Governance Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Can update the assignment policy of an access package provisionning access to Global Admin, so that requesting the package without approval is possible from the compromised user account. Has also the same path as Directory Writers.",
+        "shortestPath": "Can update the assignment policy of an access package provisionning access to Global Admin, so that requesting the package without approval is possible from the compromised user account. Has also the same path as Directory Writers.",
         "example": "TA identifies an access package providing access to a security group with an active Global Admin assignment. TA adds an assignment policy to the access package, so that the latter can be requested from the compromised user account, without manual approval. TA requests the access package and escalates to Global Admin via group membership."
     },
     {
@@ -116,7 +116,7 @@
         "id": "3a2c62db-5318-420d-8d74-23affee5d9d5",
         "assetName": "Intune Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Can run commands on a device belonging to a Global Admin and extract their tokens to impersonate them.  Has also the same path as Directory Writers.",
+        "shortestPath": "Can run commands on a device belonging to a Global Admin and extract their tokens to impersonate them.  Has also the same path as Directory Writers.",
         "example": "TA runs a script on a device owned by a Global Administrator, extract their MS Graph tokens and escalates to Global Admin."
     },
     {
@@ -124,7 +124,7 @@
         "id": "b5a8dcf3-09d5-43a9-a639-8e29ef291470",
         "assetName": "Knowledge Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Directory Writers.",
+        "shortestPath": "Same as Directory Writers.",
         "example": "Same as Directory Writers."
     },
     {
@@ -132,7 +132,7 @@
         "id": "744ec460-397e-42ad-a462-8b3f9747a02c",
         "assetName": "Knowledge Manager",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Directory Writers.",
+        "shortestPath": "Same as Directory Writers.",
         "example": "Same as Directory Writers."
     },
     {
@@ -140,7 +140,7 @@
         "id": "59d46f88-662b-457b-bceb-5c3809e5908f",
         "assetName": "Lifecycle Workflows Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Can create a workflow with a task to become member of a non-role-assignable group with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin.",
+        "shortestPath": "Can create a workflow with a task to become member of a non-role-assignable group with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin.",
         "example": "Same as Directory Writers."
     },
     {
@@ -148,7 +148,7 @@
         "id": "a92aed5d-d78a-4d16-b381-09adb37eb3b0",
         "assetName": "On Premises Directory Sync Account",
         "pathType": "n/a",
-        "knownShortestPath": "Untested! Needs more research.  Note: does not seem to be able to create new SP credentials or give consent.",
+        "shortestPath": "Untested! Needs more research.  Note: does not seem to be able to create new SP credentials or give consent.",
         "example": "n/a"
     },
     {
@@ -156,7 +156,7 @@
         "id": "4ba39ca4-527c-499a-b93d-d9b492c50246",
         "assetName": "Partner Tier1 Support",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Application Administrator.",
+        "shortestPath": "Same as Application Administrator.",
         "example": "Same as Application Administrator."
     },
     {
@@ -164,7 +164,7 @@
         "id": "e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8",
         "assetName": "Partner Tier2 Support",
         "pathType": "Direct",
-        "knownShortestPath": "Can reset the password of a break-glass account and take it over.",
+        "shortestPath": "Can reset the password of a break-glass account and take it over.",
         "example": "TA resets the password of a break-glass account."
     },
     {
@@ -172,7 +172,7 @@
         "id": "966707d0-3269-4727-9be2-8c3a10f19b9d",
         "assetName": "Password Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Authentication Administrator.",
+        "shortestPath": "Same as Authentication Administrator.",
         "example": "Same as Authentication Administrator."
     },
     {
@@ -180,7 +180,7 @@
         "id": "7be44c8a-adaf-4e2a-84d6-ab2649e08a13",
         "assetName": "Privileged Authentication Administrator",
         "pathType": "Direct",
-        "knownShortestPath": "Same as Partner Tier2 Support.",
+        "shortestPath": "Same as Partner Tier2 Support.",
         "example": "Same as Partner Tier2 Support."
     },
     {
@@ -188,7 +188,7 @@
         "id": "e8611ab8-c189-46e8-94e1-60213ab1f814",
         "assetName": "Privileged Role Administrator",
         "pathType": "Direct",
-        "knownShortestPath": "Can assign the Global Admin role to itself.",
+        "shortestPath": "Can assign the Global Admin role to itself.",
         "example": "TA assigns the Global Admin role to the compromised user account, and authenticates as Global Admin."
     },
     {
@@ -196,7 +196,7 @@
         "id": "194ae4cb-b126-40b2-bd5b-6091b380977d",
         "assetName": "Security Administrator",
         "pathType": "Direct",
-        "knownShortestPath": "Same as Conditional Access Administrator.",
+        "shortestPath": "Same as Conditional Access Administrator.",
         "example": "Same as Conditional Access Administrator."
     },
     {
@@ -204,7 +204,7 @@
         "id": "f28a1f50-f6e7-4571-818b-6a12f2af6b6c",
         "assetName": "SharePoint Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Directory Writers.",
+        "shortestPath": "Same as Directory Writers.",
         "example": "Same as Directory Writers."
     },
     {
@@ -212,7 +212,7 @@
         "id": "69091246-20e8-4a56-aa4d-066075b2a7a8",
         "assetName": "Teams Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Directory Writers.",
+        "shortestPath": "Same as Directory Writers.",
         "example": "Same as Directory Writers."
     },
     {
@@ -220,7 +220,7 @@
         "id": "fe930be7-5e62-47db-91af-98c3a49a38b1",
         "assetName": "User Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Authentication Administrator.",
+        "shortestPath": "Same as Authentication Administrator.",
         "example": "Same as Authentication Administrator."
     },
     {
@@ -228,7 +228,7 @@
         "id": "11451d60-acb2-45eb-a7d6-43d0f0125c13",
         "assetName": "Windows 365 Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Directory Writers.",
+        "shortestPath": "Same as Directory Writers.",
         "example": "Same as Directory Writers."
     },
     {
@@ -236,7 +236,7 @@
         "id": "810a2642-a034-447f-a5e8-41beaa378541",
         "assetName": "Yammer Administrator",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Directory Writers.",
+        "shortestPath": "Same as Directory Writers.",
         "example": "Same as Directory Writers."
     },
     {
@@ -375,7 +375,7 @@
         "tier": "1",
         "id": "2ea5ce4c-b2d8-4668-bd81-3680bd2d227a",
         "assetName": "IoT Device Administrator",
-        "providesFullAccessTo": "IoT Devices templates of type \"IoT\" based on templates, but has no permissions the created resources."
+        "providesFullAccessTo": "IoT Devices templates of type IoT based on templates, but has no permissions the created resources."
     },
     {
         "tier": "1",

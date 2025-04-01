@@ -4,7 +4,7 @@
         "id": "5eb59dd3-1da2-4329-8733-9dabdc435916",
         "assetName": "AdministrativeUnit.ReadWrite.All",
         "pathType": "Indirect",
-        "knownShortestPath": "When combined with other types of access allowing to reset user passwords, can remove a Global Admin from a Restricted Management Administrative Unit  and take it over.",
+        "shortestPath": "When combined with other types of access allowing to reset user passwords, can remove a Global Admin from a Restricted Management Administrative Unit  and take it over.",
         "example": "TA has acquired the ability to reset user passwords by other means, but break-glass accounts, and takes it over to escalate to Global Admin."
     },
     {
@@ -12,7 +12,7 @@
         "id": "1bfefb4e-e0b5-418b-a88f-73c46d2cc8e9",
         "assetName": "Application.ReadWrite.All",
         "pathType": "Indirect",
-        "knownShortestPath": "Can impersonate any SP with more privileged application permissions granted for MS Graph, and impersonate it to escalate to Global Admin.",
+        "shortestPath": "Can impersonate any SP with more privileged application permissions granted for MS Graph, and impersonate it to escalate to Global Admin.",
         "example": "TA identifies an SP with the RoleManagement.ReadWrite.Directory application permission. TA creates a new secret for the SP, impersonates it and follows the same path as that permission to escalate to Global Admin."
     },
     {
@@ -20,7 +20,7 @@
         "id": "18a4783c-866b-4cc7-a460-3d5e5662c884",
         "assetName": "Application.ReadWrite.OwnedBy",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Application.ReadWrite.All for which the compromised SP is an owner.",
+        "shortestPath": "Same as Application.ReadWrite.All for which the compromised SP is an owner.",
         "example": "Same as Application.ReadWrite.All for which the compromised SP is an owner."
     },
     {
@@ -28,7 +28,7 @@
         "id": "06b708a9-e830-4db3-a914-8e69da51d44f",
         "assetName": "AppRoleAssignment.ReadWrite.All",
         "pathType": "Indirect",
-        "knownShortestPath": "Can assign the RoleManagement.ReadWrite.Directory permission to the compromised SP without requiring admin consent, and escalate to Global Admin.",
+        "shortestPath": "Can assign the RoleManagement.ReadWrite.Directory permission to the compromised SP without requiring admin consent, and escalate to Global Admin.",
         "example": "TA assigns the RoleManagement.ReadWrite.Directory permission to the compromised SP and follows the same path as that permission to escalate to Global Admin."
     },
     {
@@ -36,7 +36,7 @@
         "id": "cc13eba4-8cd8-44c6-b4d4-f93237adce58",
         "assetName": "DelegatedAdminRelationship.ReadWrite.All",
         "pathType": "n/a",
-        "knownShortestPath": "Untested! Needs more research.  Note: the tenant must be provisioned with the \"Partner Customer Delegated Administration\" SP already. Otherwise, the Application.ReadWrite.OwnedBy. This is most-likely a required preliminary to any exploitation.",
+        "shortestPath": "Untested! Needs more research.  Note: the tenant must be provisioned with the Partner Customer Delegated Administration SP already. Otherwise, the Application.ReadWrite.OwnedBy. This is most-likely a required preliminary to any exploitation.",
         "example": "n/a"
     },
     {
@@ -44,7 +44,7 @@
         "id": "9241abd9-d0e6-425a-bd4f-47ba86e767a4",
         "assetName": "DeviceManagementConfiguration.ReadWrite.All",
         "pathType": "Indirect",
-        "knownShortestPath": "Can run arbitrary commands on the InTune-managed endpoint of a Global Administrator and steal their tokens to impersonate them.",
+        "shortestPath": "Can run arbitrary commands on the InTune-managed endpoint of a Global Administrator and steal their tokens to impersonate them.",
         "example": "TA  identifies an InTune-managed endpoint belonging to a Global Administrator, runs commands remotely to extract PRT, refresh and/or access tokens issued for MS Graph from the endpoint, and uses those to escalate to Global Admin."
     },
     {
@@ -52,7 +52,7 @@
         "id": "e330c4f0-4170-414e-a55a-2f022ec2b57b",
         "assetName": "DeviceManagementRBAC.ReadWrite.All",
         "pathType": "Indirect",
-        "knownShortestPath": "Can assign InTune roles to a controlled user account, which allows running arbitrary commands on the InTune-managed endpoint of a Global Administrator and steal their tokens to impersonate them.",
+        "shortestPath": "Can assign InTune roles to a controlled user account, which allows running arbitrary commands on the InTune-managed endpoint of a Global Administrator and steal their tokens to impersonate them.",
         "example": "TA assigns the School Administrator can be followed to escalate to Global Admin."
     },
     {
@@ -60,7 +60,7 @@
         "id": "19dbc75e-c2e2-444c-a770-ec69d8559fc7",
         "assetName": "Directory.ReadWrite.All",
         "pathType": "Indirect",
-        "knownShortestPath": "Can become member of a non-role-assignable user group with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin. Note: can also acquire access to external solutions integrated with Entra ID via SSO, and providing access based on non-role-assignable group memberships.",
+        "shortestPath": "Can become member of a non-role-assignable user group with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin. Note: can also acquire access to external solutions integrated with Entra ID via SSO, and providing access based on non-role-assignable group memberships.",
         "example": "TA adds a controlled user account to a group with Contributor access to a subscription containing a resource with an assigned MI. The MI is granted Application.ReadWrite.All or similar, and the same path as that permissions can be followed to escalate to Global Admin. Note: many other paths of this kind are possible."
     },
     {
@@ -68,7 +68,7 @@
         "id": "7e05723c-0bb0-42da-be95-ae9f08a6e53c",
         "assetName": "Domain.ReadWrite.All",
         "pathType": "Indirect",
-        "knownShortestPath": "Can add a federated domain to Entra ID and authenticate as an existing Global Admin without password or MFA requirements.",
+        "shortestPath": "Can add a federated domain to Entra ID and authenticate as an existing Global Admin without password or MFA requirements.",
         "example": "TA adds a federated domain to Entra ID, by importing a certificate with the domain's public key. TA generates a SAML token for an existing Global Admin with an MFA claim and signs it with the private key. TA successfully authenticates as Global Admin, without MFA requirements."
     },
     {
@@ -76,7 +76,7 @@
         "id": "9acd699f-1e81-4958-b001-93b1d2506e19",
         "assetName": "EntitlementManagement.ReadWrite.All",
         "pathType": "Indirect",
-        "knownShortestPath": "Can update the assignment policy of an access package provisioning access to Global Admin, so that requesting the package without approval is possible from a controlled user account.",
+        "shortestPath": "Can update the assignment policy of an access package provisioning access to Global Admin, so that requesting the package without approval is possible from a controlled user account.",
         "example": "TA identifies an access package providing access to a security group with an active Global Admin assignment. TA adds an assignment policy to the access package, so that the latter can be requested from a controlled user account, without manual approval. TA requests the access package and escalates to Global Admin via group membership."
     },
     {
@@ -84,7 +84,7 @@
         "id": "62a82d76-70ea-41e2-9197-370581804d09",
         "assetName": "Group.ReadWrite.All",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Directory.ReadWrite.All.",
+        "shortestPath": "Same as Directory.ReadWrite.All.",
         "example": "Same as Directory.ReadWrite.All."
     },
     {
@@ -92,7 +92,7 @@
         "id": "dbaae8cf-10b5-4b86-a4a1-f871c94c6695",
         "assetName": "GroupMember.ReadWrite.All",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Directory.ReadWrite.All.",
+        "shortestPath": "Same as Directory.ReadWrite.All.",
         "example": "Same as Directory.ReadWrite.All."
     },
     {
@@ -100,7 +100,7 @@
         "id": "292d869f-3427-49a8-9dab-8c70152b74e9",
         "assetName": "Organization.ReadWrite.All",
         "pathType": "Indirect",
-        "knownShortestPath": "If Certificate Based Authentication  is enabled in the tenant, can upload a trusted root certificate to Entra ID and impersonate a Global Admin.",
+        "shortestPath": "If Certificate Based Authentication  is enabled in the tenant, can upload a trusted root certificate to Entra ID and impersonate a Global Admin.",
         "example": "TA identifies the UPN of a Global admin. TA adds a trusted root certificate to Entra ID, and uses the associated private key to generate a user certificate for the UPN. TA authenticates with the user certificate to escalate to Global Admin."
     },
     {
@@ -108,7 +108,7 @@
         "id": "29c18626-4985-4dcd-85c0-193eef327366",
         "assetName": "Policy.ReadWrite.AuthenticationMethod",
         "pathType": "Indirect",
-        "knownShortestPath": "When combined with UserAuthenticationMethod.ReadWrite.All authentication method to help leveraging and follow the same path as that permission.",
+        "shortestPath": "When combined with UserAuthenticationMethod.ReadWrite.All authentication method to help leveraging and follow the same path as that permission.",
         "example": "TA enables the TAP authentication method for the whole tenant and follows the same path as UserAuthenticationMethod.ReadWrite.All."
     },
     {
@@ -116,7 +116,7 @@
         "id": "01c0a623-fc9b-48e9-b794-0756f8e8f067",
         "assetName": "Policy.ReadWrite.ConditionalAccess",
         "pathType": "Direct",
-        "knownShortestPath": "Can create a CAP blocking all users , and ask for a ransomware to remove the malicious CAP. Note: this role is \"Global-Admin-like\", as it affects the availability of the tenant in the same way as a Global Admin.",
+        "shortestPath": "Can create a CAP blocking all users , and ask for a ransomware to remove the malicious CAP. Note: this role is Global-Admin-like, as it affects the availability of the tenant in the same way as a Global Admin.",
         "example": "TA creates a CAP blocking all users  for all applications, and asks for a ransomware to remove the malicious CAP."
     },
     {
@@ -124,7 +124,7 @@
         "id": "a402ca1c-2696-4531-972d-6e5ee4aa11ea",
         "assetName": "Policy.ReadWrite.PermissionGrant",
         "pathType": "Indirect",
-        "knownShortestPath": "Can create a permission grant policy permission, and leverage that policy to follow the same path as that permission and escalate to Global Admin.",
+        "shortestPath": "Can create a permission grant policy permission, and leverage that policy to follow the same path as that permission and escalate to Global Admin.",
         "example": "TA creates a new permission grant policy permission to the compromised SP and creates the same path as that permission."
     },
     {
@@ -132,7 +132,7 @@
         "id": "854d9ab1-6657-4ec8-be45-823027bcd009",
         "assetName": "PrivilegedAccess.ReadWrite.AzureAD",
         "pathType": "n/a",
-        "knownShortestPath": "Legacy, kept here for safety until completely removed.  Note: seems to have been used with PIM iteration 1 and 2.",
+        "shortestPath": "Legacy, kept here for safety until completely removed.  Note: seems to have been used with PIM iteration 1 and 2.",
         "example": "n/a"
     },
     {
@@ -140,7 +140,7 @@
         "id": "2f6817f8-7b12-4f0f-bc18-eeaf60705a9e",
         "assetName": "PrivilegedAccess.ReadWrite.AzureADGroup",
         "pathType": "Direct",
-        "knownShortestPath": "Can add a controlled user account as owner or member of a group with an active Global Admin assignment .",
+        "shortestPath": "Can add a controlled user account as owner or member of a group with an active Global Admin assignment .",
         "example": "TA adds a controlled user account to a group that is actively assigned the Global Admin role, re-authenticates with the account and escalates to Global Admin. Note: if the active group assignment requires MFA, this path may need to be combined with RoleManagementPolicy.ReadWrite.AzureADGroup to be successful, depending on how the controlled user account was compromised."
     },
     {
@@ -148,7 +148,7 @@
         "id": "6f9d5abc-2db6-400b-a267-7de22a40fb87",
         "assetName": "PrivilegedAccess.ReadWrite.AzureResources",
         "pathType": "n/a",
-        "knownShortestPath": "Legacy, kept here for safety until completely removed.  Note: seems to have been used with PIM iteration 1 and 2.",
+        "shortestPath": "Legacy, kept here for safety until completely removed.  Note: seems to have been used with PIM iteration 1 and 2.",
         "example": "n/a"
     },
     {
@@ -156,7 +156,7 @@
         "id": "41202f2c-f7ab-45be-b001-85c9728b9d69",
         "assetName": "PrivilegedAssignmentSchedule.ReadWrite.AzureADGroup",
         "pathType": "Direct",
-        "knownShortestPath": "Same as PrivilegedAccess.ReadWrite.AzureADGroup.",
+        "shortestPath": "Same as PrivilegedAccess.ReadWrite.AzureADGroup.",
         "example": "Same as PrivilegedAccess.ReadWrite.AzureADGroup."
     },
     {
@@ -164,7 +164,7 @@
         "id": "618b6020-bca8-4de6-99f6-ef445fa4d857",
         "assetName": "PrivilegedEligibilitySchedule.ReadWrite.AzureADGroup",
         "pathType": "Indirect",
-        "knownShortestPath": "Can make a controlled user account eligible to a group with an active Global Admin assignment, and activate the group membership to escalate to Global Admin.",
+        "shortestPath": "Can make a controlled user account eligible to a group with an active Global Admin assignment, and activate the group membership to escalate to Global Admin.",
         "example": "TA makes a controlled user account eligible to a group that is actively assigned the Global Admin role, activates the group membership and escalates to Global Admin. Note: if the eligible assignment or membership activation requires to meet specific requirements such as admin approval, this path needs to be combined with RoleManagementPolicy.ReadWrite.AzureADGroup to be successful."
     },
     {
@@ -172,7 +172,7 @@
         "id": "dd199f4a-f148-40a4-a2ec-f0069cc799ec",
         "assetName": "RoleAssignmentSchedule.ReadWrite.Directory",
         "pathType": "Direct",
-        "knownShortestPath": "Can assign the Global Admin role to a controlled user account, by creating an active PIM role assignment.",
+        "shortestPath": "Can assign the Global Admin role to a controlled user account, by creating an active PIM role assignment.",
         "example": "TA assigns the Global Admin role to a user account in their control  to be successful, depending on how the controlled user account was compromised."
     },
     {
@@ -180,7 +180,7 @@
         "id": "fee28b28-e1f3-4841-818e-2704dc62245f",
         "assetName": "RoleEligibilitySchedule.ReadWrite.Directory",
         "pathType": "Indirect",
-        "knownShortestPath": "Can make a controlled user account eligible to the Global Admin role, and activate it to escalate to Global Admin.",
+        "shortestPath": "Can make a controlled user account eligible to the Global Admin role, and activate it to escalate to Global Admin.",
         "example": "TA makes a controlled user account eligible to the Global Admin role, and activates it to escalate to Global Admin.  Note: if the eligible assignment or role activation requires to meet specific requirements such as admin approval, this path needs to be combined with RoleManagementPolicy.ReadWrite.Directory to be successful."
     },
     {
@@ -188,7 +188,7 @@
         "id": "9e3f62cf-ca93-4989-b6ce-bf83c28f9fe8",
         "assetName": "RoleManagement.ReadWrite.Directory",
         "pathType": "Direct",
-        "knownShortestPath": "Can assign the Global Admin role to a controlled principal.",
+        "shortestPath": "Can assign the Global Admin role to a controlled principal.",
         "example": "TA assigns the Global Admin role to the compromised SP, re-authenticates with the SP and escalates to Global Admin."
     },
     {
@@ -196,7 +196,7 @@
         "id": "b38dcc4d-a239-4ed6-aa84-6c65b284f97c",
         "assetName": "RoleManagementPolicy.ReadWrite.AzureADGroup",
         "pathType": "Indirect",
-        "knownShortestPath": "Can remove group role assignment and activation constrains, such as MFA requirements or admin approval, to help leveraging PrivilegedAccess.ReadWrite.AzureADGroup, and follow the same path as those permissions in a tenant with strict PIM settings.",
+        "shortestPath": "Can remove group role assignment and activation constrains, such as MFA requirements or admin approval, to help leveraging PrivilegedAccess.ReadWrite.AzureADGroup, and follow the same path as those permissions in a tenant with strict PIM settings.",
         "example": "TA identifies a group that is actively assigned the Global Admin role. In the group's role management policy, TA removes all assignment and activation requirements. TA adds a controlled user account to the group, re-authenticates with the account and escalates to Global Admin."
     },
     {
@@ -204,7 +204,7 @@
         "id": "31e08e0a-d3f7-4ca2-ac39-7343fb83e8ad",
         "assetName": "RoleManagementPolicy.ReadWrite.Directory",
         "pathType": "Indirect",
-        "knownShortestPath": "Can remove Entra role assignment and activation constrains, such as MFA requirements or admin approval, to help leveraging RoleAssignmentSchedule.ReadWrite.Directory, and follow the same path as those permissions in a tenant with strict PIM settings.",
+        "shortestPath": "Can remove Entra role assignment and activation constrains, such as MFA requirements or admin approval, to help leveraging RoleAssignmentSchedule.ReadWrite.Directory, and follow the same path as those permissions in a tenant with strict PIM settings.",
         "example": "TA has compromised user credentials for an account that is eligible to the Global Admin role. TA updates the role's management policy to remove all activation requirements. TA activates the role and escalates to Global Admin."
     },
     {
@@ -212,7 +212,7 @@
         "id": "9b50c33d-700f-43b1-b2eb-87e89b703581",
         "assetName": "Synchronization.ReadWrite.All",
         "pathType": "n/a",
-        "knownShortestPath": "Untested! Needs more research.  Note: does not seem to be able to create new SP credentials.",
+        "shortestPath": "Untested! Needs more research.  Note: does not seem to be able to create new SP credentials.",
         "example": "n/a"
     },
     {
@@ -220,7 +220,7 @@
         "id": "eccc023d-eccf-4e7b-9683-8813ab36cecc",
         "assetName": "User.DeleteRestore.All",
         "pathType": "Direct",
-        "knownShortestPath": "Can delete all user accounts in the tenant , and ask for a ransomware to restore one of the break-glass accounts. Note: this permission is \"Global-Admin-like\", as it affects the availability of the tenant in the same way as a Global Admin.",
+        "shortestPath": "Can delete all user accounts in the tenant , and ask for a ransomware to restore one of the break-glass accounts. Note: this permission is Global-Admin-like, as it affects the availability of the tenant in the same way as a Global Admin.",
         "example": "TA deletes all users in the tenant, including break-glass accounts, and ask for a ransom to restore one emergency account. Note: TA has the ability to delete user accounts <u>permanently.</u>"
     },
     {
@@ -228,7 +228,7 @@
         "id": "3011c876-62b7-4ada-afa2-506cbbecc68c",
         "assetName": "User.EnableDisableAccount.All",
         "pathType": "Direct",
-        "knownShortestPath": "When combined with User.Read.All, and ask for a ransomware to re-enable one of the break-glass accounts. Note: this permission is \"Global-Admin-like\", as it affects the availability of the tenant in the same way as a Global Admin.",
+        "shortestPath": "When combined with User.Read.All, and ask for a ransomware to re-enable one of the break-glass accounts. Note: this permission is Global-Admin-like, as it affects the availability of the tenant in the same way as a Global Admin.",
         "example": "TA disables all users in the tenant, including break-glass accounts, and ask for a ransom to re-enable one emergency account."
     },
     {
@@ -236,7 +236,7 @@
         "id": "741f803b-c850-494e-b5df-cde7c675a1ca",
         "assetName": "User.ReadWrite.All",
         "pathType": "Indirect",
-        "knownShortestPath": "Can edit sensitive properties of a controlled user account, such as \"Employee ID\" and \"Department\", to become member of a dynamic group with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin.",
+        "shortestPath": "Can edit sensitive properties of a controlled user account, such as Employee ID and Department, to become member of a dynamic group with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin.",
         "example": "TA identifies a dynamic group with a membership rule based on a user property  or similar, and the same path as that permission can be followed to escalate to Global Admin. Note: many other paths of this kind are possible."
     },
     {
@@ -244,7 +244,7 @@
         "id": "cc117bb9-00cf-4eb8-b580-ea2a878fe8f7",
         "assetName": "User-PasswordProfile.ReadWrite.All",
         "pathType": "Indirect",
-        "knownShortestPath": "Same as Directory.ReadWrite.All.",
+        "shortestPath": "Same as Directory.ReadWrite.All.",
         "example": "Same as Directory.ReadWrite.All."
     },
     {
@@ -252,7 +252,7 @@
         "id": "50483e42-d915-4231-9639-7fdb7fd190e5",
         "assetName": "UserAuthenticationMethod.ReadWrite.All",
         "pathType": "Direct",
-        "knownShortestPath": "Can generate a Temporary Access Pass  to be successful.",
+        "shortestPath": "Can generate a Temporary Access Pass  to be successful.",
         "example": "TA creates a TAP for a break-glass account, authenticates with the TAP instead of the account's password and escalates to Global Admin."
     },
     {
@@ -628,14 +628,12 @@
     {
         "tier": "1",
         "id": "e1d2136d-eaaf-427a-a7db-f97dbe847c27",
-        "assetName": "EngagementConversation.Migration.All",
-        "providesFullAccessTo": ""
+        "assetName": "EngagementConversation.Migration.All"
     },
     {
         "tier": "1",
         "id": "3ede5358-7366-4da8-a2f7-472bf9c7cc34",
-        "assetName": "EngagementRole.ReadWrite.All",
-        "providesFullAccessTo": ""
+        "assetName": "EngagementRole.ReadWrite.All"
     },
     {
         "tier": "1",
@@ -920,8 +918,7 @@
     {
         "tier": "1",
         "id": "c22a92cc-79bf-4bb1-8b6c-e0a05d3d80ce",
-        "assetName": "OnPremDirectorySynchronization.ReadWrite.All",
-        "providesFullAccessTo": ""
+        "assetName": "OnPremDirectorySynchronization.ReadWrite.All"
     },
     {
         "tier": "1",
@@ -1241,8 +1238,7 @@
     {
         "tier": "1",
         "id": "8b7e8c0a-7e9d-4049-97ec-04b5e1bcaf05",
-        "assetName": "RoleManagement.ReadWrite.Defender",
-        "providesFullAccessTo": ""
+        "assetName": "RoleManagement.ReadWrite.Defender"
     },
     {
         "tier": "1",
@@ -1587,8 +1583,7 @@
     {
         "tier": "1",
         "id": "0a42382f-155c-4eb1-9bdc-21548ccaa387",
-        "assetName": "TeamsTelephoneNumber.ReadWrite.All",
-        "providesFullAccessTo": ""
+        "assetName": "TeamsTelephoneNumber.ReadWrite.All"
     },
     {
         "tier": "1",
@@ -1743,8 +1738,7 @@
     {
         "tier": "1",
         "id": "b2620db1-3bf7-4c5b-9cb9-576d29eac736",
-        "assetName": "eDiscovery.ReadWrite.All",
-        "providesFullAccessTo": "<a id='tier-2'></a>"
+        "assetName": "eDiscovery.ReadWrite.All"
     },
     {
         "tier": "2",
