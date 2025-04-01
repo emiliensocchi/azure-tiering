@@ -1,0 +1,659 @@
+[
+    {
+        "tier": "0",
+        "id": "0f37683f-2463-46b6-9ce7-9b788b988ba2",
+        "assetName": "App Compliance Automation Administrator",
+        "shortestPath": "Can delete all resource groups within reach with the resources they contain, and affect the availability of those resources. Note: this role is Contributor-like, as it affects the availability of the resources within reach in the same way as a Contributor.",
+        "example": "TA is App Compliance Automation Administrator on a subscription and deletes all of its resource groups, making all resources in the subscription unavailable."
+    },
+    {
+        "tier": "0",
+        "id": "f353d9bd-d4a6-484e-a77a-8050b599b867",
+        "assetName": "Automation Contributor",
+        "shortestPath": "Same as Contributor.",
+        "example": "Same as Contributor."
+    },
+    {
+        "tier": "0",
+        "id": "b78c5d69-af96-48a3-bf8d-a8b4d589de94",
+        "assetName": "Azure AI Administrator",
+        "shortestPath": "Same as Contributor.",
+        "example": "Same as Contributor."
+    },
+    {
+        "tier": "0",
+        "id": "0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8",
+        "assetName": "Azure Kubernetes Service Cluster Admin Role",
+        "shortestPath": "Can become cluster admin in all Azure Kubernetes Service  clusters within reach and take them over entirely.",
+        "example": "TA is AKS Cluster Admin Role on a subscription with an AKS cluster, and takes it over. From there, TA can dump all Secrets used within the cluster and leverage them to attempt pivoting to the Azure infrastructure. TA can also take over nodes within the cluster and attempt spreading to the cloud infrastructure via network-based attacks."
+    },
+    {
+        "tier": "0",
+        "id": "4abbcc35-e782-43d8-92c5-2d3f1bd2253f",
+        "assetName": "Azure Kubernetes Service Cluster User Role",
+        "shortestPath": "In the Azure Kubernetes Service .",
+        "example": "TA has the AKS Cluster User Role on a single cluster, within which roleBindings provide full access to all resources within a specific Kubernetes namespace. TA can follow the same path as an Azure Kubernetes Service RBAC Admin."
+    },
+    {
+        "tier": "0",
+        "id": "ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8",
+        "assetName": "Azure Kubernetes Service Contributor Role",
+        "shortestPath": "In the Azure Kubernetes Service  clusters within reach, can change their authentication and authorization schemes to Kubernetes RBAC, set the cluster-admin group to a security group for which the compromised user is a member, and take over the clusters entirely.",
+        "example": "TA has the AKS Contributor Role on a single cluster. TA sets the cluster's authentication and authorization scheme to Microsoft Entra ID authentication with Kubernetes RBAC, and the cluster-admin group to a security group for which TA is a member. TA can log in to the cluster as cluster admin and follow the same path as the Azure Kubernetes Service Cluster Admin Role."
+    },
+    {
+        "tier": "0",
+        "id": "3498e952-d568-435e-9b2c-8d77e338d7f7",
+        "assetName": "Azure Kubernetes Service RBAC Admin",
+        "shortestPath": "In the Azure Kubernetes Service",
+        "example": "TA is AKS RBAC Admin on a single cluster, with admin access to a few namespaces. TA can attempt deploying a privileged container within one of the namespaces to escape to an AKS node and take over the cluster. From there, a similar path to the Azure Kubernetes Service Cluster Admin Role can be followed. TA can also leverage accessible Kubernetes Secrets to attempt pivoting to the Azure infrastructure."
+    },
+    {
+        "tier": "0",
+        "id": "b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b",
+        "assetName": "Azure Kubernetes Service RBAC Cluster Admin",
+        "shortestPath": "Same  as the Azure Kubernetes Service Cluster Admin Role.",
+        "example": "Same as the Azure Kubernetes Service Cluster Admin Role."
+    },
+    {
+        "tier": "0",
+        "id": "a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb",
+        "assetName": "Azure Kubernetes Service RBAC Writer",
+        "shortestPath": "Same as Azure Kubernetes Service RBAC Admin.",
+        "example": "Same as Azure Kubernetes Service RBAC Admin."
+    },
+    {
+        "tier": "0",
+        "id": "25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68",
+        "assetName": "Cognitive Services Contributor",
+        "shortestPath": "Same as Contributor category.",
+        "example": "Same as Contributor category."
+    },
+    {
+        "tier": "0",
+        "id": "a001fd3d-188f-4b5d-821b-7da978bf7442",
+        "assetName": "Cognitive Services OpenAI Contributor",
+        "shortestPath": "Same as Contributor.",
+        "example": "Same as Contributor."
+    },
+    {
+        "tier": "0",
+        "id": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+        "assetName": "Contributor",
+        "shortestPath": "Can run commands on compute resources within reach that are assigned Managed Identities with permissions to other scopes, and escalate privileges.",
+        "example": "TA is Contributor on a subscription containing Logic Apps and Automation Accounts. The Automation Accounts are assigned Managed Identities . TA can leverage the Automation Accounts and Logic Apps to impersonate the MIs and escalate privileges within Azure and MS Graph.  Note: many paths of this kind are possible with other types of compute resources."
+    },
+    {
+        "tier": "0",
+        "id": "082f0a83-3be5-4ba1-904c-961cca79b387",
+        "assetName": "Desktop Virtualization Contributor",
+        "shortestPath": "Same as Contributor.",
+        "example": "Same as Contributor."
+    },
+    {
+        "tier": "0",
+        "id": "a959dbd1-f747-45e3-8ba6-dd80f235f97c",
+        "assetName": "Desktop Virtualization Virtual Machine Contributor",
+        "shortestPath": "Same as Contributor.",
+        "example": ""
+    },
+    {
+        "tier": "0",
+        "id": "5e93ba01-8f92-4c7a-b12a-801e3df23824",
+        "assetName": "Kubernetes Agent Operator",
+        "shortestPath": "Can create a trusted access role binding.",
+        "example": "TA is Kubernetes Agent Operator on a single cluster. TA creates a new trusted role access role binding between the compromised principal and the cluster, using the inference-v1 access role. TA has now full access to Kubernetes Pod and Secret resources within the cluster. TA can attempt deploying a privileged container to escape to an AKS node and take over the cluster. From there, a similar path to the Azure Kubernetes Service Cluster Admin Role."
+    },
+    {
+        "tier": "0",
+        "id": "d5a2ae44-610b-4500-93be-660a0c5f5ca6",
+        "assetName": "Kubernetes Agentless Operator",
+        "shortestPath": "Same as Kubernetes Agent Operator.",
+        "example": "Same as Kubernetes Agent Operator."
+    },
+    {
+        "tier": "0",
+        "id": "87a39d53-fc1b-424a-814c-f7e04687dc9e",
+        "assetName": "Logic App Contributor",
+        "shortestPath": "Same as Contributor using a consumption plan.",
+        "example": "Same as Contributor using a consumption plan."
+    },
+    {
+        "tier": "0",
+        "id": "",
+        "assetName": "Logic Apps Standard Contributor ",
+        "shortestPath": "Same as Contributor using a standard plan.",
+        "example": "Same as Contributor using a standard plan."
+    },
+    {
+        "tier": "0",
+        "id": "f1a07417-d97a-45cb-824c-7a7467783830",
+        "assetName": "Managed Identity Operator",
+        "shortestPath": "Can assign the user-assigned Managed Identities within reach to a compute resource in the same scope and endorse their permissions to escalate privileges.",
+        "example": "TA is Managed Identity Operator on a subscription with multiple user-assigned Managed Identities , and where they control an App Service. One of the MIs has Contributor access to the entire subscription where the MIs are located. TA assigns the MI to the App Service and leverages the latter to escalate privileges and take over all resources within the subscription via the new Contributor access."
+    },
+    {
+        "tier": "0",
+        "id": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
+        "assetName": "Owner",
+        "shortestPath": "Same as Contributor.",
+        "example": "Same as Contributor."
+    },
+    {
+        "tier": "0",
+        "id": "a8889054-8d42-49c9-bc1c-52486c10e7cd",
+        "assetName": "Reservations Administrator",
+        "shortestPath": "Can assign the Contributor role to compromised principal and follow the same path.",
+        "example": "Can assign the Contributor role to compromised principal and follow the same path."
+    },
+    {
+        "tier": "0",
+        "id": "36243c78-bf99-498c-9df9-86d9f8d28608",
+        "assetName": "Resource Policy Contributor",
+        "shortestPath": "In Azure Policy.",
+        "example": "In Azure Policy, a DeployIfNotExist policy is already assigned on a subscription. The policy assignment uses a Managed Identity with Contributor access on the subscription to enforce changes defined by the policy. TA modifies the policy, so that it executes arbitrary commands in compute resources within the subscription on new deployments  can be followed."
+    },
+    {
+        "tier": "0",
+        "id": "f58310d9-a9f6-439a-9e8d-f62e7b41a168",
+        "assetName": "Role Based Access Control Administrator",
+        "shortestPath": "Can assign the Contributor role to compromised principal and follow the same path.",
+        "example": "Can assign the Contributor role to compromised principal and follow the same path."
+    },
+    {
+        "tier": "0",
+        "id": "fb1c8493-542b-48eb-b624-b4c8fea62acd",
+        "assetName": "Security Admin",
+        "shortestPath": "Same as Resource Policy Contributor.",
+        "example": "Same as Resource Policy Contributor."
+    },
+    {
+        "tier": "0",
+        "id": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+        "assetName": "User Access Administrator",
+        "shortestPath": "Can assign the Contributor role to the compromised principal and follow the same path.",
+        "example": "Can assign the Contributor role to the compromised principal and follow the same path."
+    },
+    {
+        "tier": "0",
+        "id": "1c0163c0-47e6-4577-8991-ea5c82e286e4",
+        "assetName": "Virtual Machine Administrator Login",
+        "shortestPath": "Same as Contributor.",
+        "example": "Same as Contributor."
+    },
+    {
+        "tier": "0",
+        "id": "9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
+        "assetName": "Virtual Machine Contributor",
+        "shortestPath": "Same as Contributor.",
+        "example": "Same as Contributor."
+    },
+    {
+        "tier": "0",
+        "id": "fb879df8-f326-4884-b1cf-06f3ad86be52",
+        "assetName": "Virtual Machine User Login",
+        "shortestPath": "Same as Contributor.",
+        "example": "Same as Contributor."
+    },
+    {
+        "tier": "0",
+        "id": "de139f84-1756-47ae-9be6-808fbbe84772",
+        "assetName": "Website Contributor",
+        "shortestPath": "Same as Contributor.",
+        "example": "Same as Contributor."
+    },
+    {
+        "tier": "1",
+        "id": "8311e382-0749-4cb8-b61a-304f252e45ec",
+        "assetName": "AcrPush",
+        "shortestPath": "Can infect container images hosted on Azure Container Registry where the images are deployed.",
+        "example": "TA has AcrPush access to an ACR exposed on a non-restricted public endpoint. TA infects its base images with a reverse-shell backdoor . During application deployments, the infected images are extended to build and deploy applications to Kubernetes clusters, allowing TA to move laterally to multiple locations within those clusters."
+    },
+    {
+        "tier": "1",
+        "id": "5ae67dd6-50cb-40e7-96ff-dc2bfa4b606b",
+        "assetName": "App Configuration Data Owner",
+        "shortestPath": "Can steal secrets to move laterally to other resources, if stored insecurely in the App Configuration instances within reach.",
+        "example": "TA is App Configuration Data Owner on a subscription with 3 App Configuration instances. One of them contains hard-coded connection strings to Storage Accounts and SQL Servers. TA can attempt to use them to move laterally to those resources."
+    },
+    {
+        "tier": "1",
+        "id": "516239f1-63e1-4d78-a4de-a74fb236a071",
+        "assetName": "App Configuration Data Reader",
+        "shortestPath": "Same as App Configuration Data Owner.",
+        "example": "Same as App Configuration Data Owner."
+    },
+    {
+        "tier": "1",
+        "id": "3afb7f49-54cb-416e-8c09-6dc049efa503",
+        "assetName": "Azure AI Inference Deployment Operator",
+        "shortestPath": "Same as Reader.",
+        "example": "Same as Reader."
+    },
+    {
+        "tier": "1",
+        "id": "f526a384-b230-433a-b45c-95f59c4a2dec",
+        "assetName": "Azure Event Hubs Data Owner",
+        "shortestPath": "Can steal secrets managed insecurely and flowing through the Event Hub instances within reach that are network accessible, and/or tamper with the data to attempt moving laterally to other consuming systems.",
+        "example": "TA is Azure Event Hubs Data Owner on an Event Hub instance exposed on a non-restricted public endpoint and used for forwarding logs. The logs are incorrectly sanitized for secrets, and TA finds connection strings to other Azure resources. TA can attempt to use them to move laterally to those resources."
+    },
+    {
+        "tier": "1",
+        "id": "a638d3c7-ab3a-418d-83e6-5f17a39d4fde",
+        "assetName": "Azure Event Hubs Data Receiver",
+        "shortestPath": "Can steal secrets managed insecurely and flowing through the Event Hub instances within reach that are network accessible, and leverage those to move laterally to other resources.",
+        "example": "TA is Azure Event Hubs Data Receiver on an Event Hub instance exposed on a non-restricted public endpoint and used for forwarding logs. The logs are incorrectly sanitized for secrets, and TA finds connection strings to other Azure resources. TA can attempt to use them to move laterally to those resources."
+    },
+    {
+        "tier": "1",
+        "id": "2b629674-e913-4c01-ae53-ef4638d8f975",
+        "assetName": "Azure Event Hubs Data Sender",
+        "shortestPath": "Can send malicious data to the Event Hub instances within reach that are network accessible, to attempt moving laterally to other consuming systems.",
+        "example": "TA is Azure Event Hubs Data Sender on an Event Hub instance that is exposed on a non-restricted public endpoint and used to forward logs to a SQL database. The logs are insecurely inserted into the database. TA is able to send SQL injection queries to the Event Hub, and attempt to pivot to the log database."
+    },
+    {
+        "tier": "1",
+        "id": "7f6c6a51-bcf8-42ba-9220-52d62157d7db",
+        "assetName": "Azure Kubernetes Service RBAC Reader",
+        "shortestPath": "In the Azure Kubernetes Service  clusters within reach that are network accessible, can steal secrets to move laterally to other resources, if stored insecurely in certain types of Kubernetes resources accessible to the role.",
+        "example": "TA is AKS RBAC Reader on a single cluster exposed on a non-restricted public endpoint, which provides view access to the cluster's namespaces. Some namespaces contain ConfigMaps with hard-coded connection strings to Azure SQL databases, Storage Accounts and Key Vaults. TA can attempt to use them to move laterally to those resources."
+    },
+    {
+        "tier": "1",
+        "id": "090c5cfd-751d-490a-894a-3ce6f1109419",
+        "assetName": "Azure Service Bus Data Owner",
+        "shortestPath": "Same as Azure Event Hubs Data Owner.",
+        "example": "Same as Azure Event Hubs Data Owner."
+    },
+    {
+        "tier": "1",
+        "id": "69a216fc-b8fb-44d8-bc22-1f3c2cd27a39",
+        "assetName": "Azure Service Bus Data Sender",
+        "shortestPath": "Same as Azure Event Hubs Data Sender.",
+        "example": "Same as Azure Event Hubs Data Sender("
+    },
+    {
+        "tier": "2",
+        "id": "4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0",
+        "assetName": "Azure Service Bus Data Receiver",
+        "worstCaseScenario": "Same as Azure Event Hubs Data Receiver."
+    },
+    {
+        "tier": "2",
+        "id": "8480c0f0-4509-4229-9339-7c10018cb8c4",
+        "assetName": "Defender CSPM Storage Scanner Operator",
+        "worstCaseScenario": "Same as Storage Account Contributor within reach."
+    },
+    {
+        "tier": "2",
+        "id": "0f641de8-0b88-4198-bdef-bd8b45ceba96",
+        "assetName": "Defender for Storage Scanner Operator",
+        "worstCaseScenario": "Can assign the Defender for Storage Data Scanner within reach, and follow the same paths as those roles."
+    },
+    {
+        "tier": "2",
+        "id": "befefa01-2a29-4197-83a8-272ff33ce314",
+        "assetName": "DNS Zone Contributor",
+        "worstCaseScenario": "Can modify all Azure DNS zones within reach, and conduct DNS hijacking attacks on the environment."
+    },
+    {
+        "tier": "2",
+        "id": "eeaeda52-9324-47f6-8069-5d5bade478b2",
+        "assetName": "Domain Services Contributor",
+        "worstCaseScenario": "Can modify the following network resources within reach, to leverage network based attacks from a controlled compute instance: Virtual Networks  instances within reach, but does not provide access to the underlying Domain Controllers."
+    },
+    {
+        "tier": "2",
+        "id": "1e241071-0855-49ea-94dc-649edcd759de",
+        "assetName": "EventGrid Contributor",
+        "worstCaseScenario": "Can send malicious topic events to the Event Grid within reach that are network accessible, to attempt moving laterally to other consuming systems."
+    },
+    {
+        "tier": "2",
+        "id": "d5a91429-5739-47e2-a06b-3470a27159e7",
+        "assetName": "EventGrid Data Sender",
+        "worstCaseScenario": "Same as EventGrid Contributor."
+    },
+    {
+        "tier": "2",
+        "id": "22926164-76b3-42b3-bc55-97df8dab3e41",
+        "assetName": "Grafana Admin",
+        "worstCaseScenario": "Can steal secrets managed insecurely and flowing through the Managed Grafana instances within reach that are network accessible, and leverage those to move laterally to other resources."
+    },
+    {
+        "tier": "2",
+        "id": "00482a5a-887f-4fb3-b363-3b7fe8e74483",
+        "assetName": "Key Vault Administrator",
+        "worstCaseScenario": "Same as Key Vault Contributor, but constrained to instances using the Azure role-based access control permission model."
+    },
+    {
+        "tier": "2",
+        "id": "db79e9a7-68ee-4b58-9aeb-b90e7c24fcba",
+        "assetName": "Key Vault Certificate User",
+        "worstCaseScenario": "Same as Key Vault Contributor, but constrained to instances using the Azure role-based access control permission model."
+    },
+    {
+        "tier": "2",
+        "id": "a4417e6f-fecd-4de8-b567-7b0420556985",
+        "assetName": "Key Vault Certificates Officer",
+        "worstCaseScenario": "Can steal certificates in the Key Vaults within reach that are using the Azure role-based access control permission model and are network accessible, to move laterally to other resources."
+    },
+    {
+        "tier": "2",
+        "id": "f25e0fa2-a7c8-4377-a976-54943a77a395",
+        "assetName": "Key Vault Contributor",
+        "worstCaseScenario": "Can steal all objects types in the Key Vaults to move laterally to other resources."
+    },
+    {
+        "tier": "2",
+        "id": "8b54135c-b56d-4d72-a534-26097cfdc8d8",
+        "assetName": "Key Vault Data Access Administrator",
+        "worstCaseScenario": "Can assign the Key Vault Administrator role to the compromised principal and follow the same path as that role."
+    },
+    {
+        "tier": "2",
+        "id": "b86a8fe4-44ce-4948-aee5-eccb2c155cd7",
+        "assetName": "Key Vault Secrets Officer",
+        "worstCaseScenario": "Same as Key Vault Contributor instances using the Azure role-based access control permission model, and exposed on a non-restricted public endpoint."
+    },
+    {
+        "tier": "2",
+        "id": "4633458b-17de-408a-b874-0445c86b69e6",
+        "assetName": "Key Vault Secrets User",
+        "worstCaseScenario": "Same as Key Vault Secrets Officer."
+    },
+    {
+        "tier": "2",
+        "id": "92aaf0da-9dab-42b6-94a3-d43ce8d16293",
+        "assetName": "Log Analytics Contributor",
+        "worstCaseScenario": "Can access the content of all Log Analytics Workspaces within reach that are network accessible, and where some of them may contain sensitive data, and/or where their data can be tampered with to attempt moving laterally to other consuming systems."
+    },
+    {
+        "tier": "2",
+        "id": "515c2055-d9d4-4321-b1b9-bd0c9a0f79fe",
+        "assetName": "Logic App Operator",
+        "worstCaseScenario": "In the Logic Apps, and leverage those to attempts moving laterally."
+    },
+    {
+        "tier": "2",
+        "id": "",
+        "assetName": "Logic Apps Standard Developer ",
+        "worstCaseScenario": "Same as Logic App Operator using a standard plan."
+    },
+    {
+        "tier": "2",
+        "id": "",
+        "assetName": "Logic Apps Standard Operator ",
+        "worstCaseScenario": "Same as Logic App Operator using a standard plan."
+    },
+    {
+        "tier": "2",
+        "id": "",
+        "assetName": "Logic Apps Standard Reader ",
+        "worstCaseScenario": "Same as Logic App Operator using a standard plan."
+    },
+    {
+        "tier": "2",
+        "id": "f4c81013-99ee-4d62-a7ee-b3f1f648599a",
+        "assetName": "Microsoft Sentinel Automation Contributor",
+        "worstCaseScenario": "Can read workflow run history in the Logic Apps within reach that are using a consumption plan, and for which run history is network accessible. If secrets are managed insecurely in the Logic App within reach, those can be read and leveraged to attempt moving laterally to the affected resources."
+    },
+    {
+        "tier": "2",
+        "id": "51d6186e-6489-4900-b93f-92e23144cca5",
+        "assetName": "Microsoft Sentinel Playbook Operator",
+        "worstCaseScenario": "Can read workflows in the Logic Apps within reach that are using a consumption plan. If secrets are managed insecurely in the Logic App within reach, those can be read and leveraged to attempt moving laterally to the affected resources.Note: a workflow belongs to the control plane of a Logic App and is not subject to network access limitations."
+    },
+    {
+        "tier": "2",
+        "id": "b12aa53e-6015-4669-85d0-8515ebb3ae7f",
+        "assetName": "Private DNS Zone Contributor",
+        "worstCaseScenario": "Same as DNS Zone Contributor."
+    },
+    {
+        "tier": "2",
+        "id": "4d97b98b-1d4f-4787-a291-c67834d212e7",
+        "assetName": "Network Contributor",
+        "worstCaseScenario": "Can modify all network resources."
+    },
+    {
+        "tier": "2",
+        "id": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+        "assetName": "Reader",
+        "worstCaseScenario": "Can steal secrets to move laterally to other resources, if stored insecurely in certain types of resources that are accessible to the Reader role."
+    },
+    {
+        "tier": "2",
+        "id": "c12c1c16-33a1-487b-954d-41c89c60f349",
+        "assetName": "Reader and Data Access",
+        "worstCaseScenario": "Can follow the same path as Storage Account Contributor within reach that allow access-key authentication and are network accessible."
+    },
+    {
+        "tier": "2",
+        "id": "e0f68234-74aa-48ed-b826-c38b57376e17",
+        "assetName": "Redis Cache Contributor",
+        "worstCaseScenario": "Same as Azure Event Hubs Data Owner."
+    },
+    {
+        "tier": "2",
+        "id": "e5e2a7ff-d759-4cd2-bb51-3152d37e2eb1",
+        "assetName": "Storage Account Backup Contributor",
+        "worstCaseScenario": "Same as Storage Account Contributor within reach that are network accessible."
+    },
+    {
+        "tier": "2",
+        "id": "17d1049b-9a84-46fb-8f53-869881c3d3ab",
+        "assetName": "Storage Account Contributor",
+        "worstCaseScenario": "Can access the content of all Storage Accounts within reach, where some of them may contain sensitive data, and/or data that can be tampered with to attempt moving laterally to other consuming systems."
+    },
+    {
+        "tier": "2",
+        "id": "81a9662b-bebf-436f-a333-f67b29880f12",
+        "assetName": "Storage Account Key Operator Service Role",
+        "worstCaseScenario": "Can follow the same path as Storage Account Contributor within reach that allow access-key authentication and are network accessible."
+    },
+    {
+        "tier": "2",
+        "id": "ba92f5b4-2d11-453d-a403-e96b0029c9fe",
+        "assetName": "Storage Blob Data Contributor",
+        "worstCaseScenario": "Same as Storage Account Contributor within reach that are network accessible."
+    },
+    {
+        "tier": "2",
+        "id": "b7e6dc6d-f1e8-4753-8033-0f276bb0955b",
+        "assetName": "Storage Blob Data Owner",
+        "worstCaseScenario": "Same as Storage Account Contributor within reach that are network accessible."
+    },
+    {
+        "tier": "2",
+        "id": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+        "assetName": "Storage Blob Data Reader",
+        "worstCaseScenario": "Can access the content of the Blob service in Storage Accounts within reach that are network accessible, where some of them may contain sensitive data."
+    },
+    {
+        "tier": "2",
+        "id": "db58b8e5-c6ad-4a2a-8342-4190687cbf4a",
+        "assetName": "Storage Blob Delegator",
+        "worstCaseScenario": "Can create Shared Access Signature  within reach that are network accessible. Some of the blobs may contain sensitive data, and/or data that can be tampered with to attempt moving laterally to other consuming systems."
+    },
+    {
+        "tier": "2",
+        "id": "69566ab7-960f-475b-8e7c-b3118f30c6bd",
+        "assetName": "Storage File Data Privileged Contributor",
+        "worstCaseScenario": "Same as Storage Account Contributor."
+    },
+    {
+        "tier": "2",
+        "id": "b8eda974-7b85-4f76-af95-65846b26df6d",
+        "assetName": "Storage File Data Privileged Reader",
+        "worstCaseScenario": "Can access the content of the Files service in Storage Accounts, where some of them may contain sensitive data."
+    },
+    {
+        "tier": "2",
+        "id": "0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb",
+        "assetName": "Storage File Data SMB Share Contributor",
+        "worstCaseScenario": "Same as Storage Account Contributor."
+    },
+    {
+        "tier": "2",
+        "id": "a7264617-510b-434b-a828-9731dc254ea7",
+        "assetName": "Storage File Data SMB Share Elevated Contributor",
+        "worstCaseScenario": "Same as Storage Account Contributor."
+    },
+    {
+        "tier": "2",
+        "id": "aba4ae5f-2193-4029-9191-0cb91df5e314",
+        "assetName": "Storage File Data SMB Share Reader",
+        "worstCaseScenario": "Same as Storage File Data Privileged Reader."
+    },
+    {
+        "tier": "2",
+        "id": "974c5e8b-45b9-4653-ba55-5f855dd0fb88",
+        "assetName": "Storage Queue Data Contributor",
+        "worstCaseScenario": "Same as Storage Account Contributor within reach that are network accessible."
+    },
+    {
+        "tier": "2",
+        "id": "0a9a7e1f-b9d0-4cc4-a60d-0319b160aaa3",
+        "assetName": "Storage Table Data Contributor",
+        "worstCaseScenario": "Same as Storage Account Contributor within reach that are network accessible."
+    },
+    {
+        "tier": "2",
+        "id": "1f135831-5bbe-4924-9016-264044c00788",
+        "assetName": "Windows 365 Network Interface Contributor",
+        "worstCaseScenario": "Can create a network interface and assign it to an existing Virtual Machine  to extend its network attack surface."
+    },
+    {
+        "tier": "3",
+        "id": "7f951dda-4ed3-4680-a7ca-43fe172d538d",
+        "assetName": "AcrPull",
+        "worstCaseScenario": "Can pull all container images hosted in the Azure Container Registry instances within reach that are network accessible, and attempt to retrieve secrets that might be stored insecurely in the images."
+    },
+    {
+        "tier": "3",
+        "id": "5e467623-bb1f-42f4-a55d-6e525e11384b",
+        "assetName": "Backup Contributor",
+        "worstCaseScenario": "Can delete all backup instances within reach, and affect the availability of those resources. Note: cannot access the content of the backups."
+    },
+    {
+        "tier": "3",
+        "id": "5e0bd9bd-7b93-4f28-af87-19fc36ad61bd",
+        "assetName": "Cognitive Services OpenAI User",
+        "worstCaseScenario": "In the Azure OpenAI instances within reach that are network accessible, can read all uploaded data sets, where some of them may contain sensitive data."
+    },
+    {
+        "tier": "3",
+        "id": "a97b65f3-24c7-4388-baec-2e87135dc908",
+        "assetName": "Cognitive Services User",
+        "worstCaseScenario": "In the Azure AI services instances within reach that are network accessible, can read all uploaded data sets, where some of them may contain sensitive data. Can also read access keys to consume instances in an uncontrolled manner."
+    },
+    {
+        "tier": "3",
+        "id": "673868aa-7521-48a0-acc6-0f60742d39f5",
+        "assetName": "Data Factory Contributor",
+        "worstCaseScenario": "In the Data Factory instances within reach that are network accessible, can read all datasets, where some of them may contain sensitive data. Can also delete pipelines, datasets and integration runtimes, to affect the availability of the Data Factory instances. Note: cannot access Data Factory nodes without additional permissions on Virtual Machines."
+    },
+    {
+        "tier": "3",
+        "id": "150f5e0c-0603-4f03-8c7f-cf70034c4e90",
+        "assetName": "Data Purger",
+        "worstCaseScenario": "In the Log Analytics workspaces within reach and for which ingestion is network accessible, can delete data to affect monitoring and incident response abilities. Note: cannot read data within the workspaces."
+    },
+    {
+        "tier": "3",
+        "id": "1e7ca9b1-60d1-4db8-a914-f2ca1ff27c40",
+        "assetName": "Defender for Storage Data Scanner",
+        "worstCaseScenario": "In the Storage Accounts within reach that are network accessible, can read all files stored in Azure Blob Storage, where some of them may contain sensitive data.Note: cannot modify files."
+    },
+    {
+        "tier": "3",
+        "id": "1d18fff3-a72a-46b5-b4a9-0b38a3cd7e63",
+        "assetName": "Desktop Virtualization User",
+        "worstCaseScenario": "In the Azure Virtual Desktop instances within reach that are network accessible, can access all applications available to the user, where some of them may contain sensitive data."
+    },
+    {
+        "tier": "3",
+        "id": "7efff54f-a5b4-42b5-a1c5-5411624893ce",
+        "assetName": "Disk Snapshot Contributor",
+        "worstCaseScenario": "Can download all Azure Disk Snapshots within reach, where some of them may contain sensitive data."
+    },
+    {
+        "tier": "3",
+        "id": "73c42c96-874c-492b-b04d-ab87d138a893",
+        "assetName": "Log Analytics Reader",
+        "worstCaseScenario": "Can access the content of all Log Analytics Workspaces within reach for which querying is network accessible, and where some of them may contain sensitive data."
+    },
+    {
+        "tier": "3",
+        "id": "ab8e14d6-4a74-4a29-9ba8-549422addade",
+        "assetName": "Microsoft Sentinel Contributor",
+        "worstCaseScenario": "Same as Log Analytics Reader."
+    },
+    {
+        "tier": "3",
+        "id": "8d289c81-5878-46d4-8554-54e1e3d8b5cb",
+        "assetName": "Microsoft Sentinel Reader",
+        "worstCaseScenario": "Same as Log Analytics Reader."
+    },
+    {
+        "tier": "3",
+        "id": "3e150937-b8fe-4cfb-8069-0eaf05ecd056",
+        "assetName": "Microsoft Sentinel Responder",
+        "worstCaseScenario": "Same as Log Analytics Reader."
+    },
+    {
+        "tier": "3",
+        "id": "749f88d5-cbae-40b8-bcfc-e573ddc772fa",
+        "assetName": "Monitoring Contributor",
+        "worstCaseScenario": "Same as Log Analytics Reader."
+    },
+    {
+        "tier": "3",
+        "id": "43d0d8ad-25c7-4714-9337-8ba259a9fe05",
+        "assetName": "Monitoring Reader",
+        "worstCaseScenario": "Same as Log Analytics Reader."
+    },
+    {
+        "tier": "3",
+        "id": "9b7fa17d-e63e-47b0-bb0a-15c516ac86ec",
+        "assetName": "SQL DB Contributor",
+        "worstCaseScenario": "Can access the content of all SQL databases within reach that are network accessible, and where some of them may contain sensitive data."
+    },
+    {
+        "tier": "3",
+        "id": "4939a1f6-9ae0-4e48-a1e0-f2cbe897382d",
+        "assetName": "SQL Managed Instance Contributor",
+        "worstCaseScenario": "Same as SQL DB Contributor."
+    },
+    {
+        "tier": "3",
+        "id": "056cd41c-7e88-42e1-933e-88ba6a50c9c3",
+        "assetName": "SQL Security Manager",
+        "worstCaseScenario": "Same as SQL DB Contributor."
+    },
+    {
+        "tier": "3",
+        "id": "6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437",
+        "assetName": "SQL Server Contributor",
+        "worstCaseScenario": "Same as SQL DB Contributor."
+    },
+    {
+        "tier": "3",
+        "id": "d24ecba3-c1f4-40fa-a7bb-4588a071e8fd",
+        "assetName": "VM Scanner Operator",
+        "worstCaseScenario": "Same as Disk Snapshot Contributor."
+    },
+    {
+        "tier": "3",
+        "id": "e8ddcd69-c73f-4f9f-9844-4100522f16ad",
+        "assetName": "Workbook Contributor",
+        "worstCaseScenario": "Can access the content of all Azure Workbooks within reach, where some of them may contain sensitive data."
+    },
+    {
+        "tier": "3",
+        "id": "b279062a-9be3-42a0-92ae-8b3cf002ec4d",
+        "assetName": "Workbook Reader",
+        "worstCaseScenario": "Same as Workbook Contributor."
+    }
+]
