@@ -1,4 +1,4 @@
-# ❔ Untiered MSGraph application permissions
+# ❔ Untiered MS Graph application permissions
 
 This project uses some level of automation to detect the addition of new roles and permissions by Microsoft. The latter are reviewed and added to the relevant models as soon as possible, but the reader should keep in mind that **the maintenance of this project is based on best effort**.
 
