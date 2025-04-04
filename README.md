@@ -7,9 +7,9 @@ Collection of personal tier models for Azure, Entra and Microsoft Graph administ
 
 | Available tier models | 
 |---|
-| [Azure roles tiering](https://github.com/emiliensocchi/azure-tiering/tree/main/Azure%20roles) | 
-| [Entra roles tiering](https://github.com/emiliensocchi/azure-tiering/tree/main/Entra%20roles) | 
-| [MS Graph application permissions tiering](https://github.com/emiliensocchi/azure-tiering/tree/main/Microsoft%20Graph%20application%20permissions) | 
+| ☁️ [Azure roles tiering](Azure%20roles/README.md/README.md) |
+| 👤 [Entra roles tiering](Entra%20roles/README.md/README.md) |
+| 🤖 [MS Graph application permissions tiering](Microsoft%20Graph%20application%20permissions/README.md/README.md) |
 
 
 ## 🎯 Objectives
@@ -28,30 +28,30 @@ The definition of a "tier" and its content is highly dependent on the business r
 
 ## 📃 Tier definitions
 
-### <u>[Azure roles](https://github.com/emiliensocchi/azure-tiering/tree/main/Azure%20roles)</u>
+### ☁️ <u>[Azure roles](Azure%20roles/README.md)</u>
 
 | Color | Tier | Name | Definition |
 |---|---|---|---|
-| 🔴 | 0 | [Family of privilege ascenders](https://github.com/emiliensocchi/azure-tiering/tree/main/Azure%20roles#tier-0) | Roles with a risk of privilege escalation via one or multiple resource types in scope. |
-| 🟠 | 1 | [Family of lateral navigators](https://github.com/emiliensocchi/azure-tiering/tree/main/Azure%20roles#tier-1) | Roles with a risk of lateral movement via data-plane access to a specific resource type in scope, but with a limited risk for privilege escalation. |
-| 🟡 | 2 | [Family of data explorers](https://github.com/emiliensocchi/azure-tiering/tree/main/Azure%20roles#tier-2) | Roles with data-plane access to a specific resource type in scope, but with a limited risk for lateral movement and without a risk for privilege escalation. |
-| 🟢 | 3 | [Family of unprivileged Azure users](https://github.com/emiliensocchi/azure-tiering/tree/main/Azure%20roles#tier-3) | Roles with little to no security implications. | 
+| 🔴 | 0 | [Family of privilege ascenders](Azure%20roles/README.md#tier-0) | Roles with a risk of privilege escalation via one or multiple resource types in scope. |
+| 🟠 | 1 | [Family of lateral navigators](Azure%20roles/README.md#tier-1) | Roles with a risk of lateral movement via data-plane access to a specific resource type in scope, but with a limited risk for privilege escalation. |
+| 🟡 | 2 | [Family of data explorers](Azure%20roles/README.md#tier-2) | Roles with data-plane access to a specific resource type in scope, but with a limited risk for lateral movement and without a risk for privilege escalation. |
+| 🟢 | 3 | [Family of unprivileged Azure users](Azure%20roles/README.md#tier-3) | Roles with little to no security implications. | 
 
-### <u>[Entra roles](https://github.com/emiliensocchi/azure-tiering/tree/main/Entra%20roles)</u>
+### 👤 <u>[Entra roles](Entra%20roles/README.md)</u>
 
 | Color | Tier | Name | Definition |
 |---|---|---|---|
-| 🔴 | 0 | [Family of Global Admins](https://github.com/emiliensocchi/azure-tiering/tree/main/Entra%20roles#tier-0) | Roles with a risk of having a direct or indirect path to Global Admin and full tenant takeover. |
-| 🟠 | 1 | [Family of M365 and restricted Entra Admins](https://github.com/emiliensocchi/azure-tiering/tree/main/Entra%20roles#tier-1) | Roles with full access to individual Microsoft 365 services, limited administrative access to Entra ID, or global read access across services, but <u>without</u> a known path to Global Admin. |
-| 🟢 | 2 | [Family of unprivileged administrators](https://github.com/emiliensocchi/azure-tiering/tree/main/Entra%20roles#tier-2) | Roles with little to no security implications. |
+| 🔴 | 0 | [Family of Global Admins](Entra%20roles/README.md#tier-0) | Roles with a risk of having a direct or indirect path to Global Admin and full tenant takeover. |
+| 🟠 | 1 | [Family of M365 and restricted Entra Admins](Entra%20roles/README.md#tier-1) | Roles with full access to individual Microsoft 365 services, limited administrative access to Entra ID, or global read access across services, but <u>without</u> a known path to Global Admin. |
+| 🟢 | 2 | [Family of unprivileged administrators](Entra%20roles/README.md#tier-2) | Roles with little to no security implications. |
 
-### <u>[MS Graph application permissions](https://github.com/emiliensocchi/azure-tiering/tree/main/Microsoft%20Graph%20application%20permissions)</u>
+### 🤖 <u>[MS Graph application permissions](Microsoft%20Graph%20application%20permissions/README.md)</u>
 
 | Color | Tier | Name | Definition | 
 |---|---|---|---|
-| 🔴 | 0 | [Family of Global Admins](https://github.com/emiliensocchi/azure-tiering/tree/main/Microsoft%20Graph%20application%20permissions#tier-0) | Permissions with a risk of having a direct or indirect path to Global Admin and full tenant takeover. |
-| 🟠 | 1 | [Family of restricted Graph permissions](https://github.com/emiliensocchi/azure-tiering/tree/main/Microsoft%20Graph%20application%20permissions#tier-1) | Permissions with write access to MS Graph scopes or read access to sensitive scopes (e.g. email content), but <u>without</u> a known path to Global Admin. |
-| 🟢 | 2 | [Family of unprivileged Graph permissions](https://github.com/emiliensocchi/azure-tiering/tree/main/Microsoft%20Graph%20application%20permissions#tier-2) | Permissions with read access to MS Graph scopes and little to no security implications. |
+| 🔴 | 0 | [Family of Global Admins](Microsoft%20Graph%20application%20permissions/README.md#tier-0) | Permissions with a risk of having a direct or indirect path to Global Admin and full tenant takeover. |
+| 🟠 | 1 | [Family of restricted Graph permissions](Microsoft%20Graph%20application%20permissions/README.md#tier-1) | Permissions with write access to MS Graph scopes or read access to sensitive scopes (e.g. email content), but <u>without</u> a known path to Global Admin. |
+| 🟢 | 2 | [Family of unprivileged Graph permissions](Microsoft%20Graph%20application%20permissions/README.md#tier-2) | Permissions with read access to MS Graph scopes and little to no security implications. |
 
 
 ## 🧱 Opiniated design
@@ -76,15 +76,15 @@ Tiered **Azure roles** are static and are only updated if a common role is missi
 For convenience when browsing the tier models without authenticated access to an Entra tenant, administrative assets are hyperlinked to their repective definitions in the Microsoft documentation, as long as the definition exists. Assets with an API definition, but *without* an entry in the Microsoft documentation are hyperlinked directly to their respective definitions in the MS Graph or ARM API instead.
 
 
-## 🤖 Integration
+## 🛠️ Integration
 
 Each tier model is available in table format for human readability, as well as JSON format for machine consumption:
 
 | Human-readable | Machine-consumable |
 |---|---|
-| [Azure roles tiering](https://github.com/emiliensocchi/azure-tiering/tree/main/Azure%20roles) | [`tiered-azure-roles.json`](https://github.com/emiliensocchi/azure-tiering/blob/main/Azure%20roles/tiered-azure-roles.json) |
-| [Entra roles tiering](https://github.com/emiliensocchi/azure-tiering/tree/main/Entra%20roles) | [`tiered-entra-roles.json`](https://github.com/emiliensocchi/azure-tiering/blob/main/Entra%20roles/tiered-entra-roles.json) |
-| [MS Graph application permissions tiering](https://github.com/emiliensocchi/azure-tiering/tree/main/Microsoft%20Graph%20application%20permissions) | [`tiered-msgraph-app-permissions.json`](https://github.com/emiliensocchi/azure-tiering/blob/main/Microsoft%20Graph%20application%20permissions/tiered-msgraph-app-permissions.json) |
+| [Azure roles tiering](Azure%20roles/README.md) | [`tiered-azure-roles.json`](Azure%20roles/tiered-azure-roles.json) |
+| [Entra roles tiering](Entra%20roles/README.md) | [`tiered-entra-roles.json`](Entra%20roles/tiered-entra-roles.json) |
+| [MS Graph application permissions tiering](Microsoft%20Graph%20application%20permissions/README.md) | [`tiered-msgraph-app-permissions.json`](Microsoft%20Graph%20application%20permissions/tiered-msgraph-app-permissions.json) |
 
 By integrating this project with multiple tools, organizations can easily ensure that the same tiers are used across their entire technology stack, while centralizing tier definitions into a single place.
 
