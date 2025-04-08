@@ -43,7 +43,7 @@ def get_builtin_azure_role_definitions_from_arm(token):
             list(str): list of role definitions
 
     """
-    endpoint = "https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?$filter=type eq 'BuiltInRole'&api-version=2022-04-01"
+    endpoint = "https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?$filter=type eq 'BuiltInRole'&api-version=2023-07-01-preview"
     headers = {'Authorization': f"Bearer {token}"}
     response = requests.get(endpoint, headers = headers)
 
@@ -131,7 +131,7 @@ def convert_azure_markdown_to_json(azure_markdown_file, azure_json_file, azure_r
     """
     try:
         json_roles = []
-        regex = r"(\[|\]|\(.*\)|\\u26a0\\ufe0f |\*|<br>|`|\"|\\ud83d\\udd70\\ufe0f )"    # strips unwanted content
+        regex = r"(\[|\]|\(https?:\/\/[^\s)]+\)|\(#[a-z\-]*\)|\\u26a0\\ufe0f |\*|<br>|`|\"|\\ud83d\\udd70\\ufe0f )"    # strips unwanted content
         
         with open(azure_markdown_file, 'r') as file:
             file_content = file.read()
@@ -238,7 +238,7 @@ def convert_entra_markdown_to_json(entra_markdown_file, entra_json_file, entra_r
     """
     try:
         json_roles = []
-        regex = r"(\[|\]|\(.*\)|\\u26a0\\ufe0f |\*|<br>|`|\"|\\ud83d\\udd70\\ufe0f )"    # strips unwanted content
+        regex = r"(\[|\]|\(https?:\/\/[^\s)]+\)|\(#[a-z\-]*\)|\\u26a0\\ufe0f |\*|<br>|`|\"|\\ud83d\\udd70\\ufe0f )"    # strips unwanted content
         
         with open(entra_markdown_file, 'r') as file:
             file_content = file.read()
@@ -324,7 +324,7 @@ def convert_msgraph_markdown_to_json(msgraph_markdown_file, msgraph_json_file, m
     """
     try:
         json_permissions = []
-        regex = r"(\[|\]|\(.*\)|\\u26a0\\ufe0f |\*|<br>|`|\"|\\ud83d\\udd70\\ufe0f )"    # strips unwanted content
+        regex = r"(\[|\]|\(https?:\/\/[^\s)]+\)|\(#[a-z\-]*\)|\\u26a0\\ufe0f |\*|<br>|`|\"|\\ud83d\\udd70\\ufe0f )"    # strips unwanted content
         
         with open(msgraph_markdown_file, 'r') as file:
             file_content = file.read()
