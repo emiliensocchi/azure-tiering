@@ -180,8 +180,8 @@
         "id": "7be44c8a-adaf-4e2a-84d6-ab2649e08a13",
         "assetName": "Privileged Authentication Administrator",
         "pathType": "Direct",
-        "shortestPath": "Same as Partner Tier2 Support(#partner-tier2).",
-        "example": "Same as Partner Tier2 Support(#partner-tier2)."
+        "shortestPath": "Same as Partner Tier2 Support.",
+        "example": "Same as Partner Tier2 Support."
     },
     {
         "tier": "0",
