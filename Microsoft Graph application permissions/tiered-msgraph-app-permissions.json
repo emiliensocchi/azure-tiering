@@ -45,7 +45,7 @@
         "assetName": "DeviceManagementConfiguration.ReadWrite.All",
         "pathType": "Indirect",
         "shortestPath": "Can run arbitrary commands on the InTune-managed endpoint of a Global Administrator and steal their tokens to impersonate them.",
-        "example": "TA  identifies an InTune-managed endpoint belonging to a Global Administrator, runs commands remotely to extract PRT, refresh and/or access tokens issued for MS Graph from the endpoint, and uses those to escalate to Global Admin."
+        "example": "TA identifies an InTune-managed endpoint belonging to a Global Administrator, runs commands remotely to extract PRT, refresh and/or access tokens issued for MS Graph from the endpoint, and uses those to escalate to Global Admin."
     },
     {
         "tier": "0",
