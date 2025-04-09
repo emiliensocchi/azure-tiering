@@ -191,9 +191,9 @@ def update_untiered(untiered_file, added_assets, removed_assets):
             file.write(updated_content)
 
         if has_content_been_updated:
-            print (f"{update_type}: changes have been detected")
+            print (f"🔄 {update_type}: changes have been detected")
         else:
-            print (f"{update_type}: no changes")
+            print (f"➖ {update_type}: no changes")
 
     except FileNotFoundError:
         print('FATAL ERROR - The untiered file could not be updated.')
@@ -291,7 +291,7 @@ if __name__ == "__main__":
 
         update_untiered(msgraph_app_permissions_untiered_file, added_items, removed_items)
     else:
-        print ('MS Graph app permissions: no changes')
+        print ('➖ MS Graph app permissions: no changes')
 
     # Compare Entra roles
     current_role_ids = [role['id'] for role in current_builtin_entra_roles]
@@ -331,4 +331,4 @@ if __name__ == "__main__":
 
         update_untiered(entra_roles_untiered_file, added_items, removed_items)
     else:
-        print ('Entra roles: no changes')
+        print ('➖ Entra roles: no changes')
