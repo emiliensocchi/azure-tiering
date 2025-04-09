@@ -210,8 +210,6 @@ if __name__ == "__main__":
 
     # Set Microsoft APIs info
     graph_role_template_base_uri = 'https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions/'
-    arm_role_template_base_uri = 'https://management.azure.com'
-    arm_role_template_api_version = '2022-04-01'
 
     # Get current built-in MS Graph application permissions
     current_builtin_msgraph_app_permissions = []
