@@ -78,6 +78,9 @@ For convenience when browsing the tier models without authenticated access to an
 
 ## 🛠️ Integration
 
+> [!TIP]
+> See the [Internal Azure administrative tiering](https://github.com/emiliensocchi/azure-internal-tiering) project for inspiration
+
 Each tier model is available in table format for human readability, as well as JSON format for machine consumption:
 
 | Human-readable | Machine-consumable |
