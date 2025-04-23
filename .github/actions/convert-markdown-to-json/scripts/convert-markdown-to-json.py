@@ -133,7 +133,7 @@ def convert_azure_markdown_to_json(azure_markdown_file, azure_json_file, azure_r
         json_roles = []
         regex = r"(\[|\]|\(https?:\/\/[^\s)]+\)|\(#[a-z0-9\-]*\)|\\u26a0\\ufe0f |\*|<br>|`|\"|\\ud83d\\udd70\\ufe0f )"    # strips unwanted content
         
-        with open(azure_markdown_file, 'r') as file:
+        with open(azure_markdown_file, 'r', encoding = 'utf-8') as file:
             file_content = file.read()
             tiered_content = file_content.split('##')[2:]
             tier_0_content = tiered_content[0]
@@ -214,7 +214,7 @@ def convert_azure_markdown_to_json(azure_markdown_file, azure_json_file, azure_r
                 }
                 json_roles.append(json_role)
 
-        with open(azure_json_file, "w") as file:
+        with open(azure_json_file, "w", encoding = 'utf-8') as file:
             file.write(json.dumps(json_roles, indent = 4))
 
     except FileNotFoundError:
@@ -240,7 +240,7 @@ def convert_entra_markdown_to_json(entra_markdown_file, entra_json_file, entra_r
         json_roles = []
         regex = r"(\[|\]|\(https?:\/\/[^\s)]+\)|\(#[a-z0-9\-]*\)|\\u26a0\\ufe0f |\*|<br>|`|\"|\\ud83d\\udd70\\ufe0f )"    # strips unwanted content
         
-        with open(entra_markdown_file, 'r') as file:
+        with open(entra_markdown_file, 'r', encoding = 'utf-8') as file:
             file_content = file.read()
             tiered_content = file_content.split('##')[2:]
             tier_0_content = tiered_content[0]
@@ -300,7 +300,7 @@ def convert_entra_markdown_to_json(entra_markdown_file, entra_json_file, entra_r
                 }
                 json_roles.append(json_role)
 
-        with open(entra_json_file, "w") as file:
+        with open(entra_json_file, "w", encoding = 'utf-8') as file:
             file.write(json.dumps(json_roles, indent = 4))
 
     except FileNotFoundError:
@@ -326,7 +326,7 @@ def convert_msgraph_markdown_to_json(msgraph_markdown_file, msgraph_json_file, m
         json_permissions = []
         regex = r"(\[|\]|\(https?:\/\/[^\s)]+\)|\(#[a-z0-9\-]*\)|\\u26a0\\ufe0f |\*|<br>|`|\"|\\ud83d\\udd70\\ufe0f )"    # strips unwanted content
         
-        with open(msgraph_markdown_file, 'r') as file:
+        with open(msgraph_markdown_file, 'r', encoding = 'utf-8') as file:
             file_content = file.read()
 
             tiered_content = file_content.split('##')[2:]
@@ -385,7 +385,7 @@ def convert_msgraph_markdown_to_json(msgraph_markdown_file, msgraph_json_file, m
                 }
                 json_permissions.append(json_permission)
 
-        with open(msgraph_json_file, "w") as file:
+        with open(msgraph_json_file, "w", encoding = 'utf-8') as file:
             file.write(json.dumps(json_permissions, indent = 4))
 
     except FileNotFoundError:

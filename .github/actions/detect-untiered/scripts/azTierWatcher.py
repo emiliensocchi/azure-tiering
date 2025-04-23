@@ -110,7 +110,7 @@ def read_json_file(json_file):
             dict(): the content of the passed JSON file
     """
     try:
-        with open(json_file, 'r') as file:
+        with open(json_file, 'r', encoding = 'utf-8') as file:
             file_content = file.read()
             return json.loads(file_content)
     except FileNotFoundError:
@@ -135,7 +135,7 @@ def update_untiered(untiered_file, added_assets, removed_assets):
         additions_content = ''
         removals_content = ''
 
-        with open(untiered_file, 'r') as file:
+        with open(untiered_file, 'r', encoding = 'utf-8') as file:
             file_content = file.read()
             splitter = '###' 
             splitted_content = file_content.split(splitter)
@@ -187,7 +187,7 @@ def update_untiered(untiered_file, added_assets, removed_assets):
         # Update the untiered file with the new content
         updated_content = page_metadata_content + updated_additions_content + updated_removals_content
 
-        with open(untiered_file, 'w') as file:
+        with open(untiered_file, 'w', encoding = 'utf-8') as file:
             file.write(updated_content)
 
         if has_content_been_updated:
