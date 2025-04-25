@@ -6,7 +6,7 @@ Tiering of Microsoft Graph application permissions **based on known attack paths
 
 **Important**: suspicious permissions that have not been tested are categorized as Tier-0 for safety and marked with "⚠️" until they are researched properly.
 
-| Tag | Tier | Name | Definition | 
+| Color | Tier | Name | Definition | 
 |---|---|---|---|
 | 🔴 | 0 | [Family of Global Admins](#tier-0) | Permissions with a risk of having a direct or indirect path to Global Admin and full tenant takeover. |
 | 🟠 | 1 | [Family of restricted Graph permissions](#tier-1) | Permissions with write access to MS Graph scopes or read access to sensitive scopes (e.g. email content), but <u>without</u> a known path to Global Admin. |
