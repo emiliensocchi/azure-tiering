@@ -95,7 +95,7 @@
         "id": "a959dbd1-f747-45e3-8ba6-dd80f235f97c",
         "assetName": "Desktop Virtualization Virtual Machine Contributor",
         "shortestPath": "Same as Contributor, but limited to resources of type: Azure Virtual Desktop, Virtual Machine.",
-        "example": ""
+        "example": "Same as Contributor, but limited to resources of type: Azure Virtual Desktop, Virtual Machine."
     },
     {
         "tier": "0",
@@ -298,7 +298,7 @@
         "id": "7efff54f-a5b4-42b5-a1c5-5411624893ce",
         "assetName": "Disk Snapshot Contributor",
         "shortestPath": "Can download all Azure Disk Snapshots within reach and read their content locally, where some of them may contain sensitive data. Can also access the content of all Storage Accounts within reach, where some of them may contain sensitive data.",
-        "example": ""
+        "example": "TA is Disk Snapshot Contributor on a subscription with multiple snapshots. For each snapshot, TA creates a SAS URI to export its content to an external location and review it for sensitive data. TA can also follow the same path as Storage Account Contributor."
     },
     {
         "tier": "1",
