@@ -145,14 +145,6 @@
     },
     {
         "tier": "0",
-        "id": "a92aed5d-d78a-4d16-b381-09adb37eb3b0",
-        "assetName": "On Premises Directory Sync Account",
-        "pathType": "n/a",
-        "shortestPath": "Untested! Needs more research.  Note: does not seem to be able to create new SP credentials or give consent.",
-        "example": "n/a"
-    },
-    {
-        "tier": "0",
         "id": "4ba39ca4-527c-499a-b93d-d9b492c50246",
         "assetName": "Partner Tier1 Support",
         "pathType": "Indirect",
@@ -321,7 +313,7 @@
         "tier": "1",
         "id": "d29b2b05-8046-44ba-8758-1e26182fcf32",
         "assetName": "Directory Synchronization Accounts",
-        "providesFullAccessTo": "On-premises directory synchronization. As of September 2024, cannot create new SP credentials for SP takeover.  As of September 2023, cannot reset the password of cloud-only users via the synchronization API to take over break-glass accounts."
+        "providesFullAccessTo": "On-premises directory synchronization. Can reset the password of hybrid users, although takeovers are less likely to happen after the introduction of mandatory MFA for all users, including breakglass accounts. As of September 2024, cannot create new SP credentials for SP takeover.  As of September 2023, cannot reset the password of cloud-only users via the synchronization API to take over break-glass accounts."
     },
     {
         "tier": "1",
@@ -403,6 +395,12 @@
     },
     {
         "tier": "1",
+        "id": "a92aed5d-d78a-4d16-b381-09adb37eb3b0",
+        "assetName": "On Premises Directory Sync Account",
+        "providesFullAccessTo": "On-premises directory synchronization. Can reset the password of hybrid users, although takeovers are less likely to happen after the introduction of mandatory MFA for all users, including breakglass accounts."
+    },
+    {
+        "tier": "1",
         "id": "507f53e4-4e52-4077-abd3-d2e1558b6ea2",
         "assetName": "Organizational Messages Writer",
         "providesFullAccessTo": "Organizational messages in Microsoft Intune(Intune).  Note: makes phishing attacks significantly easier to leverage."
@@ -411,7 +409,7 @@
         "tier": "1",
         "id": "024906de-61e5-49c8-8572-40335f1e0e10",
         "assetName": "People Administrator",
-        "providesFullAccessTo": "People"
+        "providesFullAccessTo": "People."
     },
     {
         "tier": "1",
@@ -477,7 +475,7 @@
         "tier": "1",
         "id": "0ec3f692-38d6-4d14-9e69-0377ca7797ad",
         "assetName": "Viva Glint Tenant Administrator",
-        "providesFullAccessTo": "Viva Glint"
+        "providesFullAccessTo": "Viva Glint."
     },
     {
         "tier": "1",
