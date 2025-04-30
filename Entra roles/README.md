@@ -137,7 +137,6 @@ Tiering of Microsoft Entra roles **based on known attack paths**.
 | [Office Apps Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#office-apps-administrator) <a id='office-apps-administrator'></a> |
 | [Organizational Branding Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#organizational-branding-administrator) <a id='organizational-branding-administrator'></a> |
 | [Organizational Messages Approver](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#organizational-messages-approver) <a id='organizational-messages-approver'></a> |
-| [Organizational Messages Writer](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#organizational-messages-writer) <a id='organizational-messages-writer'></a> |
 | [Printer Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#printer-administrator) <a id='printer-administrator'></a> |
 | [Printer Technician](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#printer-technician) <a id='printer-technician'></a> |
 | [Reports Reader](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#reports-reader) <a id='reports-reader'></a> |
