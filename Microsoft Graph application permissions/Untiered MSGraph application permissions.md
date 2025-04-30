@@ -10,6 +10,7 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description |
 |---|---|---|
+| 2025-04-30 | Policy.ReadWrite.CrossTenantCapability | Read and write your organization's M365 cross tenant access capabilities |
 | 2025-04-16 | WorkforceIntegration.Read.All | Read workforce integrations |
 | 2025-03-26 | User.ReadWrite.CrossCloud | Read and write profiles of users that originate from an external cloud. |
 | 2025-01-30 | DeviceManagementScripts.ReadWrite.All | Read and write Microsoft Intune Scripts |
