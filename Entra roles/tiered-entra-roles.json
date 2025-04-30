@@ -403,7 +403,7 @@
         "tier": "1",
         "id": "507f53e4-4e52-4077-abd3-d2e1558b6ea2",
         "assetName": "Organizational Messages Writer",
-        "providesFullAccessTo": "Organizational messages in Microsoft Intune(Intune).  Note: makes phishing attacks significantly easier to leverage."
+        "providesFullAccessTo": "Organizational messages in Microsoft Intune.  Note: makes phishing attacks significantly easier to leverage."
     },
     {
         "tier": "1",
