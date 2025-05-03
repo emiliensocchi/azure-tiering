@@ -10,6 +10,7 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Entra role | Description |
 |---|---|---|
+| 2025-05-03 | [Microsoft Graph Data Connect Administrator](https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions/ee67aa9c-e510-4759-b906-227085a7fd4d) | Manage aspects of Microsoft Graph Data Connect service in a tenant. |
 
 ### ❌ Removals
 
