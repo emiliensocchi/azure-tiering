@@ -10,6 +10,18 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description |
 |---|---|---|
+| 2025-05-20 | AuditActivity.Read | Read activity audit log from the audit store. |
+| 2025-05-20 | AuditActivity.Write | Upload activity audit logs to the audit store. |
+| 2025-05-20 | Content.Process.All | Process content for data security, governance and compliance |
+| 2025-05-20 | Content.Process.User | Process content for data security, governance and compliance |
+| 2025-05-20 | ContentActivity.Read | Read contents activity audit log from the audit store. |
+| 2025-05-20 | ContentActivity.Write | Upload content activity audit logs to the audit store. |
+| 2025-05-20 | ProtectionScopes.Compute.All | Compute Purview policies at tenant scope |
+| 2025-05-20 | ProtectionScopes.Compute.User | Compute Purview policies for an individual user |
+| 2025-05-20 | ProvisioningLog.Read.All | Read all provisioning log data |
+| 2025-05-20 | SensitivityLabel.Evaluate | Evaluate sensitivity labels |
+| 2025-05-20 | SensitivityLabel.Read | Get labels application scope. |
+| 2025-05-20 | SensitivityLabels.Read.All | Get labels tenant scope. |
 | 2025-05-10 | Storyline.ReadWrite.All | Read and write all Viva Engage storylines |
 | 2025-04-30 | Policy.ReadWrite.CrossTenantCapability | Read and write your organization's M365 cross tenant access capabilities |
 | 2025-04-16 | WorkforceIntegration.Read.All | Read workforce integrations |
