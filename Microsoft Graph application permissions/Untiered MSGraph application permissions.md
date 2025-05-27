@@ -10,6 +10,7 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description |
 |---|---|---|
+| 2025-05-27 | SensitivityLabel.Evaluate.All | Evaluate labels tenant scope. |
 | 2025-05-20 | AuditActivity.Read | Read activity audit log from the audit store. |
 | 2025-05-20 | AuditActivity.Write | Upload activity audit logs to the audit store. |
 | 2025-05-20 | Content.Process.All | Process content for data security, governance and compliance |
