@@ -10,6 +10,7 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description |
 |---|---|---|
+| 2025-06-18 | Policy.Read.AuthenticationMethod | Read authentication method policies |
 | 2025-06-11 | EngagementMeetingConversation.Read.All | Read all Viva Engage Teams QA conversations |
 | 2025-05-27 | SensitivityLabel.Evaluate.All | Evaluate labels tenant scope. |
 | 2025-05-20 | AuditActivity.Read | Read activity audit log from the audit store. |
