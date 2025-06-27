@@ -10,6 +10,8 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description |
 |---|---|---|
+| 2025-06-27 | GroupSettings.Read.All | Read all group settings |
+| 2025-06-27 | GroupSettings.ReadWrite.All | Read and write all group settings |
 | 2025-06-18 | Policy.Read.AuthenticationMethod | Read authentication method policies |
 | 2025-06-11 | EngagementMeetingConversation.Read.All | Read all Viva Engage Teams QA conversations |
 | 2025-05-27 | SensitivityLabel.Evaluate.All | Evaluate labels tenant scope. |
