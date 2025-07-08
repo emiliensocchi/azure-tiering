@@ -395,9 +395,21 @@
     },
     {
         "tier": "1",
+        "id": "ee67aa9c-e510-4759-b906-227085a7fd4d",
+        "assetName": "Microsoft Graph Data Connect Administrator",
+        "providesFullAccessTo": "Microsoft Graph Data Connect. Note: approving an application for MGDC access requires a Global Admin."
+    },
+    {
+        "tier": "1",
         "id": "a92aed5d-d78a-4d16-b381-09adb37eb3b0",
         "assetName": "On Premises Directory Sync Account",
         "providesFullAccessTo": "On-premises directory synchronization. Can reset the password of hybrid users, although takeovers are less likely to happen after the introduction of mandatory MFA for all users, including breakglass accounts."
+    },
+    {
+        "tier": "1",
+        "id": "9d70768a-0cbc-4b4c-aea3-2e124b2477f4",
+        "assetName": "Organizational Data Source Administrator",
+        "providesFullAccessTo": "Organizational data in Microsoft 365."
     },
     {
         "tier": "1",
@@ -464,6 +476,12 @@
         "id": "3d762c5a-1b6c-493f-843e-55a3b42923d4",
         "assetName": "Teams Devices Administrator",
         "providesFullAccessTo": "Teams-certified devices joined to the tenant."
+    },
+    {
+        "tier": "1",
+        "id": "1076ac91-f3d9-41a7-a339-dcdf5f480acc",
+        "assetName": "Teams Reader",
+        "providesFullAccessTo": "Microsoft Teams Admin Center settings  (read-only)."
     },
     {
         "tier": "1",
