@@ -1,4 +1,4 @@
-# 🌩️ Azure administrative tiering
+# 🌩️ Azure administrative tiering (AzTier)
 
 Collection of personal tier models for Azure, Entra and Microsoft Graph administrative assets, **based on known attack paths**.
 
@@ -15,7 +15,7 @@ Collection of personal tier models for Azure, Entra and Microsoft Graph administ
 ## 🎯 Objectives
 
 > [!NOTE]
-> See the [release post](https://www.emiliensocchi.io/tiering-entra-roles-and-application-permissions-based-on-attack-paths/) for full information
+> See the [original post](https://www.emiliensocchi.io/tiering-entra-roles-and-application-permissions-based-on-attack-paths/) for more information
 
 #### Objective 1: provide a better understanding of security implications
 
