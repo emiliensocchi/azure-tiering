@@ -10,6 +10,8 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description |
 |---|---|---|
+| 2025-07-08 | SignInIdentifier.Read.All | Read all sign-in identifiers |
+| 2025-07-08 | SignInIdentifier.ReadWrite.All | Read and write all sign-in identifiers |
 | 2025-06-27 | GroupSettings.Read.All | Read all group settings |
 | 2025-06-27 | GroupSettings.ReadWrite.All | Read and write all group settings |
 | 2025-06-18 | Policy.Read.AuthenticationMethod | Read authentication method policies |
