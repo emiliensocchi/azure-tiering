@@ -35,9 +35,9 @@
         "tier": "0",
         "id": "cc13eba4-8cd8-44c6-b4d4-f93237adce58",
         "assetName": "DelegatedAdminRelationship.ReadWrite.All",
-        "pathType": "n/a",
-        "shortestPath": "Untested! Needs more research.  Note: the tenant must be provisioned with the Partner Customer Delegated Administration SP already. Otherwise, the Application.ReadWrite.OwnedBy permission or higher will be required to create it (more info). This is most-likely a required preliminary to any exploitation.",
-        "example": "n/a"
+        "pathType": "Direct",
+        "shortestPath": "In a CSP/MSP tenant, can add a controlled user to groups already approved in GDAP relationships, and assume the roles provided by those groups to escalate privileges in customer tenants (typically as Global Admin).",
+        "example": "TA identifies groups already approved in GDAP relationships, where some of them provide Global Administrator access to customer tenants. TA adds a controlled user to those groups and escalates to Global Admin within the affected customer tenants."
     },
     {
         "tier": "0",
@@ -54,6 +54,14 @@
         "pathType": "Indirect",
         "shortestPath": "Can assign InTune roles to a controlled user account, which allows running arbitrary commands on the InTune-managed endpoint of a Global Administrator and steal their tokens to impersonate them.",
         "example": "TA assigns the School Administrator or Help Desk Operator InTune role to a user account in their control, and the same path as DeviceManagementConfiguration.ReadWrite.All can be followed to escalate to Global Admin."
+    },
+    {
+        "tier": "0",
+        "id": "9255e99d-faf5-445e-bbf7-cb71482737c4",
+        "assetName": "DeviceManagementScripts.ReadWrite.All",
+        "pathType": "Indirect",
+        "shortestPath": "Same as DeviceManagementConfiguration.Read.Write.All.",
+        "example": "Same as DeviceManagementConfiguration.ReadWrite.All."
     },
     {
         "tier": "0",
@@ -209,6 +217,14 @@
     },
     {
         "tier": "0",
+        "id": "7fc588a2-ea2d-4d1f-bcf7-33c324b149b8",
+        "assetName": "SignInIdentifier.ReadWrite.All",
+        "pathType": "Indirect",
+        "shortestPath": "Can edit the UPN of a controlled user account, to become member of a dynamic group with assigned privileged Azure permissions, and leverage Azure resources to escalate to Global Admin.",
+        "example": "TA identifies a dynamic group with a membership rule based on UPN, and with assigned Contributor access to a subscription. TA updates the UPN of a controlled user account accordingly, to become part of the dynamic group. With the new Azure permissions, TA identifies a compute resource with an assigned MI granted Application.ReadWrite.All or similar, and the same path as that permission can be followed to escalate to Global Admin.  Note: many other paths of this kind are possible."
+    },
+    {
+        "tier": "0",
         "id": "9b50c33d-700f-43b1-b2eb-87e89b703581",
         "assetName": "Synchronization.ReadWrite.All",
         "pathType": "n/a",
@@ -299,6 +315,16 @@
         "tier": "1",
         "id": "e125258e-8c8a-42a8-8f55-ab502afa52f3",
         "assetName": "AttackSimulation.ReadWrite.All"
+    },
+    {
+        "tier": "1",
+        "id": "99bc85fb-e857-4220-9f8c-3a1c83148d2e",
+        "assetName": "AuditActivity.Read"
+    },
+    {
+        "tier": "1",
+        "id": "f6318678-2713-4bb6-b123-233e7336c1bd",
+        "assetName": "AuditActivity.Write"
     },
     {
         "tier": "1",
@@ -512,6 +538,11 @@
     },
     {
         "tier": "1",
+        "id": "2932e07a-3c29-44e4-bb36-6d0fc176387f",
+        "assetName": "ContentActivity.Write"
+    },
+    {
+        "tier": "1",
         "id": "306785c5-c09b-4ba0-a4ee-023f3da165cb",
         "assetName": "CrossTenantUserProfileSharing.ReadWrite.All"
     },
@@ -602,6 +633,11 @@
     },
     {
         "tier": "1",
+        "id": "b2620db1-3bf7-4c5b-9cb9-576d29eac736",
+        "assetName": "eDiscovery.ReadWrite.All"
+    },
+    {
+        "tier": "1",
         "id": "9bc431c3-b8bc-4a8d-a219-40f10f92eff6",
         "assetName": "EduAdministration.ReadWrite.All"
     },
@@ -629,6 +665,11 @@
         "tier": "1",
         "id": "e1d2136d-eaaf-427a-a7db-f97dbe847c27",
         "assetName": "EngagementConversation.Migration.All"
+    },
+    {
+        "tier": "1",
+        "id": "d746beae-b46e-446e-924a-5b805a5c4467",
+        "assetName": "EngagementMeetingConversation.Read.All"
     },
     {
         "tier": "1",
@@ -704,6 +745,11 @@
         "tier": "1",
         "id": "5b567255-7703-4780-807c-7be8301ae99b",
         "assetName": "Group.Read.All"
+    },
+    {
+        "tier": "1",
+        "id": "546168c3-1183-4281-9491-fafb24dea37e",
+        "assetName": "GroupSettings.ReadWrite.All"
     },
     {
         "tier": "1",
@@ -1057,6 +1103,11 @@
     },
     {
         "tier": "1",
+        "id": "a6325ae7-2b73-4dbd-abed-fbeacfbf8696",
+        "assetName": "Policy.ReadWrite.CrossTenantCapability"
+    },
+    {
+        "tier": "1",
         "id": "230fb2d5-aa21-49c1-bfa7-ae1be179d867",
         "assetName": "Policy.ReadWrite.DeviceConfiguration"
     },
@@ -1397,6 +1448,11 @@
     },
     {
         "tier": "1",
+        "id": "6eff534b-699e-44d9-af61-a4182f0ec37e",
+        "assetName": "Storyline.ReadWrite.All"
+    },
+    {
+        "tier": "1",
         "id": "8387eaa4-1a3c-41f5-b261-f888138e6041",
         "assetName": "SubjectRightsRequest.ReadWrite.All"
     },
@@ -1687,6 +1743,11 @@
     },
     {
         "tier": "1",
+        "id": "5652f862-b626-407b-a3e6-248aeb95763c",
+        "assetName": "User.ReadWrite.CrossCloud"
+    },
+    {
+        "tier": "1",
         "id": "77f3a031-c388-4f99-b373-dc68676a979e",
         "assetName": "User.RevokeSessions.All"
     },
@@ -1734,11 +1795,6 @@
         "tier": "1",
         "id": "202bf709-e8e6-478e-bcfd-5d63c50b68e3",
         "assetName": "WorkforceIntegration.ReadWrite.All"
-    },
-    {
-        "tier": "1",
-        "id": "b2620db1-3bf7-4c5b-9cb9-576d29eac736",
-        "assetName": "eDiscovery.ReadWrite.All"
     },
     {
         "tier": "2",
@@ -1987,6 +2043,21 @@
     },
     {
         "tier": "2",
+        "id": "5ad511bf-571c-4ef6-8c3c-85b94b85df98",
+        "assetName": "Content.Process.All"
+    },
+    {
+        "tier": "2",
+        "id": "24ceb246-ad29-4680-90b4-3e91ffad15eb",
+        "assetName": "Content.Process.User"
+    },
+    {
+        "tier": "2",
+        "id": "368425e7-6954-4f5a-9d92-90b75bd580c9",
+        "assetName": "ContentActivity.Read"
+    },
+    {
+        "tier": "2",
         "id": "cac88765-0581-4025-9725-5ebc13f729ee",
         "assetName": "CrossTenantInformation.ReadBasic.All"
     },
@@ -2112,6 +2183,11 @@
     },
     {
         "tier": "2",
+        "id": "50180013-6191-4d1e-a373-e590ff4e66af",
+        "assetName": "eDiscovery.Read.All"
+    },
+    {
+        "tier": "2",
         "id": "7c9db06a-ec2d-4e7b-a592-5a1e30992566",
         "assetName": "EduAdministration.Read.All"
     },
@@ -2214,6 +2290,11 @@
         "tier": "2",
         "id": "5183ed5d-b7f8-4e9a-915e-dafb46b9cb62",
         "assetName": "HealthMonitoringAlert.Read.All"
+    },
+    {
+        "tier": "2",
+        "id": "f3c4f514-c65a-43f5-bfce-1735872258dd",
+        "assetName": "GroupSettings.Read.All"
     },
     {
         "tier": "2",
@@ -2487,6 +2568,11 @@
     },
     {
         "tier": "2",
+        "id": "8e3bc81b-d2f3-4b7b-838c-32c88218d2f0",
+        "assetName": "Policy.Read.AuthenticationMethod"
+    },
+    {
+        "tier": "2",
         "id": "b21b72f6-4e6a-4533-9112-47eea9f97b28",
         "assetName": "Policy.Read.IdentityProtection"
     },
@@ -2524,6 +2610,21 @@
         "tier": "2",
         "id": "eedb7fdd-7539-4345-a38b-4839e4a84cbd",
         "assetName": "ProgramControl.Read.All"
+    },
+    {
+        "tier": "2",
+        "id": "e5a76501-dbb0-492c-ab55-5d09e8837263",
+        "assetName": "ProtectionScopes.Compute.All"
+    },
+    {
+        "tier": "2",
+        "id": "fe696d63-5e1f-4515-8232-cccc316903c6",
+        "assetName": "ProtectionScopes.Compute.User"
+    },
+    {
+        "tier": "2",
+        "id": "091937d3-3e38-47a1-8649-b2f99d3035f1",
+        "assetName": "ProvisioningLog.Read.All"
     },
     {
         "tier": "2",
@@ -2612,6 +2713,26 @@
     },
     {
         "tier": "2",
+        "id": "57f0b71b-a759-45a0-9a0f-cc099fbd9a44",
+        "assetName": "SensitivityLabel.Evaluate"
+    },
+    {
+        "tier": "2",
+        "id": "986fa56a-6680-4aac-af09-4d1765376739",
+        "assetName": "SensitivityLabel.Evaluate.All"
+    },
+    {
+        "tier": "2",
+        "id": "3b8e7aad-f6e3-4299-83f8-6fc6a5777f0b",
+        "assetName": "SensitivityLabel.Read"
+    },
+    {
+        "tier": "2",
+        "id": "e46a01e9-b2cf-4d89-8424-bcdc6dd445ab",
+        "assetName": "SensitivityLabels.Read.All"
+    },
+    {
+        "tier": "2",
         "id": "2b655018-450a-4845-81e7-d603b1ebffdb",
         "assetName": "ServiceActivity-Exchange.Read.All"
     },
@@ -2649,6 +2770,11 @@
         "tier": "2",
         "id": "83d4163d-a2d8-4d3b-9695-4ae3ca98f888",
         "assetName": "SharePointTenantSettings.Read.All"
+    },
+    {
+        "tier": "2",
+        "id": "28e1fe78-598f-4df4-b55e-18bf34218925",
+        "assetName": "SignInIdentifier.Read.All"
     },
     {
         "tier": "2",
@@ -2822,7 +2948,7 @@
     },
     {
         "tier": "2",
-        "id": "50180013-6191-4d1e-a373-e590ff4e66af",
-        "assetName": "eDiscovery.Read.All"
+        "id": "f10b94b9-37d1-4c88-8b7e-bf75a1152d39",
+        "assetName": "WorkforceIntegration.Read.All"
     }
 ]
