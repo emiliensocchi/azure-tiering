@@ -10,6 +10,8 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description |
 |---|---|---|
+| 2025-07-26 | Domain-InternalFederation.Read.All | Read internal federation configuration for a domain. |
+| 2025-07-26 | Domain-InternalFederation.ReadWrite.All | Create, read, update and delete internal federation configuration for a domain. |
 | 2025-07-17 | AgentApplication.Create | Create agent applications. |
 | 2025-07-17 | AgentIdentity.Create | Create agent identities linked to itself. |
 | 2025-07-17 | SecurityIdentitiesAccount.Read.All | Read all identity security available identity accounts |
