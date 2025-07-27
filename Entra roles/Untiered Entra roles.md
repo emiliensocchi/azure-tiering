@@ -10,6 +10,7 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Entra role | Description |
 |---|---|---|
+| 2025-07-27 | [Places Administrator](https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions/78b0ccd1-afc2-4f92-9116-b41aedd09592) | Manage all aspects of the Microsoft Places service. |
 
 ### ❌ Removals
 
