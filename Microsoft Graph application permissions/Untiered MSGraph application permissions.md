@@ -10,6 +10,9 @@ The following changes have been detected through automation, **since the last up
 
 | Detected on | Application permission | Description |
 |---|---|---|
+| 2025-08-05 | Contacts-OnPremisesSyncBehavior.ReadWrite.All | Read and update the on-premises sync behavior of contacts |
+| 2025-08-05 | EngagementConversation.ReadWrite.All | Read and write all Viva Engage conversations |
+| 2025-08-05 | Group-OnPremisesSyncBehavior.ReadWrite.All | Read and update the on-premises sync behavior of groups |
 | 2025-08-01 | CallAiInsights.Read.All | Read all AI Insights for calls. |
 | 2025-08-01 | VerifiedId-Profile.Read.All | Read Verified Id profiles |
 | 2025-07-26 | Domain-InternalFederation.Read.All | Read internal federation configuration for a domain. |
