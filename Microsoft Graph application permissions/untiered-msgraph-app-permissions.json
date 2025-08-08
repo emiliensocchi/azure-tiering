@@ -5,7 +5,7 @@
         "id": "4cd61b6d-8692-40bf-9d90-7f38db5e5fce",
         "assetName": "CallTranscripts.Read.All",
         "assetDefinition": "Read all call transcripts",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#4cd61b6d-8692-40bf-9d90-7f38db5e5fce"
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#callTranscriptsreadall"
     },
     {
         "detectedOn": "2025-08-08",
@@ -13,7 +13,7 @@
         "id": "2dcc6599-bd30-442b-8f11-90f88ad441dc",
         "assetName": "FileStorageContainerTypeReg.Selected",
         "assetDefinition": "Access selected file storage container type registrations",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#2dcc6599-bd30-442b-8f11-90f88ad441dc"
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#filestoragecontainertyperegselected"
     },
     {
         "detectedOn": "2025-08-08",
@@ -21,7 +21,7 @@
         "id": "ce8fb1f1-5e1f-44a0-b102-4ec28454d0dc",
         "assetName": "CallRecordings.Read.All",
         "assetDefinition": "Read all call recordings",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#ce8fb1f1-5e1f-44a0-b102-4ec28454d0dc"
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#callrecordingsreadall"
     },
     {
         "detectedOn": "2025-08-05",
@@ -29,7 +29,7 @@
         "id": "c8948c23-e66b-42db-83fd-770b71ab78d2",
         "assetName": "Contacts-OnPremisesSyncBehavior.ReadWrite.All",
         "assetDefinition": "Read and update the on-premises sync behavior of contacts",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#c8948c23-e66b-42db-83fd-770b71ab78d2"
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#contactsonpremisessyncbehaviorreadwriteall"
     },
     {
         "detectedOn": "2025-08-05",
@@ -37,7 +37,7 @@
         "id": "bfbd4840-fba0-43a7-93a9-465b687e47d0",
         "assetName": "EngagementConversation.ReadWrite.All",
         "assetDefinition": "Read and write all Viva Engage conversations",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#bfbd4840-fba0-43a7-93a9-465b687e47d0"
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#engagementconversationreadwriteall"
     },
     {
         "detectedOn": "2025-08-05",
@@ -45,7 +45,7 @@
         "id": "2d9bd318-b883-40be-9df7-63ec4fcdc424",
         "assetName": "Group-OnPremisesSyncBehavior.ReadWrite.All",
         "assetDefinition": "Read and update the on-premises sync behavior of groups",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#2d9bd318-b883-40be-9df7-63ec4fcdc424"
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#grouponpremisessyncbehaviorreadwriteall"
     },
     {
         "detectedOn": "2025-08-01",
@@ -53,7 +53,7 @@
         "id": "792b782b-7822-4b92-8103-77e44f2f706c",
         "assetName": "CallAiInsights.Read.All",
         "assetDefinition": "Read all AI Insights for calls.",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#792b782b-7822-4b92-8103-77e44f2f706c"
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#callaiinsightsreadall"
     },
     {
         "detectedOn": "2025-08-01",
@@ -61,7 +61,7 @@
         "id": "e227c591-dd64-4a8a-a033-816167f7c938",
         "assetName": "VerifiedId-Profile.Read.All",
         "assetDefinition": "Read Verified Id profiles",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#e227c591-dd64-4a8a-a033-816167f7c938"
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#verifiedidprofilereadall"
     },
     {
         "detectedOn": "2025-07-26",
@@ -69,7 +69,7 @@
         "id": "c0e5a7b0-e8b7-40a7-b8e0-8249e6ea81d5",
         "assetName": "Domain-InternalFederation.Read.All",
         "assetDefinition": "Read internal federation configuration for a domain.",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#c0e5a7b0-e8b7-40a7-b8e0-8249e6ea81d5"
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#domaininternalfederationreadall"
     },
     {
         "detectedOn": "2025-07-26",
@@ -77,7 +77,7 @@
         "id": "64d40371-8d58-4270-bc8a-b4a66de36b9a",
         "assetName": "Domain-InternalFederation.ReadWrite.All",
         "assetDefinition": "Create, read, update and delete internal federation configuration for a domain.",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#64d40371-8d58-4270-bc8a-b4a66de36b9a"
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#domaininternalfederationreadwriteall"
     },
     {
         "detectedOn": "2025-07-17",
@@ -85,7 +85,7 @@
         "id": "2f479c7e-27df-4053-826b-57d8ce55be3e",
         "assetName": "AgentApplication.Create",
         "assetDefinition": "Create agent applications.",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#2f479c7e-27df-4053-826b-57d8ce55be3e"
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentapplicationcreate"
     },
     {
         "detectedOn": "2025-07-17",
@@ -93,7 +93,7 @@
         "id": "2c4c43c7-1903-4658-a911-b8f2bb31e32e",
         "assetName": "AgentIdentity.Create",
         "assetDefinition": "Create agent identities linked to itself.",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#2c4c43c7-1903-4658-a911-b8f2bb31e32e"
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentitycreate"
     },
     {
         "detectedOn": "2025-07-17",
@@ -101,7 +101,7 @@
         "id": "c5bc96f5-b4a1-4cfc-8189-d5f0d772278f",
         "assetName": "SecurityIdentitiesAccount.Read.All",
         "assetDefinition": "Read all identity security available identity accounts",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#c5bc96f5-b4a1-4cfc-8189-d5f0d772278f"
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#securityidentitiesaccountreadall"
     },
     {
         "detectedOn": "2025-07-17",
@@ -109,6 +109,6 @@
         "id": "af2bf46f-7bf1-4be3-8bad-e17e279e8462",
         "assetName": "SecurityIdentitiesActions.ReadWrite.All",
         "assetDefinition": "Read and perform all identity security available actions",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#af2bf46f-7bf1-4be3-8bad-e17e279e8462"
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#securityidentitiesactionsreadwriteall"
     }
 ]
