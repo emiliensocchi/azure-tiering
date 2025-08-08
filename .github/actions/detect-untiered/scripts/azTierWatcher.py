@@ -267,7 +267,7 @@ if __name__ == "__main__":
             'id': current_builtin_msgraph_app_permission_definition['id'],
             'assetName': current_builtin_msgraph_app_permission_definition['value'],
             'assetDefinition': current_builtin_msgraph_app_permission_definition['displayName'],
-            'documentationUri': f"https://learn.microsoft.com/en-us/graph/permissions-reference#{current_builtin_msgraph_app_permission_definition['id'].lower().replace('.', '')}",
+            'documentationUri': f"https://learn.microsoft.com/en-us/graph/permissions-reference#{current_builtin_msgraph_app_permission_definition['value'].lower().replace('.', '')}",
         })
 
     # Get current built-in Entra roles
@@ -279,7 +279,7 @@ if __name__ == "__main__":
             'id': current_builtin_entra_role_definition['id'],
             'assetName': current_builtin_entra_role_definition['displayName'],
             'assetDefinition': current_builtin_entra_role_definition['description'],
-            'documentationUri': f"https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#{current_builtin_entra_role_definition['id'].lower().replace(' ', '-')}",
+            'documentationUri': f"https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#{current_builtin_entra_role_definition['displayName'].lower().replace(' ', '-')}",
         })
 
     # Set local tier files
