@@ -118,7 +118,7 @@ def read_json_file(json_file):
         exit()
 
 
-def update_untiered(untiered_file, added_assets, removed_assets):
+def deprecated_update_untiered_markdown(untiered_file, added_assets, removed_assets):
     """
         Updates the passed file providing an overview of untiered roles and permissions with the passed administrative assets.
 
@@ -200,6 +200,56 @@ def update_untiered(untiered_file, added_assets, removed_assets):
         exit()
 
 
+def update_untiered_json(untiered_file, added_assets, removed_assets):
+    """
+        Updates the passed file providing an overview of untiered roles and permissions with the passed administrative assets.
+
+        Args:
+            untiered_file(str): the local JSON file with untiered roles and permissions
+            added_assets(list(dict)): the assets to be added to the 'addition' part of the untier file
+            removed_assets(list(dict)): the assets to be added to the 'removal' part of the untier file
+
+    """
+    try:
+        has_content_been_updated = False    
+        update_type = untiered_file.rsplit('/', 2)[1]
+
+        with open(untiered_file, 'r', encoding = 'utf-8') as file:
+            untiered_assets = json.load(file)
+
+        # Check if passed assets are already in the untiered file
+        untiered_asset_ids = [asset['id'] for asset in untiered_assets]
+        assets_to_add = [asset for asset in added_assets if (asset['id'] not in untiered_asset_ids)]
+        assets_to_remove = [asset for asset in removed_assets if (asset['id'] in untiered_asset_ids)]
+
+        if len(assets_to_add) > 0 or len(assets_to_remove) > 0:
+            has_content_been_updated = True
+
+        # Add new assets to the untiered file
+        for asset in assets_to_add:
+            untiered_assets.append(asset)
+
+        # Remove assets from the untiered file
+        for asset in assets_to_remove:
+            untiered_assets = [item for item in untiered_assets if item['id'] != asset['id']]
+
+        # Sort the untiered assets by date, having the most recent at the top
+        untiered_assets.sort(key=lambda x: x['detectedOn'], reverse=True)
+
+        # Write the updated untiered assets to the file
+        with open(untiered_file, 'w', encoding = 'utf-8') as file:
+            json.dump(untiered_assets, file, indent=4)
+
+        if has_content_been_updated:
+            print (f"🔄 {update_type}: changes have been detected")
+        else:
+            print (f"➖ {update_type}: no changes")
+
+    except FileNotFoundError:
+        print('FATAL ERROR - The untiered file could not be updated.')
+        exit()
+
+
 if __name__ == "__main__":
     # Get MS Graph access token from environment variable
     graph_access_token = os.environ['MSGRAPH_ACCESS_TOKEN']
@@ -208,9 +258,6 @@ if __name__ == "__main__":
         print('FATAL ERROR - A valid access token for MS Graph is required.')
         exit()
 
-    # Set Microsoft APIs info
-    graph_role_template_base_uri = 'https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions/'
-
     # Get current built-in MS Graph application permissions
     current_builtin_msgraph_app_permissions = []
     current_builtin_msgraph_app_permission_definitions = get_builtin_msgraph_app_permission_definitions_from_graph(graph_access_token)
@@ -218,8 +265,9 @@ if __name__ == "__main__":
     for current_builtin_msgraph_app_permission_definition in current_builtin_msgraph_app_permission_definitions:
         current_builtin_msgraph_app_permissions.append({
             'id': current_builtin_msgraph_app_permission_definition['id'],
-            'name': current_builtin_msgraph_app_permission_definition['value'],
-            'description': current_builtin_msgraph_app_permission_definition['displayName']
+            'assetName': current_builtin_msgraph_app_permission_definition['value'],
+            'assetDefinition': current_builtin_msgraph_app_permission_definition['displayName'],
+            'documentationUri': f"https://learn.microsoft.com/en-us/graph/permissions-reference#{current_builtin_msgraph_app_permission_definition['id'].lower().replace('.', '')}",
         })
 
     # Get current built-in Entra roles
@@ -229,9 +277,9 @@ if __name__ == "__main__":
     for current_builtin_entra_role_definition in current_builtin_entra_role_definitions:
         current_builtin_entra_roles.append({
             'id': current_builtin_entra_role_definition['id'],
-            'name': current_builtin_entra_role_definition['displayName'],
-            'description': current_builtin_entra_role_definition['description'],
-            'link': f"{graph_role_template_base_uri}{current_builtin_entra_role_definition['id']}"
+            'assetName': current_builtin_entra_role_definition['displayName'],
+            'assetDefinition': current_builtin_entra_role_definition['description'],
+            'documentationUri': f"https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#{current_builtin_entra_role_definition['id'].lower().replace(' ', '-')}",
         })
 
     # Set local tier files
@@ -244,8 +292,8 @@ if __name__ == "__main__":
     msgraph_app_permissions_tier_file = f"{app_permissions_dir}/tiered-msgraph-app-permissions.json"
 
     # Set local untiered files
-    entra_roles_untiered_file = f"{entra_dir}/Untiered Entra roles.md"
-    msgraph_app_permissions_untiered_file = f"{app_permissions_dir}/Untiered MSGraph application permissions.md"
+    entra_roles_untiered_file = f"{entra_dir}/untiered-entra-roles.json"
+    msgraph_app_permissions_untiered_file = f"{app_permissions_dir}/untiered-msgraph-app-permissions.json"
 
     # Get tiered built-in roles/permissions from local files
     tiered_builtin_msgraph_app_permissions = read_json_file(msgraph_app_permissions_tier_file)
@@ -271,7 +319,8 @@ if __name__ == "__main__":
                 exit() 
 
             msgraph_app_permission = msgraph_app_permissions_list[0]
-            enriched_msgraph_app_permission = { 'date': date }
+            enriched_msgraph_app_permission = { 'detectedOn': date }
+            enriched_msgraph_app_permission['apiEvent'] = 'added'
             enriched_msgraph_app_permission.update(msgraph_app_permission)
             added_items.append(enriched_msgraph_app_permission)
 
@@ -283,11 +332,12 @@ if __name__ == "__main__":
                 exit() 
 
             msgraph_app_permission = msgraph_app_permissions_list[0]
-            enriched_msgraph_app_permission = { 'date': date }
+            enriched_msgraph_app_permission = { 'detectedOn': date }
+            enriched_msgraph_app_permission['apiEvent'] = 'removed'
             enriched_msgraph_app_permission.update(msgraph_app_permission)
             removed_items.append(enriched_msgraph_app_permission)
 
-        update_untiered(msgraph_app_permissions_untiered_file, added_items, removed_items)
+        update_untiered_json(msgraph_app_permissions_untiered_file, added_items, removed_items)
     else:
         print ('➖ MS Graph app permissions: no changes')
 
@@ -311,7 +361,8 @@ if __name__ == "__main__":
                 exit() 
 
             entra_role = entra_role_list[0]
-            enriched_entra_role = { 'date': date }
+            enriched_entra_role = { 'detectedOn': date }
+            enriched_entra_role['apiEvent'] = 'added'
             enriched_entra_role.update(entra_role)
             added_items.append(enriched_entra_role)
 
@@ -323,10 +374,11 @@ if __name__ == "__main__":
                 exit() 
 
             entra_role = entra_role_list[0]
-            enriched_entra_role = { 'date': date }
+            enriched_entra_role = { 'detectedOn': date }
+            enriched_entra_role['apiEvent'] = 'removed'
             enriched_entra_role.update(entra_role)
             removed_items.append(enriched_entra_role)
 
-        update_untiered(entra_roles_untiered_file, added_items, removed_items)
+        update_untiered_json(entra_roles_untiered_file, added_items, removed_items)
     else:
         print ('➖ Entra roles: no changes')
