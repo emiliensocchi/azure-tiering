@@ -1,0 +1,38 @@
+{
+    "tier_names": {
+        "azure": {
+            "tier_0": "Family of privilege ascenders",
+            "tier_1": "Family of lateral navigators",
+            "tier_2": "Family of data explorers",
+            "tier_3": "Family of unprivileged Azure users"
+        },
+        "entra": {
+            "tier_0": "Family of Global Admins",
+            "tier_1": "Family of M365 and restricted Entra Admins",
+            "tier_2": "Family of unprivileged administrators"
+        },
+        "msgraph": {
+            "tier_0": "Family of Global Admins",
+            "tier_1": "Family of restricted Graph permissions",
+            "tier_2": "Family of unprivileged Graph permissions"
+        }
+    },
+    "tier_definitions": {
+        "azure": {
+            "tier_0": "Roles with a risk of privilege escalation via one or multiple resource types in scope.",
+            "tier_1": "Roles with a risk of lateral movement via data-plane access to a specific resource type in scope, but with a limited risk for privilege escalation.",
+            "tier_2": "Roles with data-plane access to a specific resource type in scope, but with a limited risk for lateral movement and without a risk for privilege escalation.",
+            "tier_3": "Roles with little to no security implications."
+        },
+        "entra": {
+            "tier_0": "Roles with a risk of having a direct or indirect path to Global Admin and full tenant takeover.",
+            "tier_1": "Roles with full access to individual Microsoft 365 services, limited administrative access to Entra ID, or global read access across services, but without a known path to Global Admin.",
+            "tier_2": "Roles with little to no security implications."
+        },
+        "msgraph": {
+            "tier_0": "Permissions with a risk of having a direct or indirect path to Global Admin and full tenant takeover.",
+            "tier_1": "Permissions with write access to MS Graph scopes or read access to sensitive scopes (e.g. email content), but without a known path to Global Admin.",
+            "tier_2": "Permissions with read access to MS Graph scopes and little to no security implications."
+        }
+    }
+}
