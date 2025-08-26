@@ -1,5 +1,13 @@
 [
     {
+        "detectedOn": "2025-08-26",
+        "apiEvent": "added",
+        "id": "e118f1da-5c1c-46cf-bff6-8858d786f46f",
+        "assetName": "Mail-Advanced.ReadWrite.All",
+        "assetDefinition": "Read and write mail in all mailboxes, including modifying existing non-draft mails",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#mail-advancedreadwriteall"
+    },
+    {
         "detectedOn": "2025-08-08",
         "apiEvent": "added",
         "id": "4cd61b6d-8692-40bf-9d90-7f38db5e5fce",
