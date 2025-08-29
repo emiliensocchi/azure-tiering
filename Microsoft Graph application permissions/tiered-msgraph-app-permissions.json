@@ -276,7 +276,7 @@
         "assetDefinition": "Read and perform all identity security available actions",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#securityidentitiesactionsreadwriteall",
         "pathType": "Indirect",
-        "shortestPath": "In a tenant without PIM, can follow the same path as User.EnableDisableAccount.All. In a PIM-enabled tenant, can mark all user accounts as compromised (making them most-likely unable to sign-in due Conditional Access), and ask for a ransomware to re-enable one of the break-glass accounts. Note: this permission is Global-Admin-like, as it affects the availability of the tenant in the same way as a Global Admin. Note 2: in a PIM-enabled tenant, this permission can mark all users as compromised, apart from the last user with the 'Privileged Role Administrator' role assignment in Entra ID.",
+        "shortestPath": "In a tenant without PIM, can follow the same path as User.EnableDisableAccount.All. In a PIM-enabled tenant, can mark all user accounts as compromised (making them most-likely unable to sign-in due Conditional Access), and ask for a ransomware to re-enable one of the break-glass accounts. Note: this permission is Global-Admin-like, as it affects the availability of the tenant in the same way as a Global Admin.",
         "example": "TA marks all users in the tenant as compromised, preventing them from signing-in due to Conditional Access, and asks for a ransom to re-enable one emergency account."
     },
     {
