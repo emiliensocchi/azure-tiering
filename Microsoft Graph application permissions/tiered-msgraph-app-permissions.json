@@ -1884,6 +1884,13 @@
     },
     {
         "tier": "1",
+        "id": "c5bc96f5-b4a1-4cfc-8189-d5f0d772278f",
+        "assetName": "SecurityIdentitiesAccount.Read.All",
+        "assetDefinition": "Read all identity security available identity accounts",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#securityidentitiesaccountreadall"
+    },
+    {
+        "tier": "1",
         "id": "ab03ddd5-7ae4-4f2e-8af8-86654f7e0a27",
         "assetName": "SecurityIdentitiesHealth.ReadWrite.All",
         "assetDefinition": "Allows the app to read and write identity security health issues without a signed-in user.",

@@ -102,13 +102,5 @@
         "assetName": "AgentIdentity.Create",
         "assetDefinition": "Create agent identities linked to itself.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentitycreate"
-    },
-    {
-        "detectedOn": "2025-07-17",
-        "apiEvent": "added",
-        "id": "c5bc96f5-b4a1-4cfc-8189-d5f0d772278f",
-        "assetName": "SecurityIdentitiesAccount.Read.All",
-        "assetDefinition": "Read all identity security available identity accounts",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#securityidentitiesaccountreadall"
     }
 ]
