@@ -271,6 +271,16 @@
     },
     {
         "tier": "0",
+        "id": "af2bf46f-7bf1-4be3-8bad-e17e279e8462",
+        "assetName": "SecurityIdentitiesActions.ReadWrite.All",
+        "assetDefinition": "Read and perform all identity security available actions",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#securityidentitiesactionsreadwriteall",
+        "pathType": "Indirect",
+        "shortestPath": "In a tenant without PIM, can follow the same path as User.EnableDisableAccount.All. In a PIM-enabled tenant, can mark all user accounts as compromised (making them most-likely unable to sign-in due Conditional Access), and ask for a ransomware to re-enable one of the break-glass accounts. Note: this permission is Global-Admin-like, as it affects the availability of the tenant in the same way as a Global Admin. Note 2: in a PIM-enabled tenant, this permission can mark all users as compromised, apart from the last user with the 'Privileged Role Administrator' role assignment in Entra ID.",
+        "example": "TA marks all users in the tenant as compromised, preventing them from signing-in due to Conditional Access, and asks for a ransom to re-enable one emergency account."
+    },
+    {
+        "tier": "0",
         "id": "7fc588a2-ea2d-4d1f-bcf7-33c324b149b8",
         "assetName": "SignInIdentifier.ReadWrite.All",
         "assetDefinition": "Allows the app to read and write your organization's sign-in identifiers, without a signed-in user.",
@@ -296,8 +306,8 @@
         "assetDefinition": "Allows the app to delete and restore all users, without a signed-in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userdeleterestoreall",
         "pathType": "Direct",
-        "shortestPath": "Can delete all user accounts in the tenant (making the latter unavailable), and ask for a ransomware to restore one of the break-glass accounts. Note: this permission is Global-Admin-like, as it affects the availability of the tenant in the same way as a Global Admin.",
-        "example": "TA deletes all users in the tenant, including break-glass accounts, and ask for a ransom to restore one emergency account. Note: TA has the ability to delete user accounts <u>permanently.</u>"
+        "shortestPath": "In a tenant without PIM, can delete all user accounts in the tenant (making the latter unavailable), and ask for a ransomware to restore one of the break-glass accounts. Note 1: this permission is Global-Admin-like, as it affects the availability of the tenant in the same way as a Global Admin. Note 2: in a PIM-enabled tenant, this permission can delete all users, apart from the last user with the 'Privileged Role Administrator' role assignment in Entra ID.",
+        "example": "TA deletes all users in the tenant, including break-glass accounts, and asks for a ransom to restore one emergency account. Note: TA has the ability to delete user accounts permanently."
     },
     {
         "tier": "0",
@@ -306,8 +316,8 @@
         "assetDefinition": "Allows the app to enable and disable users' accounts, without a signed-in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userenabledisableaccountall",
         "pathType": "Direct",
-        "shortestPath": "When combined with User.Read.All, can disable all user accounts in the tenant (making the latter unavailable), and ask for a ransomware to re-enable one of the break-glass accounts. Note: this permission is Global-Admin-like, as it affects the availability of the tenant in the same way as a Global Admin.",
-        "example": "TA disables all users in the tenant, including break-glass accounts, and ask for a ransom to re-enable one emergency account."
+        "shortestPath": "In a tenant without PIM and when combined with User.Read.All, can disable all user accounts in the tenant (making the latter unavailable), and ask for a ransomware to re-enable one of the break-glass accounts. Note 1: this permission is Global-Admin-like, as it affects the availability of the tenant in the same way as a Global Admin. Note 2: in a PIM-enabled tenant, this permission can disable all users, apart from the last user with the 'Privileged Role Administrator' role assignment in Entra ID.",
+        "example": "TA disables all users in the tenant, including break-glass accounts, and asks for a ransom to re-enable one emergency account."
     },
     {
         "tier": "0",

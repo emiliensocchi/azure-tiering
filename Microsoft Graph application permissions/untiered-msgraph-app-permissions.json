@@ -110,13 +110,5 @@
         "assetName": "SecurityIdentitiesAccount.Read.All",
         "assetDefinition": "Read all identity security available identity accounts",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#securityidentitiesaccountreadall"
-    },
-    {
-        "detectedOn": "2025-07-17",
-        "apiEvent": "added",
-        "id": "af2bf46f-7bf1-4be3-8bad-e17e279e8462",
-        "assetName": "SecurityIdentitiesActions.ReadWrite.All",
-        "assetDefinition": "Read and perform all identity security available actions",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#securityidentitiesactionsreadwriteall"
     }
 ]
