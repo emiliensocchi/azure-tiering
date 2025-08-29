@@ -1,10 +1,1 @@
-[
-    {
-        "detectedOn": "2025-07-27",
-        "apiEvent": "added",
-        "id": "78b0ccd1-afc2-4f92-9116-b41aedd09592",
-        "assetName": "Places Administrator",
-        "assetDefinition": "Manage all aspects of the Microsoft Places service.",
-        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#places-administrator"
-    }
-]
+[]

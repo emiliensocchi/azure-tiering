@@ -515,6 +515,14 @@
     },
     {
         "tier": "1",
+        "id": "78b0ccd1-afc2-4f92-9116-b41aedd09592",
+        "assetName": "Places Administrator",
+        "assetDefinition": "Manage all aspects of the Microsoft Places service.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#places-administrator",
+        "providesFullAccessTo": "Microsoft Places."
+    },
+    {
+        "tier": "1",
         "id": "a92aed5d-d78a-4d16-b381-09adb37eb3b0",
         "assetName": "On Premises Directory Sync Account",
         "assetDefinition": "Only used by Microsoft Entra Connect Sync Account.",
