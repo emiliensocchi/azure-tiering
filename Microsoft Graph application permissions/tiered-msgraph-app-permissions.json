@@ -855,6 +855,13 @@
     },
     {
         "tier": "1",
+        "id": "64d40371-8d58-4270-bc8a-b4a66de36b9a",
+        "assetName": "Domain-InternalFederation.ReadWrite.All",
+        "assetDefinition": "Create, read, update and delete internal federation configuration for a domain.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#domaininternalfederationreadwriteall"
+    },
+    {
+        "tier": "1",
         "id": "b2620db1-3bf7-4c5b-9cb9-576d29eac736",
         "assetName": "eDiscovery.ReadWrite.All",
         "assetDefinition": "Allows the app to read and write eDiscovery objects such as cases, custodians, review sets and other related objects without a signed-in user.",
@@ -3029,6 +3036,13 @@
         "assetName": "Domain.Read.All",
         "assetDefinition": "Allows the app to read all domain properties without a signed-in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#domainreadall"
+    },
+    {
+        "tier": "2",
+        "id": "c0e5a7b0-e8b7-40a7-b8e0-8249e6ea81d5",
+        "assetName": "Domain-InternalFederation.Read.All",
+        "assetDefinition": "Read internal federation configuration for a domain.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#domaininternalfederationreadall"
     },
     {
         "tier": "2",

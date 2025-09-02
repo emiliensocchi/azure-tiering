@@ -72,22 +72,6 @@
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#verifiedidprofilereadall"
     },
     {
-        "detectedOn": "2025-07-26",
-        "apiEvent": "added",
-        "id": "c0e5a7b0-e8b7-40a7-b8e0-8249e6ea81d5",
-        "assetName": "Domain-InternalFederation.Read.All",
-        "assetDefinition": "Read internal federation configuration for a domain.",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#domaininternalfederationreadall"
-    },
-    {
-        "detectedOn": "2025-07-26",
-        "apiEvent": "added",
-        "id": "64d40371-8d58-4270-bc8a-b4a66de36b9a",
-        "assetName": "Domain-InternalFederation.ReadWrite.All",
-        "assetDefinition": "Create, read, update and delete internal federation configuration for a domain.",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#domaininternalfederationreadwriteall"
-    },
-    {
         "detectedOn": "2025-07-17",
         "apiEvent": "added",
         "id": "2f479c7e-27df-4053-826b-57d8ce55be3e",
