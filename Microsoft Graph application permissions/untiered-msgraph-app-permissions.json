@@ -1,5 +1,13 @@
 [
     {
+        "detectedOn": "2025-09-05",
+        "apiEvent": "added",
+        "id": "2c495153-cd0e-41b4-9980-3bcecf1ca22f",
+        "assetName": "EngagementConversation.Read.All",
+        "assetDefinition": "Read all Viva Engage conversations",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#engagementconversationreadall"
+    },
+    {
         "detectedOn": "2025-08-26",
         "apiEvent": "added",
         "id": "e118f1da-5c1c-46cf-bff6-8858d786f46f",
