@@ -111,6 +111,16 @@
     },
     {
         "tier": "0",
+        "id": "2d9bd318-b883-40be-9df7-63ec4fcdc424",
+        "assetName": "Group-OnPremisesSyncBehavior.ReadWrite.All",
+        "assetDefinition": "Read and update the on-premises sync behavior of groups",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#grouponpremisessyncbehaviorreadwriteall",
+        "pathType": "Indirect",
+        "shortestPath": "When combined with an on-premises Domain Admin (DA), can convert a cloud-only group providing Global Admin access to a synced group, and add a controlled user account as member of that group on-premises to escalate to Global Admin. Note: can also convert a synced group to cloud-only, manage memberships from MS Graph, and escalate privileges within the on-premises AD environment.",
+        "example": "TA has DA-like access within the connected on-premises AD. TA converts a cloud-only group providing Global Admin access to a synced group (i.e. memberships are now controlled from on-premises). TA adds a controlled user account as member of that group on-premises, and escalates to Global Admin via group membership."
+    },
+    {
+        "tier": "0",
         "id": "62a82d76-70ea-41e2-9197-370581804d09",
         "assetName": "Group.ReadWrite.All",
         "assetDefinition": "Allows the app to create groups, read all group properties and memberships, update group properties and memberships, and delete groups. Also allows the app to read and write conversations. All of these operations can be performed by the app without a signed-in user.",
@@ -379,6 +389,21 @@
     },
     {
         "tier": "1",
+        "id": "2f479c7e-27df-4053-826b-57d8ce55be3e",
+        "assetName": "AgentApplication.Create",
+        "assetDefinition": "Create agent applications.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentapplicationcreate"
+    },
+
+    {
+        "tier": "1",
+        "id": "2c4c43c7-1903-4658-a911-b8f2bb31e32e",
+        "assetName": "AgentIdentity.Create",
+        "assetDefinition": "Create agent identities linked to itself.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentitycreate"
+    }
+    {
+        "tier": "1",
         "id": "c9090d00-6101-42f0-a729-c41074260d47",
         "assetName": "Agreement.ReadWrite.All",
         "assetDefinition": "Allows the app to read and write terms of use agreements, without a signed in user.",
@@ -575,10 +600,31 @@
     },
     {
         "tier": "1",
+        "id": "792b782b-7822-4b92-8103-77e44f2f706c",
+        "assetName": "CallAiInsights.Read.All",
+        "assetDefinition": "Read all AI Insights for calls.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#callaiinsightsreadall"
+    },
+    {
+        "tier": "1",
         "id": "8d06abce-e69b-4122-ba60-4f901bb1db2f",
         "assetName": "CallDelegation.ReadWrite.All",
         "assetDefinition": "Allows the app to read and write delegation settings of you",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#calldelegationreadwriteall"
+    },
+    {
+        "tier": "1",
+        "id": "ce8fb1f1-5e1f-44a0-b102-4ec28454d0dc",
+        "assetName": "CallRecordings.Read.All",
+        "assetDefinition": "Read all call recordings",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#callrecordingsreadall"
+    },
+    {
+        "tier": "1",
+        "id": "4cd61b6d-8692-40bf-9d90-7f38db5e5fce",
+        "assetName": "CallTranscripts.Read.All",
+        "assetDefinition": "Read all call transcripts",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#callTranscriptsreadall"
     },
     {
         "tier": "1",
@@ -719,6 +765,13 @@
         "assetName": "Contacts.ReadWrite",
         "assetDefinition": "Allows the app to create, read, update, and delete all contacts in all mailboxes without a signed-in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#contactsreadwrite"
+    },
+    {
+        "tier": "1",
+        "id": "c8948c23-e66b-42db-83fd-770b71ab78d2",
+        "assetName": "Contacts-OnPremisesSyncBehavior.ReadWrite.All",
+        "assetDefinition": "Read and update the on-premises sync behavior of contacts",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#contactsonpremisessyncbehaviorreadwriteall"
     },
     {
         "tier": "1",
@@ -911,6 +964,20 @@
     },
     {
         "tier": "1",
+        "id": "2c495153-cd0e-41b4-9980-3bcecf1ca22f",
+        "assetName": "EngagementConversation.Read.All",
+        "assetDefinition": "Read all Viva Engage conversations",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#engagementconversationreadall"
+    },
+    {
+        "tier": "1",
+        "id": "bfbd4840-fba0-43a7-93a9-465b687e47d0",
+        "assetName": "EngagementConversation.ReadWrite.All",
+        "assetDefinition": "Read and write all Viva Engage conversations",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#engagementconversationreadwriteall"
+    },
+    {
+        "tier": "1",
         "id": "d746beae-b46e-446e-924a-5b805a5c4467",
         "assetName": "EngagementMeetingConversation.Read.All",
         "assetDefinition": "Allows the app to list Viva Engage Teams QA conversations, and to read their properties without a signed-in user.",
@@ -999,6 +1066,13 @@
         "assetName": "Files.ReadWrite.AppFolder",
         "assetDefinition": "Allows the app to read, create, update and delete files in the application's folder without a signed in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#filesreadwriteappfolder"
+    },
+    {
+        "tier": "1",
+        "id": "2dcc6599-bd30-442b-8f11-90f88ad441dc",
+        "assetName": "FileStorageContainerTypeReg.Selected",
+        "assetDefinition": "Access selected file storage container type registrations",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#filestoragecontainertyperegselected"
     },
     {
         "tier": "1",
@@ -1237,6 +1311,13 @@
         "assetName": "Mail.Send",
         "assetDefinition": "Allows the app to send mail as any user without a signed-in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#mailsend"
+    },
+    {
+        "tier": "1",
+        "id": "e118f1da-5c1c-46cf-bff6-8858d786f46f",
+        "assetName": "Mail-Advanced.ReadWrite.All",
+        "assetDefinition": "Read and write mail in all mailboxes, including modifying existing non-draft mails",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#mail-advancedreadwriteall"
     },
     {
         "tier": "1",
@@ -4107,6 +4188,13 @@
         "assetName": "UserTeamwork.Read.All",
         "assetDefinition": "Allows the app to read all user teamwork settings without a signed-in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userteamworkreadall"
+    },
+    {
+        "tier": "2",
+        "id": "e227c591-dd64-4a8a-a033-816167f7c938",
+        "assetName": "VerifiedId-Profile.Read.All",
+        "assetDefinition": "Read Verified Id profiles",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#verifiedidprofilereadall"
     },
     {
         "tier": "2",
