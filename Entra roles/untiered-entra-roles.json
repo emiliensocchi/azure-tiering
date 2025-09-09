@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "detectedOn": "2025-09-09",
+        "apiEvent": "added",
+        "id": "e93e3737-fa85-474a-aee4-7d3fb86510f3",
+        "assetName": "Dragon Administrator",
+        "assetDefinition": "Manage all aspects of the Microsoft Dragon admin center.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#dragon-administrator"
+    }
+]
