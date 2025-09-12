@@ -28,6 +28,15 @@
     },
     {
         "tier": "0",
+        "id": "18ab4d3d-a1bf-4477-8ad9-8359bc988f69",
+        "assetName": "Azure Kubernetes Fleet Manager RBAC Cluster Admin",
+        "assetDefinition": "Grants read/write access to all Kubernetes resources in the fleet-managed hub cluster.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#azure-kubernetes-fleet-manager-rbac-cluster-admin",
+        "shortestPath": "Can become cluster admin in all Azure Kubernetes Fleet Manager hub clusters within reach and take them over entirely.",
+        "example": "TA is Azure Kubernetes Fleet Manager RBAC Cluster Admin on a subscription with a Fleet Manager hub cluster, and takes it over. From there, TA can dump all Secrets used within the hub cluster and leverage them to attempt pivoting to the Azure infrastructure and/or managed AKS clusters. TA can also take over nodes within the cluster and attempt spreading to the cloud infrastructure via network-based attacks."
+    },
+    {
+        "tier": "0",
         "id": "0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8",
         "assetName": "Azure Kubernetes Service Cluster Admin Role",
         "assetDefinition": "List cluster admin credential action.",
@@ -82,6 +91,15 @@
     },
     {
         "tier": "0",
+        "id": "ef318e2a-8334-4a05-9e4a-295a196c6a6e",
+        "assetName": "Azure Red Hat OpenShift Federated Credential",
+        "assetDefinition": "Create, update and delete federated credentials on user assigned managed identities in order to build a trust relationship between the managed identity, OpenID Connect (OIDC), and the service account.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#azure-red-hat-openshift-federated-credential",
+        "shortestPath": "Same as Managed Identity Contributor.",
+        "example": "Same as Managed Identity Contributor."
+    },
+    {
+        "tier": "0",
         "id": "25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68",
         "assetName": "Cognitive Services Contributor",
         "assetDefinition": "Lets you create, read, update, delete and manage keys of Cognitive Services.",
@@ -109,12 +127,30 @@
     },
     {
         "tier": "0",
+        "id": "86240b0e-9422-4c43-887b-b61143f32ba8",
+        "assetName": "Desktop Virtualization Application Group Contributor",
+        "assetDefinition": "Contributor of the Desktop Virtualization Application Group.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#desktop-virtualization-application-group-contributor",
+        "shortestPath": "When controlling a VM already added to an AVD host pool, can create a malicious application on that VM, add it to the host pool's application groups within reach, and steal credentials to escalate privileges when a legitimate user connects to the malicious application.",
+        "example": "TA is Desktop Virtualization Application Group Contributor on a subscription with an AVD host pool, and controls a VM already added to the pool. TA creates a malicious application on the VM, adds it to the application group of the host pool, and waits for a legitimate user to connect to the malicious host. TA steals the user's credentials and leverages them to escalate privileges within Azure and/or on-premises."
+    },
+    {
+        "tier": "0",
         "id": "082f0a83-3be5-4ba1-904c-961cca79b387",
         "assetName": "Desktop Virtualization Contributor",
         "assetDefinition": "Contributor of Desktop Virtualization.",
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#desktop-virtualization-contributor",
         "shortestPath": "Same as Contributor, but limited to resources of type: Azure Virtual Desktop.",
         "example": "Same as Contributor, but limited to resources of type: Azure Virtual Desktop."
+    },
+    {
+        "tier": "0",
+        "id": "2ad6aaab-ead9-4eaa-8ac5-da422f562408",
+        "assetName": "Desktop Virtualization Session Host Operator",
+        "assetDefinition": "Operator of the Desktop Virtualization Session Host.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#desktop-virtualization-session-host-operator",
+        "shortestPath": "Can add a controlled VM to host pools within reach, and steal credentials when a legitimate user is load-balanced to the malicious host to escalate privileges.",
+        "example": "TA is Desktop Virtualization Session Host Operator on a subscription with an AVD host pool. TA adds a VM they control to the host pool, and waits for a legitimate user to be load-balanced to the malicious host. TA steals the user's credentials and leverages them to escalate privileges within Azure and/or on-premises."
     },
     {
         "tier": "0",
@@ -160,6 +196,24 @@
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#logic-apps-standard-contributor-(preview)",
         "shortestPath": "Same as Contributor, but limited to resources of type: Logic App using a standard plan.",
         "example": "Same as Contributor, but limited to resources of type: Logic App using a standard plan."
+    },
+    {
+
+        "id": "e40ec5ca-96e0-45a2-b4ff-59039f2c2b59",
+        "assetName": "Managed Identity Contributor",
+        "assetDefinition": "Create, Read, Update, and Delete User Assigned Identity",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#managed-identity-contributor",
+        "shortestPath": "Can create a new Federated Credential for the user-assigned Managed Identities (MIs) within reach, and endorse their permissions to escalate privileges.",
+        "example": "TA is Managed Identity Contributor on a subscription with multiple user-assigned MIs. One of the MIs has Contributor access to the entire subscription where the MIs are located. For the MI, TA creates a new Federated Credential for a GitHub Action they control in their own repository. TA triggers the malicious Action to impersonate the MI, and escalates privileges to take over all resources within the subscription via the new Contributor access."
+    },
+    {
+        "tier": "0",
+        "id": "7e559ce2-48d7-4b27-9128-fa1b247f1308",
+        "assetName": "Managed Identity Federated Identity Credential Contributor",
+        "assetDefinition": "Create, Read, Update, and Delete User Assigned Identity Federated Identity Credentials(FIC)",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#managed-identity-federated-identity-credential-contributor",
+        "shortestPath": "Same as Managed Identity Contributor.",
+        "example": "Same as Managed Identity Contributor."
     },
     {
         "tier": "0",
@@ -803,6 +857,15 @@
     },
     {
         "tier": "2",
+        "id": "ada52afe-776a-4b4d-a8f2-55670d3d8178",
+        "assetName": "Kubernetes Agent Subscription Level Operator",
+        "assetDefinition": "Grants Microsoft Defender for Cloud subscription level permissions needed to activate Containers plan",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#kubernetes-agent-subscription-level-operator",
+        "shortestPath": "Same as Log Analytics Reader.",
+        "example": "Same as Log Analytics Reader."
+    },
+    {
+        "tier": "2",
         "id": "73c42c96-874c-492b-b04d-ab87d138a893",
         "assetName": "Log Analytics Reader",
         "assetDefinition": "Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources.",
@@ -848,6 +911,15 @@
         "assetDefinition": "Can read all monitoring data.",
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#monitoring-reader",
         "worstCaseScenario": "Same as Log Analytics Reader."
+    },
+    {
+
+        "id": "39bc4728-0917-49c7-9d2c-d95423bc2eb4",
+        "assetName": "Security Reader",
+        "assetDefinition": "Security Reader Role",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#security-reader",
+        "shortestPath": "Same as Log Analytics Reader. Can also be abused to enumerate resource misconfigurations and excessive network exposures for further attacks.",
+        "example": "Same as Log Analytics Reader."
     },
     {
         "tier": "2",
@@ -907,6 +979,14 @@
     },
     {
         "tier": "3",
+        "id": "c2f4ef07-c644-48eb-af81-4b1b4947fb11",
+        "assetName": "AcrDelete",
+        "assetDefinition": "acr delete",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#acrdelete",
+        "worstCaseScenario": "Can delete all container images hosted in the Azure Container Registry (ACR) instances within reach that are network accessible, to create service disruption when re-deploying workloads."
+    },
+    {
+        "tier": "3",
         "id": "4fe576fe-1146-4730-92eb-48519fa6bf9f",
         "assetName": "Automation Job Operator",
         "assetDefinition": "Create and Manage Jobs using Automation Runbooks.",
@@ -951,6 +1031,14 @@
         "assetName": "Cost Management Reader",
         "assetDefinition": "Can view cost data and configuration (e.g. budgets, exports)",
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#cost-management-reader",
+        "worstCaseScenario": "-"
+    },
+    {
+        "tier": "3",
+        "id": "ceadfde2-b300-400a-ab7b-6143895aa822",
+        "assetName": "Desktop Virtualization Host Pool Reader",
+        "assetDefinition": "Reader of the Desktop Virtualization Host Pool.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#desktop-virtualization-host-pool-reader",
         "worstCaseScenario": "-"
     },
     {
@@ -1008,14 +1096,6 @@
         "assetDefinition": "Can create, update, get, list and delete Kubernetes Extensions, and get extension async operations",
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#kubernetes-extension-contributor",
         "worstCaseScenario": "Can delete extensions enabled in the Azure Kubernetes Service (AKS) clusters within reach and create service disruption."
-    },
-    {
-        "tier": "3",
-        "id": "e40ec5ca-96e0-45a2-b4ff-59039f2c2b59",
-        "assetName": "Managed Identity Contributor",
-        "assetDefinition": "Create, Read, Update, and Delete User Assigned Identity",
-        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#managed-identity-contributor",
-        "worstCaseScenario": "Can delete user-assigned Managed Identities within reach to create service disruption, but can neither assign them nor provide them permissions."
     },
     {
         "tier": "3",
