@@ -383,7 +383,7 @@
         "assetName": "Compliance Administrator",
         "assetDefinition": "Can read and manage compliance configuration and reports in Microsoft Entra ID and Microsoft 365.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#compliance-administrator",
-        "providesFullAccessTo": "Compliance-related features in the Microsoft Purview compliance portal, Microsoft 365 admin center, Azure and the Microsoft 365 Defender portal."
+        "providesFullAccessTo": "Compliance-related features in the Microsoft Purview compliance portal, Microsoft 365 admin center, Azure and the Microsoft 365 Defender portal. Can be abused for ransomware attacks, by creating a sensitivity label in Purview that applies to all files in M365 and is only available to the compromised account (i.e. files are effectively encrypted and only decryptable by the compromised account)."
     },
     {
         "tier": "1",
