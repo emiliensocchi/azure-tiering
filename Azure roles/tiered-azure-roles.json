@@ -913,7 +913,7 @@
         "worstCaseScenario": "Same as Log Analytics Reader."
     },
     {
-
+        "tier": "2",
         "id": "39bc4728-0917-49c7-9d2c-d95423bc2eb4",
         "assetName": "Security Reader",
         "assetDefinition": "Security Reader Role",
