@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "detectedOn": "2025-09-20",
+        "apiEvent": "added",
+        "id": "fc023787-fd04-4e44-9bc7-d454f00c0f0a",
+        "assetName": "Application.ReadUpdate.All",
+        "assetDefinition": "Read and update all apps",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#applicationreadupdateall"
+    },
+    {
+        "detectedOn": "2025-09-20",
+        "apiEvent": "added",
+        "id": "abafe00f-ea87-4c63-b8a8-0e7bb0a88144",
+        "assetName": "RealTimeActivityFeed.Read.All",
+        "assetDefinition": "Access real-time enriched data in a meeting as an app",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#realtimeactivityfeedreadall"
+    }
+]
