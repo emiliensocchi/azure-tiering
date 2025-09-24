@@ -1,5 +1,21 @@
 [
     {
+        "detectedOn": "2025-09-24",
+        "apiEvent": "added",
+        "id": "a0521574-fcd8-4742-b29c-f796df57ea70",
+        "assetName": "SharePointCrossTenantMigration.Manage.All",
+        "assetDefinition": "Read, write and manage SharePoint Cross-Tenant migration settings and tasks",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#sharepointcrosstenantmigrationmanageall"
+    },
+    {
+        "detectedOn": "2025-09-24",
+        "apiEvent": "added",
+        "id": "f5fa52a5-b9ab-4dc3-885e-9e5b4a67068e",
+        "assetName": "SharePointCrossTenantMigration.Read.All",
+        "assetDefinition": "Read SharePoint Cross-Tenant migration settings and tasks",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#sharepointcrosstenantmigrationreadall"
+    },
+    {
         "detectedOn": "2025-09-20",
         "apiEvent": "added",
         "id": "fc023787-fd04-4e44-9bc7-d454f00c0f0a",
