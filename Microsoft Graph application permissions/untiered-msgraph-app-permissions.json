@@ -1,5 +1,181 @@
 [
     {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "a1e58be0-1095-422b-b067-73434bd7d40f",
+        "assetName": "UserAuthMethod-Email.Read.All",
+        "assetDefinition": "Read all users' email methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-emailreadall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "e8ecb853-1435-4a49-95ba-ec5b31b11672",
+        "assetName": "UserAuthMethod-Email.ReadWrite.All",
+        "assetDefinition": "Read and write all users' email methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-emailreadwriteall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "d2c4289f-9f95-40da-ad43-eeb1506f0db7",
+        "assetName": "UserAuthMethod-External.Read.All",
+        "assetDefinition": "Read all users' external authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-externalreadall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "c7a22c2e-5b01-4129-8159-6c8be2c78f16",
+        "assetName": "UserAuthMethod-External.ReadWrite.All",
+        "assetDefinition": "Read and write all users' external authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-externalreadwriteall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "7b544555-7811-49ff-8223-a56be870e33a",
+        "assetName": "UserAuthMethod-HardwareOATH.Read.All",
+        "assetDefinition": "Read all users' HardwareOATH authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-hardwareoathreadall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "7e9ebcc1-90aa-4471-8051-e68d6b4e9c89",
+        "assetName": "UserAuthMethod-HardwareOATH.ReadWrite.All",
+        "assetDefinition": "Read and write all users' HardwareOATH authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-hardwareoathreadwriteall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "a9c5f16e-e5ca-4e33-89ad-903fcfc01c23",
+        "assetName": "UserAuthMethod-MicrosoftAuthApp.Read.All",
+        "assetDefinition": "Read all users' Microsoft authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-microsoftauthappreadall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "c833c349-a1ab-4b6d-94a2-fa9a8674420c",
+        "assetName": "UserAuthMethod-MicrosoftAuthApp.ReadWrite.All",
+        "assetDefinition": "Read and write all users' Microsoft Authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-microsoftauthappreadwriteall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "8d2c17ff-b93d-40d5-9def-d843680509cb",
+        "assetName": "UserAuthMethod-Password.Read.All",
+        "assetDefinition": "Read all users' password authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-passwordreadall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "f6d38dfd-ec08-4995-8f07-23e929df0936",
+        "assetName": "UserAuthMethod-Password.ReadWrite.All",
+        "assetDefinition": "Read and write all users' password authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-passwordreadwriteall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "f529a223-ea70-43ec-b268-5012de2fbaa2",
+        "assetName": "UserAuthMethod-Phone.Read.All",
+        "assetDefinition": "Read all users' phone authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-phonereadall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "6e85d483-7092-4375-babe-0a94a8213a58",
+        "assetName": "UserAuthMethod-Phone.ReadWrite.All",
+        "assetDefinition": "Read and write all users' phone methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-phonereadwriteall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "07c0b1e4-15bd-442f-834b-30f8291388d1",
+        "assetName": "UserAuthMethod-PlatformCred.Read.All",
+        "assetDefinition": "Read all users' platform credentials methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-platformcredreadall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "1a87acf4-a9ca-4576-a974-452ea265d5f6",
+        "assetName": "UserAuthMethod-PlatformCred.ReadWrite.All",
+        "assetDefinition": "Read and write all users' platform credentials methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-platformcredreadwriteall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "9a45bc50-cddd-4ebe-bd9c-4f2eacf646ae",
+        "assetName": "UserAuthMethod-QR.Read.All",
+        "assetDefinition": "Read all users' QR methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-qrreadall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "4869299f-18c3-40c8-98f2-222657e67db1",
+        "assetName": "UserAuthMethod-QR.ReadWrite.All",
+        "assetDefinition": "Read and write all users' QR methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-qrreadwriteall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "a6b423df-a0c8-411d-a809-a4a5985d2939",
+        "assetName": "UserAuthMethod-SoftwareOATH.Read.All",
+        "assetDefinition": "Read all users' SoftwareOATH methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-softwareoathreadall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "787442d4-3c6e-4e99-aa95-8ccca20a48ff",
+        "assetName": "UserAuthMethod-SoftwareOATH.ReadWrite.All",
+        "assetDefinition": "Read and write all users' SoftwareOATH methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-softwareoathreadwriteall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "bf82209c-b22b-4747-ac88-a68be99032cf",
+        "assetName": "UserAuthMethod-TAP.Read.All",
+        "assetDefinition": "Read all users' Temporary Access Pass methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-tapreadall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "627169a8-8c15-451c-861a-5b80e383de5c",
+        "assetName": "UserAuthMethod-TAP.ReadWrite.All",
+        "assetDefinition": "Read and write all users' Temporary Access Pass methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-tapreadwriteall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "9b8dd4c7-8cca-4ef5-a34a-9c2c75fcc934",
+        "assetName": "UserAuthMethod-WindowsHello.Read.All",
+        "assetDefinition": "Read all users' Windows Hello methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-windowshelloreadall"
+    },
+    {
+        "detectedOn": "2025-10-16",
+        "apiEvent": "added",
+        "id": "f14eee8a-713e-45aa-8223-2ab74632db1a",
+        "assetName": "UserAuthMethod-WindowsHello.ReadWrite.All",
+        "assetDefinition": "Read and write all users' Windows Hello authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-windowshelloreadwriteall"
+    },
+    {
         "detectedOn": "2025-10-03",
         "apiEvent": "added",
         "id": "58971758-9844-4fe4-9fba-7e4ce7a659bf",
