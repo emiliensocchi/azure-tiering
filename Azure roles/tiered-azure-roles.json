@@ -28,6 +28,15 @@
     },
     {
         "tier": "0",
+        "id": "b78c5d69-af96-48a3-bf8d-a8b4d589de94",
+        "assetName": "Azure File Sync Administrator",
+        "assetDefinition": "A Built-In Role that provides full access to manage all Azure File Sync (Storage Sync Service) resources, including the ability to assign roles in Azure RBAC.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/privileged#azure-file-sync-administrator",
+        "shortestPath": "Same as Owner, if the scope of the role assignment is not limited. Can e.g. assign new users to the Owner role.",
+        "example": "Same as Owner, if the scope of the role assignment is not limited. Can e.g. assign new users to the Owner role."
+    },
+    {
+        "tier": "0",
         "id": "18ab4d3d-a1bf-4477-8ad9-8359bc988f69",
         "assetName": "Azure Kubernetes Fleet Manager RBAC Cluster Admin",
         "assetDefinition": "Grants read/write access to all Kubernetes resources in the fleet-managed hub cluster.",
