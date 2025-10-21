@@ -933,7 +933,7 @@
         "tier": "2",
         "id": "4939a1f6-9ae0-4e48-a1e0-f2cbe897382d",
         "assetName": "SQL Managed Instance Contributor",
-        "assetDefinition": "Lets you manage SQL Managed Instances and required network configuration, but can\u2019t give access to others.",
+        "assetDefinition": "Lets you manage SQL Managed Instances and required network configuration, but can't give access to others.",
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor",
         "worstCaseScenario": "Same as SQL DB Contributor, but limited to databases hosted on SQL Managed Instances where SQL authentication is enabled (i.e. cannot change the server's authorization scheme, but can reset the SQL server admin password)."
     },

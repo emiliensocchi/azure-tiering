@@ -353,7 +353,7 @@
         "tier": "0",
         "id": "50483e42-d915-4231-9639-7fdb7fd190e5",
         "assetName": "UserAuthenticationMethod.ReadWrite.All",
-        "assetDefinition": "Allows the application to read and write authentication methods of all users in your organization, without a signed-in user.                       Authentication methods include things like a user\u2019s phone numbers and Authenticator app settings. This                      does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods",
+        "assetDefinition": "Allows the application to read and write authentication methods of all users in your organization, without a signed-in user. Authentication methods include things like a user's phone numbers and Authenticator app settings. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthenticationmethodreadwriteall",
         "pathType": "Direct",
         "shortestPath": "Can generate a Temporary Access Pass (TAP) and take over any user account in the tenant.  Note: if TAP is not an enabled authentication method in the tenant, this path needs to be combined with Policy.ReadWrite.AuthenticationMethod to be successful.",
@@ -874,7 +874,7 @@
         "tier": "1",
         "id": "243333ab-4d21-40cb-a475-36241daa0842",
         "assetName": "DeviceManagementManagedDevices.ReadWrite.All",
-        "assetDefinition": "Allows the app to read and write the properties of devices managed by Microsoft Intune, without a signed-in user. Does not allow high impact operations such as remote wipe and password reset on the device\u2019s owner",
+        "assetDefinition": "Allows the app to read and write the properties of devices managed by Microsoft Intune, without a signed-in user. Does not allow high impact operations such as remote wipe and password reset on the device's owner",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#devicemanagementmanageddevicesreadwriteall"
     },
     {
@@ -1119,7 +1119,7 @@
         "tier": "1",
         "id": "90db2b9a-d928-4d33-a4dd-8442ae3d41e4",
         "assetName": "IdentityProvider.ReadWrite.All",
-        "assetDefinition": "Allows the app to read and write your organization\u2019s identity (authentication) providers\u2019 properties without a signed in user.",
+        "assetDefinition": "Allows the app to read and write your organization's identity (authentication) providers' properties without a signed in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#identityproviderreadwriteall"
     },
     {
@@ -1637,7 +1637,7 @@
         "tier": "1",
         "id": "2dcf8603-09eb-4078-b1ec-d30a1a76b873",
         "assetName": "Policy.ReadWrite.IdentityProtection",
-        "assetDefinition": "Allows the app to read and write your organization\u2019s identity protection policy without a signed-in user.",
+        "assetDefinition": "Allows the app to read and write your organization's identity protection policy without a signed-in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadwriteidentityprotection"
     },
     {
@@ -1959,14 +1959,14 @@
         "tier": "1",
         "id": "bf394140-e372-4bf9-a898-299cfc7564e5",
         "assetName": "SecurityEvents.Read.All",
-        "assetDefinition": "Allows the app to read your organization\u2019s security events without a signed-in user.",
+        "assetDefinition": "Allows the app to read your organization's security events without a signed-in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#securityeventsreadall"
     },
     {
         "tier": "1",
         "id": "d903a879-88e0-4c09-b0c9-82f6a1333f84",
         "assetName": "SecurityEvents.ReadWrite.All",
-        "assetDefinition": "Allows the app to read your organization\u2019s security events without a signed-in user. Also allows the app to update editable properties in security events.",
+        "assetDefinition": "Allows the app to read your organization's security events without a signed-in user. Also allows the app to update editable properties in security events.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#securityeventsreadwriteall"
     },
     {
@@ -2120,7 +2120,7 @@
         "tier": "1",
         "id": "44e666d1-d276-445b-a5fc-8815eeb81d55",
         "assetName": "Tasks.ReadWrite.All",
-        "assetDefinition": "Allows the app to create, read, update and delete all users\u2019 tasks and task lists in your organization, without a signed-in user",
+        "assetDefinition": "Allows the app to create, read, update and delete all users' tasks and task lists in your organization, without a signed-in user",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#tasksreadwriteall"
     },
     {
@@ -2526,7 +2526,7 @@
         "tier": "1",
         "id": "4e774092-a092-48d1-90bd-baad67c7eb47",
         "assetName": "UserNotification.ReadWrite.CreatedByApp",
-        "assetDefinition": "Allows the app to send, read, update and delete user\u2019s notifications, without a signed-in user.",
+        "assetDefinition": "Allows the app to send, read, update and delete user's notifications, without a signed-in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#usernotificationreadwritecreatedbyapp"
     },
     {
@@ -2540,14 +2540,14 @@
         "tier": "1",
         "id": "d4f67ec2-59b5-4bdc-b4af-d78f6f9c1954",
         "assetName": "VirtualAppointment.Read.All",
-        "assetDefinition": "Allows the application to read virtual appointments for all users, without a signed-in user. The app must also be authorized to access an individual user\u2019s data by the online meetings application access policy.",
+        "assetDefinition": "Allows the application to read virtual appointments for all users, without a signed-in user. The app must also be authorized to access an individual user's data by the online meetings application access policy.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#virtualappointmentreadall"
     },
     {
         "tier": "1",
         "id": "bf46a256-f47d-448f-ab78-f226fff08d40",
         "assetName": "VirtualAppointment.ReadWrite.All",
-        "assetDefinition": "Allows the application to read and write virtual appointments for all users, without a signed-in user. The app must also be authorized to access an individual user\u2019s data by the online meetings application access policy.",
+        "assetDefinition": "Allows the application to read and write virtual appointments for all users, without a signed-in user. The app must also be authorized to access an individual user's data by the online meetings application access policy.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#virtualappointmentreadwriteall"
     },
     {
@@ -2778,7 +2778,7 @@
         "tier": "2",
         "id": "284383ee-7f6e-4e40-a2a8-e85dcb029101",
         "assetName": "Calls.Initiate.All",
-        "assetDefinition": "Allows the app to place outbound calls to a single user and transfer calls to users in your organization\u2019s directory, without a signed-in user.",
+        "assetDefinition": "Allows the app to place outbound calls to a single user and transfer calls to users in your organization's directory, without a signed-in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#callsinitiateall"
     },
     {
@@ -3296,7 +3296,7 @@
         "tier": "2",
         "id": "e321f0bb-e7f7-481e-bb28-e3b0b32d4bd0",
         "assetName": "IdentityProvider.Read.All",
-        "assetDefinition": "Allows the app to read your organization\u2019s identity (authentication) providers\u2019 properties without a signed in user.",
+        "assetDefinition": "Allows the app to read your organization's identity (authentication) providers' properties without a signed in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#identityproviderreadall"
     },
     {
@@ -3674,7 +3674,7 @@
         "tier": "2",
         "id": "b21b72f6-4e6a-4533-9112-47eea9f97b28",
         "assetName": "Policy.Read.IdentityProtection",
-        "assetDefinition": "Allows the app to read your organization\u2019s identity protection policy without a signed-in user.",
+        "assetDefinition": "Allows the app to read your organization's identity protection policy without a signed-in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadidentityprotection"
     },
     {
@@ -3982,7 +3982,7 @@
         "tier": "2",
         "id": "f10e1f91-74ed-437f-a6fd-d6ae88e26c1f",
         "assetName": "Tasks.Read.All",
-        "assetDefinition": "Allows the app to read all users\u2019 tasks and task lists in your organization, without a signed-in user.",
+        "assetDefinition": "Allows the app to read all users' tasks and task lists in your organization, without a signed-in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#tasksreadall"
     },
     {
@@ -4164,7 +4164,7 @@
         "tier": "2",
         "id": "38d9df27-64da-44fd-b7c5-a6fbac20248f",
         "assetName": "UserAuthenticationMethod.Read.All",
-        "assetDefinition": "Allows the app to read authentication methods of all users in your organization, without a signed-in user. Authentication methods include things like a user\u2019s phone numbers and Authenticator app settings. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+        "assetDefinition": "Allows the app to read authentication methods of all users in your organization, without a signed-in user. Authentication methods include things like a user's phone numbers and Authenticator app settings. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthenticationmethodreadall"
     },
     {

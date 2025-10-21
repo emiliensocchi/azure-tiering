@@ -445,7 +445,7 @@
         "tier": "1",
         "id": "ac434307-12b9-4fa1-a708-88bf58caabc1",
         "assetName": "Global Secure Access Administrator",
-        "assetDefinition": "Create and manage all aspects\u202fof Global Secure Internet Access and Microsoft Global Secure Private Access, including managing access to public and private endpoints.",
+        "assetDefinition": "Create and manage all aspects of Global Secure Internet Access and Microsoft Global Secure Private Access, including managing access to public and private endpoints.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#global-secure-access-administrator",
         "providesFullAccessTo": "Global Secure Access."
     },
