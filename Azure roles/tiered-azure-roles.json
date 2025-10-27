@@ -198,7 +198,7 @@
         "example": "Same as Contributor, but limited to resources of type: Logic App using a standard plan."
     },
     {
-
+        "tier": "0",
         "id": "e40ec5ca-96e0-45a2-b4ff-59039f2c2b59",
         "assetName": "Managed Identity Contributor",
         "assetDefinition": "Create, Read, Update, and Delete User Assigned Identity",
