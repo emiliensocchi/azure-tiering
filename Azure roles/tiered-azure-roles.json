@@ -19,6 +19,15 @@
     },
     {
         "tier": "0",
+        "id": "92b92042-07d9-4307-87f7-36a593fc5850",
+        "assetName": "Azure File Sync Administrator",
+        "assetDefinition": "Provides full access to manage all Azure File Sync (Storage Sync Service) resources, including the ability to assign roles in Azure RBAC.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#azure-file-sync-administrator",
+        "shortestPath": "Same as Contributor.",
+        "example": "Same as Contributor."
+    },
+    {
+        "tier": "0",
         "id": "b78c5d69-af96-48a3-bf8d-a8b4d589de94",
         "assetName": "Azure AI Administrator",
         "assetDefinition": "A Built-In Role that has all control plane permissions to work with Azure AI and its dependencies.",
@@ -115,6 +124,15 @@
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#cognitive-services-openai-contributor",
         "shortestPath": "Same as Contributor, but limited to resources of type: Azure OpenAI.",
         "example": "Same as Contributor, but limited to resources of type: Azure OpenAI."
+    },
+    {
+        "tier": "0",
+        "id": "f3bd1b5c-91fa-40e7-afe7-0c11d331232c",
+        "assetName": "Container Apps Operator",
+        "assetDefinition": "Read, logstream and exec into Container Apps.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#container-apps-operator",
+        "shortestPath": "Same as Contributor, but limited to resources of type: Container App.",
+        "example": "Same as Contributor, but limited to resources of type: Container App."
     },
     {
         "tier": "0",
@@ -1016,6 +1034,14 @@
         "assetDefinition": "Can assign existing published blueprints, but cannot create new blueprints. NOTE: this only works if the assignment is done with a user-assigned managed identity.",
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#blueprint-operator",
         "worstCaseScenario": "Can assign existing published blueprints, but not create and/or modify existing ones."
+    },
+    {
+        "tier": "3",
+        "id": "fa0d39e6-28e5-40cf-8521-1eb320653a4c",
+        "assetName": "Carbon Optimization Reader",
+        "assetDefinition": "Allow read access to Azure Carbon Optimization data",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#carbon-optimization-reader",
+        "worstCaseScenario": "-"
     },
     {
         "tier": "3",
