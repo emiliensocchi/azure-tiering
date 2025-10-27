@@ -403,6 +403,14 @@
     },
     {
         "tier": "1",
+        "id": "e93e3737-fa85-474a-aee4-7d3fb86510f3",
+        "assetName": "Dragon Administrator",
+        "assetDefinition": "Manage all aspects of the Microsoft Dragon admin center.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#dragon-administrator",
+        "providesFullAccessTo": "Microsoft Dragon Copilot."
+    },
+    {
+        "tier": "1",
         "id": "44367163-eba1-44c3-98af-f5787879f96a",
         "assetName": "Dynamics 365 Administrator",
         "assetDefinition": "Can manage all aspects of the Dynamics 365 product.",
@@ -416,6 +424,14 @@
         "assetDefinition": "Access and perform all administrative tasks on Dynamics 365 Business Central environments.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#dynamics-365-business-central-administrator",
         "providesFullAccessTo": "Dynamics 365 Business Central."
+    },
+    {
+        "tier": "1",
+        "id": "49eb8f75-97e9-4e37-9b2b-6c3ebfcffa31",
+        "assetName": "Exchange Backup Administrator",
+        "assetDefinition": "Back up and restore content (including granular restore) for Exchange in Microsoft 365 Backup",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#exchange-backup-administrator",
+        "providesFullAccessTo": "Microsoft 365 Backup for Exchange."
     },
     {
         "tier": "1",
@@ -584,6 +600,14 @@
         "assetDefinition": "Can read security information and reports in Microsoft Entra ID and Office 365.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#security-reader",
         "providesFullAccessTo": "Same as Security Operator."
+    },
+    {
+        "tier": "1",
+        "id": "9d3e04ba-3ee4-4d1b-a3a7-9aef423a09be",
+        "assetName": "SharePoint Backup Administrator",
+        "assetDefinition": "Back up and restore content (including granular restore) for SharePoint and OneDrive in Microsoft 365 Backup",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#sharepoint-backup-administrator",
+        "providesFullAccessTo": "Microsoft 365 Backup for SharePoint and OneDrive."
     },
     {
         "tier": "1",
