@@ -4356,7 +4356,7 @@
         "assetName": "UserAuthMethod-PlatformCred.Read.All",
         "assetDefinition": "Read all users' platform credentials methods",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-platformcredreadall"
-    }
+    },
     {
         "tier": "2",
         "id": "9a45bc50-cddd-4ebe-bd9c-4f2eacf646ae",
