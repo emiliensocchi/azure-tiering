@@ -1,5 +1,21 @@
 [
     {
+        "detectedOn": "2025-11-04",
+        "apiEvent": "added",
+        "id": "4aadfb66-d49a-414a-a883-d8c240b6fa33",
+        "assetName": "IdentityRiskyAgent.Read.All",
+        "assetDefinition": "Read all risky agents information",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#identityriskyagentreadall"
+    },
+    {
+        "detectedOn": "2025-11-04",
+        "apiEvent": "added",
+        "id": "dca4e4fd-a7cf-4e6f-86d1-d1ec094d766e",
+        "assetName": "IdentityRiskyAgent.ReadWrite.All",
+        "assetDefinition": "Read and write risky agents information",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#identityriskyagentreadwriteall"
+    },
+    {
         "detectedOn": "2025-10-16",
         "apiEvent": "added",
         "id": "f6d38dfd-ec08-4995-8f07-23e929df0936",
