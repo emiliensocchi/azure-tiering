@@ -1,5 +1,53 @@
 [
     {
+        "detectedOn": "2025-11-14",
+        "apiEvent": "added",
+        "id": "3ee18438-e6e5-4858-8f1c-d7b723b45213",
+        "assetName": "AgentCardManifest.Read.All",
+        "assetDefinition": "Read all agent card manifests in Agent Registry",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentcardmanifestreadall"
+    },
+    {
+        "detectedOn": "2025-11-14",
+        "apiEvent": "added",
+        "id": "228b1a03-f7ca-4348-b50d-e8a547ab61af",
+        "assetName": "AgentCardManifest.ReadWrite.All",
+        "assetDefinition": "Read and write all agent card manifests in Agent Registry",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentcardmanifestreadwriteall"
+    },
+    {
+        "detectedOn": "2025-11-14",
+        "apiEvent": "added",
+        "id": "77f6034c-52f5-4526-9fa1-d55a67e72cc4",
+        "assetName": "AgentCardManifest.ReadWrite.ManagedBy",
+        "assetDefinition": "Read and write managed-by agent card manifests in Agent Registry",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentcardmanifestreadwritemanagedby"
+    },
+    {
+        "detectedOn": "2025-11-14",
+        "apiEvent": "added",
+        "id": "27d9d776-f4d2-426d-80ad-5f22f2b01b0a",
+        "assetName": "MailboxConfigItem.Read",
+        "assetDefinition": "Read all users' UserConfiguration objects",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#mailboxconfigitemread"
+    },
+    {
+        "detectedOn": "2025-11-14",
+        "apiEvent": "added",
+        "id": "aa6d92d4-b25a-4640-aefe-3e3231e5e736",
+        "assetName": "MailboxConfigItem.ReadWrite",
+        "assetDefinition": "Read and write all users' UserConfiguration objects",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#mailboxconfigitemreadwrite"
+    },
+    {
+        "detectedOn": "2025-11-14",
+        "apiEvent": "added",
+        "id": "80819dd8-2b3b-4551-a1ad-2700fc44f533",
+        "assetName": "Sites.Create.All",
+        "assetDefinition": "Create Site Collections without a signed in user.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#sitescreateall"
+    },
+    {
         "detectedOn": "2025-11-04",
         "apiEvent": "added",
         "id": "4aadfb66-d49a-414a-a883-d8c240b6fa33",
