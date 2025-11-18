@@ -1,5 +1,77 @@
 [
     {
+        "detectedOn": "2025-11-18",
+        "apiEvent": "added",
+        "id": "aec9e0a0-6f46-4150-a9f7-05e9e3e87399",
+        "assetName": "AgentCard.Read.All",
+        "assetDefinition": "Read all agent cards in Agent Registry",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentcardreadall"
+    },
+    {
+        "detectedOn": "2025-11-18",
+        "apiEvent": "added",
+        "id": "ef566853-42d6-45a5-bed9-5ccb82c98b4f",
+        "assetName": "AgentCard.ReadWrite.All",
+        "assetDefinition": "Read and write all agent cards in Agent Registry",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentcardreadwriteall"
+    },
+    {
+        "detectedOn": "2025-11-18",
+        "apiEvent": "added",
+        "id": "9c4a07db-e0c1-4fb0-8e85-dfd8ae3b8201",
+        "assetName": "AgentCard.ReadWrite.ManagedBy",
+        "assetDefinition": "Read and write managed-by agent cards in Agent Registry",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentcardreadwritemanagedby"
+    },
+    {
+        "detectedOn": "2025-11-18",
+        "apiEvent": "added",
+        "id": "e65ee1da-d1d5-467b-bdd0-3e9bb94e6e0c",
+        "assetName": "AgentCollection.Read.All",
+        "assetDefinition": "Read all collections in Agent Registry",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentcollectionreadall"
+    },
+    {
+        "detectedOn": "2025-11-18",
+        "apiEvent": "added",
+        "id": "feb31d7d-a227-4487-898c-e014840d07b3",
+        "assetName": "AgentCollection.ReadWrite.All",
+        "assetDefinition": "Read and write all collections in Agent Registry",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentcollectionreadwriteall"
+    },
+    {
+        "detectedOn": "2025-11-18",
+        "apiEvent": "added",
+        "id": "2e0fb698-9996-479f-926b-ce63f4397829",
+        "assetName": "AgentCollection.ReadWrite.ManagedBy",
+        "assetDefinition": "Read and write managed-by collections in Agent Registry",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentcollectionreadwritemanagedby"
+    },
+    {
+        "detectedOn": "2025-11-18",
+        "apiEvent": "added",
+        "id": "799a4732-85b8-4c67-b048-75f0e88a232b",
+        "assetName": "AgentInstance.Read.All",
+        "assetDefinition": "Read all agent instances in Agent Registry",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentinstancereadall"
+    },
+    {
+        "detectedOn": "2025-11-18",
+        "apiEvent": "added",
+        "id": "07abdd95-78dc-4353-bd32-09f880ea43d0",
+        "assetName": "AgentInstance.ReadWrite.All",
+        "assetDefinition": "Read and write all agent instances in Agent Registry",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentinstancereadwriteall"
+    },
+    {
+        "detectedOn": "2025-11-18",
+        "apiEvent": "added",
+        "id": "782ab1bf-24f1-4c27-8bbc-2006d42792a6",
+        "assetName": "AgentInstance.ReadWrite.ManagedBy",
+        "assetDefinition": "Read and write managed-by agent instances in Agent Registry",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentinstancereadwritemanagedby"
+    },
+    {
         "detectedOn": "2025-11-14",
         "apiEvent": "added",
         "id": "3ee18438-e6e5-4858-8f1c-d7b723b45213",
