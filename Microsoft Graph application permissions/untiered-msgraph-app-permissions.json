@@ -1,5 +1,165 @@
 [
     {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "ad25cc1d-84d8-47df-a08e-b34c2e800819",
+        "assetName": "AgentIdentity.Create.All",
+        "assetDefinition": "Create agent identities without an agent blueprint parent",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentitycreateall"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "4c390976-b2b7-42e0-9187-c6be3bead001",
+        "assetName": "AgentIdentity.CreateAsManager",
+        "assetDefinition": "Create agent identities linked to itself.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentitycreateasmanager"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "5b016f9b-18eb-41d4-869a-66931914d1c8",
+        "assetName": "AgentIdentity.DeleteRestore.All",
+        "assetDefinition": "Delete and restore agent identities",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentitydeleterestoreall"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "69ee0943-4fa4-4ec8-8e52-d12e4ea661a3",
+        "assetName": "AgentIdentity.EnableDisable.All",
+        "assetDefinition": "Enable or disable agent identities",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityenabledisableall"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "b2b8f011-2898-4234-9092-5059f6c1ebfa",
+        "assetName": "AgentIdentity.Read.All",
+        "assetDefinition": "Read all agent identities",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityreadall"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "dcf7150a-88d4-4fe6-9be1-c2744c455397",
+        "assetName": "AgentIdentity.ReadWrite.All",
+        "assetDefinition": "Read and write all agent identities",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityreadwriteall"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "0510736e-bdfb-4b37-9a1f-89b4a074763a",
+        "assetName": "AgentIdentityBlueprint.AddRemoveCreds.All",
+        "assetDefinition": "Update agent identity blueprint credentials",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityblueprintaddremovecredsall"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "ea4b2453-ad2d-4d94-9155-10d5d9493ce9",
+        "assetName": "AgentIdentityBlueprint.Create",
+        "assetDefinition": "Create agent identity blueprints.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityblueprintcreate"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "3f80b699-6405-4e36-a4df-4f19950ff91e",
+        "assetName": "AgentIdentityBlueprint.DeleteRestore.All",
+        "assetDefinition": "Delete and restore agent identity blueprints.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityblueprintdeleterestoreall"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "7547a7d1-36fa-4479-9c31-559a600eaa4f",
+        "assetName": "AgentIdentityBlueprint.Read.All",
+        "assetDefinition": "Read all agent identity blueprints",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityblueprintreadall"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "7fddd33b-d884-4ec0-8696-72cff90ff825",
+        "assetName": "AgentIdentityBlueprint.ReadWrite.All",
+        "assetDefinition": "Read and write all agent identity blueprints.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityblueprintreadwriteall"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "19202363-278e-49c2-bf00-391e2ba00881",
+        "assetName": "AgentIdentityBlueprint.UpdateAuthProperties.All",
+        "assetDefinition": "Update agent identity blueprint authorization and authentication properties",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityblueprintupdateauthpropertiesall"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "76232daa-a1e4-4544-b664-495a006513bf",
+        "assetName": "AgentIdentityBlueprint.UpdateBranding.All",
+        "assetDefinition": "Update agent identity blueprint branding",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityblueprintupdatebrandingall"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "8959696d-d07e-4916-9b1e-3ba9ce459161",
+        "assetName": "AgentIdentityBlueprintPrincipal.Create",
+        "assetDefinition": "Create agent identity blueprint service principals.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityblueprintprincipalcreate"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "f86a2dd8-9298-4675-bd78-f5a3572da2d7",
+        "assetName": "AgentIdentityBlueprintPrincipal.DeleteRestore.All",
+        "assetDefinition": "Delete and restore agent identity blueprints.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityblueprintprincipaldeleterestoreall"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "a0bdd23d-8b19-4682-b428-574d96527c6f",
+        "assetName": "AgentIdentityBlueprintPrincipal.EnableDisable.All",
+        "assetDefinition": "Enable or disable agent identity blueprint principals.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityblueprintprincipalenabledisableall"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "9361dea9-4524-493d-941d-f1b65aaf6c7c",
+        "assetName": "AgentIdentityBlueprintPrincipal.Read.All",
+        "assetDefinition": "Read agent identity blueprint principals.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityblueprintprincipalreadall"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "3bc933bc-8b4d-4cb6-ac49-b73774299250",
+        "assetName": "AgentIdentityBlueprintPrincipal.ReadWrite.All",
+        "assetDefinition": "Read and write all agent identity blueprint principals.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityblueprintprincipalreadwriteall"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "b782c9ad-6f2b-4894-a21b-72bf22417f0a",
+        "assetName": "AgentIdUser.ReadWrite.All",
+        "assetDefinition": "Read and write all agent ID users' full profiles",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentiduserreadwriteall"
+    },
+    {
+        "detectedOn": "2025-12-13",
+        "apiEvent": "added",
+        "id": "4aa6e624-eee0-40ab-bdd8-f9639038a614",
+        "assetName": "AgentIdUser.ReadWrite.IdentityParentedBy",
+        "assetDefinition": "Read and write all agent ID users' full profiles",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentiduserreadwriteidentityparentedby"
+    },
+    {
         "detectedOn": "2025-12-06",
         "apiEvent": "added",
         "id": "72f0655d-6228-4ddc-8e1b-164973b9213b",
