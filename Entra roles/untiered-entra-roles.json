@@ -1,5 +1,29 @@
 [
     {
+        "detectedOn": "2025-12-18",
+        "apiEvent": "added",
+        "id": "e07494ad-1654-4dd2-922e-6f81a71bf00f",
+        "assetName": "Purview Workload Content Reader",
+        "assetDefinition": "Read data from Microsoft 365 when accessing from the Microsoft Purview portal.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#purview-workload-content-reader"
+    },
+    {
+        "detectedOn": "2025-12-18",
+        "apiEvent": "added",
+        "id": "02d5655b-c1cf-4e5f-98da-5fb919085bf6",
+        "assetName": "Purview Workload Content Writer",
+        "assetDefinition": "Read and edit data from Microsoft 365 when accessing from the Microsoft Purview portal.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#purview-workload-content-writer"
+    },
+    {
+        "detectedOn": "2025-12-18",
+        "apiEvent": "added",
+        "id": "3f04f91a-4ad7-4bd3-bcfa-49882ea1a88a",
+        "assetName": "Purview Workload Content Administrator",
+        "assetDefinition": "Manage or purge data from Microsoft 365 when accessing from the Microsoft Purview portal.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#purview-workload-content-administrator"
+    },
+    {
         "detectedOn": "2025-11-18",
         "apiEvent": "added",
         "id": "adb2368d-a9be-41b5-8667-d96778e081b0",
