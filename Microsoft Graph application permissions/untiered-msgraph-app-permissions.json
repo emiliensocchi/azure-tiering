@@ -1,5 +1,13 @@
 [
     {
+        "detectedOn": "2025-12-19",
+        "apiEvent": "added",
+        "id": "84fa35c1-f997-4c1c-894c-bb52108cfbbf",
+        "assetName": "SentimentSurvey.Export.All",
+        "assetDefinition": "Export all Sentiment Survey",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#sentimentsurveyexportall"
+    },
+    {
         "detectedOn": "2025-12-13",
         "apiEvent": "added",
         "id": "ad25cc1d-84d8-47df-a08e-b34c2e800819",
