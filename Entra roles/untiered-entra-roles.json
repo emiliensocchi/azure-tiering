@@ -1,5 +1,13 @@
 [
     {
+        "detectedOn": "2026-02-04",
+        "apiEvent": "added",
+        "id": "2fe872fb-daa8-4afc-8f6c-53c4565cfef4",
+        "assetName": "Teams External Collaboration Administrator",
+        "assetDefinition": "Manage external collaboration policies and settings for Teams, including configuring external domains and controlling which groups and users can interact with the organization.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#teams-external-collaboration-administrator"
+    },
+    {
         "detectedOn": "2025-12-18",
         "apiEvent": "added",
         "id": "e07494ad-1654-4dd2-922e-6f81a71bf00f",
