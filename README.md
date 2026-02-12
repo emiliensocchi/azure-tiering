@@ -57,7 +57,7 @@ The definition of a "tier" and its content is highly dependent on the business r
 | 🟢 | 2 | [Family of unprivileged Graph permissions](https://aztier.com/#msgraph-tier-2) | Permissions with read access to MS Graph scopes and little to no security implications. |
 
 
-## 🧱 Opiniated design
+## 🧱 Opinionated design
 
 > [!NOTE]
 > See the [release post](https://www.emiliensocchi.io/tiering-entra-roles-and-application-permissions-based-on-attack-paths/) for full information
