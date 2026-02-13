@@ -1,5 +1,13 @@
 [
     {
+        "detectedOn": "2026-02-13",
+        "apiEvent": "added",
+        "id": "0b00bede-4072-4d22-b441-e7df02a1ef63",
+        "assetName": "Authentication Extensibility Password Administrator",
+        "assetDefinition": "Trigger a password submit event for custom authentication.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#authentication-extensibility-password-administrator"
+    },
+    {
         "detectedOn": "2026-02-04",
         "apiEvent": "added",
         "id": "2fe872fb-daa8-4afc-8f6c-53c4565cfef4",
