@@ -1,5 +1,13 @@
 [
     {
+        "detectedOn": "2026-02-20",
+        "apiEvent": "added",
+        "id": "b0cfd829-be18-4b31-bb0e-ec1df8197ba3",
+        "assetName": "TeamworkTargetedMessage.Read.All",
+        "assetDefinition": "Read all targeted messages of group chat or channel",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#teamworktargetedmessagereadall"
+    },
+    {
         "detectedOn": "2025-12-19",
         "apiEvent": "added",
         "id": "84fa35c1-f997-4c1c-894c-bb52108cfbbf",
