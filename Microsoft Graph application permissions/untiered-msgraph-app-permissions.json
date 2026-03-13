@@ -1,5 +1,29 @@
 [
     {
+        "detectedOn": "2026-03-13",
+        "apiEvent": "added",
+        "id": "56eda3c5-3834-4815-bd41-6f8fa1295247",
+        "assetName": "EntraBackup.Read.All",
+        "assetDefinition": "Read Preview jobs and snapshots",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#entrabackupreadall"
+    },
+    {
+        "detectedOn": "2026-03-13",
+        "apiEvent": "added",
+        "id": "227900ff-df89-40f8-90e2-8157cf6995d5",
+        "assetName": "Policy.Read.B2BManagementPolicy",
+        "assetDefinition": "Read your organization's B2BManagement policies",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadb2bmanagementpolicy"
+    },
+    {
+        "detectedOn": "2026-03-13",
+        "apiEvent": "added",
+        "id": "886bd2d9-5b8b-4b49-adea-ca75fb50d9ef",
+        "assetName": "Policy.ReadWrite.B2BManagementPolicy",
+        "assetDefinition": "Read and write your organization's B2BManagement policies",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadwriteb2bmanagementpolicy"
+    },
+    {
         "detectedOn": "2026-02-20",
         "apiEvent": "added",
         "id": "b0cfd829-be18-4b31-bb0e-ec1df8197ba3",
