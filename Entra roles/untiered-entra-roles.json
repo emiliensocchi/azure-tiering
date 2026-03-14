@@ -1,5 +1,21 @@
 [
     {
+        "detectedOn": "2026-03-14",
+        "apiEvent": "added",
+        "id": "f42252d9-5400-4d7b-b9ef-cc582dbb8577",
+        "assetName": "Entra Backup Reader",
+        "assetDefinition": "Read all aspects of Microsoft Entra Backup, such as list all preview jobs, recovery jobs, backup snapshots, and create preview jobs.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#entra-backup-reader"
+    },
+    {
+        "detectedOn": "2026-03-14",
+        "apiEvent": "added",
+        "id": "b6a27b2b-f905-4b2e-81b5-0d90e0ef1fdb",
+        "assetName": "Entra Backup Administrator",
+        "assetDefinition": "Manage all aspects of Microsoft Entra Backup, such as create recovery jobs and manage backup snapshots.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#entra-backup-administrator"
+    },
+    {
         "detectedOn": "2026-02-13",
         "apiEvent": "added",
         "id": "0b00bede-4072-4d22-b441-e7df02a1ef63",
