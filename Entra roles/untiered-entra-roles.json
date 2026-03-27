@@ -1,5 +1,37 @@
 [
     {
+        "detectedOn": "2026-03-27",
+        "apiEvent": "added",
+        "id": "1981f584-96e9-4a6f-95b0-f522373f8fae",
+        "assetName": "Tenant Governance Administrator",
+        "assetDefinition": "Manage all capabilities in the Microsoft Entra Tenant Governance service.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#tenant-governance-administrator"
+    },
+    {
+        "detectedOn": "2026-03-27",
+        "apiEvent": "added",
+        "id": "e0a4caa6-fe82-443f-b92f-d87341d17b2e",
+        "assetName": "Tenant Governance Reader",
+        "assetDefinition": "Can read all tenant governance data.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#tenant-governance-reader"
+    },
+    {
+        "detectedOn": "2026-03-27",
+        "apiEvent": "added",
+        "id": "b8e31d83-1534-480f-9b10-0338ded51b7e",
+        "assetName": "Tenant Governance Relationship Administrator",
+        "assetDefinition": "Can initiate governance relationships and terminate them.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#tenant-governance-relationship-administrator"
+    },
+    {
+        "detectedOn": "2026-03-27",
+        "apiEvent": "added",
+        "id": "124577f8-48ed-456a-839f-13b419002e33",
+        "assetName": "Tenant Governance Relationship Reader",
+        "assetDefinition": "Can read tenant governance relationships and relevant objects.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#tenant-governance-relationship-reader"
+    },
+    {
         "detectedOn": "2026-03-14",
         "apiEvent": "added",
         "id": "f42252d9-5400-4d7b-b9ef-cc582dbb8577",
