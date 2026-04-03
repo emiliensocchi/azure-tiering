@@ -1,5 +1,13 @@
 [
     {
+        "detectedOn": "2026-04-03",
+        "apiEvent": "added",
+        "id": "fc8ad4e2-40e4-4724-8317-bcda7503ecbf",
+        "assetName": "Customer Delegated Admin Relationship Administrator",
+        "assetDefinition": "Manage all aspects of granular delegated admin privileges (GDAP) relationships in a customer tenant.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#customer-delegated-admin-relationship-administrator"
+    },
+    {
         "detectedOn": "2026-03-27",
         "apiEvent": "added",
         "id": "1981f584-96e9-4a6f-95b0-f522373f8fae",
