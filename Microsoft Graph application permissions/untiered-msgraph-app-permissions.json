@@ -1,5 +1,13 @@
 [
     {
+        "detectedOn": "2026-04-16",
+        "apiEvent": "added",
+        "id": "22d2957f-3c5b-4db8-bc3e-d0bd8748a406",
+        "assetName": "MS-RemoteTenantGroups.Read.All",
+        "assetDefinition": "Read RemoteTenantGroups information",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#ms-remotetenantgroupsreadall"
+    },
+    {
         "detectedOn": "2026-04-03",
         "apiEvent": "added",
         "id": "eda8c187-a7d5-42cb-b2e1-c9142f63899f",
