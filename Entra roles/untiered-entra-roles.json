@@ -1,5 +1,13 @@
 [
     {
+        "detectedOn": "2026-04-18",
+        "apiEvent": "added",
+        "id": "1fe13547-53f6-408d-ac04-7f8eed167b38",
+        "assetName": "AI Reader",
+        "assetDefinition": "Read all aspects of Microsoft 365 Copilot and AI-related enterprise services in Microsoft 365.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#ai-reader"
+    },
+    {
         "detectedOn": "2026-04-03",
         "apiEvent": "added",
         "id": "fc8ad4e2-40e4-4724-8317-bcda7503ecbf",
