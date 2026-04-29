@@ -1,5 +1,117 @@
 [
     {
+        "detectedOn": "2026-04-29",
+        "apiEvent": "added",
+        "id": "d3acceb6-4673-47c0-aeac-582f2c7cf72c",
+        "assetName": "AgentRegistration.Read.All",
+        "assetDefinition": "Read all agent registrations",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentregistrationreadall"
+    },
+    {
+        "detectedOn": "2026-04-29",
+        "apiEvent": "added",
+        "id": "39fb8c64-7bd3-4107-8515-14d6e55ddda4",
+        "assetName": "AgentRegistration.ReadWrite.All",
+        "assetDefinition": "Read and write all agent registrations",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentregistrationreadwriteall"
+    },
+    {
+        "detectedOn": "2026-04-29",
+        "apiEvent": "added",
+        "id": "556d5e2e-1081-4452-8147-26c3a1b06f58",
+        "assetName": "CopilotPolicySettings.Read",
+        "assetDefinition": "Read Copilot policy settings",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#copilotpolicysettingsread"
+    },
+    {
+        "detectedOn": "2026-04-29",
+        "apiEvent": "added",
+        "id": "cc147c17-b8e8-4d3f-9f94-aa9e279a079a",
+        "assetName": "CopilotPolicySettings.ReadWrite",
+        "assetDefinition": "Read and write Copilot policy settings",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#copilotpolicysettingsreadwrite"
+    },
+    {
+        "detectedOn": "2026-04-29",
+        "apiEvent": "added",
+        "id": "2d53948b-d2c5-4008-9c4e-6361bf192555",
+        "assetName": "Group-NestingSupport.ReadWrite.All",
+        "assetDefinition": "Read and write groups' disableNesting property",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#group-nestingsupportreadwriteall"
+    },
+    {
+        "detectedOn": "2026-04-29",
+        "apiEvent": "added",
+        "id": "a2c9652d-4d7f-4e4e-9d75-ac32fdc6f413",
+        "assetName": "MailTips.ReadBasic.All",
+        "assetDefinition": "Read mail tips for all users",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#mailtipsreadbasicall"
+    },
+    {
+        "detectedOn": "2026-04-29",
+        "apiEvent": "added",
+        "id": "3a728f2e-df1d-4294-9899-86f601fae70a",
+        "assetName": "PrivilegedAssignmentSchedule.Read.EntraAppRole",
+        "assetDefinition": "Read assignment schedules for app permission grants and app role assignments",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#privilegedassignmentschedulereadentraapprole"
+    },
+    {
+        "detectedOn": "2026-04-29",
+        "apiEvent": "added",
+        "id": "81adad77-a25a-489d-ac43-321115620139",
+        "assetName": "PrivilegedAssignmentSchedule.ReadWrite.EntraAppRole",
+        "assetDefinition": "Read, create, and delete assignment schedules for app permission grants and app role assignments",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#privilegedassignmentschedulereadwriteentraapprole"
+    },
+    {
+        "detectedOn": "2026-04-29",
+        "apiEvent": "added",
+        "id": "d2ab45a0-ed46-4f7f-806a-0f1146144d5a",
+        "assetName": "PrivilegedEligibilitySchedule.Read.EntraAppRole",
+        "assetDefinition": "Read eligibility schedules for app permission grants and app role assignments",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#privilegedeligibilityschedulereadentraapprole"
+    },
+    {
+        "detectedOn": "2026-04-29",
+        "apiEvent": "added",
+        "id": "7f4c39f1-1aa7-44b7-ab05-38df2609c37a",
+        "assetName": "PrivilegedEligibilitySchedule.ReadWrite.EntraAppRole",
+        "assetDefinition": "Read, create, and delete eligibility schedules for app permission grants and app role assignments",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#privilegedeligibilityschedulereadwriteentraapprole"
+    },
+    {
+        "detectedOn": "2026-04-29",
+        "apiEvent": "added",
+        "id": "3d201a4e-90f1-420d-bd4f-3beec28a46b9",
+        "assetName": "RoleManagementPolicy.Read.EntraAppRole",
+        "assetDefinition": "Read all policies in PIM for App Roles",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementpolicyreadentraapprole"
+    },
+    {
+        "detectedOn": "2026-04-29",
+        "apiEvent": "added",
+        "id": "ec563bdb-80dc-47c0-81d3-bff47cc6ac06",
+        "assetName": "RoleManagementPolicy.ReadWrite.EntraAppRole",
+        "assetDefinition": "Manage all policies in PIM for App Roles",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagementpolicyreadwriteentraapprole"
+    },
+    {
+        "detectedOn": "2026-04-29",
+        "apiEvent": "added",
+        "id": "b018cc1c-c680-4e91-bb6e-462ee243fdb5",
+        "assetName": "SecurityIdentitiesMigration.Read.All",
+        "assetDefinition": "Read all identity security sensor migration",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#securityidentitiesmigrationreadall"
+    },
+    {
+        "detectedOn": "2026-04-29",
+        "apiEvent": "added",
+        "id": "afd28a5a-707f-4edf-85c2-c446291e63da",
+        "assetName": "SecurityIdentitiesMigration.ReadWrite.All",
+        "assetDefinition": "Read and write all identity security sensor migration",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#securityidentitiesmigrationreadwriteall"
+    },
+    {
         "detectedOn": "2026-04-16",
         "apiEvent": "added",
         "id": "22d2957f-3c5b-4db8-bc3e-d0bd8748a406",
