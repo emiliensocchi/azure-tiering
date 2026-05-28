@@ -1,5 +1,21 @@
 [
     {
+        "detectedOn": "2026-05-28",
+        "apiEvent": "added",
+        "id": "52ced3dd-dbb6-41a0-9ce5-61a056be97b8",
+        "assetName": "IdentityNotifications.Read.All",
+        "assetDefinition": "Read all identity notification settings and templates",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#identitynotificationsreadall"
+    },
+    {
+        "detectedOn": "2026-05-28",
+        "apiEvent": "added",
+        "id": "d9fe7b9f-cb27-4289-9cb4-54debd9d3c25",
+        "assetName": "IdentityNotifications.ReadWrite.All",
+        "assetDefinition": "Read and write all identity notification settings and templates",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#identitynotificationsreadwriteall"
+    },
+    {
         "detectedOn": "2026-04-29",
         "apiEvent": "added",
         "id": "d3acceb6-4673-47c0-aeac-582f2c7cf72c",
