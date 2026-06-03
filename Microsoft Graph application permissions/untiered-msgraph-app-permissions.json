@@ -1,5 +1,29 @@
 [
     {
+        "detectedOn": "2026-06-03",
+        "apiEvent": "added",
+        "id": "35b96aac-d839-4362-abd4-7381f2b27ccd",
+        "assetName": "Group-XTenantIdentitySync.Read.All",
+        "assetDefinition": "Read all Group Cross-Tenant Identity Synchronization properties",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#group-xtenantidentitysyncreadall"
+    },
+    {
+        "detectedOn": "2026-06-03",
+        "apiEvent": "added",
+        "id": "4240f680-4f73-4082-a766-aa916a2dc9b3",
+        "assetName": "User.Create",
+        "assetDefinition": "Create users",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#usercreate"
+    },
+    {
+        "detectedOn": "2026-06-03",
+        "apiEvent": "added",
+        "id": "5639c449-cfd9-4088-bc48-3e16da108bf8",
+        "assetName": "User.ReadUpdate.All",
+        "assetDefinition": "Read and update users",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userreadupdateall"
+    },
+    {
         "detectedOn": "2026-05-28",
         "apiEvent": "added",
         "id": "52ced3dd-dbb6-41a0-9ce5-61a056be97b8",
