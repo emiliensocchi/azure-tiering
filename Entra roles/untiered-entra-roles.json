@@ -1,5 +1,13 @@
 [
     {
+        "detectedOn": "2026-06-09",
+        "apiEvent": "added",
+        "id": "d35481f7-cda1-4fa2-8344-5a21f7f3724d",
+        "assetName": "Entra Customer Lockbox Approver",
+        "assetDefinition": "Can approve customer lockbox requests for accessing customer data in Entra ID.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#entra-customer-lockbox-approver"
+    },
+    {
         "detectedOn": "2026-04-18",
         "apiEvent": "added",
         "id": "1fe13547-53f6-408d-ac04-7f8eed167b38",
