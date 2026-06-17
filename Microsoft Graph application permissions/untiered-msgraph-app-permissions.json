@@ -1,5 +1,13 @@
 [
     {
+        "detectedOn": "2026-06-17",
+        "apiEvent": "added",
+        "id": "06870c4c-7370-4a2a-ad10-239a337af816",
+        "assetName": "SecurityAlert.Create.All",
+        "assetDefinition": "Create security alerts",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#securityalertcreateall"
+    },
+    {
         "detectedOn": "2026-06-03",
         "apiEvent": "added",
         "id": "35b96aac-d839-4362-abd4-7381f2b27ccd",
