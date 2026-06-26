@@ -1,5 +1,53 @@
 [
     {
+        "detectedOn": "2026-06-26",
+        "apiEvent": "added",
+        "id": "470229df-a15a-4b08-9d95-8c534862b362",
+        "assetName": "Calendars.Read.All",
+        "assetDefinition": "Read all users' work hours and locations",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#calendarsreadall"
+    },
+    {
+        "detectedOn": "2026-06-26",
+        "apiEvent": "added",
+        "id": "d91697b0-a708-4c11-a712-8fb2dc081aa2",
+        "assetName": "Calendars.ReadWrite.All",
+        "assetDefinition": "Read and write all users' work hours and locations",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#calendarsreadwriteall"
+    },
+    {
+        "detectedOn": "2026-06-26",
+        "apiEvent": "added",
+        "id": "050b0d28-840a-4ff6-bdf9-cc6221acbc1f",
+        "assetName": "Calls.ReportSyntheticMedia.All",
+        "assetDefinition": "Report synthetic media detections in calls",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#callsreportsyntheticmediaall"
+    },
+    {
+        "detectedOn": "2026-06-26",
+        "apiEvent": "added",
+        "id": "b328f35f-712c-40d6-b6b4-95449d77b352",
+        "assetName": "CaseManagement.Read.All",
+        "assetDefinition": "Read all cases, relations, tasks, attachments and activities",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#casemanagementreadall"
+    },
+    {
+        "detectedOn": "2026-06-26",
+        "apiEvent": "added",
+        "id": "57ac77a0-bb98-4ba8-bf9a-7af06dcdcc1f",
+        "assetName": "CaseManagement.ReadWrite.All",
+        "assetDefinition": "Read and write to all cases, relations, tasks, attachments and activities",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#casemanagementreadwriteall"
+    },
+    {
+        "detectedOn": "2026-06-26",
+        "apiEvent": "added",
+        "id": "1583d471-fede-4e7c-b062-57e9d60cfb49",
+        "assetName": "MailboxItem.ReadWrite.All",
+        "assetDefinition": "Read and write all users' mailbox items",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#mailboxitemreadwriteall"
+    },
+    {
         "detectedOn": "2026-06-17",
         "apiEvent": "added",
         "id": "06870c4c-7370-4a2a-ad10-239a337af816",
