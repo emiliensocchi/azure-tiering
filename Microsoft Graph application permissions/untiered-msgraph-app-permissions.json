@@ -1,5 +1,29 @@
 [
     {
+        "detectedOn": "2026-07-01",
+        "apiEvent": "added",
+        "id": "60f8cea0-2476-45c9-ab18-70e79e60ad14",
+        "assetName": "Group.ManageProtection.All",
+        "assetDefinition": "Manage the Microsoft Information Protection (MIP) label for M365 and security groups.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#groupmanageprotectionall"
+    },
+    {
+        "detectedOn": "2026-07-01",
+        "apiEvent": "added",
+        "id": "8fc84b9a-5c21-479b-ba9d-02d252d062aa",
+        "assetName": "Policy.Read.CrossTenantAccess",
+        "assetDefinition": "Read your organization's cross tenant access policies",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadcrosstenantaccess"
+    },
+    {
+        "detectedOn": "2026-07-01",
+        "apiEvent": "added",
+        "id": "faa08cc0-0dcd-4ea9-9f9c-8b16f842b36e",
+        "assetName": "RemoteTenantGroups.Read.All",
+        "assetDefinition": "Read RemoteTenantGroups information",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#remotetenantgroupsreadall"
+    },
+    {
         "detectedOn": "2026-06-26",
         "apiEvent": "added",
         "id": "470229df-a15a-4b08-9d95-8c534862b362",
