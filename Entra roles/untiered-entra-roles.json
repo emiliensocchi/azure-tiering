@@ -134,13 +134,5 @@
         "assetName": "Agent Registry Administrator",
         "assetDefinition": "Manage all aspects of the Agent Registry service in Microsoft Entra ID",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#agent-registry-administrator"
-    },
-    {
-        "detectedOn": "2025-11-15",
-        "apiEvent": "added",
-        "id": "db506228-d27e-4b7d-95e5-295956d6615f",
-        "assetName": "Agent ID Administrator",
-        "assetDefinition": "Manage all aspects of agents in a tenant including identity lifecycle operations for agent blueprints, agent service principals, agent identities, and agentic users.",
-        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#agent-id-administrator"
     }
 ]

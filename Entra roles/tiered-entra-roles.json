@@ -3,21 +3,21 @@
         "tier": "0",
         "id": "db506228-d27e-4b7d-95e5-295956d6615f",
         "assetName": "Agent ID Administrator",
-        "assetDefinition": "Can create and manage all aspects of agent identities, agent identity blueprints and agent users.",
+        "assetDefinition": "Manage all aspects of agents in a tenant including identity lifecycle operations for agent blueprints, agent service principals, agent identities, and agentic users.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#agent-id-administrator",
         "pathType": "Indirect",
-        "shortestPath": "Compromise of an Agent ID Administrator can lead to takeover of privileged AI agent identities and, if those agents are overprivileged, may result in indirect full tenant compromise.",
+        "shortestPath": "Can impersonate any agent identity with privileged application permissions granted for Microsoft Graph, which can be abused to become Global Admin.",
         "example": "TA identifies an agent identity (SP) with the RoleManagement.ReadWrite.Directory application permission. TA creates a new secret for the related agent identity blueprint, impersonates it and abuses the granted permissions to escalate to Global Admin."
     },
     {
         "tier": "0",
         "id": "d2562ede-74db-457e-a7b6-544e236ebb61",
         "assetName": "AI Administrator",
-        "assetDefinition": "Can manage all aspects of Microsoft 365 Copilot, manage admin consent request policies and manage full lifecycle of agent identities.",
+        "assetDefinition": "Manage all aspects of Microsoft 365 Copilot and AI-related enterprise services in Microsoft 365.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#ai-administrator",
         "pathType": "Indirect",
-        "shortestPath": "Compromise of an AI Administrator can lead to takeover of privileged AI agent identities and, if those agents are overprivileged, may result in indirect full tenant compromise.",
-        "example": "TA identifies an agent identity (SP) with the RoleManagement.ReadWrite.Directory application permission. TA creates a new secret for the related agent identity blueprint, impersonates it and abuses the granted permissions to escalate to Global Admin."
+        "shortestPath": "Same as Agent ID Administrator.",
+        "example": "Same as Agent ID Administrator."
     },
     {
         "tier": "0",
@@ -308,14 +308,6 @@
         "pathType": "Indirect",
         "shortestPath": "Same as Directory Writers.",
         "example": "Same as Directory Writers."
-    },
-    {
-        "tier": "1",
-        "id": "d2562ede-74db-457e-a7b6-544e236ebb61",
-        "assetName": "AI Administrator",
-        "assetDefinition": "Manage all aspects of Microsoft 365 Copilot and AI-related enterprise services in Microsoft 365.",
-        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#ai-administrator",
-        "providesFullAccessTo": "Microsoft 365 Copilot and AI-related enterprise services in Microsoft 365."
     },
     {
         "tier": "1",
