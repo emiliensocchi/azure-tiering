@@ -1,5 +1,45 @@
 [
     {
+        "detectedOn": "2026-07-08",
+        "apiEvent": "added",
+        "id": "447f996a-7c58-4ce7-9a9e-da80381a45ab",
+        "assetName": "Policy.Read.Recovery",
+        "assetDefinition": "Read your organization's recovery policy",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadrecovery"
+    },
+    {
+        "detectedOn": "2026-07-08",
+        "apiEvent": "added",
+        "id": "85643b08-0e25-4d99-9d68-04ba0fef9740",
+        "assetName": "TeamworkCustomEmoji.Create.All",
+        "assetDefinition": "Create custom emoji",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkcustomemojicreateall"
+    },
+    {
+        "detectedOn": "2026-07-08",
+        "apiEvent": "added",
+        "id": "1efa3d37-1703-4685-9a59-baf6296fb956",
+        "assetName": "TeamworkCustomEmoji.Read.All",
+        "assetDefinition": "Read custom emoji",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#teamworkcustomemojireadall"
+    },
+    {
+        "detectedOn": "2026-07-08",
+        "apiEvent": "added",
+        "id": "94ed018c-a499-47e0-beef-803b93873ece",
+        "assetName": "UserAuthMethod-ResourceKey.Read.All",
+        "assetDefinition": "Read and write all users' external authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-resourcekeyreadall"
+    },
+    {
+        "detectedOn": "2026-07-08",
+        "apiEvent": "added",
+        "id": "1bf7461f-222a-4525-9760-f7739228d0f4",
+        "assetName": "UserAuthMethod-ResourceKey.ReadWrite.All",
+        "assetDefinition": "Read and delete all users' external authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-resourcekeyreadwriteall"
+    },
+    {
         "detectedOn": "2026-07-01",
         "apiEvent": "added",
         "id": "60f8cea0-2476-45c9-ab18-70e79e60ad14",
