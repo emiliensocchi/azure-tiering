@@ -1,5 +1,13 @@
 [
     {
+        "detectedOn": "2026-07-18",
+        "apiEvent": "added",
+        "id": "58f930cc-fcf4-4152-852c-1d7dbf502139",
+        "assetName": "Entra SOC Identity Responder",
+        "assetDefinition": "Perform identity containment actions for SOC incident response, including disabling users, revoking sessions, and resetting passwords.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#entra-soc-identity-responder"
+    },
+    {
         "detectedOn": "2026-06-09",
         "apiEvent": "added",
         "id": "d35481f7-cda1-4fa2-8344-5a21f7f3724d",
