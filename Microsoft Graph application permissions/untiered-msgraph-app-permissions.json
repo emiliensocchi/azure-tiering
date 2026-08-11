@@ -1,5 +1,21 @@
 [
     {
+        "detectedOn": "2026-08-11",
+        "apiEvent": "added",
+        "id": "795fc94d-3deb-4632-b1eb-e6d1a5f44918",
+        "assetName": "Policy.ReadWrite.Recovery",
+        "assetDefinition": "Read and write your organization's recovery policy",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadwriterecovery"
+    },
+    {
+        "detectedOn": "2026-08-11",
+        "apiEvent": "added",
+        "id": "66ae8ecc-328f-47f6-97ca-4d9e952df081",
+        "assetName": "PreAuthorizationGrant.Read.All",
+        "assetDefinition": "Read all preauthorization grants",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#preauthorizationgrantreadall"
+    },
+    {
         "detectedOn": "2026-07-08",
         "apiEvent": "added",
         "id": "447f996a-7c58-4ce7-9a9e-da80381a45ab",
