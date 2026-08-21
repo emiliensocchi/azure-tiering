@@ -1,5 +1,61 @@
 [
     {
+        "detectedOn": "2026-08-21",
+        "apiEvent": "added",
+        "id": "eccf3f2d-f81a-4718-95d7-ef4a0c42ac43",
+        "assetName": "AgentCommunicationConfiguration.Read.All",
+        "assetDefinition": "Read all agent communication configurations",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentcommunicationconfigurationreadall"
+    },
+    {
+        "detectedOn": "2026-08-21",
+        "apiEvent": "added",
+        "id": "9c72696d-c77b-4d8d-b59e-dfca4792c9ec",
+        "assetName": "AgentCommunicationConfiguration.ReadWrite.All",
+        "assetDefinition": "Read and write all agent communication configurations",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentcommunicationconfigurationreadwriteall"
+    },
+    {
+        "detectedOn": "2026-08-21",
+        "apiEvent": "added",
+        "id": "c5825671-0390-4bf2-b99b-80496fd4b673",
+        "assetName": "DeviceManagementDeploymentPlans.Read.All",
+        "assetDefinition": "Read Microsoft Intune Deployment Plans",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#devicemanagementdeploymentplansreadall"
+    },
+    {
+        "detectedOn": "2026-08-21",
+        "apiEvent": "added",
+        "id": "68356fd1-028d-4ce3-b724-241dec11127a",
+        "assetName": "DeviceManagementDeploymentPlans.ReadWrite.All",
+        "assetDefinition": "Read and write Microsoft Intune Deployment Plans",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#devicemanagementdeploymentplansreadwriteall"
+    },
+    {
+        "detectedOn": "2026-08-21",
+        "apiEvent": "added",
+        "id": "6343d63f-034f-45b5-832d-9f9d7632e182",
+        "assetName": "LifecyclePolicies-AgentId.Read.All",
+        "assetDefinition": "Read identity lifecycle policies for agent identities",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#lifecyclepolicies-agentidreadall"
+    },
+    {
+        "detectedOn": "2026-08-21",
+        "apiEvent": "added",
+        "id": "00d1c504-8dc7-461b-8a0b-dc15c8f1bd5a",
+        "assetName": "LifecyclePolicies-AgentId.ReadWrite.All",
+        "assetDefinition": "Read and write identity lifecycle policies for agent identities",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#lifecyclepolicies-agentidreadwriteall"
+    },
+    {
+        "detectedOn": "2026-08-21",
+        "apiEvent": "added",
+        "id": "f369d3b8-fe98-4772-85e1-b23e7cf41982",
+        "assetName": "PullPrintPrinter.Read.All",
+        "assetDefinition": "Read pull-print printers",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#pullprintprinterreadall"
+    },
+    {
         "detectedOn": "2026-08-11",
         "apiEvent": "added",
         "id": "795fc94d-3deb-4632-b1eb-e6d1a5f44918",
