@@ -1,5 +1,109 @@
 [
     {
+        "detectedOn": "2026-08-28",
+        "apiEvent": "added",
+        "id": "712f5e0d-bc8d-4ae5-8242-cfb9a4921ed3",
+        "assetName": "UserAuthenticationMethod.Delete.All",
+        "assetDefinition": "Delete all users' authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthenticationmethoddeleteall"
+    },
+    {
+        "detectedOn": "2026-08-28",
+        "apiEvent": "added",
+        "id": "f0e9adfd-ed6b-45f5-b969-324a75286a39",
+        "assetName": "UserAuthMethod-Email.Delete.All",
+        "assetDefinition": "Delete all users' email methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-emaildeleteall"
+    },
+    {
+        "detectedOn": "2026-08-28",
+        "apiEvent": "added",
+        "id": "7fa6d39e-1e4e-44be-bf9c-e8260b12e1f5",
+        "assetName": "UserAuthMethod-External.Delete.All",
+        "assetDefinition": "Delete all users' external authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-externaldeleteall"
+    },
+    {
+        "detectedOn": "2026-08-28",
+        "apiEvent": "added",
+        "id": "9d8eb432-7ea3-491a-9ed7-e6361b308f08",
+        "assetName": "UserAuthMethod-HardwareOATH.Delete.All",
+        "assetDefinition": "Delete all users' HardwareOATH authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-hardwareoathdeleteall"
+    },
+    {
+        "detectedOn": "2026-08-28",
+        "apiEvent": "added",
+        "id": "ae494ca6-9612-417a-972a-ef52efaf2de3",
+        "assetName": "UserAuthMethod-MicrosoftAuthApp.Delete.All",
+        "assetDefinition": "Delete all users' Microsoft Authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-microsoftauthappdeleteall"
+    },
+    {
+        "detectedOn": "2026-08-28",
+        "apiEvent": "added",
+        "id": "9563fbd0-03a7-466e-8042-63d668b7d1a3",
+        "assetName": "UserAuthMethod-Passkey.Delete.All",
+        "assetDefinition": "Delete all users' passkey authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-passkeydeleteall"
+    },
+    {
+        "detectedOn": "2026-08-28",
+        "apiEvent": "added",
+        "id": "59f17651-8b6c-494e-a269-4ac582fbbca0",
+        "assetName": "UserAuthMethod-Phone.Delete.All",
+        "assetDefinition": "Delete all users' phone methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-phonedeleteall"
+    },
+    {
+        "detectedOn": "2026-08-28",
+        "apiEvent": "added",
+        "id": "bd760918-651f-4e67-b66f-8f614384dec2",
+        "assetName": "UserAuthMethod-PlatformCred.Delete.All",
+        "assetDefinition": "Delete all users' platform credentials methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-platformcreddeleteall"
+    },
+    {
+        "detectedOn": "2026-08-28",
+        "apiEvent": "added",
+        "id": "e1c34213-26ac-400b-9548-a749f1b1a4e0",
+        "assetName": "UserAuthMethod-QR.Delete.All",
+        "assetDefinition": "Delete all users' QR authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-qrdeleteall"
+    },
+    {
+        "detectedOn": "2026-08-28",
+        "apiEvent": "added",
+        "id": "a71aecaf-82f1-47c5-ad0a-5e63503b928f",
+        "assetName": "UserAuthMethod-ResourceKey.Delete.All",
+        "assetDefinition": "Delete all users' resource key authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-resourcekeydeleteall"
+    },
+    {
+        "detectedOn": "2026-08-28",
+        "apiEvent": "added",
+        "id": "e5676e10-1a16-452b-ad10-71f54b755852",
+        "assetName": "UserAuthMethod-SoftwareOATH.Delete.All",
+        "assetDefinition": "Delete all users' SoftwareOATH authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-softwareoathdeleteall"
+    },
+    {
+        "detectedOn": "2026-08-28",
+        "apiEvent": "added",
+        "id": "4f872e9d-d232-4ecd-ab9c-337cbdb184e5",
+        "assetName": "UserAuthMethod-TAP.Delete.All",
+        "assetDefinition": "Delete all users' Temporary Access Pass authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-tapdeleteall"
+    },
+    {
+        "detectedOn": "2026-08-28",
+        "apiEvent": "added",
+        "id": "f3197110-aa7f-4acd-a0fd-71981ad68d42",
+        "assetName": "UserAuthMethod-WindowsHello.Delete.All",
+        "assetDefinition": "Delete all users' Windows Hello authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-windowshellodeleteall"
+    },
+    {
         "detectedOn": "2026-08-21",
         "apiEvent": "added",
         "id": "eccf3f2d-f81a-4718-95d7-ef4a0c42ac43",
