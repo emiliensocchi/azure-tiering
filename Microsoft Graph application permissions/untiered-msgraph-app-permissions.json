@@ -1,5 +1,21 @@
 [
     {
+        "detectedOn": "2026-09-02",
+        "apiEvent": "added",
+        "id": "bb1e8ab4-fe40-4b26-82ec-65dfaf4d367b",
+        "assetName": "IdentityDiagnostic.Read.All",
+        "assetDefinition": "Read all identity diagnostics",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#identitydiagnosticreadall"
+    },
+    {
+        "detectedOn": "2026-09-02",
+        "apiEvent": "added",
+        "id": "2607bb8b-0a9b-4f53-9d2f-6f81b99ac145",
+        "assetName": "IdentityDiagnostic.StartDiagnosis.All",
+        "assetDefinition": "Start identity diagnostics for all users",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#identitydiagnosticstartdiagnosisall"
+    },
+    {
         "detectedOn": "2026-08-28",
         "apiEvent": "added",
         "id": "712f5e0d-bc8d-4ae5-8242-cfb9a4921ed3",
