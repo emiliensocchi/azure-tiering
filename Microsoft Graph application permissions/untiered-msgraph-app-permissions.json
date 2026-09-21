@@ -1,5 +1,85 @@
 [
     {
+        "detectedOn": "2026-09-21",
+        "apiEvent": "added",
+        "id": "010650d3-1605-49e9-b242-230afecb9dc5",
+        "assetName": "CaseManagement.ConfigManage.All",
+        "assetDefinition": "Manage case management configuration",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#casemanagementconfigmanageall"
+    },
+    {
+        "detectedOn": "2026-09-21",
+        "apiEvent": "added",
+        "id": "603ce4e3-fb05-4b63-91ba-729bb1dca667",
+        "assetName": "Group-PreferredDataLocation.ReadWrite.All",
+        "assetDefinition": "Read and write all groups\u2019 preferred data location property",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#group-preferreddatalocationreadwriteall"
+    },
+    {
+        "detectedOn": "2026-09-21",
+        "apiEvent": "added",
+        "id": "07d67222-3a10-4d3b-9ddc-b8aa43198a00",
+        "assetName": "Group.ReadBasic.All",
+        "assetDefinition": "Read all groups\u2019 basic property",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#groupreadbasicall"
+    },
+    {
+        "detectedOn": "2026-09-21",
+        "apiEvent": "added",
+        "id": "8222c640-cae5-4860-8d11-b32cfad95e03",
+        "assetName": "GroupMember.ReadBasic.All",
+        "assetDefinition": "Read all group memberships",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#groupmemberreadbasicall"
+    },
+    {
+        "detectedOn": "2026-09-21",
+        "apiEvent": "added",
+        "id": "66905074-ba83-4bb3-b5a1-1bb769025947",
+        "assetName": "InfoProtectABACPolicy.Read.All",
+        "assetDefinition": "Read all ABAC policies.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#infoprotectabacpolicyreadall"
+    },
+    {
+        "detectedOn": "2026-09-21",
+        "apiEvent": "added",
+        "id": "4bfc1735-3a0c-4602-a159-9cfa07213339",
+        "assetName": "InfoProtectABACPolicy.ReadWrite.All",
+        "assetDefinition": "Read and write all ABAC policies.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#infoprotectabacpolicyreadwriteall"
+    },
+    {
+        "detectedOn": "2026-09-21",
+        "apiEvent": "added",
+        "id": "64e5621c-1c93-43aa-ac76-c58f9fd136c7",
+        "assetName": "InfoProtectAttributeAssignment.Read.All",
+        "assetDefinition": "Read all information protection attribute assignments.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#infoprotectattributeassignmentreadall"
+    },
+    {
+        "detectedOn": "2026-09-21",
+        "apiEvent": "added",
+        "id": "bc81c4f9-5b1f-4107-b330-4665a9cebecf",
+        "assetName": "InfoProtectAttributeAssignment.ReadWrite.All",
+        "assetDefinition": "Read and write all information protection attribute assignments.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#infoprotectattributeassignmentreadwriteall"
+    },
+    {
+        "detectedOn": "2026-09-21",
+        "apiEvent": "added",
+        "id": "1a8b595b-d654-4a0c-9b37-caf656a24853",
+        "assetName": "InfoProtectAttributeDefinition.Read.All",
+        "assetDefinition": "Read all information protection attribute definitions.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#infoprotectattributedefinitionreadall"
+    },
+    {
+        "detectedOn": "2026-09-21",
+        "apiEvent": "added",
+        "id": "7ec4dbde-910f-4bbb-9717-d1cde4470763",
+        "assetName": "InfoProtectAttributeDefinition.ReadWrite.All",
+        "assetDefinition": "Read and write all information protection attribute definitions.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#infoprotectattributedefinitionreadwriteall"
+    },
+    {
         "detectedOn": "2026-09-02",
         "apiEvent": "added",
         "id": "bb1e8ab4-fe40-4b26-82ec-65dfaf4d367b",
