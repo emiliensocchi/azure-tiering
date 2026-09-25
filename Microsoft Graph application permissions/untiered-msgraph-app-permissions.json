@@ -1,5 +1,53 @@
 [
     {
+        "detectedOn": "2026-09-25",
+        "apiEvent": "added",
+        "id": "f0d7f93b-6fce-4221-a197-ace5848da396",
+        "assetName": "AppCertTrustConfiguration.Read.All",
+        "assetDefinition": "Read all trusted certificate authority configurations for applications",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#appcerttrustconfigurationreadall"
+    },
+    {
+        "detectedOn": "2026-09-25",
+        "apiEvent": "added",
+        "id": "e508b0bc-7b1a-4b59-8646-d12066f4a72f",
+        "assetName": "AppCertTrustConfiguration.ReadWrite.All",
+        "assetDefinition": "Read and write all trusted certificate authority configurations for applications",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#appcerttrustconfigurationreadwriteall"
+    },
+    {
+        "detectedOn": "2026-09-25",
+        "apiEvent": "added",
+        "id": "0ef71a66-690d-439b-96ef-41705a240606",
+        "assetName": "CrossTenantContentMigration.Read.All",
+        "assetDefinition": "Read all cross tenant content migration job details",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#crosstenantcontentmigrationreadall"
+    },
+    {
+        "detectedOn": "2026-09-25",
+        "apiEvent": "added",
+        "id": "c5a29fd1-4629-4f52-8316-4d639ffa95d0",
+        "assetName": "CrossTenantContentMigration.ReadWrite.All",
+        "assetDefinition": "Read and write all cross tenant content migration job details",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#crosstenantcontentmigrationreadwriteall"
+    },
+    {
+        "detectedOn": "2026-09-25",
+        "apiEvent": "added",
+        "id": "d6559210-2a3e-46f8-90b3-e69ef5507772",
+        "assetName": "Workbooks.Read.All",
+        "assetDefinition": "Read all workbooks",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#workbooksreadall"
+    },
+    {
+        "detectedOn": "2026-09-25",
+        "apiEvent": "added",
+        "id": "164a9e2c-8434-444a-a250-b8c70dded2af",
+        "assetName": "Workbooks.ReadWrite.All",
+        "assetDefinition": "Read and write all workbooks",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#workbooksreadwriteall"
+    },
+    {
         "detectedOn": "2026-09-21",
         "apiEvent": "added",
         "id": "010650d3-1605-49e9-b242-230afecb9dc5",
