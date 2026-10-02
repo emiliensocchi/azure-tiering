@@ -1,5 +1,13 @@
 [
     {
+        "detectedOn": "2026-10-02",
+        "apiEvent": "added",
+        "id": "6e251752-0d87-4158-b87b-b60e768fa657",
+        "assetName": "ThreatHunting.ReadWrite.All",
+        "assetDefinition": "Run hunting queries and manage all hunting functions",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#threathuntingreadwriteall"
+    },
+    {
         "detectedOn": "2026-09-25",
         "apiEvent": "added",
         "id": "f0d7f93b-6fce-4221-a197-ace5848da396",
