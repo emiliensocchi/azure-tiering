@@ -1,5 +1,101 @@
 [
     {
+        "detectedOn": "2026-10-08",
+        "apiEvent": "added",
+        "id": "73fac914-e726-4af5-9a46-62f65f7b0a8b",
+        "assetName": "ContentHub-Catalog.Read.All",
+        "assetDefinition": "Read the Content Hub catalog",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#contenthub-catalogreadall"
+    },
+    {
+        "detectedOn": "2026-10-08",
+        "apiEvent": "added",
+        "id": "cc44d51e-040e-4631-a93a-1982ea54b428",
+        "assetName": "ContentHub-Installed.Read.All",
+        "assetDefinition": "Read Content Hub installed packages",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#contenthub-installedreadall"
+    },
+    {
+        "detectedOn": "2026-10-08",
+        "apiEvent": "added",
+        "id": "0c6404f6-8e7a-413b-adc0-e9b750d959c8",
+        "assetName": "ContentHub-Installed.ReadWrite.All",
+        "assetDefinition": "Read and write Content Hub installed packages",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#contenthub-installedreadwriteall"
+    },
+    {
+        "detectedOn": "2026-10-08",
+        "apiEvent": "added",
+        "id": "7eb97e53-a7bc-4492-9113-1cd84a1ef8d8",
+        "assetName": "CustomObject.Read.All",
+        "assetDefinition": "Read all custom objects",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#customobjectreadall"
+    },
+    {
+        "detectedOn": "2026-10-08",
+        "apiEvent": "added",
+        "id": "2ebdaf81-319a-4058-9cb1-7c2c20cda877",
+        "assetName": "CustomObject.ReadWrite.All",
+        "assetDefinition": "Read and write all custom objects",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#customobjectreadwriteall"
+    },
+    {
+        "detectedOn": "2026-10-08",
+        "apiEvent": "added",
+        "id": "3bb529ad-d59a-499c-abe2-736f636068a5",
+        "assetName": "CustomObjectDefinition.Read.All",
+        "assetDefinition": "Read all custom object definitions",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#customobjectdefinitionreadall"
+    },
+    {
+        "detectedOn": "2026-10-08",
+        "apiEvent": "added",
+        "id": "4d482dd7-21ae-4e2d-97f9-58cd926f5c5e",
+        "assetName": "CustomObjectDefinition.ReadBasic.All",
+        "assetDefinition": "Read basic information about custom object definitions",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#customobjectdefinitionreadbasicall"
+    },
+    {
+        "detectedOn": "2026-10-08",
+        "apiEvent": "added",
+        "id": "19f10513-d519-42cf-b01a-b3b662f46b8f",
+        "assetName": "CustomObjectDefinition.ReadWrite.All",
+        "assetDefinition": "Manage all custom object definitions",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#customobjectdefinitionreadwriteall"
+    },
+    {
+        "detectedOn": "2026-10-08",
+        "apiEvent": "added",
+        "id": "9c668bfa-7e4d-4ea4-9f0b-ba2d67cac55c",
+        "assetName": "SynchronizationMetadata.Read.All",
+        "assetDefinition": "Read synchronization metadata for all provisioning jobs",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#synchronizationmetadatareadall"
+    },
+    {
+        "detectedOn": "2026-10-08",
+        "apiEvent": "added",
+        "id": "7090aa1b-99c0-444b-b40b-528bd2f35087",
+        "assetName": "SynchronizationMetadata.Read.OwnedBy",
+        "assetDefinition": "Read synchronization metadata for owned provisioning jobs",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#synchronizationmetadatareadownedby"
+    },
+    {
+        "detectedOn": "2026-10-08",
+        "apiEvent": "added",
+        "id": "71a8afcf-c9ac-4704-a49c-a2520ddfc6d8",
+        "assetName": "SynchronizationMetadata.ReadWrite.All",
+        "assetDefinition": "Read and manage synchronization metadata for all provisioning jobs",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#synchronizationmetadatareadwriteall"
+    },
+    {
+        "detectedOn": "2026-10-08",
+        "apiEvent": "added",
+        "id": "dc64b9ee-d7b6-4de6-97d3-189051d1c773",
+        "assetName": "SynchronizationMetadata.ReadWrite.OwnedBy",
+        "assetDefinition": "Read and manage synchronization metadata for owned provisioning jobs",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#synchronizationmetadatareadwriteownedby"
+    },
+    {
         "detectedOn": "2026-10-02",
         "apiEvent": "added",
         "id": "6e251752-0d87-4158-b87b-b60e768fa657",
