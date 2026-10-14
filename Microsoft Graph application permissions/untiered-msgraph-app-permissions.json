@@ -1,5 +1,21 @@
 [
     {
+        "detectedOn": "2026-10-14",
+        "apiEvent": "added",
+        "id": "231187a1-75b7-4554-a255-682d4d4971e8",
+        "assetName": "AppFederatedCredentialIssuers.Read.All",
+        "assetDefinition": "Read trusted federated identity credential issuers",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#appfederatedcredentialissuersreadall"
+    },
+    {
+        "detectedOn": "2026-10-14",
+        "apiEvent": "added",
+        "id": "aa595073-8ce6-409a-8b9e-258e9faab0f3",
+        "assetName": "AppFederatedCredentialIssuers.ReadWrite.All",
+        "assetDefinition": "Read and write all trusted federated identity credential issuers",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#appfederatedcredentialissuersreadwriteall"
+    },
+    {
         "detectedOn": "2026-10-08",
         "apiEvent": "added",
         "id": "73fac914-e726-4af5-9a46-62f65f7b0a8b",
