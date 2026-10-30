@@ -281,6 +281,16 @@
     },
     {
         "tier": "0",
+        "id": "1981f584-96e9-4a6f-95b0-f522373f8fae",
+        "assetName": "Tenant Governance Administrator",
+        "assetDefinition": "Can manage all capabilities in the Microsoft Entra Tenant Governance service.",
+        "documentationUri": "http://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#tenant-governance-administrator",
+        "pathType": "Indirect",
+        "shortestPath": "Can establish or modify a cross-tenant governance relationship and define delegated administration roles for the governed tenant, potentially granting privileged Microsoft Entra roles such as Global Administrator through cross-tenant delegated administration.",
+        "example": "TA compromises a Tenant Governance Administrator in a governing tenant and creates or modifies a governance policy template to include a privileged Microsoft Entra role such as Global Administrator. TA establishes or updates a governance relationship with a target tenant and submits the governance request. If the target tenant accepts the request, Tenant Governance provisions the delegated role assignment in the governed tenant, allowing the TA to obtain privileged access there."
+    },
+    {
+        "tier": "0",
         "id": "fe930be7-5e62-47db-91af-98c3a49a38b1",
         "assetName": "User Administrator",
         "assetDefinition": "Can manage all aspects of users and groups, including resetting passwords for limited admins.",
