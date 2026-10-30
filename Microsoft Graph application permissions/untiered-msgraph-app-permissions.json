@@ -1,5 +1,69 @@
 [
     {
+        "detectedOn": "2026-10-30",
+        "apiEvent": "added",
+        "id": "87f25f46-ce1e-47ed-935c-9d70b296f060",
+        "assetName": "HardDeletionSetting.ReadWrite.Enable",
+        "assetDefinition": "Enable hard deletion protection settings",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#harddeletionsettingreadwriteenable"
+    },
+    {
+        "detectedOn": "2026-10-30",
+        "apiEvent": "added",
+        "id": "6ea4f0cd-532a-415b-b82f-9b9d84ca5cfd",
+        "assetName": "ResourcePolicyAssignment.Read.All",
+        "assetDefinition": "Read all resource policy assignments",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#resourcepolicyassignmentreadall"
+    },
+    {
+        "detectedOn": "2026-10-30",
+        "apiEvent": "added",
+        "id": "4ebf7277-a0b3-4fb6-866e-9ade27c776c7",
+        "assetName": "ResourcePolicyAssignment.ReadWrite.All",
+        "assetDefinition": "Read and write all resource policy assignments",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#resourcepolicyassignmentreadwriteall"
+    },
+    {
+        "detectedOn": "2026-10-30",
+        "apiEvent": "added",
+        "id": "f5d5d13d-82db-4ee7-b7c9-4b9bc48299dc",
+        "assetName": "ResourcePolicyConfiguration.Read.All",
+        "assetDefinition": "Read tenant resource policy configuration",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#resourcepolicyconfigurationreadall"
+    },
+    {
+        "detectedOn": "2026-10-30",
+        "apiEvent": "added",
+        "id": "f415468b-cf6a-4567-867d-a965e4d31e87",
+        "assetName": "ResourcePolicyConfiguration.ReadWrite.All",
+        "assetDefinition": "Read and write tenant resource policy configuration",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#resourcepolicyconfigurationreadwriteall"
+    },
+    {
+        "detectedOn": "2026-10-30",
+        "apiEvent": "added",
+        "id": "1de97903-f478-4d01-9cc2-b70fb1236a80",
+        "assetName": "ResourcePolicyDefinition.Read.All",
+        "assetDefinition": "Read all resource policy definitions",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#resourcepolicydefinitionreadall"
+    },
+    {
+        "detectedOn": "2026-10-30",
+        "apiEvent": "added",
+        "id": "365dc158-5200-4b0e-9c5d-be9a2068cb4c",
+        "assetName": "ResourcePolicyDefinition.ReadWrite.All",
+        "assetDefinition": "Read and write all resource policy definitions",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#resourcepolicydefinitionreadwriteall"
+    },
+    {
+        "detectedOn": "2026-10-30",
+        "apiEvent": "added",
+        "id": "6642843d-a7e1-4fb6-9d68-9f7e75455c2b",
+        "assetName": "ResourcePolicyEvaluation.Read.All",
+        "assetDefinition": "Evaluate resource policies",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#resourcepolicyevaluationreadall"
+    },
+    {
         "detectedOn": "2026-10-23",
         "apiEvent": "added",
         "id": "d2ac92ed-5cdc-4342-8f63-eba03efc5d86",
