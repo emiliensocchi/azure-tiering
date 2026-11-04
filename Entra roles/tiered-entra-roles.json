@@ -36,8 +36,8 @@
         "assetDefinition": "Can access to view, set and reset authentication method information for any non-admin user.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#authentication-administrator",
         "pathType": "Indirect",
-        "shortestPath": "Can reset the password of a user who owns an SP with privileged application permissions granted to Microsoft Graph, impersonate the user, then impersonate the SP to become Global Admin.  If the targeted user has Entra ID roles, it has to be roles for which password reset is allowed for an Authentication Administrator (more info). The targeted user cannot be an owner or member of a role-assignable group.",
-        "example": "TA resets the password of a standard user who owns an SP with the granted RoleManagement.ReadWrite.Directory application permission (i.e. the user has no Entra role or role-assignable group assignment). TA impersonates the user, then the SP to abuse the granted application permission and escalates to Global Admin."
+        "shortestPath": "Can create a Temporary Access Pass (TAP) for a user who owns an SP with privileged application permissions granted to Microsoft Graph, sign in as the user with the TAP (which satisfies MFA), then impersonate the SP to become Global Admin. If the targeted user has Entra ID roles, it has to be roles for which an Authentication Administrator can perform sensitive actions (more info). The targeted user cannot be an owner or member of a role-assignable group, nor be in a restricted management administrative unit. Note: if TAP is not enabled for the user, the role can instead reset the user's password and register a controlled phone number as the second factor.",
+        "example": "TA creates a TAP for a standard user who owns an SP with the granted RoleManagement.ReadWrite.Directory application permission (i.e. the user has no Entra role or role-assignable group assignment). TA signs in as the user with the TAP, satisfying MFA without knowing the password, adds a secret to the owned SP, authenticates as the SP and abuses the granted application permission to escalate to Global Admin."
     },
     {
         "tier": "0",
@@ -71,6 +71,16 @@
     },
     {
         "tier": "0",
+        "id": "fc8ad4e2-40e4-4724-8317-bcda7503ecbf",
+        "assetName": "Customer Delegated Admin Relationship Administrator",
+        "assetDefinition": "Manage all aspects of granular delegated admin privileges (GDAP) relationships in a customer tenant.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#customer-delegated-admin-relationship-administrator",
+        "pathType": "Indirect",
+        "shortestPath": "Can approve a GDAP relationship request from an attacker-controlled partner tenant that includes the Global Administrator role (or another Tier-0 role), granting Global Admin in the tenant to principals controlled by the attacker.",
+        "example": "TA creates a GDAP relationship request including the Global Administrator role from a controlled partner tenant. TA approves the request in the customer tenant with the role, then uses a user from the partner security group mapped in the relationship to act as Global Admin in the customer tenant."
+    },
+    {
+        "tier": "0",
         "id": "9360feb5-f418-4baa-8175-e2a00bac4301",
         "assetName": "Directory Writers",
         "assetDefinition": "Can read and write basic directory information. For granting access to applications, not intended for users.",
@@ -88,6 +98,16 @@
         "pathType": "Indirect",
         "shortestPath": "Can add a federated domain to Entra ID and authenticate as an existing Global Admin without password or MFA requirements.",
         "example": "TA adds a federated domain to Entra ID, by importing a certificate with the domain's public key. TA generates a SAML token for an existing Global Admin with an MFA claim and signs it with the private key. TA successfully authenticates as Global Admin, without MFA requirements."
+    },
+    {
+        "tier": "0",
+        "id": "b6a27b2b-f905-4b2e-81b5-0d90e0ef1fdb",
+        "assetName": "Entra Backup Administrator",
+        "assetDefinition": "Manage all aspects of Microsoft Entra Backup, such as create recovery jobs and manage backup snapshots.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#entra-backup-administrator",
+        "pathType": "Indirect",
+        "shortestPath": "Can roll back service principals (including their MS Graph app role assignments), users, Conditional Access policies and the authentication methods policy to a state from the last 7 days. If a privileged MS Graph application permission was revoked from an attacker-controlled service principal (or a compromised Global Admin was disabled) within that window, can restore it and escalate to Global Admin.",
+        "example": "TA's compromised service principal had 'RoleManagement.ReadWrite.Directory' revoked during incident response. TA triggers an Entra recovery job scoped to the MS Graph service principal, which restores the app role assignment, and uses the service principal to assign the Global Admin role to TA's account."
     },
     {
         "tier": "0",
@@ -128,16 +148,6 @@
         "pathType": "Indirect",
         "shortestPath": "Same as Directory Writers.",
         "example": "Same as Directory Writers."
-    },
-    {
-        "tier": "0",
-        "id": "729827e3-9c14-49f7-bb1b-9608f156bbb8",
-        "assetName": "Helpdesk Administrator",
-        "assetDefinition": "Can reset passwords for non-administrators and Helpdesk Administrators.",
-        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#helpdesk-administrator",
-        "pathType": "Indirect",
-        "shortestPath": "Same as Authentication Administrator.",
-        "example": "Same as Authentication Administrator."
     },
     {
         "tier": "0",
@@ -216,18 +226,8 @@
         "assetDefinition": "Do not use - not intended for general use.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#partner-tier2-support",
         "pathType": "Direct",
-        "shortestPath": "Can reset the password of a break-glass account and take it over.",
-        "example": "TA resets the password of a break-glass account and authenticates as Global Admin. Note: many other paths are possible, such as the one for Domain Name Administrator."
-    },
-    {
-        "tier": "0",
-        "id": "966707d0-3269-4727-9be2-8c3a10f19b9d",
-        "assetName": "Password Administrator",
-        "assetDefinition": "Can reset passwords for non-administrators and Password Administrators.",
-        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#password-administrator",
-        "pathType": "Indirect",
-        "shortestPath": "Same as Authentication Administrator.",
-        "example": "Same as Authentication Administrator."
+        "shortestPath": "Can assign the Global Admin role to itself.",
+        "example": "TA assigns the Global Admin role to the compromised user account (which already satisfies MFA), and authenticates as Global Admin. Note: many other paths are possible, such as the ones for Application Administrator and Domain Name Administrator."
     },
     {
         "tier": "0",
@@ -236,8 +236,8 @@
         "assetDefinition": "Can access to view, set and reset authentication method information for any user (admin or non-admin).",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#privileged-authentication-administrator",
         "pathType": "Direct",
-        "shortestPath": "Same as Partner Tier2 Support.",
-        "example": "Same as Partner Tier2 Support."
+        "shortestPath": "Can create a Temporary Access Pass (TAP) for any user, including Global Admins and break-glass accounts, and authenticate with it to take over the account (a TAP satisfies MFA on its own).",
+        "example": "TA creates a TAP for a break-glass account, authenticates with the TAP and escalates to Global Admin."
     },
     {
         "tier": "0",
@@ -271,6 +271,16 @@
     },
     {
         "tier": "0",
+        "id": "99009c4a-3b3f-4957-82a9-9d35e12db77e",
+        "assetName": "SharePoint Advanced Management Administrator",
+        "assetDefinition": "Manage all aspects of SharePoint Advanced Management.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#sharepoint-advanced-management-administrator",
+        "pathType": "Indirect",
+        "shortestPath": "Same as Directory Writers.",
+        "example": "Same as Directory Writers."
+    },
+    {
+        "tier": "0",
         "id": "69091246-20e8-4a56-aa4d-066075b2a7a8",
         "assetName": "Teams Administrator",
         "assetDefinition": "Can manage the Microsoft Teams service.",
@@ -281,13 +291,23 @@
     },
     {
         "tier": "0",
+        "id": "1981f584-96e9-4a6f-95b0-f522373f8fae",
+        "assetName": "Tenant Governance Administrator",
+        "assetDefinition": "Manage all capabilities in the Microsoft Entra Tenant Governance service.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#tenant-governance-administrator",
+        "pathType": "Direct",
+        "shortestPath": "Can invite an attacker-controlled tenant to govern the tenant and accept its governance request. The request's policy template grants Global Admin (via GDAP) to a security group in the attacker tenant.",
+        "example": "TA sends a governance invitation from the compromised tenant to a tenant they control. From that tenant, TA sends back a governance request whose policy template maps the Global Administrator role to a group they control. TA accepts the request with the compromised user account, then signs in to the compromised tenant as Global Admin through cross-tenant delegated administration."
+    },
+    {
+        "tier": "0",
         "id": "fe930be7-5e62-47db-91af-98c3a49a38b1",
         "assetName": "User Administrator",
         "assetDefinition": "Can manage all aspects of users and groups, including resetting passwords for limited admins.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#user-administrator",
         "pathType": "Indirect",
-        "shortestPath": "Same as Authentication Administrator and Directory Writers.",
-        "example": "Same as Authentication Administrator and Directory Writers."
+        "shortestPath": "Can add the compromised user account to a non-role-assignable group with assigned privileged Azure permissions (or edit a dynamic membership rule or the account's attributes to match one), and leverage Azure resources to escalate to Global Admin. Note: can also update the assignment policy of an access package provisioning access to Global Admin (same as Identity Governance Administrator). Password resets alone do not lead to account takeover, as the role cannot manage authentication methods and MFA still applies.",
+        "example": "TA adds the compromised user account (already signed in with MFA) to a non-role-assignable group with Contributor access to a subscription. TA refreshes its token to pick up the new membership, then runs code on a compute resource with an assigned MI granted RoleManagement.ReadWrite.Directory, and uses the MI to assign the Global Admin role to the compromised user account. Note: many other paths of this kind are possible."
     },
     {
         "tier": "0",
@@ -311,6 +331,22 @@
     },
     {
         "tier": "1",
+        "id": "6b942400-691f-4bf0-9d12-d8a254a2baf5",
+        "assetName": "Agent Registry Administrator",
+        "assetDefinition": "Manage all aspects of the Agent Registry service in Microsoft Entra ID",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#agent-registry-administrator",
+        "providesFullAccessTo": "Agent Registry metadata in Microsoft Entra ID (agent instances, agent card manifests, collections including quarantine, and registry-specific role assignments). Note: cannot manage agent identities, blueprints or their credentials, but can redirect agent endpoints used for discovery and quarantine or unquarantine agents."
+    },
+    {
+        "tier": "1",
+        "id": "1fe13547-53f6-408d-ac04-7f8eed167b38",
+        "assetName": "AI Reader",
+        "assetDefinition": "Read all aspects of Microsoft 365 Copilot and AI-related enterprise services in Microsoft 365.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#ai-reader",
+        "providesFullAccessTo": "Microsoft 365 Copilot and AI-related enterprise services (read-only access)."
+    },
+    {
+        "tier": "1",
         "id": "c430b396-e693-46cc-96f3-db01bf8bb62a",
         "assetName": "Attack Simulation Administrator",
         "assetDefinition": "Can create and manage all aspects of attack simulation campaigns.",
@@ -324,6 +360,14 @@
         "assetDefinition": "Assign custom security attribute keys and values to supported Microsoft Entra objects.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#attribute-assignment-administrator",
         "providesFullAccessTo": "Assignments of custom security attributes on users, service principals and devices.  Note: can be abused to bypass Conditional Access Policies when policies are set based on security attributes."
+    },
+    {
+        "tier": "1",
+        "id": "0b00bede-4072-4d22-b441-e7df02a1ef63",
+        "assetName": "Authentication Extensibility Password Administrator",
+        "assetDefinition": "Trigger a password submit event for custom authentication.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#authentication-extensibility-password-administrator",
+        "providesFullAccessTo": "OnPasswordSubmit custom authentication extensions (JIT password migration in External ID). Note: can redirect or break password sign-in of consumer users pending migration; binding, encryption keys and migration flags require other roles."
     },
     {
         "tier": "1",
@@ -411,7 +455,7 @@
         "assetName": "Directory Synchronization Accounts",
         "assetDefinition": "Only used by Microsoft Entra Connect service.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#directory-synchronization-accounts",
-        "providesFullAccessTo": "On-premises directory synchronization. Can reset the password of hybrid users, although takeovers are less likely to happen after the introduction of mandatory MFA for all users, including breakglass accounts. As of September 2024, cannot create new SP credentials for SP takeover.  As of September 2023, cannot reset the password of cloud-only users via the synchronization API to take over break-glass accounts."
+        "providesFullAccessTo": "On-premises directory synchronization. Can reset the password of hybrid users, although takeovers are less likely to happen after the introduction of mandatory MFA for all users, including breakglass accounts. As of September 2024, cannot create new SP credentials for SP takeover. As of September 2023, cannot reset the password of cloud-only users via the synchronization API to take over break-glass accounts."
     },
     {
         "tier": "1",
@@ -436,6 +480,14 @@
         "assetDefinition": "Access and perform all administrative tasks on Dynamics 365 Business Central environments.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#dynamics-365-business-central-administrator",
         "providesFullAccessTo": "Dynamics 365 Business Central."
+    },
+    {
+        "tier": "1",
+        "id": "58f930cc-fcf4-4152-852c-1d7dbf502139",
+        "assetName": "Entra SOC Identity Responder",
+        "assetDefinition": "Perform identity containment actions for SOC incident response, including disabling users, revoking sessions, and resetting passwords.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#entra-soc-identity-responder",
+        "providesFullAccessTo": "Identity containment of non-administrative users: disable/enable accounts, revoke refresh tokens and reset passwords. Note: cannot act on privileged accounts and has no authentication-method actions (no TAP or MFA registration), so a password reset alone cannot take over an MFA-protected account."
     },
     {
         "tier": "1",
@@ -492,6 +544,14 @@
         "assetDefinition": "Can invite guest users independent of the 'members can invite guests' setting.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#guest-inviter",
         "providesFullAccessTo": "Microsoft Entra B2B guest user invitations. Can be leveraged to abuse vulnerable dynamic groups if present."
+    },
+    {
+        "tier": "1",
+        "id": "729827e3-9c14-49f7-bb1b-9608f156bbb8",
+        "assetName": "Helpdesk Administrator",
+        "assetDefinition": "Can reset passwords for non-administrators and Helpdesk Administrators.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#helpdesk-administrator",
+        "providesFullAccessTo": "Password reset and refresh-token revocation for non-administrators and some limited administrators, and reading BitLocker recovery keys. Note: cannot issue a TAP or manage authentication methods, so a password reset alone does not take over an account protected by MFA; becomes a takeover path only for targets without any registered MFA method."
     },
     {
         "tier": "1",
@@ -575,6 +635,14 @@
     },
     {
         "tier": "1",
+        "id": "966707d0-3269-4727-9be2-8c3a10f19b9d",
+        "assetName": "Password Administrator",
+        "assetDefinition": "Can reset passwords for non-administrators and Password Administrators.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#password-administrator",
+        "providesFullAccessTo": "Password reset for non-administrators and Password Administrators. Note: cannot issue a TAP or manage authentication methods, so a password reset alone does not take over an account protected by MFA."
+    },
+    {
+        "tier": "1",
         "id": "024906de-61e5-49c8-8572-40335f1e0e10",
         "assetName": "People Administrator",
         "assetDefinition": "Manage profile photos of users and people settings for all users in the organization.",
@@ -596,6 +664,30 @@
         "assetDefinition": "Can create and manage all aspects of Microsoft Dynamics 365, PowerApps and Microsoft Flow.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#power-platform-administrator",
         "providesFullAccessTo": "Dynamics 365, Power Automate, Power Apps."
+    },
+    {
+        "tier": "1",
+        "id": "3f04f91a-4ad7-4bd3-bcfa-49882ea1a88a",
+        "assetName": "Purview Workload Content Administrator",
+        "assetDefinition": "Manage or purge data from Microsoft 365 when accessing from the Microsoft Purview portal.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#purview-workload-content-administrator",
+        "providesFullAccessTo": "Microsoft 365 content (Exchange, SharePoint, OneDrive and Teams) through Microsoft Purview operations (read, write and delete/purge). Note: synchronized from the Purview roles Search and Purge and Data Security Investigation Admin/Analyst; can be abused to harvest secrets from privileged users' content or to mass-purge messages."
+    },
+    {
+        "tier": "1",
+        "id": "e07494ad-1654-4dd2-922e-6f81a71bf00f",
+        "assetName": "Purview Workload Content Reader",
+        "assetDefinition": "Read data from Microsoft 365 when accessing from the Microsoft Purview portal.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#purview-workload-content-reader",
+        "providesFullAccessTo": "Microsoft 365 content (SharePoint, OneDrive, Exchange, Teams) through long-running operations submitted from the Microsoft Purview portal (read-only)."
+    },
+    {
+        "tier": "1",
+        "id": "02d5655b-c1cf-4e5f-98da-5fb919085bf6",
+        "assetName": "Purview Workload Content Writer",
+        "assetDefinition": "Read and edit data from Microsoft 365 when accessing from the Microsoft Purview portal.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#purview-workload-content-writer",
+        "providesFullAccessTo": "Read and write access to Microsoft 365 content (SharePoint, Teams, OneDrive, Exchange) through Microsoft Purview operations (e.g. holds, privacy and data security investigations). Note: the role is synced from Purview role groups and only authorizes Purview operations; it grants no Entra administrative permissions."
     },
     {
         "tier": "1",
@@ -663,6 +755,14 @@
     },
     {
         "tier": "1",
+        "id": "2fe872fb-daa8-4afc-8f6c-53c4565cfef4",
+        "assetName": "Teams External Collaboration Administrator",
+        "assetDefinition": "Manage external collaboration policies and settings for Teams, including configuring external domains and controlling which groups and users can interact with the organization.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#teams-external-collaboration-administrator",
+        "providesFullAccessTo": "Microsoft Teams external access (federation) policies. Note: can open Teams communication to arbitrary external domains, enabling external phishing and data exfiltration through federated chat."
+    },
+    {
+        "tier": "1",
         "id": "1076ac91-f3d9-41a7-a339-dcdf5f480acc",
         "assetName": "Teams Reader",
         "assetDefinition": "Read everything in the Teams admin center, but not update anything.",
@@ -676,6 +776,14 @@
         "assetDefinition": "Manage voice and telephony features and troubleshoot communication issues within the Microsoft Teams service.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#teams-telephony-administrator",
         "providesFullAccessTo": "Skype for Business Online, Microsoft Teams workload related to voice and telephony, Teams Call Quality Dashboard (CQD) (read only)."
+    },
+    {
+        "tier": "1",
+        "id": "b8e31d83-1534-480f-9b10-0338ded51b7e",
+        "assetName": "Tenant Governance Relationship Administrator",
+        "assetDefinition": "Can initiate governance relationships and terminate them.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#tenant-governance-relationship-administrator",
+        "providesFullAccessTo": "Tenant Governance relationships, requests and policy templates, except accepting requests.  Note: cannot invite a governing tenant or accept its requests, so it cannot grant another tenant administrative access to its own tenant. It can terminate governance relationships (availability impact on cross-tenant delegated administration)."
     },
     {
         "tier": "1",
@@ -700,6 +808,13 @@
         "assetDefinition": "Can create and manage all aspects of Windows Update deployments through the Windows Update for Business deployment service.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#windows-update-deployment-administrator",
         "providesFullAccessTo": "Windows Update deployments."
+    },
+    {
+        "tier": "2",
+        "id": "adb2368d-a9be-41b5-8667-d96778e081b0",
+        "assetName": "Agent ID Developer",
+        "assetDefinition": "Create an agent blueprint and its service principal in a tenant. User will be added as an owner of the agent blueprint and its service principal.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#agent-id-developer"
     },
     {
         "tier": "2",
@@ -798,6 +913,20 @@
         "assetName": "Edge Administrator",
         "assetDefinition": "Manage all aspects of Microsoft Edge.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#edge-administrator"
+    },
+    {
+        "tier": "2",
+        "id": "f42252d9-5400-4d7b-b9ef-cc582dbb8577",
+        "assetName": "Entra Backup Reader",
+        "assetDefinition": "Read all aspects of Microsoft Entra Backup, such as list all preview jobs, recovery jobs, backup snapshots, and create preview jobs.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#entra-backup-reader"
+    },
+    {
+        "tier": "2",
+        "id": "d35481f7-cda1-4fa2-8344-5a21f7f3724d",
+        "assetName": "Entra Customer Lockbox Approver",
+        "assetDefinition": "Can approve customer lockbox requests for accessing customer data in Entra ID.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#entra-customer-lockbox-approver"
     },
     {
         "tier": "2",
@@ -966,6 +1095,20 @@
         "assetName": "Tenant Creator",
         "assetDefinition": "Create new Microsoft Entra or Azure AD B2C tenants.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#tenant-creator"
+    },
+    {
+        "tier": "2",
+        "id": "e0a4caa6-fe82-443f-b92f-d87341d17b2e",
+        "assetName": "Tenant Governance Reader",
+        "assetDefinition": "Can read all tenant governance data.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#tenant-governance-reader"
+    },
+    {
+        "tier": "2",
+        "id": "124577f8-48ed-456a-839f-13b419002e33",
+        "assetName": "Tenant Governance Relationship Reader",
+        "assetDefinition": "Can read tenant governance relationships and relevant objects.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#tenant-governance-relationship-reader"
     },
     {
         "tier": "2",
