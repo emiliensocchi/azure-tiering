@@ -1,0 +1,27 @@
+name: Validate JSON files
+
+on:
+  workflow_dispatch: {}
+  push:
+    paths:
+      - '**.json'
+      - '.github/scripts/validate_json.py'
+      - '.github/workflows/validate-json.yml'
+  pull_request:
+    paths:
+      - '**.json'
+      - '.github/scripts/validate_json.py'
+      - '.github/workflows/validate-json.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate_json:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@1fb4a623cfbc661771f7005e00e2cf74acf32037   # v4.2.2
+
+    - name: Validate JSON syntax and structure
+      run: python3 .github/scripts/validate_json.py

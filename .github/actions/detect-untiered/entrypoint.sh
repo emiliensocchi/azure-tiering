@@ -11,6 +11,9 @@ script_dir='./.github/actions/detect-untiered/scripts'
 pip3 install -r "${script_dir}/requirements.txt" --break-system-packages
 python3 "${script_dir}/azTierWatcher.py"
 
+echo "Validating JSON files before committing"
+python3 ./.github/scripts/validate_json.py
+
 ## Stage 1 ##############################################################
 
 echo "Committing changes"

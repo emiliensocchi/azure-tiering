@@ -367,7 +367,7 @@ if __name__ == "__main__":
             added_items.append(enriched_entra_role)
 
         for removed_role_id in removed_role_ids:
-            entra_role_list = [role for role in current_builtin_entra_roles if role['id'] == added_role_id]
+            entra_role_list = [role for role in tiered_builtin_entra_roles if role['id'] == removed_role_id]
 
             if not len(entra_role_list) == 1:
                 print ('FATAL ERROR - Something is wrong with the removal of Entra roles.')
