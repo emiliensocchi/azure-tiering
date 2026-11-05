@@ -34,5 +34,8 @@
             "tier_1": "Permissions with write access to MS Graph scopes or read access to sensitive scopes (e.g. email content), but without a known path to Global Admin.",
             "tier_2": "Permissions with read access to MS Graph scopes and little to no security implications."
         }
+    },
+    "property_definitions": {
+        "sensitiveDataAccess": "Set on Tier-1 Entra roles and MS Graph application permissions. True when the asset can read or write content created by users or the organization (mail, files, chats and channel messages, calendars, contacts, notes, meeting recordings and transcripts, AI interactions, eDiscovery content), audit, sign-in and activity logs (per-event records, not aggregated usage reports), or secrets usable as-is (BitLocker recovery keys, LAPS and device local credentials, trust framework keys). Settings, configuration, aggregated reports and directory metadata do not count."
     }
 }
