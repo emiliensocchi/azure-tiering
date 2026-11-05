@@ -27,6 +27,8 @@ GUID_REGEX = re.compile(r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a
 BASE_FIELDS = ('tier', 'id', 'assetName', 'assetDefinition', 'documentationUri')
 PATH_FIELDS = ('pathType', 'shortestPath', 'example')
 SCENARIO_FIELDS = ('shortestPath', 'example')
+# Boolean fields, validated separately from the string fields
+SENSITIVE_DATA_FIELD = 'sensitiveDataAccess'
 
 # For each category, maps a tier to the allowed sets of extra fields (in addition to BASE_FIELDS)
 TIERED_FILES = {
@@ -44,7 +46,7 @@ TIERED_FILES = {
         'path': 'Entra roles/tiered-entra-roles.json',
         'tier_fields': {
             '0': [PATH_FIELDS],
-            '1': [('providesFullAccessTo',)],
+            '1': [('providesFullAccessTo', SENSITIVE_DATA_FIELD)],
             '2': [()],
         },
         'path_types': ('Direct', 'Indirect'),
@@ -53,7 +55,7 @@ TIERED_FILES = {
         'path': 'Microsoft Graph application permissions/tiered-msgraph-app-permissions.json',
         'tier_fields': {
             '0': [PATH_FIELDS],
-            '1': [()],
+            '1': [(SENSITIVE_DATA_FIELD,)],
             '2': [()],
         },
         'path_types': ('Direct', 'Indirect', 'n/a'),
@@ -219,7 +221,10 @@ def validate_tiered_file(category, content, defined_tiers, errors):
                 expected = ' or '.join(str(sorted(variant)) for variant in allowed_variants)
                 errors.append(f"{location}: tier {tier} expects extra fields {expected}, found {sorted(extra_fields)}")
             for field in extra_fields:
-                if not is_non_empty_string(asset[field]):
+                if field == SENSITIVE_DATA_FIELD:
+                    if not isinstance(asset[field], bool):
+                        errors.append(f"{location}: field '{field}' must be a boolean")
+                elif not is_non_empty_string(asset[field]):
                     errors.append(f"{location}: field '{field}' must be a non-empty string")
 
         if 'pathType' in asset and config['path_types'] and asset['pathType'] not in config['path_types']:
