@@ -45,7 +45,7 @@ The definition of a "tier" and its content is highly dependent on the business r
 | Color | Tier | Name | Definition |
 |---|---|---|---|
 | 🔴 | 0 | [Family of Global Admins](https://aztier.com/#entra-tier-0) | Roles with a risk of having a direct or indirect path to Global Admin and full tenant takeover. |
-| 🟠 | 1 | [Family of M365 and restricted Entra Admins](https://aztier.com/#entra-tier-1) | Roles with full access to individual Microsoft 365 services, limited administrative access to Entra ID, or global read access across services, but <u>without</u> a known path to Global Admin. |
+| 🟠 | 1 | [Family of M365 and restricted Entra Admins](https://aztier.com/#entra-tier-1) | Roles with full access to a Microsoft 365 service, limited admin access to Entra ID, or read access across services or to sensitive data (e.g. audit logs), but no known path to Global Admin. |
 | 🟢 | 2 | [Family of unprivileged administrators](https://aztier.com/#entra-tier-2) | Roles with little to no security implications. |
 
 ### 🤖 <u>[MS Graph application permissions](https://aztier.com/#msgraph)</u>
