@@ -26,7 +26,7 @@
         },
         "entra": {
             "tier_0": "Roles with a risk of having a direct or indirect path to Global Admin and full tenant takeover.",
-            "tier_1": "Roles with full access to individual Microsoft 365 services, limited administrative access to Entra ID, or global read access across services, but without a known path to Global Admin.",
+            "tier_1": "Roles with full access to a Microsoft 365 service, limited admin access to Entra ID, or read access across services or to sensitive data (e.g. audit logs), but no known path to Global Admin.",
             "tier_2": "Roles with little to no security implications."
         },
         "msgraph": {
@@ -36,6 +36,6 @@
         }
     },
     "property_definitions": {
-        "sensitiveDataAccess": "Set on Tier-1 Entra roles and MS Graph application permissions. True when the asset can read or write content created by users or the organization (mail, files, chats and channel messages, calendars, contacts, notes, meeting recordings and transcripts, AI interactions, eDiscovery content), audit, sign-in and activity logs (per-event records, not aggregated usage reports), or secrets usable as-is (BitLocker recovery keys, LAPS and device local credentials, trust framework keys). Settings, configuration, aggregated reports and directory metadata do not count."
+        "sensitiveDataAccess": "Set on Tier-1 Entra roles and MS Graph application permissions. True when the asset can read or write content created by users or the organization (mail, files, chats and channel messages, calendars, contacts, notes, meeting recordings and transcripts, AI interactions, eDiscovery content), audit, sign-in, activity and network traffic logs (per-event records and traffic metadata, not aggregated usage reports), indicators of compromise (IoCs such as threat intelligence indicators, observations and articles), or secrets usable as-is (BitLocker recovery keys, LAPS and device local credentials, trust framework keys). Settings, configuration, aggregated reports and directory metadata do not count."
     }
 }
