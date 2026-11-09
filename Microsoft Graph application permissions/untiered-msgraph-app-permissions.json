@@ -1,18 +1,1 @@
-[
-    {
-        "detectedOn": "2026-11-09",
-        "apiEvent": "added",
-        "id": "edca3046-3375-4d07-81a2-18dffcff6bc7",
-        "assetName": "RoleManagement-Authorization.Read.All",
-        "assetDefinition": "Read unified role definitions and multi-scope role assignments",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagement-authorizationreadall"
-    },
-    {
-        "detectedOn": "2026-11-09",
-        "apiEvent": "added",
-        "id": "7c4d6288-8d2f-40e0-82ce-efa72265e9fb",
-        "assetName": "RoleManagement-Authorization.ReadWrite.All",
-        "assetDefinition": "Manage unified roles and multi-scope role assignments",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagement-authorizationreadwriteall"
-    }
-]
+[]

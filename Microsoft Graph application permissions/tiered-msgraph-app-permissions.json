@@ -361,6 +361,16 @@
     },
     {
         "tier": "0",
+        "id": "7c4d6288-8d2f-40e0-82ce-efa72265e9fb",
+        "assetName": "RoleManagement-Authorization.ReadWrite.All",
+        "assetDefinition": "Allows the app to create, read, update, and delete unified role definitions; create, read, and delete multi-scope role assignments; and create, read, update, and delete their resource scopes, without a signed-in user.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagement-authorizationreadwriteall",
+        "pathType": "Indirect",
+        "shortestPath": "Can create unified role definitions and role assignments, and assign a privileged role to a controlled principal: either a built-in or custom Entra role (e.g. with application credential update), or an Intune role, to escalate to Global Admin.",
+        "example": "TA creates a custom Entra role with microsoft.directory/applications/credentials/update, assigns it to the compromised SP, adds a secret to an application whose SP holds RoleManagement.ReadWrite.Directory, and follows the same path as that permission to escalate to Global Admin."
+    },
+    {
+        "tier": "0",
         "id": "9e3f62cf-ca93-4989-b6ce-bf83c28f9fe8",
         "assetName": "RoleManagement.ReadWrite.Directory",
         "assetDefinition": "Allows the app to read and manage the role-based access control (RBAC) settings for your company's directory, without a signed-in user. This includes instantiating directory roles and managing directory role membership, and reading directory role templates, directory roles and memberships.",
@@ -2757,6 +2767,14 @@
         "assetName": "RoleEligibilitySchedule.Remove.Directory",
         "assetDefinition": "Delete all eligible privileged role-based access control (RBAC) assignments of your company's directory, without a signed-in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#roleeligibilityscheduleremovedirectory",
+        "sensitiveDataAccess": false
+    },
+    {
+        "tier": "1",
+        "id": "edca3046-3375-4d07-81a2-18dffcff6bc7",
+        "assetName": "RoleManagement-Authorization.Read.All",
+        "assetDefinition": "Allows the app to read unified role definitions, multi-scope role assignments, and their resource scopes, without a signed-in user.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#rolemanagement-authorizationreadall",
         "sensitiveDataAccess": false
     },
     {
