@@ -556,6 +556,15 @@
     },
     {
         "tier": "1",
+        "id": "843318fb-79a6-4168-9e6f-aa9a07481cc4",
+        "assetName": "Global Secure Access Log Reader",
+        "assetDefinition": "Provides designated security personnel with read-only access to network traffic logs in Microsoft Entra Internet Access and Microsoft Entra Private Access for detailed analysis.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#global-secure-access-log-reader",
+        "providesFullAccessTo": "Global Secure Access network traffic logs (read-only access).",
+        "sensitiveDataAccess": true
+    },
+    {
+        "tier": "1",
         "id": "95e79109-95c0-4d8e-aee3-d01accf2d47b",
         "assetName": "Guest Inviter",
         "assetDefinition": "Can invite guest users independent of the 'members can invite guests' setting.",
@@ -999,13 +1008,6 @@
         "assetName": "External ID User Flow Attribute Administrator",
         "assetDefinition": "Can create and manage the attribute schema available to all user flows.",
         "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-attribute-administrator"
-    },
-    {
-        "tier": "2",
-        "id": "843318fb-79a6-4168-9e6f-aa9a07481cc4",
-        "assetName": "Global Secure Access Log Reader",
-        "assetDefinition": "Provides designated security personnel with read-only access to network traffic logs in Microsoft Entra Internet Access and Microsoft Entra Private Access for detailed analysis.",
-        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#global-secure-access-log-reader"
     },
     {
         "tier": "2",
