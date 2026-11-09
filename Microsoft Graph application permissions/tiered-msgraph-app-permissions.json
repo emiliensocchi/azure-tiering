@@ -21,26 +21,6 @@
     },
     {
         "tier": "0",
-        "id": "ef566853-42d6-45a5-bed9-5ccb82c98b4f",
-        "assetName": "AgentCard.ReadWrite.All",
-        "assetDefinition": "Allows the app to create, read, update, and delete all agent cards and manage their skills in your organization's Agent Registry without a signed-in user.",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentcardreadwriteall",
-        "pathType": "Indirect",
-        "shortestPath": "Can rewrite the agent cards of the Agent Registry, including the endpoint and authentication configuration that clients use to reach an agent. Redirecting a trusted agent to attacker infrastructure may capture tokens from privileged users or agents that use it.",
-        "example": "TA rewrites the agent card of a widely used agent to point its endpoint and OAuth configuration to an attacker-controlled host, harvests the tokens of a privileged user or agent identity that calls it, and uses them to escalate to Global Admin."
-    },
-    {
-        "tier": "0",
-        "id": "dcf7150a-88d4-4fe6-9be1-c2744c455397",
-        "assetName": "AgentIdentity.ReadWrite.All",
-        "assetDefinition": "Allows the client to read, update, create, and delete agent identities without a signed-in user.",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityreadwriteall",
-        "pathType": "Indirect",
-        "shortestPath": "Can add credentials to, or become owner of, any agent identity with privileged application permissions granted for MS Graph, and impersonate it to escalate to Global Admin.",
-        "example": "TA identifies an agent identity (SP) with the UserAuthMethod-TAP.ReadWrite.All application permission (permissions such as RoleManagement.ReadWrite.Directory are blocked for agents). TA adds a new credential to the agent identity (or adds the compromised SP as owner and manages its credentials), impersonates it and follows the same path as that permission to escalate to Global Admin."
-    },
-    {
-        "tier": "0",
         "id": "0510736e-bdfb-4b37-9a1f-89b4a074763a",
         "assetName": "AgentIdentityBlueprint.AddRemoveCreds.All",
         "assetDefinition": "Allows updating agent identity blueprint credentials without a signed-in user.",
@@ -61,16 +41,6 @@
     },
     {
         "tier": "0",
-        "id": "3bc933bc-8b4d-4cb6-ac49-b73774299250",
-        "assetName": "AgentIdentityBlueprintPrincipal.ReadWrite.All",
-        "assetDefinition": "Allows the app to read, update, create, and delete agent identity blueprint principals without a signed-in user.",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityblueprintprincipalreadwriteall",
-        "pathType": "Indirect",
-        "shortestPath": "Can update any agent identity blueprint principal with privileged application permissions granted for MS Graph, potentially adding a credential to it and impersonating it to escalate to Global Admin.",
-        "example": "TA identifies an agent identity blueprint principal (SP) with the UserAuthMethod-TAP.ReadWrite.All application permission (permissions such as RoleManagement.ReadWrite.Directory are blocked for agents). TA adds a new credential to the blueprint principal, impersonates it and follows the same path as that permission to escalate to Global Admin."
-    },
-    {
-        "tier": "0",
         "id": "b782c9ad-6f2b-4894-a21b-72bf22417f0a",
         "assetName": "AgentIdUser.ReadWrite.All",
         "assetDefinition": "Allows the app to create agent users, read and update agent ID user profiles and read basic company properties, delete and restore agent users without a signed in user.",
@@ -88,36 +58,6 @@
         "pathType": "Indirect",
         "shortestPath": "Can create or edit sensitive properties (e.g. Employee ID, Department) of an agent user parented by one of its own agent identities, to make it a member of a dynamic group with assigned privileged Azure permissions, then impersonate the agent user and leverage Azure resources to escalate to Global Admin.",
         "example": "TA identifies a dynamic group with a membership rule based on a user property (e.g. department) and with assigned Contributor access to a subscription. TA creates an agent user for one of the agent identities of the compromised blueprint and sets the appropriate property, so that the agent user becomes part of the dynamic group. TA impersonates the agent user through its parent agent identity and, with the new Azure permissions, identifies a compute resource with an assigned MI granted Application.ReadWrite.All or similar, following the same path as that permission to escalate to Global Admin."
-    },
-    {
-        "tier": "0",
-        "id": "07abdd95-78dc-4353-bd32-09f880ea43d0",
-        "assetName": "AgentInstance.ReadWrite.All",
-        "assetDefinition": "Allows the app to create, read, update, and delete all agent instances in your organization's Agent Registry without a signed-in user.",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentinstancereadwriteall",
-        "pathType": "Indirect",
-        "shortestPath": "Can rewrite the endpoint URL of any agent instance in the Agent Registry, or register look-alike instances bound to an existing agent identity. Redirecting a privileged agent to attacker infrastructure may capture the tokens that privileged users or agents send to it, and these tokens can be replayed to the agent to make it perform privileged actions.",
-        "example": "TA changes the URL of the agent instance of a privileged identity-management agent to an attacker-controlled host. TA captures the bearer token that a Global Admin sends when calling the agent, replays it to the legitimate agent, and makes the agent assign the Global Admin role to a TA-controlled principal."
-    },
-    {
-        "tier": "0",
-        "id": "782ab1bf-24f1-4c27-8bbc-2006d42792a6",
-        "assetName": "AgentInstance.ReadWrite.ManagedBy",
-        "assetDefinition": "Allows the app to create, read, update, and delete agent instances that designate the calling app as their manager in your organization's Agent Registry without a signed-in user.",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentinstancereadwritemanagedby",
-        "pathType": "Indirect",
-        "shortestPath": "TA can register a self-managed agent instance that references the agent identity of a privileged agent but points to an attacker-controlled endpoint, or redirect the endpoint of a privileged agent the app already manages. If privileged callers resolve the agent through the registry, they send their bearer tokens for that agent to TA, who can replay them to the legitimate agent to make it perform privileged directory actions.",
-        "example": "TA registers an agent instance managed by the compromised app with the agentIdentityId of a privileged identity-management agent and an attacker-controlled URL. A Global Admin's client resolves this instance and sends its A2A token to TA, who replays the token to the legitimate agent to make it assign the Global Admin role to an account controlled by TA."
-    },
-    {
-        "tier": "0",
-        "id": "39fb8c64-7bd3-4107-8515-14d6e55ddda4",
-        "assetName": "AgentRegistration.ReadWrite.All",
-        "assetDefinition": "Allows the app to read and write agent registration information without a signed-in user.",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentregistrationreadwriteall",
-        "pathType": "Indirect",
-        "shortestPath": "Can rewrite the agent card (endpoint) and A2A authorization of any agent registration, or register look-alike agents bound to an existing agent identity. Redirecting a privileged agent to attacker infrastructure may capture the tokens or credentials that privileged users, Copilot or agents send to it. These can be replayed to the agent to make it perform privileged actions.",
-        "example": "TA changes the agent card endpoint of the registration of a privileged identity-management agent to an attacker-controlled host. TA captures the bearer token that a Global Admin sends when calling the agent, replays it to the legitimate agent, and makes the agent assign the Global Admin role to a TA-controlled principal."
     },
     {
         "tier": "0",
@@ -171,16 +111,6 @@
     },
     {
         "tier": "0",
-        "id": "ed31732f-9495-47ed-ba3b-4ed0948c1c64",
-        "assetName": "CopilotPackages.ReadWrite.All",
-        "assetDefinition": "Allows the app to read and update packages information without a signed-in user.",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#copilotpackagesreadwriteall",
-        "pathType": "Indirect",
-        "shortestPath": "Can reassign ownership of agent packages to an arbitrary user, giving control over agents that may run as agent identities with privileged application permissions granted for Microsoft Graph, which can be abused to become Global Admin.",
-        "example": "TA identifies an agent package whose agent identity holds the UserAuthMethod-TAP.ReadWrite.All application permission (permissions such as RoleManagement.ReadWrite.Directory are blocked for agents). TA reassigns the package ownership to a user under their control, modifies the agent to issue a Temporary Access Pass for a break-glass account, signs in with the TAP and escalates to Global Admin."
-    },
-    {
-        "tier": "0",
         "id": "cc13eba4-8cd8-44c6-b4d4-f93237adce58",
         "assetName": "DelegatedAdminRelationship.ReadWrite.All",
         "assetDefinition": "Allows the app to manage (create-update-terminate) Delegated Admin relationships with customers and role assignments to security groups for active Delegated Admin relationships without a signed-in user.",
@@ -198,16 +128,6 @@
         "pathType": "Indirect",
         "shortestPath": "Can run arbitrary commands on the InTune-managed endpoint of a Global Administrator and steal their tokens to impersonate them.",
         "example": "TA identifies an InTune-managed endpoint belonging to a Global Administrator, runs commands remotely to extract PRT, refresh and/or access tokens issued for MS Graph from the endpoint, and uses those to escalate to Global Admin."
-    },
-    {
-        "tier": "0",
-        "id": "68356fd1-028d-4ce3-b724-241dec11127a",
-        "assetName": "DeviceManagementDeploymentPlans.ReadWrite.All",
-        "assetDefinition": "Allows the app to read and write properties of Microsoft Intune-managed deployment plans and their ring configurations, without a signed-in user.",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#devicemanagementdeploymentplansreadwriteall",
-        "pathType": "Indirect",
-        "shortestPath": "Can create deployment rings that assign existing InTune Win32 apps or policies to the InTune-managed endpoint of a Global Administrator, which can lead to running code on that endpoint and stealing their tokens to impersonate them.",
-        "example": "TA identifies an existing Win32 app whose installation pulls content from a location under their control, creates a deployment ring targeting a group containing the InTune-managed endpoint of a Global Administrator, deploys the app to it, and the same path as DeviceManagementConfiguration.ReadWrite.All can be followed to escalate to Global Admin."
     },
     {
         "tier": "0",
@@ -601,6 +521,16 @@
     },
     {
         "tier": "0",
+        "id": "0400e371-7db1-4338-a269-96069eb65227",
+        "assetName": "UserAuthMethod-Passkey.ReadWrite.All",
+        "assetDefinition": "Allows the application to read and write passkey authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-passkeyreadwriteall",
+        "pathType": "Indirect",
+        "shortestPath": "Can list and delete the passkeys of all emergency access accounts and admins in a tenant following Microsoft's recommendation of passkey (FIDO2) for break-glass accounts and enforcing phishing-resistant MFA for admins (making the tenant unavailable), and ask for a ransom to restore access. Alternatively, with compromised credentials of a Global Admin, can delete the account's passkeys and register attacker-controlled methods at the registration interrupt. Note: this permission is Global-Admin-like, as it affects the availability of the tenant in the same way as a Global Admin.",
+        "example": "TA lists and deletes the FIDO2 security keys of all passwordless break-glass accounts and the passkeys of all Global Admins, preventing them from signing in or registering new methods, and asks for a ransom to restore access to one emergency account."
+    },
+    {
+        "tier": "0",
         "id": "6e85d483-7092-4375-babe-0a94a8213a58",
         "assetName": "UserAuthMethod-Phone.ReadWrite.All",
         "assetDefinition": "Allows the application to read and write phone methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
@@ -635,6 +565,14 @@
         "assetName": "AdministrativeUnit.ReadWriteBasic.All",
         "assetDefinition": "Read and update basic properties of all administrative units",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#administrativeunitreadwritebasicall",
+        "sensitiveDataAccess": false
+    },
+    {
+        "tier": "1",
+        "id": "ef566853-42d6-45a5-bed9-5ccb82c98b4f",
+        "assetName": "AgentCard.ReadWrite.All",
+        "assetDefinition": "Allows the app to create, read, update, and delete all agent cards and manage their skills in your organization's Agent Registry without a signed-in user.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentcardreadwriteall",
         "sensitiveDataAccess": false
     },
     {
@@ -719,6 +657,14 @@
     },
     {
         "tier": "1",
+        "id": "dcf7150a-88d4-4fe6-9be1-c2744c455397",
+        "assetName": "AgentIdentity.ReadWrite.All",
+        "assetDefinition": "Allows the client to read, update, create, and delete agent identities without a signed-in user.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityreadwriteall",
+        "sensitiveDataAccess": false
+    },
+    {
+        "tier": "1",
         "id": "ea4b2453-ad2d-4d94-9155-10d5d9493ce9",
         "assetName": "AgentIdentityBlueprint.Create",
         "assetDefinition": "Allows creating new agent identity blueprints without a signed-in user.",
@@ -771,6 +717,38 @@
         "assetName": "AgentIdentityBlueprintPrincipal.EnableDisable.All",
         "assetDefinition": "Allows enabling or disabling agent identity blueprint principals without a signed-in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityblueprintprincipalenabledisableall",
+        "sensitiveDataAccess": false
+    },
+    {
+        "tier": "1",
+        "id": "3bc933bc-8b4d-4cb6-ac49-b73774299250",
+        "assetName": "AgentIdentityBlueprintPrincipal.ReadWrite.All",
+        "assetDefinition": "Allows the app to read, update, create, and delete agent identity blueprint principals without a signed-in user.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentidentityblueprintprincipalreadwriteall",
+        "sensitiveDataAccess": false
+    },
+    {
+        "tier": "1",
+        "id": "07abdd95-78dc-4353-bd32-09f880ea43d0",
+        "assetName": "AgentInstance.ReadWrite.All",
+        "assetDefinition": "Allows the app to create, read, update, and delete all agent instances in your organization's Agent Registry without a signed-in user.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentinstancereadwriteall",
+        "sensitiveDataAccess": false
+    },
+    {
+        "tier": "1",
+        "id": "782ab1bf-24f1-4c27-8bbc-2006d42792a6",
+        "assetName": "AgentInstance.ReadWrite.ManagedBy",
+        "assetDefinition": "Allows the app to create, read, update, and delete agent instances that designate the calling app as their manager in your organization's Agent Registry without a signed-in user.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentinstancereadwritemanagedby",
+        "sensitiveDataAccess": false
+    },
+    {
+        "tier": "1",
+        "id": "39fb8c64-7bd3-4107-8515-14d6e55ddda4",
+        "assetName": "AgentRegistration.ReadWrite.All",
+        "assetDefinition": "Allows the app to read and write agent registration information without a signed-in user.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#agentregistrationreadwriteall",
         "sensitiveDataAccess": false
     },
     {
@@ -1303,6 +1281,14 @@
     },
     {
         "tier": "1",
+        "id": "ed31732f-9495-47ed-ba3b-4ed0948c1c64",
+        "assetName": "CopilotPackages.ReadWrite.All",
+        "assetDefinition": "Allows the app to read and update packages information without a signed-in user.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#copilotpackagesreadwriteall",
+        "sensitiveDataAccess": false
+    },
+    {
+        "tier": "1",
         "id": "cc147c17-b8e8-4d3f-9f94-aa9e279a079a",
         "assetName": "CopilotPolicySettings.ReadWrite",
         "assetDefinition": "Allows the app to read and write Copilot policy settings for the organization, without a signed-in user.",
@@ -1451,6 +1437,14 @@
         "assetName": "DeviceManagementCloudCA.ReadWrite.All",
         "assetDefinition": "Allows the app to read and write certification authority information without a signed-in user.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#devicemanagementcloudcareadwriteall",
+        "sensitiveDataAccess": false
+    },
+    {
+        "tier": "1",
+        "id": "68356fd1-028d-4ce3-b724-241dec11127a",
+        "assetName": "DeviceManagementDeploymentPlans.ReadWrite.All",
+        "assetDefinition": "Allows the app to read and write properties of Microsoft Intune-managed deployment plans and their ring configurations, without a signed-in user.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#devicemanagementdeploymentplansreadwriteall",
         "sensitiveDataAccess": false
     },
     {
@@ -2951,6 +2945,14 @@
     },
     {
         "tier": "1",
+        "id": "c5bc96f5-b4a1-4cfc-8189-d5f0d772278f",
+        "assetName": "SecurityIdentitiesAccount.Read.All",
+        "assetDefinition": "Read all identity security available identity accounts",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#securityidentitiesaccountreadall",
+        "sensitiveDataAccess": true
+    },
+    {
+        "tier": "1",
         "id": "4f1f0deb-08d1-4ffb-8cca-21dfc362b7c0",
         "assetName": "SecurityIdentitiesAutoConfig.ReadWrite.All",
         "assetDefinition": "Read and write sensors window auditing configuration",
@@ -3535,6 +3537,14 @@
     },
     {
         "tier": "1",
+        "id": "e0b77adb-e790-44a3-b0a0-257d06303687",
+        "assetName": "ThreatIntelligence.Read.All",
+        "assetDefinition": "Allows the app to read threat intelligence information, such as indicators, observations, and and articles, without a signed in user.",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#threatintelligencereadall",
+        "sensitiveDataAccess": true
+    },
+    {
+        "tier": "1",
         "id": "86632667-cd15-4845-ad89-48a88e8412e1",
         "assetName": "ThreatSubmission.Read.All",
         "assetDefinition": "Allows the app to read your organization's threat submissions and to view threat submission policies without a signed-in user.",
@@ -3699,14 +3709,6 @@
         "assetName": "UserAuthMethod-MicrosoftAuthApp.ReadWrite.All",
         "assetDefinition": "Read and write all users' Microsoft Authentication methods",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-microsoftauthappreadwriteall",
-        "sensitiveDataAccess": false
-    },
-    {
-        "tier": "1",
-        "id": "0400e371-7db1-4338-a269-96069eb65227",
-        "assetName": "UserAuthMethod-Passkey.ReadWrite.All",
-        "assetDefinition": "Allows the application to read and write passkey authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#userauthmethod-passkeyreadwriteall",
         "sensitiveDataAccess": false
     },
     {
@@ -5478,13 +5480,6 @@
     },
     {
         "tier": "2",
-        "id": "c5bc96f5-b4a1-4cfc-8189-d5f0d772278f",
-        "assetName": "SecurityIdentitiesAccount.Read.All",
-        "assetDefinition": "Read all identity security available identity accounts",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#securityidentitiesaccountreadall"
-    },
-    {
-        "tier": "2",
         "id": "58971758-9844-4fe4-9fba-7e4ce7a659bf",
         "assetName": "SecurityIdentitiesAutoConfig.Read.All",
         "assetDefinition": "Read sensors window auditing configuration",
@@ -5867,13 +5862,6 @@
         "assetName": "TermStore.Read.All",
         "assetDefinition": "Allows the app to read all term store data, without a signed-in user. This includes all sets, groups and terms in the term store.",
         "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#termstorereadall"
-    },
-    {
-        "tier": "2",
-        "id": "e0b77adb-e790-44a3-b0a0-257d06303687",
-        "assetName": "ThreatIntelligence.Read.All",
-        "assetDefinition": "Allows the app to read threat intelligence information, such as indicators, observations, and and articles, without a signed in user.",
-        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#threatintelligencereadall"
     },
     {
         "tier": "2",
