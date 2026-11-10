@@ -19,6 +19,15 @@
     },
     {
         "tier": "0",
+        "id": "64702f94-c441-49e6-a78b-ef80e0188fee",
+        "assetName": "Azure AI Developer",
+        "assetDefinition": "Can perform all actions within an Azure Machine Learning workspace besides managing the workspace itself. For Foundry project access, use the Foundry User or Foundry Owner roles instead.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#azure-ai-developer",
+        "shortestPath": "Can submit jobs running arbitrary code on the Azure Machine Learning computes within reach that are assigned Managed Identities with permissions to other scopes, and escalate privileges. Can also steal the secrets of workspace datastores and connections (e.g. Storage Account keys, SAS tokens, client secrets) to move laterally to other resources.",
+        "example": "TA is Azure AI Developer on a subscription containing an Azure Machine Learning workspace. One of its compute clusters is assigned a user-assigned Managed Identity (MI) with Owner access to the subscription. TA submits a command job on the cluster that requests an access token for the MI, and uses it to escalate privileges and take over all resources within the subscription."
+    },
+    {
+        "tier": "0",
         "id": "92b92042-07d9-4307-87f7-36a593fc5850",
         "assetName": "Azure File Sync Administrator",
         "assetDefinition": "Provides full access to manage all Azure File Sync (Storage Sync Service) resources, including the ability to assign roles in Azure RBAC.",
@@ -34,6 +43,15 @@
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#azure-ai-administrator",
         "shortestPath": "Same as Contributor, but limited to resources of type: AI Search, Azure AI services, Data Factory, Key Vault. Note: has also full access to the control plane of Azure Container Registry, Cosmos DB, Machine Learning, Storage Account.",
         "example": "Same as Contributor, but limited to resources of type: AI Search, Azure AI services, Data Factory, Key Vault. Note: has also full access to the control plane of: Azure Container Registry, Cosmos DB, Machine Learning, Storage Account."
+    },
+    {
+        "tier": "0",
+        "id": "434fb43a-c01c-447e-9f67-c3ad923cfaba",
+        "assetName": "Azure Kubernetes Fleet Manager RBAC Admin",
+        "assetDefinition": "Grants read/write access to Kubernetes resources within a namespace in the fleet-managed hub cluster - provides write permissions on most objects within a a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#azure-kubernetes-fleet-manager-rbac-admin",
+        "shortestPath": "In the Azure Kubernetes Fleet Manager hub clusters within reach that are network accessible, can become admin in one or multiple namespaces and deploy workloads propagated to the member clusters, allowing privilege escalations similar to an Azure Kubernetes Service RBAC Admin.",
+        "example": "TA is Azure Kubernetes Fleet Manager RBAC Admin on a namespace of a hub cluster exposed on a non-restricted public endpoint, which is propagated to member Azure Kubernetes Service (AKS) clusters. TA deploys a privileged container in the namespace, which is propagated to the member clusters, and escapes to an AKS node. From there, a similar path to the Azure Kubernetes Service RBAC Admin can be followed. TA can also leverage the Kubernetes Secrets of the namespace to attempt pivoting to the Azure infrastructure."
     },
     {
         "tier": "0",
@@ -127,12 +145,39 @@
     },
     {
         "tier": "0",
+        "id": "a97b65f3-24c7-4388-baec-2e87135dc908",
+        "assetName": "Cognitive Services User",
+        "assetDefinition": "Lets you read and list keys of Cognitive Services.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#cognitive-services-user",
+        "shortestPath": "Same as Foundry Project Manager.",
+        "example": "Same as Foundry Project Manager."
+    },
+    {
+        "tier": "0",
+        "id": "b9a307c4-5aa3-4b52-ba60-2b17c136cd7b",
+        "assetName": "Container Apps Jobs Operator",
+        "assetDefinition": "Read, start, and stop Container Apps jobs.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#container-apps-jobs-operator",
+        "shortestPath": "Same as Contributor, but limited to resources of type: Container Apps job.",
+        "example": "Same as Contributor, but limited to resources of type: Container Apps job."
+    },
+    {
+        "tier": "0",
         "id": "f3bd1b5c-91fa-40e7-afe7-0c11d331232c",
         "assetName": "Container Apps Operator",
         "assetDefinition": "Read, logstream and exec into Container Apps.",
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#container-apps-operator",
         "shortestPath": "Same as Contributor, but limited to resources of type: Container App.",
         "example": "Same as Contributor, but limited to resources of type: Container App."
+    },
+    {
+        "tier": "0",
+        "id": "fb382eab-e894-4461-af04-94435c366c3f",
+        "assetName": "Container Registry Tasks Contributor",
+        "assetDefinition": "Provides permissions to configure, read, list, trigger, or cancel Container Registry Tasks, Task Runs, Task Logs, Quick Runs, Quick Builds, and Task Agent Pools. Permissions granted for Tasks management can be used for full registry data plane permissions including reading/writing/deleting container images in registries. Permissions granted for Tasks management can also be used to run customer authored build directives and run scripts to build software artifacts.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#container-registry-tasks-contributor",
+        "shortestPath": "Can modify and run the Azure Container Registry (ACR) tasks within reach that are assigned Managed Identities with permissions to other scopes, and escalate privileges. Can also follow the same path as AcrPush.",
+        "example": "TA is Container Registry Tasks Contributor on a subscription containing an ACR task with a Managed Identity (MI) that has Contributor access to a production subscription. TA modifies the steps of the task to request an access token for the MI and run arbitrary commands, triggers the task, and escalates privileges to take over all resources within the production subscription."
     },
     {
         "tier": "0",
@@ -178,6 +223,24 @@
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#desktop-virtualization-virtual-machine-contributor",
         "shortestPath": "Same as Contributor, but limited to resources of type: Azure Virtual Desktop, Virtual Machine.",
         "example": "Same as Contributor, but limited to resources of type: Azure Virtual Desktop, Virtual Machine."
+    },
+    {
+        "tier": "0",
+        "id": "eadc314b-1a2d-4efa-be10-5d325db5065e",
+        "assetName": "Foundry Project Manager",
+        "assetDefinition": "Lets you perform developer actions and management actions on Microsoft Foundry Projects. Allows for making role assignments, but limited to Cognitive Service User role.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#foundry-project-manager",
+        "shortestPath": "In the Microsoft Foundry projects within reach that are network accessible, can create agents with a tool authenticating as the Managed Identity of the Foundry resource, to impersonate the identity and escalate privileges. Can also steal the secrets of project connections to move laterally to other resources.",
+        "example": "TA is Foundry Project Manager on a resource group containing a Foundry resource exposed on a non-restricted public endpoint. The Foundry resource is assigned a Managed Identity (MI) with Contributor access to a subscription. TA creates an agent with an OpenAPI tool using MI authentication for Azure Resource Manager and pointing to a TA-controlled server. TA runs the agent, captures the access token of the MI, and escalates privileges to take over all resources within the subscription."
+    },
+    {
+        "tier": "0",
+        "id": "53ca6127-db72-4b80-b1b0-d745d6d5456d",
+        "assetName": "Foundry User",
+        "assetDefinition": "Grants reader access to Foundry projects, reader access to Foundry accounts, and data actions for an Foundry project.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#foundry-user",
+        "shortestPath": "Same as Foundry Project Manager.",
+        "example": "Same as Foundry Project Manager."
     },
     {
         "tier": "0",
@@ -277,6 +340,15 @@
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator",
         "shortestPath": "Can assign the Contributor role to compromised principal and follow the same path.",
         "example": "Can assign the Contributor role to compromised principal and follow the same path."
+    },
+    {
+        "tier": "0",
+        "id": "7ca78c08-252a-4471-8644-bb5ff32d4ba0",
+        "assetName": "Search Service Contributor",
+        "assetDefinition": "Lets you manage Azure AI Search services, including retrieving admin and query API keys. An admin key provides full access to the service's data plane. A query key provides read-only access.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#search-service-contributor",
+        "shortestPath": "In the Azure AI Search services within reach that are network accessible, can create data sources, indexers and skillsets running with the Managed Identity of the services, to access the data of other resources with the permissions of that identity and escalate privileges.",
+        "example": "TA is Search Service Contributor on a subscription with an Azure AI Search service exposed on a non-restricted public endpoint. The service is assigned a Managed Identity (MI) with Storage Blob Data Reader access to a Storage Account in another subscription. TA retrieves the admin key of the service, creates a data source pointing to the Storage Account using the MI, and an indexer copying its content into a new index. TA queries the index to read data that is outside reach of the role."
     },
     {
         "tier": "0",
@@ -433,6 +505,15 @@
     },
     {
         "tier": "1",
+        "id": "3bc748fc-213d-45c1-8d91-9da5725539b9",
+        "assetName": "Container Registry Contributor and Data Access Configuration Administrator",
+        "assetDefinition": "Provides permissions to create, list, and update container registries and registry configuration properties. Provides permissions to configure data access such as admin user credentials, scope maps, and tokens, which can be used to read, write or delete repositories and images. Does not provide direct permissions to read, list, or write registry contents including repositories and images. Does not provide permissions to modify data plane content such as imports, Artifact Cache or Sync, and Transfer Pipelines. Does not provide permissions for managing Tasks.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#container-registry-contributor-and-data-access-configuration-administrator",
+        "shortestPath": "Can enable the admin user or create tokens in the Azure Container Registry (ACR) instances within reach, and modify their network rules to make them network accessible. This allows following the same path as AcrPush.",
+        "example": "TA is Container Registry Contributor and Data Access Configuration Administrator on a subscription with an ACR restricted to private networks. TA allows public network access on the ACR, enables its admin user and retrieves its credentials. TA can then follow the same path as AcrPush."
+    },
+    {
+        "tier": "1",
         "id": "8480c0f0-4509-4229-9339-7c10018cb8c4",
         "assetName": "Defender CSPM Storage Scanner Operator",
         "assetDefinition": "Lets you enable and configure Microsoft Defender CSPM's sensitive data discovery feature on your storage accounts. Includes an ABAC condition to limit role assignments.",
@@ -451,11 +532,20 @@
     },
     {
         "tier": "1",
+        "id": "0b6ca2e8-2cdc-4bd6-b896-aa3d8c21fc35",
+        "assetName": "Defender Sensitive Data Discovery",
+        "assetDefinition": "Grants permissions for Microsoft Defender for Cloud Sensitive Data Discovery plan features",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#defender-sensitive-data-discovery",
+        "shortestPath": "Can modify the network rules of the Storage Accounts within reach to make them network accessible, and access the content of their Blob and Files services, where some of them may contain sensitive data.",
+        "example": "TA is Defender Sensitive Data Discovery on a subscription with multiple Storage Accounts restricted to private networks. TA allows public network access on one of them, which contains cold-storage logs incorrectly sanitized for secrets, and TA finds connection strings to other Azure resources. TA can attempt to use them to move laterally to those resources."
+    },
+    {
+        "tier": "1",
         "id": "7efff54f-a5b4-42b5-a1c5-5411624893ce",
         "assetName": "Disk Snapshot Contributor",
         "assetDefinition": "Provides permission to backup vault to manage disk snapshots.",
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#disk-snapshot-contributor",
-        "shortestPath": "Can download all Azure Disk Snapshots within reach and read their content locally, where some of them may contain sensitive data. Can also access the content of all Storage Accounts within reach, where some of them may contain sensitive data.",
+        "shortestPath": "Can download all Azure Disk Snapshots within reach and read their content locally, where some of them may contain sensitive data. Can also access the content of all Storage Accounts within reach, where some of them may contain sensitive data. Note: if Function Apps store their code in one of the Storage Accounts within reach, can also replace that code to impersonate their Managed Identities and escalate privileges.",
         "example": "TA is Disk Snapshot Contributor on a subscription with multiple snapshots. For each snapshot, TA creates a SAS URI to export its content to an external location and review it for sensitive data. TA can also follow the same path as Storage Account Contributor."
     },
     {
@@ -493,6 +583,15 @@
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#eventgrid-data-sender",
         "shortestPath": "Same as EventGrid Contributor.",
         "example": "Same as EventGrid Contributor."
+    },
+    {
+        "tier": "1",
+        "id": "428e0ff0-5e57-4d9c-a221-2c70d0e0a443",
+        "assetName": "EventGrid EventSubscription Contributor",
+        "assetDefinition": "Lets you manage EventGrid event subscription operations.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#eventgrid-eventsubscription-contributor",
+        "shortestPath": "Can steal the webhook URLs and delivery secrets of the Event Grid subscriptions within reach (e.g. Function keys, Logic App SAS signatures, Automation webhook tokens), and redirect events to a TA-controlled endpoint, to move laterally to the resources and systems consuming those events.",
+        "example": "TA is EventGrid EventSubscription Contributor on a subscription where an Event Grid topic delivers events to a Logic App through a webhook. TA retrieves the full URL of the event subscription, including the SAS signature of the Logic App trigger. TA invokes the Logic App with crafted payloads to attempt pivoting to the systems it connects to. TA can also create a new event subscription forwarding all events to a TA-controlled endpoint, and search them for secrets managed insecurely."
     },
     {
         "tier": "1",
@@ -631,6 +730,15 @@
     },
     {
         "tier": "1",
+        "id": "c088a766-074b-43ba-90d4-1fb21feae531",
+        "assetName": "PostgreSQL Flexible Server Long Term Retention Backup Role",
+        "assetDefinition": "Role to allow backup vault to access PostgreSQL Flexible Server Resource APIs for Long Term Retention Backup.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#postgresql-flexible-server-long-term-retention-backup-role",
+        "shortestPath": "Can export the content of all PostgreSQL Flexible Servers within reach to a TA-controlled location, and steal secrets managed insecurely in their databases to move laterally to other resources.",
+        "example": "TA is PostgreSQL Flexible Server Long Term Retention Backup Role on a subscription with multiple PostgreSQL Flexible Servers. For each server, TA starts a long-term retention backup using a SAS URI pointing to a TA-controlled Storage Account. The databases contain application secrets stored insecurely, and TA finds connection strings to other Azure resources. TA can attempt to use them to move laterally to those resources."
+    },
+    {
+        "tier": "1",
         "id": "b12aa53e-6015-4669-85d0-8515ebb3ae7f",
         "assetName": "Private DNS Zone Contributor",
         "assetDefinition": "Lets you manage private DNS zone resources, but not the virtual networks they are linked to.",
@@ -676,6 +784,24 @@
     },
     {
         "tier": "1",
+        "id": "8ebe5a00-799e-43f5-93ac-243d3dce84a7",
+        "assetName": "Search Index Data Contributor",
+        "assetDefinition": "Grants full access to Azure AI Search index data.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#search-index-data-contributor",
+        "shortestPath": "Can access and modify the content of all indexes in the Azure AI Search services within reach that are network accessible, where some of them may contain sensitive data, and/or data that can be tampered with to attempt moving laterally to other consuming systems (e.g. RAG applications and AI agents).",
+        "example": "TA is Search Index Data Contributor on an Azure AI Search service exposed on a non-restricted public endpoint and used as the knowledge source of an internal AI assistant. TA uploads documents containing malicious instructions and phishing links to the index, which the assistant serves to users, and reads all indexed content, including documents restricted to other users."
+    },
+    {
+        "tier": "1",
+        "id": "1407120a-92aa-4202-b7e9-c0e197c71c8f",
+        "assetName": "Search Index Data Reader",
+        "assetDefinition": "Grants read access to Azure AI Search index data.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#search-index-data-reader",
+        "shortestPath": "Can access the content of all indexes in the Azure AI Search services within reach that are network accessible, where some of them may contain sensitive data.",
+        "example": "TA is Search Index Data Reader on an Azure AI Search service exposed on a non-restricted public endpoint. One of its indexes is populated from a Storage Account containing logs incorrectly sanitized for secrets, and TA finds connection strings to other Azure resources. TA can attempt to use them to move laterally to those resources."
+    },
+    {
+        "tier": "1",
         "id": "e5e2a7ff-d759-4cd2-bb51-3152d37e2eb1",
         "assetName": "Storage Account Backup Contributor",
         "assetDefinition": "Lets you perform backup and restore operations using Azure Backup on the storage account.",
@@ -689,7 +815,7 @@
         "assetName": "Storage Account Contributor",
         "assetDefinition": "Lets you manage storage accounts, including accessing storage account keys which provide full access to storage account data.",
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-account-contributor",
-        "shortestPath": "Can access the content of all Storage Accounts within reach, where some of them may contain sensitive data, and/or data that can be tampered with to attempt moving laterally to other consuming systems.",
+        "shortestPath": "Can access the content of all Storage Accounts within reach, where some of them may contain sensitive data, and/or data that can be tampered with to attempt moving laterally to other consuming systems. Note: if Function Apps store their code in one of the Storage Accounts within reach, can also replace that code to impersonate their Managed Identities and escalate privileges.",
         "example": "TA is Storage Account Contributor on a subscription with multiple Storage Accounts. One of them contains cold-storage logs incorrectly sanitized for secrets, and TA finds connection strings to other Azure resources. TA can attempt to use them to move laterally to those resources."
     },
     {
@@ -703,11 +829,20 @@
     },
     {
         "tier": "1",
+        "id": "4bad4d9e-2a13-4888-94bb-c8432f6f3040",
+        "assetName": "Storage Actions Blob Data Operator",
+        "assetDefinition": "Used by the Storage Actions - Storage Task to list & perform operations on the Storage Account blobs",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-actions-blob-data-operator",
+        "shortestPath": "Same as Storage Account Contributor, but constrained to the Blob service in the Storage Accounts within reach that are network accessible. Note: if Function Apps store their deployment package in the Blob service of one of the Storage Accounts within reach, can also replace that package to impersonate their Managed Identities and escalate privileges.",
+        "example": "Same as Storage Account Contributor, but constrained to the Blob service in the Storage Accounts within reach that are network accessible."
+    },
+    {
+        "tier": "1",
         "id": "ba92f5b4-2d11-453d-a403-e96b0029c9fe",
         "assetName": "Storage Blob Data Contributor",
         "assetDefinition": "Allows for read, write and delete access to Azure Storage blob containers and data",
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor",
-        "shortestPath": "Same as Storage Account Contributor, but constrained to the Blob service in the Storage Accounts within reach that are network accessible.",
+        "shortestPath": "Same as Storage Account Contributor, but constrained to the Blob service in the Storage Accounts within reach that are network accessible. Note: if Function Apps store their deployment package in the Blob service of one of the Storage Accounts within reach, can also replace that package to impersonate their Managed Identities and escalate privileges.",
         "example": "Same as Storage Account Contributor, but constrained to the Blob service in the Storage Accounts within reach that are network accessible."
     },
     {
@@ -716,7 +851,7 @@
         "assetName": "Storage Blob Data Owner",
         "assetDefinition": "Allows for full access to Azure Storage blob containers and data, including assigning POSIX access control.",
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-owner",
-        "shortestPath": "Same as Storage Account Contributor, but constrained to the Blob service in the Storage Accounts within reach that are network accessible.",
+        "shortestPath": "Same as Storage Account Contributor, but constrained to the Blob service in the Storage Accounts within reach that are network accessible. Note: if Function Apps store their deployment package in the Blob service of one of the Storage Accounts within reach, can also replace that package to impersonate their Managed Identities and escalate privileges.",
         "example": "Same as Storage Account Contributor, but constrained to the Blob service in the Storage Accounts within reach that are network accessible."
     },
     {
@@ -793,12 +928,48 @@
     },
     {
         "tier": "1",
+        "id": "8a0f0c08-91a1-4084-bc3d-661d67233fed",
+        "assetName": "Storage Queue Data Message Processor",
+        "assetDefinition": "Allows for peek, receive, and delete access to Azure Storage queue messages",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-queue-data-message-processor",
+        "shortestPath": "Same as Azure Event Hubs Data Receiver, but with resources of type: Azure Storage Queue.",
+        "example": "Same as Azure Event Hubs Data Receiver, but with resources of type: Azure Storage Queue."
+    },
+    {
+        "tier": "1",
+        "id": "c6a89b2d-59bc-44d0-9896-0f6e12d7b80a",
+        "assetName": "Storage Queue Data Message Sender",
+        "assetDefinition": "Allows for sending of Azure Storage queue messages",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-queue-data-message-sender",
+        "shortestPath": "Same as Azure Event Hubs Data Sender, but with resources of type: Azure Storage Queue.",
+        "example": "Same as Azure Event Hubs Data Sender, but with resources of type: Azure Storage Queue."
+    },
+    {
+        "tier": "1",
         "id": "0a9a7e1f-b9d0-4cc4-a60d-0319b160aaa3",
         "assetName": "Storage Table Data Contributor",
         "assetDefinition": "Allows for read, write and delete access to Azure Storage tables and entities",
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-table-data-contributor",
         "shortestPath": "Same as Storage Account Contributor, but constrained to the Table service in the Storage Accounts within reach that are network accessible.",
         "example": "Same as Storage Account Contributor, but constrained to the Table service in the Storage Accounts within reach that are network accessible."
+    },
+    {
+        "tier": "1",
+        "id": "d24ecba3-c1f4-40fa-a7bb-4588a071e8fd",
+        "assetName": "VM Scanner Operator",
+        "assetDefinition": "Role that provides access to disk snapshot for security analysis.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#vm-scanner-operator",
+        "shortestPath": "Can download all Azure Managed Disks within reach that are not attached to a running Virtual Machine and are network accessible, and read their content locally. Some of these disks may contain credentials (e.g. local account password hashes, SSH private keys, connection strings) that can be used to move laterally to other resources. Note: if a Virtual Machine using one of those disks is restarted and network accessible, the credentials found on its disk can be used to sign in to it, impersonate its Managed Identities and escalate privileges.",
+        "example": "TA is VM Scanner Operator on a subscription with multiple deallocated Virtual Machines and unattached disks. For each disk, TA creates a SAS URI, downloads its content to an external location and mounts it. One of the disks contains an application configuration file with connection strings to other Azure resources. TA can attempt to use them to move laterally to those resources."
+    },
+    {
+        "tier": "1",
+        "id": "12cf5a90-567b-43ae-8102-96cf46c7d9b4",
+        "assetName": "Web PubSub Service Owner",
+        "assetDefinition": "Full access to Azure Web PubSub Service REST APIs",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#web-pubsub-service-owner",
+        "shortestPath": "Can impersonate any client, steal secrets managed insecurely and flowing through the Web PubSub instances within reach that are network accessible, and/or send malicious messages to attempt moving laterally to other consuming systems.",
+        "example": "TA is Web PubSub Service Owner on a Web PubSub instance exposed on a non-restricted public endpoint and used by a web application to push notifications. TA generates a client access token for an arbitrary user, joins the groups of the application and finds connection strings to other Azure resources in the messages. TA can attempt to use them to move laterally to those resources."
     },
     {
         "tier": "1",
@@ -835,11 +1006,11 @@
     },
     {
         "tier": "2",
-        "id": "a97b65f3-24c7-4388-baec-2e87135dc908",
-        "assetName": "Cognitive Services User",
-        "assetDefinition": "Lets you read and list keys of Cognitive Services.",
-        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#cognitive-services-user",
-        "worstCaseScenario": "In the Azure AI services instances within reach that are network accessible, can read all uploaded data sets, where some of them may contain sensitive data. Can also read access keys to consume instances in an uncontrolled manner."
+        "id": "f2dc8367-1007-4938-bd23-fe263f013447",
+        "assetName": "Cognitive Services Speech User",
+        "assetDefinition": "Access to the real-time speech recognition and batch transcription APIs, real-time speech synthesis and long audio APIs, as well as to read the data/test/model/endpoint for custom models, but can't create, delete or modify the data/test/model/endpoint for custom models.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#cognitive-services-speech-user",
+        "worstCaseScenario": "In the Azure AI Speech instances within reach that are network accessible, can read and delete the transcriptions and audio outputs of other users, where some of them may contain sensitive data. Can also consume instances in an uncontrolled manner. Note: cannot read access keys."
     },
     {
         "tier": "2",
@@ -856,6 +1027,14 @@
         "assetDefinition": "Can purge analytics data",
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#data-purger",
         "worstCaseScenario": "In the Log Analytics workspaces within reach and for which ingestion is network accessible, can delete data to affect monitoring and incident response abilities. Note: cannot read data within the workspaces."
+    },
+    {
+        "tier": "2",
+        "id": "c5c82243-e78e-43f9-8428-793bba85b28e",
+        "assetName": "Defender For Container Registries Operator",
+        "assetDefinition": "Grants Microsoft Defender for Cloud access to Azure Container Registries",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#defender-for-container-registries-operator",
+        "worstCaseScenario": "Same as AcrPull."
     },
     {
         "tier": "2",
@@ -932,6 +1111,14 @@
     },
     {
         "tier": "2",
+        "id": "78eacb5e-e318-4560-85a9-e6a724ca60c9",
+        "assetName": "Portal Dashboard Writer Role",
+        "assetDefinition": "Can write an Azure Portal Dashboard",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#portal-dashboard-writer-role",
+        "worstCaseScenario": "Can access and modify the content of all shared Azure portal dashboards within reach, where some of them may contain sensitive data. Note: dashboards query data with the permissions of the viewer, and cannot be deleted."
+    },
+    {
+        "tier": "2",
         "id": "39bc4728-0917-49c7-9d2c-d95423bc2eb4",
         "assetName": "Security Reader",
         "assetDefinition": "Security Reader Role",
@@ -973,14 +1160,6 @@
     },
     {
         "tier": "2",
-        "id": "d24ecba3-c1f4-40fa-a7bb-4588a071e8fd",
-        "assetName": "VM Scanner Operator",
-        "assetDefinition": "Role that provides access to disk snapshot for security analysis.",
-        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#vm-scanner-operator",
-        "worstCaseScenario": "Same as Disk Snapshot Contributor."
-    },
-    {
-        "tier": "2",
         "id": "e8ddcd69-c73f-4f9f-9844-4100522f16ad",
         "assetName": "Workbook Contributor",
         "assetDefinition": "Can save shared workbooks.",
@@ -1010,6 +1189,14 @@
         "assetDefinition": "Create and Manage Jobs using Automation Runbooks.",
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#automation-job-operator",
         "worstCaseScenario": "Can create new jobs with existing runbooks, but cannot create and/modify runbooks."
+    },
+    {
+        "tier": "3",
+        "id": "635dd51f-9968-44d3-b7fb-6d9a6bd613ae",
+        "assetName": "AzureML Metrics Writer (preview)",
+        "assetDefinition": "Lets you write metrics to AzureML workspace",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#azureml-metrics-writer-(preview)",
+        "worstCaseScenario": "Can write fake metrics to the Azure Machine Learning workspaces within reach, to mislead model comparisons."
     },
     {
         "tier": "3",
@@ -1122,6 +1309,14 @@
         "assetDefinition": "Can create, update, get, list and delete Kubernetes Extensions, and get extension async operations",
         "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#kubernetes-extension-contributor",
         "worstCaseScenario": "Can delete extensions enabled in the Azure Kubernetes Service (AKS) clusters within reach and create service disruption."
+    },
+    {
+        "tier": "3",
+        "id": "28bf596f-4eb7-45ce-b5bc-6cf482fec137",
+        "assetName": "Locks Contributor",
+        "assetDefinition": "Can Manage Locks Operations.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#locks-contributor",
+        "worstCaseScenario": "Can create ReadOnly locks on the resources within reach to block control-plane operations and create service disruption, or remove existing locks to ease resource deletion by other principals. Note: cannot delete resources or access their data."
     },
     {
         "tier": "3",
