@@ -514,6 +514,15 @@
     },
     {
         "tier": "1",
+        "id": "577a9874-89fd-4f24-9dbd-b5034d0ad23a",
+        "assetName": "Container Registry Data Importer and Data Reader",
+        "assetDefinition": "Provides the ability to import images into a registry through the registry import operation. Provides the ability to list repositories, view images and tags, get manifests, and pull images. Does not provide permissions for importing images through configuring registry transfer pipelines such as import and export pipelines. Does not provide permissions for importing through configuring Artifact Cache or Sync rules.",
+        "documentationUri": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#container-registry-data-importer-and-data-reader",
+        "shortestPath": "Can import container images from an external registry into the Azure Container Registry (ACR) instances within reach and overwrite existing tags with infected images, and move laterally to the infrastructure(s) where the images are deployed. Note: the import is triggered through the control plane, and works on network-restricted ACRs as long as they allow access by trusted Azure services (default).",
+        "example": "TA is Container Registry Data Importer and Data Reader on a subscription containing an ACR restricted to private networks with access by trusted services enabled. TA creates a backdoored version of an application image in a public registry, and imports it into the ACR with the force option to overwrite the tag used in production. During the next deployment, the infected image is deployed to Kubernetes clusters, allowing TA to move laterally to multiple locations within those clusters."
+    },
+    {
+        "tier": "1",
         "id": "8480c0f0-4509-4229-9339-7c10018cb8c4",
         "assetName": "Defender CSPM Storage Scanner Operator",
         "assetDefinition": "Lets you enable and configure Microsoft Defender CSPM's sensitive data discovery feature on your storage accounts. Includes an ABAC condition to limit role assignments.",
