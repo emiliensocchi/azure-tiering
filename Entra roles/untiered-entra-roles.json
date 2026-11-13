@@ -1,1 +1,26 @@
-[]
+[
+    {
+        "detectedOn": "2026-11-13",
+        "apiEvent": "added",
+        "id": "c0c46a03-c257-4f91-ab71-3c7e59c89d97",
+        "assetName": "Resource Policy Administrator",
+        "assetDefinition": "Users in this role have full permissions to create, read, update, delete, and evaluate resource policies, their assignments, and the tenant-wide resource policy configuration in Microsoft Graph. This role is intended for senior and compliance administrators who are responsible for the entire lifecycle of resource access policies. Assigning this role grants comprehensive control over how resource policies are defined and enforced across the organization.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#resource-policy-administrator"
+    },
+    {
+        "detectedOn": "2026-11-13",
+        "apiEvent": "added",
+        "id": "311877b7-9a2e-4337-81c2-068a250eaa22",
+        "assetName": "Resource Policy Reader",
+        "assetDefinition": "Users in this role have read-only access to resource policy definitions, assignments, and the tenant-wide resource policy configuration in Microsoft Graph. They can also evaluate policies to understand their impact, making this role ideal for audit, compliance, and support personnel who need to validate and troubleshoot policies without the ability to modify them.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#resource-policy-reader"
+    },
+    {
+        "detectedOn": "2026-11-13",
+        "apiEvent": "added",
+        "id": "1dae4b79-8aea-40ab-9ad0-30d3ab1fa9c1",
+        "assetName": "Resource Policy Evaluator",
+        "assetDefinition": "Users in this role can evaluate resource policies to understand their impact and outcome. This role does not grant any read or write access to the policy definitions or assignments themselves, making it ideal for developers, testers, and automated tools that need to perform policy validation as part of a development or CI/CD pipeline.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#resource-policy-evaluator"
+    }
+]

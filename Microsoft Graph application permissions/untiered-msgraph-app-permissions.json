@@ -1,1 +1,74 @@
-[]
+[
+    {
+        "detectedOn": "2026-11-13",
+        "apiEvent": "added",
+        "id": "d80433ba-c09b-4b88-a6bf-1082396453c1",
+        "assetName": "AutomationRules.Read.All",
+        "assetDefinition": "Read all security automation rules and runs",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#automationrulesreadall"
+    },
+    {
+        "detectedOn": "2026-11-13",
+        "apiEvent": "added",
+        "id": "7204d4f0-1c22-42ce-adf2-a9f29db01c68",
+        "assetName": "AutomationRules.ReadWrite.All",
+        "assetDefinition": "Read and write all security automation rules",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#automationrulesreadwriteall"
+    },
+    {
+        "detectedOn": "2026-11-13",
+        "apiEvent": "added",
+        "id": "4c0843c0-d623-4e87-b4c1-93777f7be9e8",
+        "assetName": "CloudLicensing.ClaimLicenses.All",
+        "assetDefinition": "Claim and unclaim cloud licenses",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#cloudlicensingclaimlicensesall"
+    },
+    {
+        "detectedOn": "2026-11-13",
+        "apiEvent": "added",
+        "id": "8e41e0e4-d03a-475a-8ece-129d8cde33f2",
+        "assetName": "CopilotCostManagement-Assignment.Read.All",
+        "assetDefinition": "Read Copilot spending policy assignments",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#copilotcostmanagement-assignmentreadall"
+    },
+    {
+        "detectedOn": "2026-11-13",
+        "apiEvent": "added",
+        "id": "e8d341e1-ddd7-422e-83ee-b3cd34f21d0a",
+        "assetName": "CopilotCostManagement-Assignment.ReadWrite.All",
+        "assetDefinition": "Read and write Copilot spending policy assignments",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#copilotcostmanagement-assignmentreadwriteall"
+    },
+    {
+        "detectedOn": "2026-11-13",
+        "apiEvent": "added",
+        "id": "7f06c49d-bf28-43b5-bad0-0805f51d0bf7",
+        "assetName": "CopilotCostManagement-Policy.Read.All",
+        "assetDefinition": "Read Copilot spending policies",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#copilotcostmanagement-policyreadall"
+    },
+    {
+        "detectedOn": "2026-11-13",
+        "apiEvent": "added",
+        "id": "14b35599-28a4-4a40-bc65-7cdca3d4e141",
+        "assetName": "CopilotCostManagement-Policy.ReadWrite.All",
+        "assetDefinition": "Read and write Copilot spending policies",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#copilotcostmanagement-policyreadwriteall"
+    },
+    {
+        "detectedOn": "2026-11-13",
+        "apiEvent": "added",
+        "id": "ec42fb68-397f-40ab-baa1-c8d0b745a680",
+        "assetName": "CopilotCostManagement-Reports.Read.All",
+        "assetDefinition": "Read Copilot cost reports and export results",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#copilotcostmanagement-reportsreadall"
+    },
+    {
+        "detectedOn": "2026-11-13",
+        "apiEvent": "added",
+        "id": "f033faa1-6d51-46ba-824a-ad86f514eed1",
+        "assetName": "CopilotCostManagement.Read.All",
+        "assetDefinition": "Read all Copilot cost management data",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#copilotcostmanagementreadall"
+    }
+]
