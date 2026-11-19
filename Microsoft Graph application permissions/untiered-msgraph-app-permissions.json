@@ -1,5 +1,13 @@
 [
     {
+        "detectedOn": "2026-11-19",
+        "apiEvent": "added",
+        "id": "3d67268e-b577-45f4-8feb-347a5ca24a37",
+        "assetName": "DynamicPermissions.Read.DetectionAndRemediation",
+        "assetDefinition": "Read all dynamic permission detections and remediation history",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#dynamicpermissionsreaddetectionandremediation"
+    },
+    {
         "detectedOn": "2026-11-13",
         "apiEvent": "added",
         "id": "d80433ba-c09b-4b88-a6bf-1082396453c1",
