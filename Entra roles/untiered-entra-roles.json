@@ -1,5 +1,13 @@
 [
     {
+        "detectedOn": "2026-11-21",
+        "apiEvent": "added",
+        "id": "ddc7372f-4ece-4e8d-8010-1b36d9992d23",
+        "assetName": "B2B Policy Administrator",
+        "assetDefinition": "Create, read, update, and delete B2B management policies, and set the tenant-default policy.",
+        "documentationUri": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#b2b-policy-administrator"
+    },
+    {
         "detectedOn": "2026-11-13",
         "apiEvent": "added",
         "id": "c0c46a03-c257-4f91-ab71-3c7e59c89d97",
