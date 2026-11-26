@@ -1,5 +1,21 @@
 [
     {
+        "detectedOn": "2026-11-26",
+        "apiEvent": "added",
+        "id": "e40cb444-6d43-4ec1-812c-7d2558b795a1",
+        "assetName": "Policy.Read.AuthFeatureToggle",
+        "assetDefinition": "Read feature toggle policy",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadauthfeaturetoggle"
+    },
+    {
+        "detectedOn": "2026-11-26",
+        "apiEvent": "added",
+        "id": "8001e13e-118d-41c3-b49b-23d85b97ce96",
+        "assetName": "Policy.ReadWrite.AuthFeatureToggle",
+        "assetDefinition": "Read and write feature toggle policy",
+        "documentationUri": "https://learn.microsoft.com/en-us/graph/permissions-reference#policyreadwriteauthfeaturetoggle"
+    },
+    {
         "detectedOn": "2026-11-19",
         "apiEvent": "added",
         "id": "3d67268e-b577-45f4-8feb-347a5ca24a37",
